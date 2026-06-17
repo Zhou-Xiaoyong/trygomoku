@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Gomoku Online Free — Five in a Row Board Game vs AI</title>
+  <meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Play Gomoku (Five in a Row) online free. Challenge AI at 4 difficulty levels or play a friend. Learn rules, history, winning strategies.">
+  <meta name="keywords" data-i18n-attr="content" data-i18n="meta.keywords" content="gomoku, play gomoku online, gomoku game, five in a row, gomoku online free, gomoku strategy, how to play gomoku, gomoku rules, gomoku board game, play gomoku against computer, gomoku AI">
+  <meta name="author" content="Gomoku Online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/">
+
+  <!-- hreflang tags -->
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" data-i18n-attr="content" data-i18n="meta.og_title" content="Play Gomoku Online Free — Five in a Row Board Game vs AI">
+  <meta property="og:description" data-i18n-attr="content" data-i18n="meta.og_description" content="Play Gomoku (Five in a Row) online for free. Challenge our AI or play against a friend. Learn rules, history, and winning strategies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trygomoku.com/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" data-i18n-attr="content" data-i18n="meta.twitter_title" content="Play Gomoku Online Free">
+  <meta name="twitter:description" data-i18n-attr="content" data-i18n="meta.twitter_description" content="Challenge our AI at four difficulty levels. Learn rules, history, and strategies.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#1a1a2e">
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Open Graph Image -->
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Gomoku Online",
+    "description": "Play Gomoku (Five in a Row) online for free against AI or a friend.",
+    "url": "https://trygomoku.com/",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured Data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Gomoku?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gomoku is a classic abstract strategy board game where two players take turns placing black and white stones on a 15&times;15 grid. The goal is to be the first to form an unbroken line of exactly five stones horizontally, vertically, or diagonally."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where did Gomoku originate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gomoku originated in ancient China over 2,000 years ago. It spread to Japan during the Nara period (8th century), where it got the name 'Gomoku' (&aacute;&sup1;&aelig;&fnof;&uml;&aring;&shy;&ETH;, meaning 'five pieces'). The game later spread to Korea as 'Omok' and reached Europe in the 19th century."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Gomoku and Go?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While both use black and white stones on a grid, they are different games. Go is about surrounding territory and capturing stones &mdash; the goal is to control more area. Gomoku is about connecting five stones in a row &mdash; it's simpler and faster to learn. Go is played on a 19&times;19 board; Gomoku typically uses 15&times;15."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you win Gomoku with more than five in a row?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In standard Gomoku (also called free-style Gomoku), yes &mdash; any unbroken line of five or more stones wins. However, in the variant called Renju, only Black can win with exactly five in a row, and Black has additional restrictions to balance the first-move advantage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Gomoku a solved game?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Gomoku has been solved. Researchers have proven that Black (the first player) can force a win with perfect play on a 15&times;15 board. However, in practice, perfect play is extremely difficult for humans to achieve, which keeps the game interesting and challenging."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#game" class="skip-link">Skip to game</a>
+
+  <!-- Header / Navigation -->
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#game" data-i18n="nav.play">Play</a></li>
+        <li><a href="#rules" data-i18n="nav.rules">Rules</a></li>
+        <li><a href="#strategy" data-i18n="nav.strategy">Strategy</a></li>
+        <li><a href="#history" data-i18n="nav.history">History</a></li>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;location.href=l==='en'?'/':'/'+l+'/'">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ru-RU">Русский</option>
+        <option value="ko-KR">한국어</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+
+  <!-- Hero & Game Section -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 data-i18n="hero.title">Play Gomoku Online</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Challenge the AI or a friend in the classic game of Five in a Row. Free, no sign-up, works on any device.</p>
+        <div class="hero-cta">
+          <a href="#game" class="cta-btn" data-i18n="hero.play_now">Play Now &darr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Container -->
+    <section id="game" class="game-section" aria-label="Gomoku game board">
+      <div class="container">
+        <div class="game-layout">
+          <!-- Game Info -->
+          <div class="game-info" id="gameInfo">
+            <div class="game-status" id="gameStatus">
+              <span class="status-dot" id="statusDot"></span>
+              <span class="status-text" id="statusText" data-i18n="game.your_turn">Your turn &mdash; Black</span>
+            </div>
+            <div class="game-score">
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.black">Black</span> <span class="stone-icon black"></span></span>
+                <span class="score-value" id="scoreBlack">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.white">White</span> <span class="stone-icon white"></span></span>
+                <span class="score-value" id="scoreWhite">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label" data-i18n="game.draws">Draws</span>
+                <span class="score-value" id="scoreDraw">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Canvas Board -->
+          <div class="board-wrapper" id="boardWrapper">
+            <canvas id="gomokuBoard" aria-label="Gomoku game board, 15 by 15 grid"></canvas>
+            <canvas id="gomokuOverlay"></canvas>
+          </div>
+
+          <!-- Controls -->
+          <div class="game-controls" id="gameControls">
+            <!-- Mode Switch -->
+            <div class="control-group mode-switch">
+              <span class="control-label" data-i18n="game.mode_label">Mode</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Game mode">
+                <button class="toggle-btn active" data-mode="pve" role="radio" aria-checked="true" id="btnPvE" data-i18n="game.pve">vs Computer</button>
+                <button class="toggle-btn" data-mode="pvp" role="radio" aria-checked="false" id="btnPvP" data-i18n="game.pvp">vs Friend</button>
+              </div>
+            </div>
+
+            <!-- Difficulty -->
+            <div class="control-group" id="difficultyGroup">
+              <span class="control-label" data-i18n="game.difficulty_label">Difficulty</span>
+              <div class="toggle-group" role="radiogroup" aria-label="AI difficulty">
+                <button class="toggle-btn" data-diff="easy" role="radio" aria-checked="false" id="btnEasy" data-i18n="game.easy">Easy</button>
+                <button class="toggle-btn active" data-diff="medium" role="radio" aria-checked="true" id="btnMedium" data-i18n="game.medium">Medium</button>
+                <button class="toggle-btn" data-diff="hard" role="radio" aria-checked="false" id="btnHard" data-i18n="game.hard">Hard</button>
+                <button class="toggle-btn" data-diff="master" role="radio" aria-checked="false" id="btnMaster" data-i18n="game.master">Master</button>
+              </div>
+            </div>
+
+            <!-- Stone Color -->
+            <div class="control-group" id="colorGroup">
+              <span class="control-label" data-i18n="game.you_play_as">You play as</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Your stone color">
+                <button class="toggle-btn active" data-color="black" role="radio" aria-checked="true" id="btnBlack" data-i18n="game.black_first">Black &larr; first</button>
+                <button class="toggle-btn" data-color="white" role="radio" aria-checked="false" id="btnWhite" data-i18n="game.white_btn">White</button>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="control-group actions">
+              <button class="action-btn" id="btnUndo">&#8630; <span data-i18n="game.undo">Undo</span></button>
+              <button class="action-btn" id="btnRestart">&#8635; <span data-i18n="game.restart">Restart</span></button>
+              <button class="action-btn" id="btnSound"><span class="sound-icon">&#9834;</span> <span class="sound-text" data-i18n="game.sound_on">Sound</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="content-section" aria-labelledby="rulesHeading">
+      <div class="container">
+        <h2 id="rulesHeading">How to Play Gomoku</h2>
+        <p class="section-intro">Gomoku is one of the easiest strategy games to learn &mdash; you can understand the rules in under a minute.</p>
+
+        <div class="rules-steps">
+          <div class="rule-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>The Board &amp; Stones</h3>
+              <p>Gomoku is played on a <strong>15&times;15 grid</strong>. One player uses <strong>black stones</strong>, the other uses <strong>white stones</strong>. Black always goes first.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3 data-i18n="rules.turns_title">Taking Turns</h3>
+              <p>Players alternate placing <strong>one stone per turn</strong> on any empty intersection of the grid. Stones cannot be moved or removed once placed.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3 data-i18n="rules.win_title">Winning the Game</h3>
+              <p>To win, be the first to form an <strong>unbroken line of five (or more) stones</strong> in any direction &mdash; <strong>horizontal, vertical, or diagonal</strong>. That&rsquo;s it!</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Draw</h3>
+              <p>If the entire board fills up without either player forming five in a row, the game ends in a <strong>draw</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 id="rulesPatternTitle">Examples of Winning Lines</h3>
+        <div class="patterns-container">
+          <!-- Horizontal -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="Horizontal five in a row">
+                <!-- Grid: 9×9 intersections -->
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- Winning line: 5 stones in middle 5 of 9 intersections -->
+                <circle cx="30" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="40" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="60" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="70" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <!-- Highlight: only over the 5 stones -->
+                <line x1="30" y1="50" x2="70" y2="50" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">Horizontal</p>
+          </div>
+          <!-- Vertical -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="Vertical five in a row">
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- Winning line: 5 stones in middle 5 of 9 intersections -->
+                <circle cx="50" cy="30" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="40" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="60" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="70" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <line x1="50" y1="30" x2="50" y2="70" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">Vertical</p>
+          </div>
+          <!-- Diagonal -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="Diagonal five in a row">
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- Winning line: 5 stones diagonally in middle -->
+                <circle cx="30" cy="30" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="40" cy="40" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="60" cy="60" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="70" cy="70" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <line x1="30" y1="30" x2="70" y2="70" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">Diagonal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section id="strategy" class="content-section alt-bg" aria-labelledby="strategyHeading">
+      <div class="container">
+        <h2 id="strategyHeading">Gomoku Strategy &amp; Tips</h2>
+        <p class="section-intro">Master the fundamentals and improve your game with these proven tactics. This guide is updated regularly with new insights.</p>
+
+        <div class="strategy-grid">
+          <article class="strategy-card" id="strategy-beginners">
+            <h3>&#127775; Beginner Strategies</h3>
+            <ul>
+              <li><strong>Control the center.</strong> Stones near the center of the board have more potential to form connections in every direction. Avoid playing near edges and corners early on.</li>
+              <li><strong>Build two directions at once.</strong> Every move should ideally serve two purposes &mdash; extending your own line while threatening your opponent&rsquo;s.</li>
+              <li><strong>Watch for &ldquo;open fours.&rdquo;</strong> A line of four stones with both ends open is nearly unstoppable. If your opponent has one, you must block it immediately.</li>
+              <li><strong>Don&rsquo;t just attack.</strong> The best players spend as much time blocking threats as creating their own. If you only focus on your own lines, you&rsquo;ll lose to a patient opponent.</li>
+            </ul>
+          </article>
+          <article class="strategy-card" id="strategy-intermediate">
+            <h3>&#128170; Intermediate Tactics</h3>
+            <ul>
+              <li><strong>Double-threat attacks.</strong> Create a position where you threaten two winning lines at once (e.g., a &ldquo;four-three&rdquo;). Your opponent can only block one.</li>
+              <li><strong>Forcing moves.</strong> Play moves that force your opponent to respond in a specific way. Use this to steer the game into favorable positions.</li>
+              <li><strong>Pattern recognition.</strong> Learn common opening patterns like the &ldquo;Direct Opening&rdquo; and &ldquo;Indirect Opening.&rdquo; Familiarity with these saves time and reduces mistakes.</li>
+              <li><strong>Space counting.</strong> When both players are building on opposite sides, count who will complete five first. If you&rsquo;re behind, switch to defense immediately.</li>
+            </ul>
+          </article>
+          <article class="strategy-card" id="strategy-advanced">
+            <h3>&#128293; Advanced Play</h3>
+            <ul>
+              <li><strong>VCF (Victory by Continuous Four).</strong> Chain a series of &ldquo;four&rdquo; threats so your opponent must block each one, ultimately setting up an unstoppable win.</li>
+              <li><strong>Counter-threat timing.</strong> Instead of blocking a threat immediately, create a bigger threat of your own. Time this right and you&rsquo;ll seize the initiative.</li>
+              <li><strong>Endgame calculation.</strong> In the late game, calculate every possible sequence. The player who can see further ahead usually wins.</li>
+              <li><strong>Study Renju rules.</strong> Even if you play free-style Gomoku, understanding Renju&rsquo;s restrictions for Black will deepen your strategic awareness.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="strategy-cta">
+          <p><strong>Tip:</strong> Practice against our <em>Hard</em> AI to test your skills. It uses two-layer search with threat evaluation &mdash; if you can beat it regularly, you&rsquo;re playing at a strong intermediate level!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="content-section" aria-labelledby="historyHeading">
+      <div class="container">
+        <h2 id="historyHeading">The History of Gomoku: From Ancient China to the World</h2>
+        <div class="content-grid">
+          <div class="content-text">
+            <h3 data-i18n="history.origin_title">Origins in Ancient China</h3>
+            <p>Gomoku traces its roots back over <strong>2,000 years</strong> to ancient China, where it was known as <em>W&utilde;z&icaron;q&iacute;</em> (&aacute;&sup1;&aelig;&fnof;&uml;&aelig;&pound;&lsaquo;). Historical records suggest that variations of the game were played as early as the <strong>Spring and Autumn period</strong> (770&ndash;476 BCE). The game evolved alongside Go (Weiqi), sharing the same equipment &mdash; a grid board and black-and-white stones &mdash; but with a simpler, more accessible ruleset.</p>
+            <p>During the <strong>Han Dynasty</strong> (206 BCE&ndash;220 CE), the game gained popularity among scholars and nobility. It was valued not just as entertainment but as a tool for developing <strong>strategic thinking, pattern recognition, and patience</strong>.</p>
+
+            <h3 data-i18n="history.spread_title">Spread to Japan and Korea</h3>
+            <p>The game reached <strong>Japan in the 8th century</strong> during the Nara period, where it was named <em>Gomoku</em> (&aacute;&sup1;&aelig;&fnof;&uml;&aring;&shy;&ETH;, literally &ldquo;five pieces&rdquo;). Japanese players refined the game and introduced <strong>Renju</strong> (&euml;&pound;&macr;&ccedil;&fnof;&nbsp;), a more balanced variant with additional restrictions for the first player.</p>
+            <p>In <strong>Korea</strong>, the game became known as <em>Omok</em> (&auml;&fnof;&curren;&euml;&fnof;&laquo;), where it remains hugely popular today. Korean players developed their own strategic traditions and have been dominant in international competitions.</p>
+
+            <h3>Global Reach and Modern Era</h3>
+            <p>Gomoku reached <strong>Europe in the late 19th century</strong>, where it was often called &ldquo;Five in a Row.&rdquo; The <strong>Renju International Federation (RIF)</strong> was established in 1988, organizing world championships and standardizing competitive rules. Today, Gomoku is played worldwide, both casually and in organized tournaments, with thriving online communities and AI research advancing the game&rsquo;s theory.</p>
+          </div>
+          <aside class="content-sidebar" aria-label="Quick facts about Gomoku">
+            <div class="info-card">
+              <h4>Quick Facts</h4>
+              <dl>
+                <dt>Origin</dt>
+                <dd>Ancient China, &sim;2,000+ years ago</dd>
+                <dt>Chinese Name</dt>
+                <dd>&aacute;&sup1;&aelig;&fnof;&uml;&aelig;&pound;&lsaquo; (W&utilde;z&icaron;q&iacute;)</dd>
+                <dt>Japanese Name</dt>
+                <dd>&aacute;&sup1;&aelig;&fnof;&uml;&aring;&shy;&ETH; (Gomoku)</dd>
+                <dt>Korean Name</dt>
+                <dd>&auml;&fnof;&curren;&euml;&fnof;&laquo; (Omok)</dd>
+                <dt>English Name</dt>
+                <dd>Five in a Row / Gobang</dd>
+                <dt>Board Size</dt>
+                <dd>15&times;15 (standard)</dd>
+                <dt>Players</dt>
+                <dd>2</dd>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="content-section alt-bg" aria-labelledby="faqHeading">
+      <div class="container">
+        <h2 id="faqHeading">Frequently Asked Questions</h2>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What is Gomoku?</summary>
+            <div class="faq-answer">
+              <p>Gomoku (also known as Five in a Row or Gobang) is a classic abstract strategy board game. Two players take turns placing black and white stones on a 15&times;15 grid, and the first to form an unbroken line of five stones &mdash; horizontally, vertically, or diagonally &mdash; wins the game. It&rsquo;s praised for being easy to learn but difficult to master.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Where did Gomoku originate?</summary>
+            <div class="faq-answer">
+              <p>Gomoku originated in ancient China over 2,000 years ago. It spread to Japan during the Nara period (8th century), where it received the name &ldquo;Gomoku&rdquo; (&aacute;&sup1;&aelig;&fnof;&uml;&aring;&shy;&ETH;). The game later spread to Korea (as &ldquo;Omok&rdquo;) and reached Europe in the 19th century. Today it&rsquo;s played worldwide with international tournaments organized by the Renju International Federation (RIF).</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is the difference between Gomoku and Go?</summary>
+            <div class="faq-answer">
+              <p>While both use black and white stones on a grid, they&rsquo;re completely different games. Go focuses on <strong>surrounding territory</strong> and capturing opponent stones, while Gomoku is about <strong>connecting five in a row</strong>. Go uses a 19&times;19 board; Gomoku uses 15&times;15. Gomoku is much simpler to learn and games are typically shorter (5&ndash;20 minutes vs. 1+ hours).</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is Renju?</summary>
+            <div class="faq-answer">
+              <p>Renju is a professional variant of Gomoku developed in Japan to balance the first-player advantage. In Renju, <strong>Black has additional restrictions</strong> (such as not being allowed to create certain patterns like double-threes or double-fours), while White can win normally. This makes the game more balanced at high levels of play.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is Gomoku a solved game?</summary>
+            <div class="faq-answer">
+              <p>Yes &mdash; Gomoku has been mathematically solved. Researchers have proven that <strong>Black can force a win with perfect play</strong> on a 15&times;15 board. However, &ldquo;perfect play&rdquo; is extremely difficult for humans, which is why the game remains competitive and fun. Professional tournaments often use balanced opening rules (like Swap2) to ensure fairness.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I play Gomoku on my phone?</summary>
+            <div class="faq-answer">
+              <p>Absolutely! Our Gomoku game is fully responsive and works on smartphones, tablets, and desktops. The board automatically scales to fit your screen, and touch controls with snap-to-grid make placing stones easy even on smaller screens.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How does the AI work?</summary>
+            <div class="faq-answer">
+              <p>Our AI has four difficulty levels. <strong>Easy</strong> plays with deliberate randomness and occasional &ldquo;blunders&rdquo; &mdash; great for beginners. <strong>Medium</strong> evaluates all legal moves and picks from the top options with slight randomness, offering a balanced challenge. <strong>Hard</strong> uses a four-layer minimax search with alpha-beta pruning for stronger positional play. <strong>Master</strong> employs iterative deepening search up to six layers with advanced forcing-attack detection — the ultimate challenge.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h3 data-i18n="footer.quick_links">Quick Links</h3>
+          <ul>
+            <li><a href="#game" data-i18n="nav.play">Play Game</a></li>
+            <li><a href="#rules" data-i18n="nav.rules">Rules</a></li>
+            <li><a href="#strategy" data-i18n="nav.strategy">Strategy</a></li>
+            <li><a href="#history" data-i18n="nav.history">History</a></li>
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3 data-i18n="footer.site_info">Site Info</h3>
+          <ul>
+            <li><a href="about.html" data-i18n="footer.about">About Us</a></li>
+            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+            <li><a href="blog/">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">&copy; 2026 Gomoku Online. Free to play &mdash; no ads, no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- i18n + Game JavaScript -->
+  <script src="js/i18n.js"></script>
+  <script src="js/game.js"></script>
+
+  <!-- Victory Overlay -->
+  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true">
+    <div class="victory-card" id="victoryCard">
+      <div class="victory-icon-wrap" id="victoryIconWrap">
+        <div class="victory-icon" id="victoryIcon">&#9733;</div>
+        <div class="star-burst" id="starBurst"></div>
+      </div>
+      <div class="victory-title" id="victoryTitle" role="heading" aria-level="2"></div>
+      <p class="victory-subtitle" id="victorySubtitle"></p>
+      <button class="cta-btn" id="btnPlayAgain">Play Again</button>
+    </div>
+  </div>
+</body>
+</html>

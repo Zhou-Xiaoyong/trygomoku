@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.title">오목 온라인 무료 플레이 — AI 대전 보드 게임</title>
+  <meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Play Gomoku (Five in a Row) online free. Challenge AI at 4 difficulty levels or play a friend. Learn rules, history, winning strategies.">
+  <meta name="keywords" data-i18n-attr="content" data-i18n="meta.keywords" content="gomoku, play gomoku online, gomoku game, five in a row, gomoku online free, gomoku strategy, how to play gomoku, gomoku rules, gomoku board game, play gomoku against computer, gomoku AI">
+  <meta name="author" content="Gomoku Online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/">
+
+  <!-- hreflang tags -->
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" data-i18n-attr="content" data-i18n="meta.og_title" content="Play Gomoku Online Free — Five in a Row Board Game vs AI">
+  <meta property="og:description" data-i18n-attr="content" data-i18n="meta.og_description" content="Play Gomoku (Five in a Row) online for free. Challenge our AI or play against a friend. Learn rules, history, and winning strategies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" data-i18n-attr="content" data-i18n="meta.twitter_title" content="Play Gomoku Online Free">
+  <meta name="twitter:description" data-i18n-attr="content" data-i18n="meta.twitter_description" content="Challenge our AI at three difficulty levels. Learn rules, history, and strategies.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#1a1a2e">
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Open Graph Image -->
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Gomoku Online",
+    "description": "Play Gomoku (Five in a Row) online for free against AI or a friend.",
+    "url": "https://trygomoku.com/ko-KR/",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured Data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "오목이란 무엇입니까?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "오목(고모쿠 또는 오자기라고도 불림)은 두 명의 플레이어가 번갈아 15×15 격자판에 흑백 돌을 두는 고전적인 추상 전략 보드 게임입니다. 목표는 가로·세로·대각선 방향으로 끊기지 않은 정확히 다섯 개의 돌을 먼저 만드는 것입니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "오목은 어디서 기원했습니까?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "오목은 2,000+년 이상 전 고대 중국에서 기원했습니다. 8세기 나라 시대에 일본으로 전해져 '고모쿠(五目, 다섯 개의 돌)'라는 이름을 얻었습니다. 이후 한국으로 '오목'으로 전파되었고 19세기에 유럽에 도달했습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "오목과 바둑의 차이점은 무엇입니까?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "둘 다 격자판에 흑백 돌을 사용하지만 서로 다른 게임입니다. 바둑은 영역을 둘러싸고 돌을 따내는 게임으로, 더 많은 영역을 차지하는 것이 목표입니다. 오목은 다섯 개의 돌을 한 줄로 잇는 게임으로, 더 간단하고 빠르게 배울 수 있습니다. 바둑은 19×19 판, 오목은 보통 15×15를 사용합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "오목에서 6개 이상 연속으로 두어도 이기나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "표준 오목(자유 오목이라고도 함)에서는 네 — 5개 이상의 끊기지 않은 돌의 연속이면 모두 승리합니다. 하지만 렌주라는 변형에서는 흑만 정확히 5개로 승리할 수 있으며, 선수 우위를 균형 잡기 위해 흑에 추가 제한이 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "오목은 풀린 게임입니까?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "네, 오목은 수학적으로 풀렸습니다. 연구자들은 15×15 판에서 흑(선수)이 완벽한 플레이로 필승할 수 있음을 증명했습니다. 하지만 실제로 완벽한 플레이는 인간이 달성하기 극도로 어렵기 때문에 게임은 여전히 흥미롭고 도전적입니다."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#game" class="skip-link">Skip to game</a>
+
+  <!-- Header / Navigation -->
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#game" data-i18n="nav.play">Play</a></li>
+        <li><a href="#rules" data-i18n="nav.rules">Rules</a></li>
+        <li><a href="#strategy" data-i18n="nav.strategy">Strategy</a></li>
+        <li><a href="#history" data-i18n="nav.history">History</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;location.href=l==='en'?'/':'/'+l+'/'">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ru-RU">Русский</option>
+        <option value="ko-KR">한국어</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+
+  <!-- Hero & Game Section -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 data-i18n="hero.title">Play Gomoku Online</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Challenge the AI or a friend in the classic game of Five in a Row. Free, no sign-up, works on any device.</p>
+        <div class="hero-cta">
+          <a href="#game" class="cta-btn" data-i18n="hero.play_now">지금 플레이 ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Container -->
+    <section id="game" class="game-section" aria-label="Gomoku game board">
+      <div class="container">
+        <div class="game-layout">
+          <!-- Game Info -->
+          <div class="game-info" id="gameInfo">
+            <div class="game-status" id="gameStatus">
+              <span class="status-dot" id="statusDot"></span>
+              <span class="status-text" id="statusText" data-i18n="game.your_turn">Your turn &mdash; Black</span>
+            </div>
+            <div class="game-score">
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.black">Black</span> <span class="stone-icon black"></span></span>
+                <span class="score-value" id="scoreBlack">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.white">White</span> <span class="stone-icon white"></span></span>
+                <span class="score-value" id="scoreWhite">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label" data-i18n="game.draws">Draws</span>
+                <span class="score-value" id="scoreDraw">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Canvas Board -->
+          <div class="board-wrapper" id="boardWrapper">
+            <canvas id="gomokuBoard" aria-label="Gomoku game board, 15 by 15 grid"></canvas>
+            <canvas id="gomokuOverlay"></canvas>
+          </div>
+
+          <!-- Controls -->
+          <div class="game-controls" id="gameControls">
+            <!-- Mode Switch -->
+            <div class="control-group mode-switch">
+              <span class="control-label" data-i18n="game.mode_label">Mode</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Game mode">
+                <button class="toggle-btn active" data-mode="pve" role="radio" aria-checked="true" id="btnPvE" data-i18n="game.pve">vs Computer</button>
+                <button class="toggle-btn" data-mode="pvp" role="radio" aria-checked="false" id="btnPvP" data-i18n="game.pvp">vs Friend</button>
+              </div>
+            </div>
+
+            <!-- Difficulty -->
+            <div class="control-group" id="difficultyGroup">
+              <span class="control-label" data-i18n="game.difficulty_label">Difficulty</span>
+              <div class="toggle-group" role="radiogroup" aria-label="AI difficulty">
+                <button class="toggle-btn" data-diff="easy" role="radio" aria-checked="false" id="btnEasy" data-i18n="game.easy">Easy</button>
+                <button class="toggle-btn active" data-diff="medium" role="radio" aria-checked="true" id="btnMedium" data-i18n="game.medium">Medium</button>
+                <button class="toggle-btn" data-diff="hard" role="radio" aria-checked="false" id="btnHard" data-i18n="game.hard">Hard</button>
+                <button class="toggle-btn" data-diff="master" role="radio" aria-checked="false" id="btnMaster" data-i18n="game.master">Master</button>
+              </div>
+            </div>
+
+            <!-- Stone Color -->
+            <div class="control-group" id="colorGroup">
+              <span class="control-label" data-i18n="game.you_play_as">You play as</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Your stone color">
+                <button class="toggle-btn active" data-color="black" role="radio" aria-checked="true" id="btnBlack" data-i18n="game.black_first">Black &larr; first</button>
+                <button class="toggle-btn" data-color="white" role="radio" aria-checked="false" id="btnWhite" data-i18n="game.white_btn">White</button>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="control-group actions">
+              <button class="action-btn" id="btnUndo" data-i18n="game.undo" title="Undo last move">&#8630; <span data-i18n="game.undo">Undo</span></button>
+              <button class="action-btn" id="btnRestart" data-i18n="game.restart" title="Start a new game">&#8635; <span data-i18n="game.restart">Restart</span></button>
+              <button class="action-btn" id="btnSound"><span class="sound-icon">&#9834;</span> <span class="sound-text" data-i18n="game.sound_on">Sound</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="content-section" aria-labelledby="rulesHeading">
+      <div class="container">
+        <h2 id="rulesHeading">오목 플레이 방법</h2>
+        <p class="section-intro">기초를 마스터하고 이 검증된 전술로 게임을 향상시키세요.</p>
+
+        <div class="rules-steps">
+          <div class="rule-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>오목판과 돌</h3>
+              <p>오목은 <strong>15×15 격자판</strong>에서 진행됩니다. 한 플레이어는 <strong>흑돌</strong>, 다른 플레이어는 <strong>백돌</strong>을 사용합니다. 흑돌이 항상 먼저 둡니다.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>번갈아 두기</h3>
+              <p>플레이어는 번갈아 가며 빈 교차점에 <strong>한 수에 한 개의 돌</strong>을 놓습니다. 한 번 놓은 돌은 이동하거나 제거할 수 없습니다.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>승리 조건</h3>
+              <p><strong>가로, 세로, 대각선</strong> 중 어느 방향으로든 <strong>5개 이상의 돌이 끊기지 않고 연속된 줄</strong>을 먼저 만들면 승리합니다. 이것이 전부입니다!</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>무승부</h3>
+              <p>양쪽 모두 오목을 완성하지 못한 채 판이 가득 차면 <strong>무승부</strong>로 끝납니다.</p>
+            </div>
+          </div>
+        </div>
+
+                <h3 id="rulesPatternTitle">승리 라인 예시</h3>
+        <div class="patterns-container">
+          <!-- Horizontal -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="Horizontal five in a row">
+                <!-- Grid: 9×9 intersections -->
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- Winning line: 5 stones in middle 5 of 9 intersections -->
+                <circle cx="30" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="40" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="60" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="70" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <!-- Highlight: only over the 5 stones -->
+                <line x1="30" y1="50" x2="70" y2="50" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">가로</p>
+          </div>
+          <!-- Vertical -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="Vertical five in a row">
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- Winning line: 5 stones in middle 5 of 9 intersections -->
+                <circle cx="50" cy="30" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="40" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="60" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="70" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <line x1="50" y1="30" x2="50" y2="70" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">세로</p>
+          </div>
+          <!-- Diagonal -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="Diagonal five in a row">
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- Winning line: 5 stones diagonally in middle -->
+                <circle cx="30" cy="30" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="40" cy="40" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="60" cy="60" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="70" cy="70" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <line x1="30" y1="30" x2="70" y2="70" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">대각선</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section id="strategy" class="content-section alt-bg" aria-labelledby="strategyHeading">
+      <div class="container">
+        <h2 id="strategyHeading">오목 전략과 팁</h2>
+        <p class="section-intro">오목 규칙은 배우기 쉽지만, 마스터하기 위해서는 평생이 걸립니다.</p>
+
+        <div class="strategy-grid">
+          <article class="strategy-card" id="strategy-beginners">
+            <h3>🌟 초보자 전략</h3>
+            <ul>
+              <li><strong>중앙을 장악하세요.</strong> 판 중앙에 가까운 돌은 모든 방향으로 연결을 만들 가능성이 가장 높습니다. 초반에는 가장자리와 구석 근처에 두는 것을 피하세요.</li>
+              <li><strong>두 방향을 동시에 노리세요.</strong> 모든 수는 이상적으로 두 가지 목적을 가져야 합니다 &mdash; 자신의 라인을 확장하면서 동시에 상대의 라인을 위협하는 것입니다.</li>
+              <li><strong>「열린 사」를 주의하세요.</strong> 양쪽 끝이 모두 열린 4개의 돌 라인은 거의 막을 수 없습니다. 상대가 이를 만들었다면 즉시 차단해야 합니다.</li>
+              <li><strong>공격만 하지 마세요.</strong> 최고의 플레이어는 위협을 차단하는 데 공격만큼이나 많은 시간을 씁니다. 자신의 라인에만 집중하면 인내심 있는 상대에게 패배하게 됩니다.</li>
+            </ul>
+          </article>
+          <article class="strategy-card" id="strategy-intermediate">
+            <h3>💪 중급 전술</h3>
+            <ul>
+              <li><strong>이중 위협 공격.</strong> 동시에 두 개의 승리 라인을 위협하는 포지션을 만드세요 (예: 「사-삼」). 상대는 하나만 막을 수 있습니다.</li>
+              <li><strong>강제수.</strong> 상대가 특정 방식으로 응답할 수밖에 없는 수를 두세요. 이를 이용해 게임을 유리한 포지션으로 이끌어 가세요.</li>
+              <li><strong>패턴 인식.</strong> 「직접 포석」과 「간접 포석」 같은 일반적인 포석 패턴을 배우세요. 이에 익숙해지면 시간을 절약하고 실수를 줄일 수 있습니다.</li>
+              <li><strong>공간 계산.</strong> 양측이 서로 반대편에서 라인을 구축할 때, 누가 먼저 오목을 완성할지 계산하세요. 뒤처지고 있다면 즉시 수비로 전환하세요.</li>
+            </ul>
+          </article>
+          <article class="strategy-card" id="strategy-advanced">
+            <h3>🔥 고급 플레이</h3>
+            <ul>
+              <li><strong>VCF (연속 사 연승).</strong> 일련의 「사」 위협을 연쇄적으로 만들어 상대가 매번 막을 수밖에 없게 하여, 결국 막을 수 없는 승리를 만듭니다.</li>
+              <li><strong>역위협 타이밍.</strong> 위협을 즉시 차단하는 대신, 더 큰 위협을 자신이 만드세요. 타이밍을 잘 맞추면 주도권을 잡을 수 있습니다.</li>
+              <li><strong>종반 계산.</strong> 종반에는 가능한 모든 수순을 계산하세요. 더 멀리 내다볼 수 있는 플레이어가 보통 승리합니다.</li>
+              <li><strong>렌주 규칙을 공부하세요.</strong> 자유 오목을 두더라도, 흑돌에 대한 렌주의 제한을 이해하면 전략적 인사이트가 깊어집니다.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="strategy-cta">
+          <p><strong>팁:</strong> 실력을 시험하려면 <em>Hard</em> AI와 대전해 보세요. 4단계 탐색과 위협 평가를 사용합니다 &mdash; 정기적으로 이길 수 있다면, 당신은 강한 중급 수준입니다!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="content-section" aria-labelledby="historyHeading">
+      <div class="container">
+        <h2 id="historyHeading">오목의 역사: 고대 중국에서 세계로</h2>
+        <div class="content-grid">
+          <div class="content-text">
+            <h3>고대 중국에서의 기원</h3>
+            <p>오목의 뿌리는 <strong>2,000년 이상</strong> 전 고대 중국으로 거슬러 올라가며, 그곳에서 <em>오자기(五子棋, Wǔzǐqí)</em>로 알려져 있었습니다. 역사 기록에 따르면 이 게임의 변형은 이미 <strong>춘추 시대</strong>(기원전 770&ndash;476년)부터 즐겨졌습니다. 오목은 바둑(圍棋)과 함께 발전해 왔으며, 동일한 도구 &mdash; 격자판과 흑백 돌 &mdash; 를 사용하지만 더 간단하고 접근하기 쉬운 규칙을 가지고 있습니다.</p>
+            <p><strong>한나라</strong>(기원전 206년&ndash;기원후 220년) 시대에는 학자와 귀족 사이에서 인기를 얻었습니다. 단순한 오락이 아니라 <strong>전략적 사고, 패턴 인식, 인내심</strong>을 기르는 도구로 평가받았습니다.</p>
+
+            <h3>일본과 한국으로의 확산</h3>
+            <p>이 게임은 <strong>8세기 일본</strong> 나라 시대에 전해졌으며, 그곳에서 <em>고모쿠(五目, Gomoku, 문자 그대로 「다섯 개의 돌」)</em>라는 이름을 얻었습니다. 일본 플레이어들은 게임을 다듬고 첫 번째 플레이어에 대한 추가 제한을 둔 더 균형 잡힌 변형인 <strong>렌주(Renju, 連珠)</strong>를 도입했습니다.</p>
+            <p><strong>한국</strong>에서는 이 게임이 <em>오목</em>으로 알려지게 되었으며, 오늘날까지도 큰 인기를 누리고 있습니다. 한국 플레이어들은 독자적인 전략 전통을 발전시켜 왔으며 국제 대회에서 두각을 나타내고 있습니다.</p>
+
+            <h3>세계적 확산과 현대</h3>
+            <p>오목은 <strong>19세기 후반 유럽</strong>에 전해졌으며, 그곳에서 흔히 「Five in a Row」로 불렸습니다. <strong>국제 렌주 연맹(RIF)</strong>이 1988년에 설립되어 세계 선수권 대회를 조직하고 경기 규칙을 표준화했습니다. 오늘날 오목은 캐주얼한 게임부터 조직화된 토너먼트까지 전 세계적으로 즐기고 있으며, 활발한 온라인 커뮤니티와 AI 연구가 게임 이론의 발전을 이끌고 있습니다.</p>
+          </div>
+          <aside class="content-sidebar" aria-label="Quick facts about Gomoku">
+            <div class="info-card">
+              <h4>빠른 사실</h4>
+              <dl>
+                <dt>기원</dt>
+                <dd>고대 중국, &sim;2,000+년 전</dd>
+                <dt>중국어 이름</dt>
+                <dd>五子棋 (오자기, Wǔzǐqí)</dd>
+                <dt>일본어 이름</dt>
+                <dd>五目 (고모쿠, Gomoku)</dd>
+                <dt>한국어 이름</dt>
+                <dd>오목 (Omok)</dd>
+                <dt>영어 이름</dt>
+                <dd>Five in a Row / Gobang</dd>
+                <dt>판 크기</dt>
+                <dd>15&times;15 (표준)</dd>
+                <dt>플레이어</dt>
+                <dd>2명</dd>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="content-section alt-bg" aria-labelledby="faqHeading">
+      <div class="container">
+        <h2 id="faqHeading">자주 묻는 질문</h2>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>오목이란 무엇입니까?</summary>
+            <div class="faq-answer">
+              <p>오목（고모쿠 또는 오자기라고도 불림）은 고전적인 추상 전략 판 게임입니다. 두 명의 플레이어가 번갈아 15×15 격자판에 흑돌과 백돌을 두며, <strong>가로·세로·대각선</strong> 방향으로 끊기지 않은 다섯 개의 돌을 먼저 만드는 사람이 승리합니다. 배우기는 쉽지만 마스터하기는 어려운 게임으로 평가받고 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>오목은 어디서 기원했습니까?</summary>
+            <div class="faq-answer">
+              <p>오목은 2,000+년 이상 전 고대 중국에서 기원했습니다. 8세기 나라 시대에 일본으로 전해져 「고모쿠(五目, 다섯 개의 돌)」라는 이름을 얻었습니다. 이후 한국(「오목」으로)으로 전파되었고, 19세기에 유럽에 도달했습니다. 현재는 국제렌주연맹(RIF)이 주관하는 국제 대회가 열리며 전 세계적으로 즐기고 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>오목과 바둑의 차이점은 무엇입니까?</summary>
+            <div class="faq-answer">
+              <p>둘 다 격자판에 흑백 돌을 사용하지만, 완전히 다른 게임입니다. 바둑은 <strong>영역을 둘러싸는 것</strong>과 상대 돌을 따내는 것에 중점을 두지만, 오목은 <strong>다섯 개를 한 줄로 잇는 것</strong>이 목표입니다. 바둑은 19×19 판을 사용하고, 오목은 15×15를 사용합니다. 오목이 훨씬 배우기 쉽고, 대국 시간도 보통 더 짧습니다(5~20분 vs 1시간 이상).</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>렌주(连珠)란 무엇입니까?</summary>
+            <div class="faq-answer">
+              <p>렌주는 선수(흑)의 우위를 균형 맞추기 위해 일본에서 개발된 오목의 프로페셔널 변종입니다. 렌주에서는 <strong>흑에 추가 제한</strong>이 있으며(예: 쌍삼(33)이나 쌍사(44)와 같은 특정 패턴을 만들 수 없음), 백은 정상적으로 승리할 수 있습니다. 이로 인해 높은 수준의 플레이에서 게임이 더욱 균형 잡히게 됩니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>오목은 풀린 게임입니까?</summary>
+            <div class="faq-answer">
+              <p>네 — 오목은 수학적으로 풀렸습니다. 연구자들은 15×15 판에서 <strong>흑(선수)이 완벽한 플레이로 필승할 수 있음</strong>을 증명했습니다. 하지만 「완벽한 플레이」는 인간이 달성하기 극도로 어렵기 때문에, 게임은 여전히 경쟁적이고 재미있습니다. 프로 토너먼트에서는 공정성을 위해 Swap2와 같은 균형 잡힌 포석 규칙을 자주 사용합니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>폰에서 오목을 놀 수 있습니까?</summary>
+            <div class="faq-answer">
+              <p>물론입니다! 우리의 오목 게임은 완전히 반응형이며, 스마트폰, 태블릿, 데스크톱에서 작동합니다. 오목판은 화면에 맞춰 자동으로 크기가 조정되며, 격자 스냅 기능이 있는 터치 조작으로 작은 화면에서도 쉽게 돌을 놓을 수 있습니다.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>AI는 어떻게 작동합니까?</summary>
+            <div class="faq-answer">
+              <p>우리의 AI는 4단계 난이도가 있습니다. <strong>쉬움 (Easy)</strong>은 의도적인 무작위성과 가끔의 「실수」로 플레이하여 초보자에게 좋습니다. <strong>보통 (Medium)</strong>은 모든 합법 수를 평가하고 상위 옵션에서 약간의 무작위성으로 선택하여 균형 잡힌 도전을 제공합니다. <strong>어려움 (Hard)</strong>은 알파-베타 가지치기를 적용한 4층 미니맥스 탐색으로 더 강력한 포석 플레이를 구사합니다. <strong>마스터 (Master)</strong>는 최대 6층까지의 반복 심화 탐색과 고급 강제 공격 감지를 사용하여 궁극의 도전을 선사합니다.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">고전적인 오목 게임, 무료로 놀 수 있다.</p>
+        </div>
+        <div class="footer-links">
+          <h3 data-i18n="footer.quick_links">Quick Links</h3>
+          <ul>
+            <li><a href="#game" data-i18n="nav.play">Play Game</a></li>
+            <li><a href="#rules" data-i18n="nav.rules">Rules</a></li>
+            <li><a href="#strategy" data-i18n="nav.strategy">Strategy</a></li>
+            <li><a href="#history" data-i18n="nav.history">History</a></li>
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3 data-i18n="footer.site_info">Site Info</h3>
+          <ul>
+            <li><a href="../about.html" data-i18n="footer.about">About Us</a></li>
+            <li><a href="../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+            <li><a href="../blog/">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">© 2026 오목 온라인. 무료 플레이 — 광고 없음, 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- i18n + Game JavaScript -->
+  <script src="../js/i18n.js"></script>
+  <script src="../js/game.js"></script>
+
+  <!-- Victory Overlay -->
+  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true">
+    <div class="victory-card" id="victoryCard">
+      <div class="victory-icon-wrap" id="victoryIconWrap">
+        <div class="victory-icon" id="victoryIcon">&#9733;</div>
+        <div class="star-burst" id="starBurst"></div>
+      </div>
+      <div class="victory-title" id="victoryTitle" role="heading" aria-level="2"></div>
+      <p class="victory-subtitle" id="victorySubtitle"></p>
+      <button class="cta-btn" id="btnPlayAgain">Play Again</button>
+    </div>
+  </div>
+</body>
+</html>

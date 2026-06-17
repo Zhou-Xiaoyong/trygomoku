@@ -1,0 +1,21 @@
+{
+  "name": "Gomoku Online — Play Five in a Row",
+  "short_name": "Gomoku",
+  "description": "Play Gomoku (Five in a Row) online free against AI or a friend. Learn rules, strategy, and history.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "lang": "en",
+  "dir": "ltr"
+}

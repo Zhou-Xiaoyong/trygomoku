@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.title">五目並べをオンラインで無料プレイ — AI対戦・友達対戦ボードゲーム</title>
+  <meta name="description" data-i18n-attr="content" data-i18n="meta.description" content="Play Gomoku (Five in a Row) online free. Challenge AI at 4 difficulty levels or play a friend. Learn rules, history, winning strategies.">
+  <meta name="keywords" data-i18n-attr="content" data-i18n="meta.keywords" content="gomoku, play gomoku online, gomoku game, five in a row, gomoku online free, gomoku strategy, how to play gomoku, gomoku rules, gomoku board game, play gomoku against computer, gomoku AI">
+  <meta name="author" content="Gomoku Online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/">
+
+  <!-- hreflang tags -->
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" data-i18n-attr="content" data-i18n="meta.og_title" content="Play Gomoku Online Free — Five in a Row Board Game vs AI">
+  <meta property="og:description" data-i18n-attr="content" data-i18n="meta.og_description" content="Play Gomoku (Five in a Row) online for free. Challenge our AI or play against a friend. Learn rules, history, and winning strategies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" data-i18n-attr="content" data-i18n="meta.twitter_title" content="Play Gomoku Online Free">
+  <meta name="twitter:description" data-i18n-attr="content" data-i18n="meta.twitter_description" content="Challenge our AI at three difficulty levels. Learn rules, history, and strategies.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#1a1a2e">
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Open Graph Image -->
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Gomoku Online",
+    "description": "Play Gomoku (Five in a Row) online for free against AI or a friend.",
+    "url": "https://trygomoku.com/ja-JP/",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured Data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "五目並べとは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "五目並べ（ゴモクまたは五子棋とも呼ばれる）は古典的な抽象戦略盤面ゲームです。二人のプレイヤーが交互に15×15の格子盤に黒と白の石を置き、先に縦・横・斜めのいずれかの方向に途切れのない5つの石の列を作った方が勝ちとなります。習得は簡単だが極めるのは難しいと評されています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "五目並べはどこで起源しましたか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "五目並べは2,000+年以上前の古代中国に起源します。8世紀（奈良時代）に日本へ伝わり、「五目並べ」（五つの石の意）の名がつけられました。その後、韓国（「オモク」として）へ広がり、19世紀にヨーロッパに到達しました。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "五目並べと囲碁の違いは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "どちらも格子盤に白黒の石を使いますが、全く異なるゲームです。囲碁は陣地を囲むことと相手の石を取ることに重点を置き、より多くの領域を支配することが目標です。五目並べは五つ並べることが目的で、より簡単かつ速く習得できます。囲碁は19×19の盤面、五目並べは通常15×15を使用します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "五目並べで6つ以上並べても勝ちになりますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "標準の五目並べ（フリースタイル五目並べとも呼ばれる）では、はい — 5つ以上の途切れのない石の列であれば全て勝利となります。ただし、連珠と呼ばれる変種では、黒は正確に5つ並べた場合のみ勝ちとなり、先手優位を均衡させるために黒には追加の制限が課されます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "五目並べは解けたゲームですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい — 五目並べは数学的に解かれています。研究者たちは15×15の盤面において、黒（先手）が完全なプレイで必勝できることを証明しました。しかし、実際には「完全なプレイ」を人間が実現するのは極めて困難であり、だからこそゲームは面白く挑戦的であり続けています。"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#game" class="skip-link">Skip to game</a>
+
+  <!-- Header / Navigation -->
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#game" data-i18n="nav.play">Play</a></li>
+        <li><a href="#rules" data-i18n="nav.rules">Rules</a></li>
+        <li><a href="#strategy" data-i18n="nav.strategy">Strategy</a></li>
+        <li><a href="#history" data-i18n="nav.history">History</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;location.href=l==='en'?'/':'/'+l+'/'">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ru-RU">Русский</option>
+        <option value="ko-KR">한국어</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+
+  <!-- Hero & Game Section -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 data-i18n="hero.title">Play Gomoku Online</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Challenge the AI or a friend in the classic game of Five in a Row. Free, no sign-up, works on any device.</p>
+        <div class="hero-cta">
+          <a href="#game" class="cta-btn" data-i18n="hero.play_now">今すぐプレイ ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Container -->
+    <section id="game" class="game-section" aria-label="Gomoku game board">
+      <div class="container">
+        <div class="game-layout">
+          <!-- Game Info -->
+          <div class="game-info" id="gameInfo">
+            <div class="game-status" id="gameStatus">
+              <span class="status-dot" id="statusDot"></span>
+              <span class="status-text" id="statusText" data-i18n="game.your_turn">Your turn &mdash; Black</span>
+            </div>
+            <div class="game-score">
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.black">Black</span> <span class="stone-icon black"></span></span>
+                <span class="score-value" id="scoreBlack">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.white">White</span> <span class="stone-icon white"></span></span>
+                <span class="score-value" id="scoreWhite">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label" data-i18n="game.draws">Draws</span>
+                <span class="score-value" id="scoreDraw">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Canvas Board -->
+          <div class="board-wrapper" id="boardWrapper">
+            <canvas id="gomokuBoard" aria-label="Gomoku game board, 15 by 15 grid"></canvas>
+            <canvas id="gomokuOverlay"></canvas>
+          </div>
+
+          <!-- Controls -->
+          <div class="game-controls" id="gameControls">
+            <!-- Mode Switch -->
+            <div class="control-group mode-switch">
+              <span class="control-label" data-i18n="game.mode_label">Mode</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Game mode">
+                <button class="toggle-btn active" data-mode="pve" role="radio" aria-checked="true" id="btnPvE" data-i18n="game.pve">vs Computer</button>
+                <button class="toggle-btn" data-mode="pvp" role="radio" aria-checked="false" id="btnPvP" data-i18n="game.pvp">vs Friend</button>
+              </div>
+            </div>
+
+            <!-- Difficulty -->
+            <div class="control-group" id="difficultyGroup">
+              <span class="control-label" data-i18n="game.difficulty_label">Difficulty</span>
+              <div class="toggle-group" role="radiogroup" aria-label="AI difficulty">
+                <button class="toggle-btn" data-diff="easy" role="radio" aria-checked="false" id="btnEasy" data-i18n="game.easy">Easy</button>
+                <button class="toggle-btn active" data-diff="medium" role="radio" aria-checked="true" id="btnMedium" data-i18n="game.medium">Medium</button>
+                <button class="toggle-btn" data-diff="hard" role="radio" aria-checked="false" id="btnHard" data-i18n="game.hard">Hard</button>
+                <button class="toggle-btn" data-diff="master" role="radio" aria-checked="false" id="btnMaster" data-i18n="game.master">Master</button>
+              </div>
+            </div>
+
+            <!-- Stone Color -->
+            <div class="control-group" id="colorGroup">
+              <span class="control-label" data-i18n="game.you_play_as">You play as</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Your stone color">
+                <button class="toggle-btn active" data-color="black" role="radio" aria-checked="true" id="btnBlack" data-i18n="game.black_first">Black &larr; first</button>
+                <button class="toggle-btn" data-color="white" role="radio" aria-checked="false" id="btnWhite" data-i18n="game.white_btn">White</button>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="control-group actions">
+              <button class="action-btn" id="btnUndo" data-i18n="game.undo" title="Undo last move">&#8630; <span data-i18n="game.undo">Undo</span></button>
+              <button class="action-btn" id="btnRestart" data-i18n="game.restart" title="Start a new game">&#8635; <span data-i18n="game.restart">Restart</span></button>
+              <button class="action-btn" id="btnSound"><span class="sound-icon">&#9834;</span> <span class="sound-text" data-i18n="game.sound_on">Sound</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="content-section" aria-labelledby="rulesHeading">
+      <div class="container">
+        <h2 id="rulesHeading">五目並べの遊び方</h2>
+        <p class="section-intro">基本を極めて、これらの実証済みの戦術でゲームを向上させよう。</p>
+
+        <div class="rules-steps">
+          <div class="rule-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>盤面と石</h3>
+              <p>五目並べは <strong>15×15の格子盤</strong> で遊びます。一方のプレイヤーは<strong>黒石</strong>、もう一方は<strong>白石</strong>を使用します。黒が常に先手（先に打つ）です。</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>交互に着手</h3>
+              <p>プレイヤーは交互に、盤上の空いている交点に<strong>一手につき一石ずつ</strong>打ちます。一度置いた石は動かしたり取り除いたりできません。</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>勝利条件</h3>
+              <p><strong>縦・横・斜め</strong>のいずれかの方向に、<strong>5つ以上連続した石の列</strong>を先に作った方が勝ちです。たったこれだけ！</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>引き分け</h3>
+              <p>どちらのプレイヤーも五目を達成できないまま盤面が全て埋まった場合、<strong>引き分け</strong>になります。</p>
+            </div>
+          </div>
+        </div>
+
+                <h3 id="rulesPatternTitle">勝利ラインの例</h3>
+        <div class="patterns-container">
+          <!-- Horizontal -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="Horizontal five in a row">
+                <!-- Grid: 9×9 intersections -->
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- Winning line: 5 stones in middle 5 of 9 intersections -->
+                <circle cx="30" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="40" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="60" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="70" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <!-- Highlight: only over the 5 stones -->
+                <line x1="30" y1="50" x2="70" y2="50" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">横</p>
+          </div>
+          <!-- Vertical -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="Vertical five in a row">
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- Winning line: 5 stones in middle 5 of 9 intersections -->
+                <circle cx="50" cy="30" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="40" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="60" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="70" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <line x1="50" y1="30" x2="50" y2="70" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">縦</p>
+          </div>
+          <!-- Diagonal -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="Diagonal five in a row">
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- Winning line: 5 stones diagonally in middle -->
+                <circle cx="30" cy="30" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="40" cy="40" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="60" cy="60" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="70" cy="70" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <line x1="30" y1="30" x2="70" y2="70" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">斜め</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section id="strategy" class="content-section alt-bg" aria-labelledby="strategyHeading">
+      <div class="container">
+        <h2 id="strategyHeading">五目並べの戦略とコツ</h2>
+        <p class="section-intro">五目並べのルールは簡単、でも極めるには一生かかる。</p>
+
+        <div class="strategy-grid">
+          <article class="strategy-card" id="strategy-beginners">
+            <h3>&#127775; 初心者戦略</h3>
+            <ul>
+              <li><strong>中心を制す。</strong> 盤面中心に近い石は全方向により多くの繋がりの可能性がある。序盤は端や隅近くに打つことを避けよ。</li>
+              <li><strong>同時に二方向を築け。</strong> すべての手は理想的には二つの目的を果たすべき — 自分のラインを延ばしながら相手の脅威を脅かす。</li>
+              <li><strong>「活四」に注意。</strong> 両端が開いている4つの石のラインはほぼ阻止不可。相手がこれを持っているなら、即座に防がねばならない。</li>
+              <li><strong>攻撃だけに専念しない。</strong> 最良のプレイヤーは自分のラインを作るのと同じくらい脅威を防ぐ時間を費やす。自分のラインだけに集中すると、辛抱強い相手に負けるだろう。</li>
+            </ul>
+          </article>
+          <article class="strategy-card" id="strategy-intermediate">
+            <h3>&#128170; 中級戦術</h3>
+            <ul>
+              <li><strong>二重脅威攻撃。</strong> 一度に二つの勝利ラインを脅かす位置を作れ（例：「四三」）。相手は一つしか防げない。</li>
+              <li><strong>強制手。</strong> 相手が特定の方法で応じることを強制する手を打て。これを使って有利な位置にゲームを導け。</li>
+              <li><strong>パターン認識。</strong> 直指開局や斜指開局などの一般的な開局パターンを学べ。これらに慣れることで時間を節約し、ミスを減らせる。</li>
+              <li><strong>空間計算。</strong> 両プレイヤーが反対側で築いている時、誰が先に五目を完成させるか数えよ。遅れているなら、即座に防御に切り替えよ。</li>
+            </ul>
+          </article>
+          <article class="strategy-card" id="strategy-advanced">
+            <h3>&#128293; 上級プレイ</h3>
+            <ul>
+              <li><strong>VCF（連続四勝）。</strong> 一連の「四」の脅威を繋げて、相手がそれぞれを防がねばならず、最終的に阻止不可の勝利をセットアップする。</li>
+              <li><strong>反脅威のタイミング。</strong> 脅威を即座に防ぐ代わりに、自分のより大きな脅威を作れ。正しいタイミングでこれを行えば、主導権を握れる。</li>
+              <li><strong>終盤計算。</strong> 終盤では、すべての可能なシーケンスを計算せよ。より先まで見られるプレイヤーが通常勝つ。</li>
+              <li><strong>連珠ルールを学べ。</strong> フリースタイル五目並べをプレイしていても、黒に対する連珠の制限を理解することで戦略意識を深められる。</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="strategy-cta">
+          <p><strong>アドバイス：</strong> 実力を試すなら、<em>ハード（難しい）</em> AIに挑戦してみよう。このAIは脅威評価付きの4層探索を使用している。定期的に勝てるようになれば、あなたは十分な中級者レベルだ！</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="content-section" aria-labelledby="historyHeading">
+      <div class="container">
+        <h2 id="historyHeading">五目並べの歴史：古代中国から世界へ</h2>
+        <div class="content-grid">
+          <div class="content-text">
+            <h3>古代中国に起源</h3>
+            <p>五目並べの起源は<strong>2,000+年以上前</strong>の古代中国に遡り、そこでは <em>五子棋（ウーズーチー）</em> として知られていました。歴史的記録によると、このゲームの変種は早くも<strong>春秋時代</strong>（紀元前770～476年）に遊ばれていたとされています。囲碁（碁）と並行して発展し、同じ道具 — 格子盤と白黒の石 — を共有しながらも、よりシンプルで親しみやすいルール体系を持っていました。</p>
+            <p><strong>漢王朝</strong>（紀元前206年～紀元後220年）の時代には、学者や貴族の間で人気を博しました。単なる娯楽としてだけでなく、<strong>戦略的思考、パターン認識、忍耐力</strong>を養う道具としても高く評価されていました。</p>
+
+            <h3>日本と韓国への普及</h3>
+            <p>このゲームは<strong>8世紀（奈良時代）</strong>に日本に伝わり、「五目並べ」と名付けられました（「五つの石」の意）。日本の棋士たちはこのゲームを洗練させ、先手に追加の制限を課したよりバランスの取れた変種である<strong>連珠（レンジュ）</strong>を導入しました。</p>
+            <p><strong>韓国</strong>では「オモク（오목）」として知られるようになり、現在も非常に高い人気を誇っています。韓国の棋士たちは独自の戦略伝統を発展させ、国際大会で優位に立ってきました。</p>
+
+            <h3>世界への普及と現代</h3>
+            <p>五目並べが<strong>19世紀後半にヨーロッパ</strong>に到達し、「Five in a Row」と呼ばれることが多くなりました。<strong>国際連珠連盟（RIF）</strong>は1988年に設立され、世界選手権を開催し競技ルールの標準化を進めました。現在、五目並べは世界中でプレイされており、カジュアルな対局から組織化されたトーナメントまで、活気あるオンラインコミュニティとAI研究によって、このゲームの理論は進化し続けています。</p>
+          </div>
+          <aside class="content-sidebar" aria-label="Quick facts about Gomoku">
+            <div class="info-card">
+              <h4>クイックファクト</h4>
+              <dl>
+                <dt>起源</dt>
+                <dd>古代中国、約2,000+年前</dd>
+                <dt>中国語名</dt>
+                <dd>五子棋（ウーズーチー）</dd>
+                <dt>日本語名</dt>
+                <dd>五目並べ</dd>
+                <dt>韓国語名</dt>
+                <dd>오목（オモク）</dd>
+                <dt>英語名</dt>
+                <dd>Five in a Row / Gobang</dd>
+                <dt>盤面サイズ</dt>
+                <dd>15×15（標準）</dd>
+                <dt>プレイヤー数</dt>
+                <dd>2人</dd>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="content-section alt-bg" aria-labelledby="faqHeading">
+      <div class="container">
+        <h2 id="faqHeading">よくある質問</h2>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>五目並べとは何ですか？</summary>
+            <div class="faq-answer">
+              <p>五目並べ（ゴモクまたは五子棋とも呼ばれる）は古典的な抽象戦略盤面ゲームです。二人のプレイヤーが交互に15×15の格子盤に黒と白の石を置き、先に<strong>縦・横・斜め</strong>のいずれかの方向に途切れのない5つの石の列を作った方が勝ちとなります。習得は簡単だが極めるのは難しいと評されています。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>五目並べはどこで起源しましたか？</summary>
+            <div class="faq-answer">
+              <p>五目並べは2,000+年以上前の古代中国に起源します。8世紀（奈良時代）に日本へ伝わり、「五目並べ」の名がつけられました。その後、韓国（「オモク」として）へ広がり、19世紀にヨーロッパに到達しました。現在では国際連珠連盟（RIF）主催の国際大会も開催され、世界中でプレイされています。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>五目並べと囲碁の違いは何ですか？</summary>
+            <div class="faq-answer">
+              <p>どちらも格子盤に白黒の石を使いますが、全く異なるゲームです。囲碁は<strong>陣地を囲む</strong>ことと相手の石を取ることに重点を置きますが、五目並べは<strong>五つ並べる</strong>ことが目的です。囲碁は19×19の盤面、五目並べは15×15を使用します。五目並べの方がはるかに習得が簡単で、対局時間も通常短めです（5～20分 vs 1時間以上）。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>連珠（レンジュ）とは何ですか？</summary>
+            <div class="faq-answer">
+              <p>連珠は先手（黒）の優位性を均衡させるために日本で開発された、五目並べのプロフェッショナル向け変種です。連珠では<strong>黒に追加の制限</strong>（三三や四四などの特定のパターンを作ることが禁止）が課され、白は通常通り勝利できます。これにより、高いプレイレベルでゲームのバランスがより公平になります。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>五目並べは解けたゲームですか？</summary>
+            <div class="faq-answer">
+              <p>はい — 五目並べは数学的に解かれています。研究者たちは15×15の盤面において、<strong>黒（先手）が完全なプレイで必勝できる</strong>ことを証明しました。しかし、「完全なプレイ」を人間が実現するのは極めて困難であり、だからこそゲームは競技性と楽しさを保ち続けています。プロの大会では公平性を確保するために、Swap2などのバランスの取れた開局ルールがよく使われます。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>スマホで五目並べを遊べますか？</summary>
+            <div class="faq-answer">
+              <p>もちろん！私たちの五目並べゲームは完全にレスポンシブで、スマートフォン、タブレット、デスクトップで動作します。盤面は自動的に画面サイズに合わせて拡大縮小され、スナップ機能付きのタッチ操作により、小さな画面でも簡単に石を置くことができます。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>AIはどう動作しますか？</summary>
+            <div class="faq-answer">
+              <p>私たちのAIには4つの難易度レベルがあります。<strong>イージー（簡単）</strong>は意図的なランダム性と時折の「悪手」でプレイし、初心者に最適です。<strong>ミディアム（普通）</strong>は全合法手を評価し、上位候補から若干のランダム性を持って選択し、バランスの取れた挑戦を提供します。<strong>ハード（難しい）</strong>はアルファ・ベータ枝刈り付き4層ミニマックス探索で、より強力な局面判断を行います。<strong>マスター（最強）</strong>は最大6層までの反復深化探索と高度な強制攻撃検出を採用しており、究極の挑戦です。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">古典的な「五目並べ」ゲーム、無料で遊べる。</p>
+        </div>
+        <div class="footer-links">
+          <h3 data-i18n="footer.quick_links">Quick Links</h3>
+          <ul>
+            <li><a href="#game" data-i18n="nav.play">Play Game</a></li>
+            <li><a href="#rules" data-i18n="nav.rules">Rules</a></li>
+            <li><a href="#strategy" data-i18n="nav.strategy">Strategy</a></li>
+            <li><a href="#history" data-i18n="nav.history">History</a></li>
+            <li><a href="../blog/">Blog</a></li>
+            <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3 data-i18n="footer.site_info">Site Info</h3>
+          <ul>
+            <li><a href="../about.html" data-i18n="footer.about">About Us</a></li>
+            <li><a href="../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
+            <li><a href="../blog/">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">© 2026 五目並べオンライン。無料で遊べる — 広告なし、登録不要。</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- i18n + Game JavaScript -->
+  <script src="../js/i18n.js"></script>
+  <script src="../js/game.js"></script>
+
+  <!-- Victory Overlay -->
+  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true">
+    <div class="victory-card" id="victoryCard">
+      <div class="victory-icon-wrap" id="victoryIconWrap">
+        <div class="victory-icon" id="victoryIcon">&#9733;</div>
+        <div class="star-burst" id="starBurst"></div>
+      </div>
+      <div class="victory-title" id="victoryTitle" role="heading" aria-level="2"></div>
+      <p class="victory-subtitle" id="victorySubtitle"></p>
+      <button class="cta-btn" id="btnPlayAgain">Play Again</button>
+    </div>
+  </div>
+</body>
+</html>

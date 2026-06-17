@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>免费在线玩五子棋 — 与 AI 对战五子棋游戏</title>
+  <meta name="description" content="免费在线玩五子棋（五子连珠）。挑战四个难度的 AI 或与朋友对战。学习五子棋规则、历史和制胜策略。">
+  <meta name="keywords" content="五子棋,在线五子棋,免费五子棋,五子连珠,gomoku,五子棋策略,五子棋规则,五子棋在线,五子棋AI">
+  <meta name="author" content="Gomoku Online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/">
+
+  <!-- hreflang tags -->
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="免费在线玩五子棋 — 与 AI 对战五子棋游戏">
+  <meta property="og:description" content="免费在线玩五子棋（五子连珠）。挑战 AI 或与朋友对战。学习规则、历史和制胜策略。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="免费在线玩五子棋">
+  <meta name="twitter:description" content="挑战四个难度的 AI，学习规则、历史和策略。">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#1a1a2e">
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Open Graph Image -->
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "五子棋在线",
+    "description": "免费在线玩五子棋（五子连珠），可挑战 AI 或与朋友对战。",
+    "url": "https://trygomoku.com/zh-CN/",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured Data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "什么是五子棋？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "五子棋是一种经典的抽象策略棋盘游戏，两名玩家轮流在 15×15 的网格上放置黑白棋子。率先在水平、垂直或对角方向连成一条不间断的五子连线的玩家获胜。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "五子棋的起源是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "五子棋起源于 2,000 多年前的中国古代。它在奈良时代（8 世纪）传入日本，得名"五目"（意为五颗棋子）。之后传入韩国称为"Omok"，并于 19 世纪传入欧洲。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "五子棋和围棋有什么区别？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "虽然两者都使用黑白棋子和网格棋盘，但它们是不同的游戏。围棋的目标是围地和提子——争夺更多的地盘。五子棋的目标是连接五子成线——规则更简单，更容易上手。围棋使用 19×19 棋盘，五子棋通常使用 15×15 棋盘。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "超过五子连成一线算赢吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "在标准五子棋（也称自由式五子棋）中，是的——任何不间断的五子或以上连线都算获胜。但在连珠（Renju）规则中，只有黑棋可以以恰好五子连珠获胜，且黑棋有额外的限制来平衡先手优势。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "五子棋已被破解了吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "是的，五子棋已经被破解。研究者证明了在 15×15 棋盘上，黑棋（先手）可以在完美对局中必胜。但实际上，完美对局对人类来说极其困难，这使得游戏仍然充满趣味和挑战。"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#game" class="skip-link">跳到游戏</a>
+
+  <!-- Header / Navigation -->
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="主导航">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#game" >玩棋</a></li>
+        <li><a href="#rules" >规则</a></li>
+        <li><a href="#strategy" >策略</a></li>
+        <li><a href="#history" >历史</a></li>
+        <li><a href="/blog/">博客</a></li>
+        <li><a href="#faq" >问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;location.href=l==='en'?'/':'/'+l+'/'">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ru-RU">Русский</option>
+        <option value="ko-KR">한국어</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+
+  <!-- Hero & Game Section -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 >免费在线玩五子棋</h1>
+        <p class="hero-subtitle" >在经典的五子连珠游戏中挑战 AI 或与朋友对战。免费、无需注册、适配各种设备。</p>
+        <div class="hero-cta">
+          <a href="#game" class="cta-btn" >开始游戏 ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Container -->
+    <section id="game" class="game-section" aria-label="五子棋棋盘">
+      <div class="container">
+        <div class="game-layout">
+          <!-- Game Info -->
+          <div class="game-info" id="gameInfo">
+            <div class="game-status" id="gameStatus">
+              <span class="status-dot" id="statusDot"></span>
+              <span class="status-text" id="statusText" >轮到你了 — 黑棋</span>
+            </div>
+            <div class="game-score">
+              <div class="score-item">
+                <span class="score-label">黑棋 <span class="stone-icon black"></span></span>
+                <span class="score-value" id="scoreBlack">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label">白棋 <span class="stone-icon white"></span></span>
+                <span class="score-value" id="scoreWhite">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label">平局</span>
+                <span class="score-value" id="scoreDraw">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Canvas Board -->
+          <div class="board-wrapper" id="boardWrapper">
+            <canvas id="gomokuBoard" aria-label="五子棋棋盘，15乘15网格"></canvas>
+            <canvas id="gomokuOverlay"></canvas>
+          </div>
+
+          <!-- Controls -->
+          <div class="game-controls" id="gameControls">
+            <!-- Mode Switch -->
+            <div class="control-group mode-switch">
+              <span class="control-label" >模式</span>
+              <div class="toggle-group" role="radiogroup" aria-label="游戏模式">
+                <button class="toggle-btn active" data-mode="pve" role="radio" aria-checked="true" id="btnPvE" >人机对战</button>
+                <button class="toggle-btn" data-mode="pvp" role="radio" aria-checked="false" id="btnPvP" >双人对战</button>
+              </div>
+            </div>
+
+            <!-- Difficulty -->
+            <div class="control-group" id="difficultyGroup">
+              <span class="control-label" >难度</span>
+              <div class="toggle-group" role="radiogroup" aria-label="AI 难度">
+                <button class="toggle-btn" data-diff="easy" role="radio" aria-checked="false" id="btnEasy" >简单</button>
+                <button class="toggle-btn active" data-diff="medium" role="radio" aria-checked="true" id="btnMedium" >中等</button>
+                <button class="toggle-btn" data-diff="hard" role="radio" aria-checked="false" id="btnHard" >困难</button>
+                <button class="toggle-btn" data-diff="master" role="radio" aria-checked="false" id="btnMaster" >大师</button>
+              </div>
+            </div>
+
+            <!-- Stone Color -->
+            <div class="control-group" id="colorGroup">
+              <span class="control-label">你执子为</span>
+              <div class="toggle-group" role="radiogroup" aria-label="你的棋子颜色">
+                <button class="toggle-btn active" data-color="black" role="radio" aria-checked="true" id="btnBlack">黑棋 ← 先手</button>
+                <button class="toggle-btn" data-color="white" role="radio" aria-checked="false" id="btnWhite">白棋</button>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="control-group actions">
+              <button class="action-btn" id="btnUndo" title="悔棋">&#8630; 悔棋</button>
+              <button class="action-btn" id="btnRestart" title="开始新游戏">&#8635; 重新开始</button>
+              <button class="action-btn" id="btnSound" title="切换音效"><span class="sound-icon">&#9834;</span> <span class="sound-text" data-i18n="game.sound_on">音效</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="content-section" aria-labelledby="rulesHeading">
+      <div class="container">
+        <h2 id="rulesHeading">五子棋玩法</h2>
+        <p class="section-intro">五子棋是最容易上手的策略游戏之一——不到一分钟就能掌握规则。</p>
+
+        <div class="rules-steps">
+          <div class="rule-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>棋盘与棋子</h3>
+              <p>五子棋在 <strong>15×15 的网格</strong>上进行。一名玩家使用<strong>黑子</strong>，另一名使用<strong>白子</strong>。黑棋始终先走。</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>轮流落子</h3>
+              <p>玩家轮流在网格的空交叉点上<strong>每回合落一子</strong>。棋子一旦落下就不能移动或拿走。</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>获胜条件</h3>
+              <p>获胜方式是率先在任意方向——<strong>水平、垂直或对角</strong>——连成<strong>一条不间断的五子（或以上）连线</strong>。就这么简单！</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>平局</h3>
+              <p>如果棋盘被填满而双方都没有连成五子，则游戏以<strong>平局</strong>结束。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="patterns-container">
+          <!-- 水平 -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="水平五子连线">
+                <!-- 网格：9×9 交叉点 -->
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- 获胜连线：中间5个交叉点 -->
+                <circle cx="30" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="40" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="60" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <circle cx="70" cy="50" r="4" fill="#222" stroke="#111" stroke-width="0.5"/>
+                <!-- 高亮连线：仅覆盖5子 -->
+                <line x1="30" y1="50" x2="70" y2="50" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">水平</p>
+          </div>
+          <!-- 垂直 -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="垂直五子连线">
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- 获胜连线：中间5个交叉点 -->
+                <circle cx="50" cy="30" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="40" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="60" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <circle cx="50" cy="70" r="4" fill="#333" stroke="#222" stroke-width="0.5"/>
+                <line x1="50" y1="30" x2="50" y2="70" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">垂直</p>
+          </div>
+          <!-- 对角 -->
+          <div class="pattern-card">
+            <div class="pattern-board">
+              <svg viewBox="0 0 100 100" class="pattern-svg" aria-label="对角五子连线">
+                <line x1="10" y1="10" x2="90" y2="10" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="20" x2="90" y2="20" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="40" x2="90" y2="40" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="50" x2="90" y2="50" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="60" x2="90" y2="60" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="80" x2="90" y2="80" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="90" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="10" y1="10" x2="10" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="20" y1="10" x2="20" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="30" y1="10" x2="30" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="40" y1="10" x2="40" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="60" y1="10" x2="60" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="70" y1="10" x2="70" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="80" y1="10" x2="80" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <line x1="90" y1="10" x2="90" y2="90" stroke="#8B4513" stroke-width="0.5"/>
+                <!-- 获胜连线：中间对角5个交叉点 -->
+                <circle cx="30" cy="30" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="40" cy="40" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="50" cy="50" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="60" cy="60" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <circle cx="70" cy="70" r="4" fill="#555" stroke="#333" stroke-width="0.5"/>
+                <line x1="30" y1="30" x2="70" y2="70" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2" opacity="0.7"/>
+              </svg>
+            </div>
+            <p class="pattern-label">对角</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy Section -->
+    <section id="strategy" class="content-section alt-bg" aria-labelledby="strategyHeading">
+      <div class="container">
+        <h2 id="strategyHeading">五子棋策略与技巧</h2>
+        <p class="section-intro">掌握基础技巧，用这些实用战术提升你的棋力。本指南会定期更新新内容。</p>
+
+        <div class="strategy-grid">
+          <article class="strategy-card" id="strategy-beginners">
+            <h3>&#127775; 新手策略</h3>
+            <ul>
+              <li><strong>控制中心。</strong>靠近棋盘中心的棋子在各个方向上都有更多的连接可能。开局时避免在边缘和角落附近落子。</li>
+              <li><strong>同时兼顾攻防。</strong>每一步棋最好都能实现两个目的——延伸自己的连线，同时威胁对手的棋子。</li>
+              <li><strong>警惕"活四"。</strong>两端都开放的四子连线几乎是不可阻挡的。如果对手形成了活四，你必须立即封堵。</li>
+              <li><strong>不要只进攻。</strong>顶尖棋手花同样多的时间防守威胁。如果你只关注自己的连线，会输给有耐心的对手。</li>
+            </ul>
+          </article>
+          <article class="strategy-card" id="strategy-intermediate">
+            <h3>&#128170; 中级战术</h3>
+            <ul>
+              <li><strong>双重威胁攻击。</strong>创造一个同时威胁两条获胜连线的位置（如"四三"）。你的对手只能堵住其中一条。</li>
+              <li><strong>逼迫走法。</strong>走出迫使对手以特定方式回应的棋步。利用这种方式将局面导向有利位置。</li>
+              <li><strong>模式识别。</strong>学习"直指开局"和"斜指开局"等常见开局模式。熟悉它们可以节省时间，减少失误。</li>
+              <li><strong>空间计算。</strong>当双方在不同方向布局时，计算谁先完成五子连线。如果你落后了，立刻转为防守。</li>
+            </ul>
+          </article>
+          <article class="strategy-card" id="strategy-advanced">
+            <h3>&#128293; 高级技巧</h3>
+            <ul>
+              <li><strong>VCF（连续四连胜）。</strong>串联一系列"四"的威胁，逼迫对手逐一防守，最终形成不可阻挡的胜利。</li>
+              <li><strong>反威胁时机。</strong>与其立即封堵对手的威胁，不如创造更大的威胁。把握好时机就能夺取主动权。</li>
+              <li><strong>残局计算。</strong>在残局阶段，计算所有可能的走法序列。看得更远的玩家通常能获胜。</li>
+              <li><strong>学习连珠规则。</strong>即使你玩的是自由式五子棋，理解连珠对黑棋的限制也会加深你的策略认知。</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="strategy-cta">
+          <p><strong>提示：</strong>挑战我们的<em>困难</em> AI 来测试你的水平。它使用两层搜索和威胁评估——如果你能稳定击败它，你已经是中级以上水平了！</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="content-section" aria-labelledby="historyHeading">
+      <div class="container">
+        <h2 id="historyHeading">五子棋的历史：从古代中国走向世界</h2>
+        <div class="content-grid">
+          <div class="content-text">
+            <h3>起源于古代中国</h3>
+            <p>五子棋的起源可追溯到 <strong>2,000 多年前</strong>的中国古代，当时称为<em>五子棋</em>。历史记录表明，早在<strong>春秋时期</strong>（公元前 770–476 年）就有类似棋类游戏的变体。五子棋与围棋一同演化，使用相同的器具——网格棋盘和黑白棋子——但规则更简单、更容易上手。</p>
+            <p>到了<strong>汉朝</strong>（公元前 206 年–公元 220 年），五子棋在士人和贵族中广受欢迎。它不仅被视为娱乐，更被当作培养<strong>策略思维、模式识别和耐心</strong>的工具。</p>
+
+            <h3>传入日本和韩国</h3>
+            <p>五子棋在<strong>8 世纪</strong>的奈良时代传入<strong>日本</strong>，被称为<em>五目</em>（Gomoku，字面意思为"五个棋子"）。日本玩家对游戏进行了改良，引入了<strong>连珠</strong>（Renju），这是一个对先手玩家增加额外限制以平衡局面的变体规则。</p>
+            <p>在<strong>韩国</strong>，这种游戏被称为<em>五目</em>（Omok），至今仍然非常流行。韩国玩家发展出了自己的策略传统，并在国际比赛中长期占据主导地位。</p>
+
+            <h3>走向全球与现代时代</h3>
+            <p>五子棋于<strong>19 世纪末传入欧洲</strong>，通常被称为"Five in a Row"。<strong>国际连珠联盟（RIF）</strong>成立于 1988 年，组织世界锦标赛并规范竞技规则。如今，五子棋在世界各地广泛流行，既有休闲对弈也有组织化赛事，线上社区蓬勃发展，AI 研究也在不断推动游戏理论的发展。</p>
+          </div>
+          <aside class="content-sidebar" aria-label="五子棋速览">
+            <div class="info-card">
+              <h4>速览</h4>
+              <dl>
+                <dt>起源</dt>
+                <dd>中国古代，约 2,000+ 年前</dd>
+                <dt>中文名称</dt>
+                <dd>五子棋</dd>
+                <dt>日文名称</dt>
+                <dd>五目並べ (Gomoku)</dd>
+                <dt>韩文名称</dt>
+                <dd>오목 (Omok)</dd>
+                <dt>英文名称</dt>
+                <dd>Five in a Row / Gobang</dd>
+                <dt>棋盘尺寸</dt>
+                <dd>15×15（标准）</dd>
+                <dt>玩家人数</dt>
+                <dd>2 人</dd>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="content-section alt-bg" aria-labelledby="faqHeading">
+      <div class="container">
+        <h2 id="faqHeading">常见问题</h2>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>什么是五子棋？</summary>
+            <div class="faq-answer">
+              <p>五子棋（也称为五子连珠或 Gobang）是一种经典的抽象策略棋盘游戏。两名玩家轮流在 15×15 的网格上放置黑白棋子，率先在水平、垂直或对角方向连成一条不间断的五子连线的玩家获胜。它以"易学难精"而闻名。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>五子棋的起源是什么？</summary>
+            <div class="faq-answer">
+              <p>五子棋起源于 2,000 多年前的中国古代。它在奈良时代（8 世纪）传入日本，得名"五目"（Gomoku）。之后传入韩国（称为"Omok"），并于 19 世纪传入欧洲。如今，五子棋在世界各地广泛流行，国际连珠联盟（RIF）组织国际赛事。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>五子棋和围棋有什么区别？</summary>
+            <div class="faq-answer">
+              <p>虽然两者都使用黑白棋子和网格棋盘，但它们是截然不同的游戏。围棋的重点是<strong>围地</strong>和提子，而五子棋的目标是<strong>连接五子成线</strong>。围棋使用 19×19 棋盘，五子棋使用 15×15 棋盘。五子棋更容易上手，对局时间通常也更短（5–20 分钟，而围棋通常需要 1 小时以上）。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>什么是连珠（Renju）？</summary>
+            <div class="faq-answer">
+              <p>连珠是日本为平衡先手优势而开发的五子棋专业变体。在连珠规则中，<strong>黑棋有额外限制</strong>（例如不能做出双三、双四等特定棋型），而白棋可以正常获胜。这使得高水平对局更加平衡。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>五子棋已被破解了吗？</summary>
+            <div class="faq-answer">
+              <p>是的——五子棋已经在数学上被破解。研究者证明了在 15×15 棋盘上，<strong>黑棋可以在完美对局中必胜</strong>。但"完美对局"对人类来说极其困难，所以游戏仍然充满竞技性和乐趣。专业比赛通常使用平衡开局规则（如 Swap2）来确保公平。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>我能在手机上玩五子棋吗？</summary>
+            <div class="faq-answer">
+              <p>当然可以！我们的五子棋游戏完全响应式，支持手机、平板和桌面电脑。棋盘会自动缩放适配你的屏幕，触摸控件带有吸附功能，即使在小屏幕上也能轻松落子。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>AI 是如何运作的？</summary>
+            <div class="faq-answer">
+              <p>我们的 AI 有四个难度级别。<strong>简单</strong>模式会有意加入一些随机性和偶尔的"失误"——非常适合新手。<strong>中等</strong>模式评估所有合法走法，在最佳选项中略带随机性，提供平衡的挑战。<strong>困难</strong>模式使用四层极小化极大搜索配合 Alpha-Beta 剪枝，同时兼顾威胁检测和防守。<strong>大师</strong>模式使用迭代加深搜索（2→4→6层）配合强力攻击检测，提供最强的挑战。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">经典五子连珠游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h3 >快速链接</h3>
+          <ul>
+            <li><a href="#game" data-i18n="nav.play">开始游戏</a></li>
+            <li><a href="#rules" >规则</a></li>
+            <li><a href="#strategy" >策略</a></li>
+            <li><a href="#history" >历史</a></li>
+            <li><a href="/blog/">博客</a></li>
+            <li><a href="#faq" >问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3 >网站信息</h3>
+          <ul>
+            <li><a href="/about.html" >关于我们</a></li>
+            <li><a href="/privacy.html" >隐私政策</a></li>
+            <li><a href="/blog/">博客</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p >&copy; 2026 五子棋在线。免费游玩 — 无广告，无需注册。</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- i18n + Game JavaScript -->
+  <script src="../js/i18n.js"></script>
+  <script src="../js/game.js"></script>
+
+  <!-- Victory Overlay -->
+  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true">
+    <div class="victory-card" id="victoryCard">
+      <div class="victory-icon-wrap" id="victoryIconWrap">
+        <div class="victory-icon" id="victoryIcon">&#9733;</div>
+        <div class="star-burst" id="starBurst"></div>
+      </div>
+      <div class="victory-title" id="victoryTitle" role="heading" aria-level="2"></div>
+      <p class="victory-subtitle" id="victorySubtitle"></p>
+      <button class="cta-btn" id="btnPlayAgain">再来一局</button>
+    </div>
+  </div>
+</body>
+</html>

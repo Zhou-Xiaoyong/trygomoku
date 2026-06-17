@@ -1,0 +1,8 @@
+# WorkBuddy project data
+.workbuddy/
+
+# Python build/translation scripts
+*.py
+
+# Project docs (not for deployment)
+overview.md
