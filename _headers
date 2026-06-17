@@ -1,6 +1,12 @@
 # ==========================================
 # Cloudflare Pages Headers — trygomoku.com
 # ==========================================
+#
+# ⚠️  DEVELOPMENT MODE — 开发阶段配置
+#    站点还在频繁修改，所有 HTML/CSS/JS 禁止缓存，
+#    每次访问都重新获取最新版本。
+#    网站稳定后请将此项改回长效缓存。
+#
 
 /*
   X-Frame-Options: DENY
@@ -8,39 +14,39 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), microphone=(), payment=()
 
-# HTML — moderate cache with CDN stale-while-revalidate
+# HTML — 不缓存，每次重新验证
 /*.html
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: no-cache
 
-# CSS — moderate cache, CDN handles versioning per deployment
+# CSS — 不缓存，每次重新验证
 /css/*
-  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Cache-Control: no-cache
 
-# JS — moderate cache, CDN handles versioning per deployment
+# JS — 不缓存，每次重新验证
 /js/*
-  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Cache-Control: no-cache
 
-# Images — long cache
+# Images — 图片变化少，可适度缓存
 /*.png
-  Cache-Control: public, max-age=31536000
+  Cache-Control: public, max-age=604800
 
 /*.svg
-  Cache-Control: public, max-age=31536000
+  Cache-Control: public, max-age=604800
 
 /*.ico
-  Cache-Control: public, max-age=31536000
+  Cache-Control: public, max-age=604800
 
-# JSON data — short cache (i18n files)
+# JSON data — 不缓存（i18n 文件可能更新）
 /i18n/*
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache
 
-# Manifest — moderate cache
+# Manifest — 不缓存
 /manifest.json
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache
 
-# Sitemap & robots — moderate cache
+# Sitemap & robots — 不缓存
 /sitemap.xml
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache
 
 /robots.txt
-  Cache-Control: public, max-age=86400
+  Cache-Control: no-cache
