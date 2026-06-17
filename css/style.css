@@ -212,6 +212,49 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
 .status-dot.black { background: var(--color-black-stone); }
 .status-dot.white { background: var(--color-white-stone); border: 2px solid #ccc; }
 
+/* Renju foul toast — fixed overlay, always visible */
+.renju-foul-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: none;
+  min-width: 280px;
+  max-width: 90vw;
+  padding: 18px 24px;
+  background: #fff3cd;
+  border: 3px solid #e74c3c;
+  border-radius: 12px;
+  color: #c0392b;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(231, 76, 60, 0.3), 0 2px 8px rgba(0,0,0,0.15);
+  pointer-events: none;
+  animation: foulPulse 0.4s ease-in-out;
+}
+.renju-foul-toast.show { display: block; }
+
+/* Semi-transparent backdrop when toast is visible */
+.renju-foul-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+.renju-foul-backdrop.show { display: block; }
+
+.status-text.warning { color: #e74c3c; }
+
+@keyframes foulPulse {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+  60% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
 .game-score { display: flex; gap: 18px; }
 
 .score-item {

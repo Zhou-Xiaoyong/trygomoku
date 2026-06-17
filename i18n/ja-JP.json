@@ -66,13 +66,10 @@
     "rule_label": "ルール",
     "freestyle": "自由スタイル",
     "renju": "連珠",
-    "renju_foul_title": "黒の反則！",
-    "renju_foul_sub": "黒が禁手を犯し、白の勝ちです。",
-    "ai_foul_title": "AIが反則！",
-    "ai_foul_sub": "AIが連珠の禁手を犯し、あなたの勝ちです！",
-    "renju_foul_you": "反則（{foul}）— 白の勝ち！",
-    "renju_foul_ai": "AI反則（{foul}）— あなたの勝ち！",
-    "renju_foul_pvp": "黒が反則（{foul}）— 白の勝ち！"
+    "foul_warning_title": "禁手の警告",
+    "renju_warn_overline": "長連の禁手、黒はこの位置に打てません",
+    "renju_warn_doubleThree": "三三の禁手、黒はこの位置に打てません",
+    "renju_warn_doubleFour": "四四の禁手、黒はこの位置に打てません"
   },
   "rules": {
     "title": "五目並べの遊び方",

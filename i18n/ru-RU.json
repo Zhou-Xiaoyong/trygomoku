@@ -66,13 +66,10 @@
     "rule_label": "Правила",
     "freestyle": "Свободный",
     "renju": "Рэндзю",
-    "renju_foul_title": "Фол чёрных!",
-    "renju_foul_sub": "Чёрные нарушили правило рэндзю, побеждают белые.",
-    "ai_foul_title": "Фол ИИ!",
-    "ai_foul_sub": "ИИ нарушил правило рэндзю, вы победили!",
-    "renju_foul_you": "Фол ({foul}) — белые победили!",
-    "renju_foul_ai": "Фол ИИ ({foul}) — вы победили!",
-    "renju_foul_pvp": "Фол чёрных ({foul}) — белые победили!"
+    "foul_warning_title": "Предупреждение",
+    "renju_warn_overline": "Длинный ряд запрещен для чёрных",
+    "renju_warn_doubleThree": "Двойная тройка запрещена для чёрных",
+    "renju_warn_doubleFour": "Двойная четвёрка запрещена для чёрных"
   },
   "rules": {
     "title": "Как играть в Гомоку",

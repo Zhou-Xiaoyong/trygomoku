@@ -66,13 +66,10 @@
     "rule_label": "규칙",
     "freestyle": "자유형",
     "renju": "렌주",
-    "renju_foul_title": "흑 반칙!",
-    "renju_foul_sub": "흑이 렌주 금수를 범하여 백의 승리입니다.",
-    "ai_foul_title": "AI 반칙!",
-    "ai_foul_sub": "AI가 렌주 금수를 범하여 당신의 승리입니다!",
-    "renju_foul_you": "반칙 ({foul}) — 백 승리!",
-    "renju_foul_ai": "AI 반칙 ({foul}) — 당신의 승리!",
-    "renju_foul_pvp": "흑 반칙 ({foul}) — 백 승리!"
+    "foul_warning_title": "금수 경고",
+    "renju_warn_overline": "장목 금수, 흑은 이 위치에 둘 수 없습니다",
+    "renju_warn_doubleThree": "삼삼 금수, 흑은 이 위치에 둘 수 없습니다",
+    "renju_warn_doubleFour": "사사 금수, 흑은 이 위치에 둘 수 없습니다"
   },
   "rules": {
     "title": "오목 플레이 방법",

@@ -118,6 +118,7 @@ function playLoseSound() {
 // INITIALIZATION
 // ============================================================
 document.addEventListener('DOMContentLoaded', function () {
+  try {
   var hasGame = false;
 
   canvas = document.getElementById('gomokuBoard');
@@ -128,8 +129,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupCanvas();
     setupCanvasEvents();
-    initGame();
     setupUI();
+    initGame();
     hasGame = true;
 
     window.addEventListener('resize', function () {
@@ -215,6 +216,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     observer.observe(sentinel);
   })();
+  } catch(e) { console.error('Gomoku init error:', e); alert('Init error: ' + e.message); }
 });
 
 // ============================================================
@@ -733,20 +735,14 @@ function placeStone(row, col) {
   if (gameRule === 'renju' && currentPlayer === BLACK) {
     var foulType = checkRenjuFoul(row, col, BLACK);
     if (foulType) {
-      // Black committed a foul → loses immediately
-      renjuFoul = foulType;
-      gameOver = true;
-      winner = WHITE;
-      winLine = null;
+      // Foul move not allowed — undo and show warning
+      board[row][col] = EMPTY;
+      moveHistory.pop();
+      lastMove = moveHistory.length > 0 ? moveHistory[moveHistory.length - 1] : null;
+      stonesDirty = true;
       drawBoard();
-      scores.white++;
-      updateScores();
-      updateStatus();
-      setTimeout(function () {
-        showVictory('game.renju_foul_title', 'game.renju_foul_sub', 'lose');
-        playLoseSound();
-      }, 300);
-      return true;
+      showFoulWarning(foulType);
+      return false;
     }
   }
 
@@ -1052,23 +1048,14 @@ function doAIMove() {
       lastMove = { row: move.row, col: move.col };
       stonesDirty = true;
 
-      // Renju foul check for AI black
+      // Renju foul check for AI black (safety net; candidate moves should already filter)
       if (gameRule === 'renju' && aiColor === BLACK) {
         var aiFoulType = checkRenjuFoul(move.row, move.col, BLACK);
         if (aiFoulType) {
-          renjuFoul = aiFoulType;
-          gameOver = true;
-          winner = WHITE;
-          winLine = null;
-          drawBoard();
-          scores.white++;
-          updateScores();
-          updateStatus();
+          // Undo and skip — AI should not have chosen this move
+          board[move.row][move.col] = EMPTY;
+          moveHistory.pop();
           aiThinking = false;
-          setTimeout(function () {
-            showVictory('game.ai_foul_title', 'game.ai_foul_sub', 'win');
-            playWinSound();
-          }, 300);
           return;
         }
       }
@@ -2366,53 +2353,35 @@ function hasJumpThree(row, col, dr, dc, player) {
 // ============================================================
 
 function setupUI() {
+  // Helper: safe addEventListener
+  function _on(id, event, fn) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener(event, fn);
+  }
+
   // Mode buttons
-  document.getElementById('btnPvE').addEventListener('click', function () {
-    switchMode('pve');
-  });
-  document.getElementById('btnPvP').addEventListener('click', function () {
-    switchMode('pvp');
-  });
+  _on('btnPvE', 'click', function () { switchMode('pve'); });
+  _on('btnPvP', 'click', function () { switchMode('pvp'); });
 
   // Difficulty buttons
-  document.getElementById('btnEasy').addEventListener('click', function () {
-    switchDifficulty('easy');
-  });
-  document.getElementById('btnMedium').addEventListener('click', function () {
-    switchDifficulty('medium');
-  });
-  document.getElementById('btnHard').addEventListener('click', function () {
-    switchDifficulty('hard');
-  });
-  document.getElementById('btnMaster').addEventListener('click', function () {
-    switchDifficulty('master');
-  });
+  _on('btnEasy', 'click', function () { switchDifficulty('easy'); });
+  _on('btnMedium', 'click', function () { switchDifficulty('medium'); });
+  _on('btnHard', 'click', function () { switchDifficulty('hard'); });
+  _on('btnMaster', 'click', function () { switchDifficulty('master'); });
 
   // Color buttons
-  document.getElementById('btnBlack').addEventListener('click', function () {
-    switchColor(BLACK);
-  });
-  document.getElementById('btnWhite').addEventListener('click', function () {
-    switchColor(WHITE);
-  });
+  _on('btnBlack', 'click', function () { switchColor(BLACK); });
+  _on('btnWhite', 'click', function () { switchColor(WHITE); });
 
   // Action buttons
-  document.getElementById('btnUndo').addEventListener('click', undoMove);
-  document.getElementById('btnRestart').addEventListener('click', resetGame);
-  document.getElementById('btnSound').addEventListener('click', toggleSound);
-  document.getElementById('btnPlayAgain').addEventListener('click', resetGame);
+  _on('btnUndo', 'click', undoMove);
+  _on('btnRestart', 'click', resetGame);
+  _on('btnSound', 'click', toggleSound);
+  _on('btnPlayAgain', 'click', resetGame);
 
   // Rule buttons (may not exist on all pages)
-  var btnFreestyle = document.getElementById('btnFreestyle');
-  var btnRenju = document.getElementById('btnRenju');
-  if (btnFreestyle) {
-    btnFreestyle.addEventListener('click', function () { switchRule('freestyle'); });
-  }
-  if (btnRenju) {
-    btnRenju.addEventListener('click', function () { switchRule('renju'); });
-  }
-
-
+  _on('btnFreestyle', 'click', function () { switchRule('freestyle'); });
+  _on('btnRenju', 'click', function () { switchRule('renju'); });
 }
 
 
@@ -2531,14 +2500,63 @@ function updateUI() {
   updateScores();
 }
 
-  // Helper: get translated string via window.__t (safe fallback to English)
-  function _t(key, en) {
-    if (typeof window.__t === 'function') {
-      var v = window.__t(key);
-      if (v !== key) return v;
-    }
-    return en || key;
+
+// ============================================================
+// TRANSLATION HELPERS (used by game functions)
+// ============================================================
+
+// Helper: get translated string via window.__t (safe fallback to English)
+function _t(key, en) {
+  if (typeof window.__t === 'function') {
+    var v = window.__t(key);
+    if (v !== key) return v;
   }
+  return en || key;
+}
+
+// Show Renju foul warning (visible toast + status bar highlight)
+var _foulWarningTimer = null;
+function showFoulWarning(foulType) {
+  var text = document.getElementById('statusText');
+  var toast = document.getElementById('renjuFoulToast');
+  var backdrop = document.getElementById('renjuFoulBackdrop');
+  // Cancel any previous warning timer
+  if (_foulWarningTimer) { clearTimeout(_foulWarningTimer); _foulWarningTimer = null; }
+
+  var foulKeys = {
+    'overline':   'game.renju_warn_overline',
+    'doubleThree': 'game.renju_warn_doubleThree',
+    'doubleFour':  'game.renju_warn_doubleFour'
+  };
+  var key = foulKeys[foulType] || 'game.foul_warning_title';
+
+  // Get translated strings via window.__t directly (skip _t wrapper for reliability)
+  var hasT = typeof window.__t === 'function';
+  var label  = hasT ? window.__t('game.foul_warning_title', 'Foul Not Allowed') : 'Foul Not Allowed';
+  var detail = hasT ? window.__t(key, 'This move is forbidden for Black') : 'This move is forbidden for Black';
+  var msg = label + ': ' + detail;
+
+  // 1) Update status bar text
+  if (text) {
+    text.textContent = msg;
+    text.classList.add('warning');
+  }
+  // 2) Show popup overlay (fixed center, always visible regardless of scroll)
+  if (backdrop) { backdrop.classList.add('show'); }
+  if (toast) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+  }
+
+  // Restore normal status after 2.5 seconds
+  _foulWarningTimer = setTimeout(function () {
+    _foulWarningTimer = null;
+    if (text) text.classList.remove('warning');
+    if (toast) toast.classList.remove('show');
+    if (backdrop) backdrop.classList.remove('show');
+    updateStatus();
+  }, 2500);
+}
 
 function updateStatus() {
   var dot = document.getElementById('statusDot');
@@ -2552,19 +2570,7 @@ function updateStatus() {
   }
 
   if (gameOver) {
-    if (renjuFoul) {
-      var foulLabels = { 'overline': 'Overline', 'doubleThree': 'Double-Three', 'doubleFour': 'Double-Four' };
-      var foulName = foulLabels[renjuFoul] || renjuFoul;
-      if (gameMode === 'pve') {
-        if (humanColor === BLACK) {
-          text.textContent = _t('game.renju_foul_you', 'Foul ({foul}) — White wins!').replace('{foul}', foulName);
-        } else {
-          text.textContent = _t('game.renju_foul_ai', 'AI fouled ({foul}) — You win!').replace('{foul}', foulName);
-        }
-      } else {
-        text.textContent = _t('game.renju_foul_pvp', 'Black fouled ({foul}) — White wins!').replace('{foul}', foulName);
-      }
-    } else if (winner) {
+    if (winner) {
       if (gameMode === 'pve') {
         if (winner === humanColor) {
           text.textContent = _t('game.you_win', 'You win! \u2014 Nice game');
@@ -2659,10 +2665,10 @@ function showVictory(titleKey, subtitleKey, type) {
       'game.great_game_sub': 'Great game!',
       'game.draw_title': "It's a Draw!",
       'game.draw_sub': 'The board is full. Well played!',
-      'game.renju_foul_title': 'Black Foul!',
-      'game.renju_foul_sub': 'Black violated a Renju restriction. White wins.',
-      'game.ai_foul_title': 'AI Foul!',
-      'game.ai_foul_sub': 'AI violated a Renju restriction. You win!'
+      'game.renju_warn_overline': 'Overline is forbidden for Black',
+      'game.renju_warn_doubleThree': 'Double-Three is forbidden for Black',
+      'game.renju_warn_doubleFour': 'Double-Four is forbidden for Black',
+      'game.foul_warning_title': 'Foul Not Allowed'
     },
     'zh-CN': {
       'game.you_win_title': '你赢了！',
@@ -2674,10 +2680,10 @@ function showVictory(titleKey, subtitleKey, type) {
       'game.great_game_sub': '精彩的比赛！',
       'game.draw_title': '平局！',
       'game.draw_sub': '棋盘已满。比赛精彩！',
-      'game.renju_foul_title': '黑棋犯规！',
-      'game.renju_foul_sub': '黑棋触犯了连珠禁手规则，白棋获胜。',
-      'game.ai_foul_title': 'AI 犯规！',
-      'game.ai_foul_sub': 'AI 触犯了连珠禁手规则，你赢了！'
+      'game.renju_warn_overline': '长连禁手，黑棋不可下此位置',
+      'game.renju_warn_doubleThree': '三三禁手，黑棋不可下此位置',
+      'game.renju_warn_doubleFour': '四四禁手，黑棋不可下此位置',
+      'game.foul_warning_title': '禁手提示'
     }
   };
 
