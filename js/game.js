@@ -946,7 +946,40 @@ function getGridFromPixel(px, py) {
 }
 
 function setupCanvasEvents() {
-  canvas.addEventListener('click', function (e) {
+  // Unified pointer interaction: track movement to distinguish tap vs scroll
+  var _ptrStartX = null;
+  var _ptrStartY = null;
+  var _ptrMoved = false;
+  var _ptrTAP_THRESHOLD = 8; // px — movement below this is a tap
+
+  canvas.addEventListener('pointerdown', function (e) {
+    _ptrStartX = e.clientX;
+    _ptrStartY = e.clientY;
+    _ptrMoved = false;
+    // Suppress ghost-stone hover during pointer interaction
+    hoverRow = null;
+    hoverCol = null;
+    drawOverlay();
+  });
+
+  canvas.addEventListener('pointermove', function (e) {
+    if (_ptrStartX === null) return;
+    var dx = e.clientX - _ptrStartX;
+    var dy = e.clientY - _ptrStartY;
+    if (Math.abs(dx) > _ptrTAP_THRESHOLD || Math.abs(dy) > _ptrTAP_THRESHOLD) {
+      _ptrMoved = true;
+    }
+  });
+
+  canvas.addEventListener('pointerup', function (e) {
+    if (_ptrMoved || _ptrStartX === null) {
+      // Was a scroll / drag — do NOT place a stone
+      _ptrStartX = null;
+      _ptrStartY = null;
+      return;
+    }
+    _ptrStartX = null;
+    _ptrStartY = null;
     var pos = getCanvasPos(e);
     var grid = getGridFromPixel(pos.x, pos.y);
     if (grid) {
@@ -954,16 +987,19 @@ function setupCanvasEvents() {
     }
   });
 
-  // Touch events for mobile
-  canvas.addEventListener('touchstart', function (e) {
-    e.preventDefault();
-    var touch = e.touches[0];
-    var pos = getCanvasPos(touch);
-    var grid = getGridFromPixel(pos.x, pos.y);
-    if (grid) {
-      placeStone(grid.row, grid.col);
-    }
-  }, { passive: false });
+  canvas.addEventListener('pointercancel', function () {
+    _ptrStartX = null;
+    _ptrStartY = null;
+  });
+
+  canvas.addEventListener('pointerleave', function () {
+    _ptrStartX = null;
+    _ptrStartY = null;
+    hoverRow = null;
+    hoverCol = null;
+    stopHoverAnim();
+    drawOverlay();
+  });
 
   // Hover cursor feedback + ghost stone preview
   canvas.addEventListener('mousemove', function (e) {
