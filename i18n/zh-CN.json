@@ -64,7 +64,17 @@
     "great_game_sub": "精彩的比赛！",
     "draw_title": "平局！",
     "draw_sub": "棋盘已满。比赛精彩！",
-    "controls_title": "游戏控制"
+    "controls_title": "游戏控制",
+    "rule_label": "规则集",
+    "freestyle": "自由式",
+    "renju": "连珠",
+    "renju_foul_title": "黑棋犯规！",
+    "renju_foul_sub": "黑棋触犯了连珠禁手规则，白棋获胜。",
+    "ai_foul_title": "AI 犯规！",
+    "ai_foul_sub": "AI 触犯了连珠禁手规则，你赢了！",
+    "renju_foul_you": "犯规（{foul}）— 白棋获胜！",
+    "renju_foul_ai": "AI 犯规（{foul}）— 你赢了！",
+    "renju_foul_pvp": "黑棋犯规（{foul}）— 白棋获胜！"
   },
   "rules": {
     "title": "五子棋规则",

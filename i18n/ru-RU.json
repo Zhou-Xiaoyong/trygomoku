@@ -62,7 +62,17 @@
     "you_play_as": "Вы играете",
     "black_first": "Чёрные (первые)",
     "white_btn": "Белые",
-    "controls_title": "Управление"
+    "controls_title": "Управление",
+    "rule_label": "Правила",
+    "freestyle": "Свободный",
+    "renju": "Рэндзю",
+    "renju_foul_title": "Фол чёрных!",
+    "renju_foul_sub": "Чёрные нарушили правило рэндзю, побеждают белые.",
+    "ai_foul_title": "Фол ИИ!",
+    "ai_foul_sub": "ИИ нарушил правило рэндзю, вы победили!",
+    "renju_foul_you": "Фол ({foul}) — белые победили!",
+    "renju_foul_ai": "Фол ИИ ({foul}) — вы победили!",
+    "renju_foul_pvp": "Фол чёрных ({foul}) — белые победили!"
   },
   "rules": {
     "title": "Как играть в Гомоку",

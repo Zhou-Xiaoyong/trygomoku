@@ -210,6 +210,15 @@
               </div>
             </div>
 
+            <!-- Rule Set -->
+            <div class="control-group" id="ruleGroup">
+              <span class="control-label" data-i18n="game.rule_label">Rule Set</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Rule set">
+                <button class="toggle-btn active" data-rule="freestyle" role="radio" aria-checked="true" id="btnFreestyle" data-i18n="game.freestyle">Freestyle</button>
+                <button class="toggle-btn" data-rule="renju" role="radio" aria-checked="false" id="btnRenju" data-i18n="game.renju">Renju</button>
+              </div>
+            </div>
+
             <!-- Difficulty -->
             <div class="control-group" id="difficultyGroup">
               <span class="control-label" data-i18n="game.difficulty_label">Difficulty</span>
@@ -267,7 +276,7 @@
             <div class="step-number">3</div>
             <div class="step-content">
               <h3 data-i18n="rules.win_title">Winning the Game</h3>
-              <p>To win, be the first to form an <strong>unbroken line of five (or more) stones</strong> in any direction &mdash; <strong>horizontal, vertical, or diagonal</strong>. That&rsquo;s it!</p>
+              <p>In <strong>Freestyle</strong> mode, the first player to form an unbroken line of <strong>five or more stones</strong> wins. In <strong>Renju</strong> mode, White can win with five or more, but Black must form <strong>exactly five</strong> — Black also faces <strong>foul restrictions</strong> (no double-threes, double-fours, or overlines) to balance the first-move advantage.</p>
             </div>
           </div>
           <div class="rule-step">
@@ -500,7 +509,7 @@
           <details class="faq-item">
             <summary>What is Renju?</summary>
             <div class="faq-answer">
-              <p>Renju is a professional variant of Gomoku developed in Japan to balance the first-player advantage. In Renju, <strong>Black has additional restrictions</strong> (such as not being allowed to create certain patterns like double-threes or double-fours), while White can win normally. This makes the game more balanced at high levels of play.</p>
+              <p>Renju is a professional variant of Gomoku developed in Japan to balance the first-player advantage. In Renju, <strong>Black has additional restrictions</strong>: no double-threes (三三禁手), no double-fours (四四禁手), and no overlines of 6+ stones (长连禁手). White wins normally. <strong>You can play Renju mode right here</strong> — just switch the Rule Set toggle above to &ldquo;Renju.&rdquo;</p>
             </div>
           </details>
 

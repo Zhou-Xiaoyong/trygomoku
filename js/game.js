@@ -30,6 +30,8 @@ const DIRECTIONS = [
 let board;           // 2D array [BOARD_SIZE][BOARD_SIZE] = EMPTY|BLACK|WHITE
 let moveHistory;     // [ {row, col, player} ]
 let currentPlayer;   // BLACK or WHITE
+let gameRule;       // 'freestyle' | 'renju'
+let renjuFoul;      // null | 'overline' | 'doubleThree' | 'doubleFour'
 let gameMode;        // 'pve' or 'pvp'
 let difficulty;      // 'easy' | 'medium' | 'hard' | 'master'
 let humanColor;      // BLACK or WHITE
@@ -662,6 +664,7 @@ function drawWinLine() {
 function initPreferences() {
   // Set defaults ONLY on first page load — not on reset
   gameMode  = 'pve';
+  gameRule  = 'freestyle';
   difficulty = 'medium';
   humanColor = BLACK;
   aiColor   = WHITE;
@@ -683,6 +686,7 @@ function resetBoard() {
   winLine = null;
   lastMove = null;
   aiThinking = false;
+  renjuFoul = null;
   hoverRow = null;
   hoverCol = null;
   stonesDirty = true;
@@ -724,6 +728,27 @@ function placeStone(row, col) {
   hoverCol = null;
   stopHoverAnim();
   addStoneToCache(row, col, currentPlayer);
+
+  // Renju foul check — only for BLACK in Renju mode
+  if (gameRule === 'renju' && currentPlayer === BLACK) {
+    var foulType = checkRenjuFoul(row, col, BLACK);
+    if (foulType) {
+      // Black committed a foul → loses immediately
+      renjuFoul = foulType;
+      gameOver = true;
+      winner = WHITE;
+      winLine = null;
+      drawBoard();
+      scores.white++;
+      updateScores();
+      updateStatus();
+      setTimeout(function () {
+        showVictory('game.renju_foul_title', 'game.renju_foul_sub', 'lose');
+        playLoseSound();
+      }, 300);
+      return true;
+    }
+  }
 
   // Check win
   var winResult = checkWin(row, col, currentPlayer);
@@ -822,8 +847,17 @@ function checkWin(row, col, player) {
       }
     }
 
-    if (count >= 5) {
-      return cells;
+    // In Renju mode, BLACK can only win with exactly 5 (overline=6+ is a foul)
+    // WHITE wins normally with 5+ in both modes
+    if (gameRule === 'renju' && player === BLACK) {
+      if (count === 5) {
+        return cells;
+      }
+      // count > 5 → overline, handled as foul elsewhere
+    } else {
+      if (count >= 5) {
+        return cells;
+      }
     }
   }
   return null;
@@ -1017,6 +1051,27 @@ function doAIMove() {
       moveHistory.push({ row: move.row, col: move.col, player: aiColor });
       lastMove = { row: move.row, col: move.col };
       stonesDirty = true;
+
+      // Renju foul check for AI black
+      if (gameRule === 'renju' && aiColor === BLACK) {
+        var aiFoulType = checkRenjuFoul(move.row, move.col, BLACK);
+        if (aiFoulType) {
+          renjuFoul = aiFoulType;
+          gameOver = true;
+          winner = WHITE;
+          winLine = null;
+          drawBoard();
+          scores.white++;
+          updateScores();
+          updateStatus();
+          aiThinking = false;
+          setTimeout(function () {
+            showVictory('game.ai_foul_title', 'game.ai_foul_sub', 'win');
+            playWinSound();
+          }, 300);
+          return;
+        }
+      }
 
       var winResult = checkWin(move.row, move.col, aiColor);
       if (winResult) {
@@ -1597,6 +1652,14 @@ function getCandidateMoves(player) {
       var densityBonus = neighborDensity * 1.5;
       var score = attackScore + defenseScore * 0.95 + centerBonus + densityBonus;
 
+      // Renju: penalize foul moves for BLACK
+      if (gameRule === 'renju' && player === BLACK) {
+        var foulType = checkRenjuFoul(r, c, BLACK);
+        if (foulType) {
+          score = -999999; // effectively removes this move
+        }
+      }
+
       moves.push({ row: r, col: c, score: score });
     }
   }
@@ -2158,6 +2221,147 @@ function countPattern(row, col, dr, dc, player) {
 }
 
 // ============================================================
+// RENJU (连珠) FOUL DETECTION
+// ============================================================
+
+/**
+ * Master foul check for Renju rules.
+ * Returns null if no foul, or the foul type string.
+ * Only BLACK can foul in Renju. WHITE has no restrictions.
+ */
+function checkRenjuFoul(row, col, player) {
+  if (player !== BLACK || gameRule !== 'renju') return null;
+
+  // 1. Overline (长连禁手): 6+ consecutive stones
+  if (isOverline(row, col, player)) return 'overline';
+
+  // 2. Double-four (四四禁手): two independent fours
+  if (isDoubleFour(row, col, player)) return 'doubleFour';
+
+  // 3. Double-three (三三禁手): two independent live threes
+  if (isDoubleThree(row, col, player)) return 'doubleThree';
+
+  return null;
+}
+
+/**
+ * Check if placing at (row,col) creates 6+ consecutive stones.
+ */
+function isOverline(row, col, player) {
+  for (var d = 0; d < DIRECTIONS.length; d++) {
+    var pat = countPattern(row, col, DIRECTIONS[d][0], DIRECTIONS[d][1], player);
+    if (pat.count >= 6) return true;
+  }
+  return false;
+}
+
+/**
+ * Check if placing at (row,col) creates two or more "fours".
+ * A "four" = 4+ consecutive stones with at least one open end.
+ */
+function isDoubleFour(row, col, player) {
+  var fourCount = 0;
+  for (var d = 0; d < DIRECTIONS.length; d++) {
+    var pat = countPattern(row, col, DIRECTIONS[d][0], DIRECTIONS[d][1], player);
+    if (pat.count >= 4 && pat.openEnds >= 1) {
+      fourCount++;
+    }
+  }
+  return fourCount >= 2;
+}
+
+/**
+ * Check if placing at (row,col) creates two or more "live threes".
+ * A live three can become an open four on the next move.
+ * Two types: connected (_XXX_) and one-gap (_XX_X or _X_XX).
+ */
+function isDoubleThree(row, col, player) {
+  var threeCount = 0;
+
+  for (var d = 0; d < DIRECTIONS.length; d++) {
+    var dr = DIRECTIONS[d][0], dc = DIRECTIONS[d][1];
+
+    // 1. Connected live three: exactly 3 consecutive, both ends open
+    var pat = countPattern(row, col, dr, dc, player);
+    if (pat.count === 3 && pat.openEnds === 2) {
+      threeCount++;
+      continue;
+    }
+
+    // 2. One-gap live three (jump pattern)
+    if (hasJumpThree(row, col, dr, dc, player)) {
+      threeCount++;
+    }
+  }
+
+  return threeCount >= 2;
+}
+
+/**
+ * Check if there's a one-gap live three in a specific direction.
+ * Pattern: user has 3 stones with one 1-cell gap in a 5-cell span,
+ * and can fill the gap to create an open four.
+ * Valid patterns: _XX_X_, _X_XX_ (both ends open).
+ */
+function hasJumpThree(row, col, dr, dc, player) {
+  // Build 5-cell windows that include (row,col)
+  // Window start offset from -2 to 0 (so row,col is inside the window)
+  for (var start = -2; start <= 0; start++) {
+    if (start + 4 > 4) continue; // center offset max in this impl
+
+    var cells = [];
+    var boundsOk = true;
+    for (var k = 0; k < 5; k++) {
+      var r = row + dr * (start + k);
+      var c = col + dc * (start + k);
+      if (r >= 0 && r < BOARD_SIZE && c >= 0 && c < BOARD_SIZE) {
+        cells.push(board[r][c]);
+      } else {
+        boundsOk = false;
+        break;
+      }
+    }
+    if (!boundsOk) continue;
+
+    var pStones = 0, pEmpty = 0, opponent = 0;
+    for (var ki = 0; ki < 5; ki++) {
+      if (cells[ki] === player) pStones++;
+      else if (cells[ki] === EMPTY) pEmpty++;
+      else opponent++;
+    }
+
+    if (pStones !== 3 || pEmpty !== 2 || opponent !== 0) continue;
+
+    // Check jump patterns: XX_X_ or _XX_X or X_XX_ or _X_XX
+    // Pattern where one empty is the "gap" between stones
+    var isJump = false;
+    if (cells[0] === player && cells[1] === player && cells[2] === EMPTY && cells[3] === player) isJump = true;
+    if (cells[1] === player && cells[2] === player && cells[3] === EMPTY && cells[4] === player) isJump = true;
+    if (cells[0] === player && cells[1] === EMPTY && cells[2] === player && cells[3] === player) isJump = true;
+    if (cells[1] === player && cells[2] === EMPTY && cells[3] === player && cells[4] === player) isJump = true;
+
+    if (!isJump) continue;
+
+    // For a LIVE jump-three, both ends of the 5-cell must be empty
+    if (cells[0] !== EMPTY || cells[4] !== EMPTY) continue;
+
+    // Also check cells just outside: must be empty or boundary
+    var rBefore = row + dr * (start - 1);
+    var cBefore = col + dc * (start - 1);
+    var rAfter = row + dr * (start + 5);
+    var cAfter = col + dc * (start + 5);
+
+    var leftOpen = (rBefore < 0 || rBefore >= BOARD_SIZE || cBefore < 0 || cBefore >= BOARD_SIZE) ||
+                   (board[rBefore][cBefore] === EMPTY);
+    var rightOpen = (rAfter < 0 || rAfter >= BOARD_SIZE || cAfter < 0 || cAfter >= BOARD_SIZE) ||
+                    (board[rAfter][cAfter] === EMPTY);
+
+    if (leftOpen && rightOpen) return true;
+  }
+  return false;
+}
+
+// ============================================================
 // UI HANDLERS
 // ============================================================
 
@@ -2197,6 +2401,16 @@ function setupUI() {
   document.getElementById('btnRestart').addEventListener('click', resetGame);
   document.getElementById('btnSound').addEventListener('click', toggleSound);
   document.getElementById('btnPlayAgain').addEventListener('click', resetGame);
+
+  // Rule buttons (may not exist on all pages)
+  var btnFreestyle = document.getElementById('btnFreestyle');
+  var btnRenju = document.getElementById('btnRenju');
+  if (btnFreestyle) {
+    btnFreestyle.addEventListener('click', function () { switchRule('freestyle'); });
+  }
+  if (btnRenju) {
+    btnRenju.addEventListener('click', function () { switchRule('renju'); });
+  }
 
 
 }
@@ -2252,6 +2466,25 @@ function switchColor(color) {
   resetGame();
 }
 
+function switchRule(rule) {
+  if (gameRule === rule) return;
+  gameRule = rule;
+
+  var btnFree = document.getElementById('btnFreestyle');
+  var btnRenju = document.getElementById('btnRenju');
+  if (btnFree) {
+    btnFree.classList.toggle('active', rule === 'freestyle');
+    btnFree.setAttribute('aria-checked', rule === 'freestyle');
+  }
+  if (btnRenju) {
+    btnRenju.classList.toggle('active', rule === 'renju');
+    btnRenju.setAttribute('aria-checked', rule === 'renju');
+  }
+
+  renjuFoul = null;
+  resetGame();
+}
+
 function toggleSound() {
   soundEnabled = !soundEnabled;
   var btn = document.getElementById('btnSound');
@@ -2277,6 +2510,17 @@ function updateUI() {
   document.getElementById('btnMaster').classList.toggle('active', difficulty === 'master');
   document.getElementById('btnBlack').classList.toggle('active', humanColor === BLACK);
   document.getElementById('btnWhite').classList.toggle('active', humanColor === WHITE);
+
+  var btnFreestyle = document.getElementById('btnFreestyle');
+  var btnRenju = document.getElementById('btnRenju');
+  if (btnFreestyle) {
+    btnFreestyle.classList.toggle('active', gameRule === 'freestyle');
+    btnFreestyle.setAttribute('aria-checked', gameRule === 'freestyle');
+  }
+  if (btnRenju) {
+    btnRenju.classList.toggle('active', gameRule === 'renju');
+    btnRenju.setAttribute('aria-checked', gameRule === 'renju');
+  }
 
   var isPvP = gameMode === 'pvp';
   var diffBtns = document.querySelectorAll('#difficultyGroup .toggle-btn, #colorGroup .toggle-btn');
@@ -2308,7 +2552,19 @@ function updateStatus() {
   }
 
   if (gameOver) {
-    if (winner) {
+    if (renjuFoul) {
+      var foulLabels = { 'overline': 'Overline', 'doubleThree': 'Double-Three', 'doubleFour': 'Double-Four' };
+      var foulName = foulLabels[renjuFoul] || renjuFoul;
+      if (gameMode === 'pve') {
+        if (humanColor === BLACK) {
+          text.textContent = _t('game.renju_foul_you', 'Foul ({foul}) — White wins!').replace('{foul}', foulName);
+        } else {
+          text.textContent = _t('game.renju_foul_ai', 'AI fouled ({foul}) — You win!').replace('{foul}', foulName);
+        }
+      } else {
+        text.textContent = _t('game.renju_foul_pvp', 'Black fouled ({foul}) — White wins!').replace('{foul}', foulName);
+      }
+    } else if (winner) {
       if (gameMode === 'pve') {
         if (winner === humanColor) {
           text.textContent = _t('game.you_win', 'You win! \u2014 Nice game');
@@ -2402,7 +2658,11 @@ function showVictory(titleKey, subtitleKey, type) {
       'game.white_wins_title': 'White Wins!',
       'game.great_game_sub': 'Great game!',
       'game.draw_title': "It's a Draw!",
-      'game.draw_sub': 'The board is full. Well played!'
+      'game.draw_sub': 'The board is full. Well played!',
+      'game.renju_foul_title': 'Black Foul!',
+      'game.renju_foul_sub': 'Black violated a Renju restriction. White wins.',
+      'game.ai_foul_title': 'AI Foul!',
+      'game.ai_foul_sub': 'AI violated a Renju restriction. You win!'
     },
     'zh-CN': {
       'game.you_win_title': '你赢了！',
@@ -2413,7 +2673,11 @@ function showVictory(titleKey, subtitleKey, type) {
       'game.white_wins_title': '白棋获胜！',
       'game.great_game_sub': '精彩的比赛！',
       'game.draw_title': '平局！',
-      'game.draw_sub': '棋盘已满。比赛精彩！'
+      'game.draw_sub': '棋盘已满。比赛精彩！',
+      'game.renju_foul_title': '黑棋犯规！',
+      'game.renju_foul_sub': '黑棋触犯了连珠禁手规则，白棋获胜。',
+      'game.ai_foul_title': 'AI 犯规！',
+      'game.ai_foul_sub': 'AI 触犯了连珠禁手规则，你赢了！'
     }
   };
 
