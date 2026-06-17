@@ -12,13 +12,13 @@
 /*.html
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-# CSS — long cache, immutable
+# CSS — moderate cache, CDN handles versioning per deployment
 /css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
-# JS — long cache, immutable
+# JS — moderate cache, CDN handles versioning per deployment
 /js/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 # Images — long cache
 /*.png
