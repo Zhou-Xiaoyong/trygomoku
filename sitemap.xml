@@ -32,9 +32,15 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/blog/advanced-gomoku-strategy.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/about.html</loc>

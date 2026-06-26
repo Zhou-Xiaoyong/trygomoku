@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Strategy 201: Live Threes, Double Threats, and VCF | Gomoku Blog</title>
+  <meta name="description" content="Learn advanced Gomoku strategy: live threes, live fours, double threats, and VCF. These four ideas are what separate casual players from people who actually win.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/advanced-gomoku-strategy.html">
+
+  <meta property="og:title" content="Gomoku Strategy 201: Live Threes, Double Threats, and VCF">
+  <meta property="og:description" content="Learn advanced Gomoku strategy: live threes, live fours, double threats, and VCF. These ideas separate casual players from people who actually win.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/advanced-gomoku-strategy.html">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Strategy 201: Live Threes, Double Threats, and VCF">
+  <meta name="twitter:description" content="Learn advanced Gomoku strategy: live threes, live fours, double threats, and VCF. The ideas that separate casual players from winners.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html#game">Play</a></li>
+        <li><a href="../index.html#rules">Rules</a></li>
+        <li><a href="../index.html#strategy">Strategy</a></li>
+        <li><a href="../index.html#history">History</a></li>
+        <li><a href="index.html" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Strategy 201: Live Threes, Double Threats, and VCF</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-06-26">June 26, 2026</time>
+            <span class="blog-read-time">7 min read</span>
+          </div>
+        </header>
+
+        <div class="article-body" itemprop="articleBody">
+
+          <p>You know the rules: get five in a row. But if you've played more than a few games, you've probably noticed that some people win way more often than luck would allow. They aren't guessing. They see threats the rest of us miss, and they build positions that quietly force a win.</p>
+
+          <p>The good news is that the difference between "I know the rules" and "I actually win" is only about four ideas. If you can read a live three, spot a live four, set up a double threat, and understand VCF, you'll stop being a victim and start being the problem.</p>
+
+          <h2>Live threes and live fours: the only shapes that really matter</h2>
+
+          <p>A <strong>live three</strong> is a line of three stones with open space on both ends. It looks harmless when you first place it, but it isn't. If your opponent ignores it, you extend it to a live four on one side. If they block that side, you extend it on the other. They can only block one direction, so a live three is basically a promise that you will get a live four next turn.</p>
+
+          <p>A <strong>live four</strong> is even nastier. It's four stones in a row with both ends open. The defender has to block one end. You play at the other end and win. There is no clean defense against a live four unless you already saw it coming two moves earlier.</p>
+
+          <p>This is why beginners lose so fast. They build dead shapes — three-in-a-row with one end blocked, or four-in-a-row with only one open end. Those look scary but they aren't lethal. The whole game is really about creating live shapes and forcing your opponent to react to them. If you want to train your eye, our <a href="pattern-recognition-gomoku.html">pattern recognition guide</a> walks through the exact shapes to look for.</p>
+
+          <h2>Double threats: attacking two places at once</h2>
+
+          <p>Here's where Gomoku gets fun. A <strong>double threat</strong> is a single move that creates two different winning threats at the same time. Usually that means two live threes that intersect, or a live four and a live three that share one stone. Your opponent can only block one, so you win on the next move.</p>
+
+          <p>The classic example is the fork: you place a stone that completes a live three horizontally and another live three vertically. Your opponent blocks one, you extend the other to a live four, and they can't block both ends. It's the cleanest way to end a game.</p>
+
+          <p>Strong players don't wait for double threats to appear by accident. They build them. They set up positions where one stone can unlock two threats, then they play that stone and collect the win. Once you start looking for these, you'll see games end in fifteen moves instead of fifty.</p>
+
+          <h2>VCF: the forcing sequence that wins games</h2>
+
+          <p>VCF stands for <em>Victory by Continuous Fours</em>. It's a fancy name for a very practical idea: you keep creating live fours, your opponent keeps blocking them, and eventually they run out of blocks and you win.</p>
+
+          <p>Imagine you have a position where you can play a stone that creates a live four. They block it. But the blocking move also sets up a new live four for you somewhere else. They block that. Then another. Each block is forced, and eventually they have to choose between two simultaneous threats. That's VCF — a chain of forced moves that ends the game.</p>
+
+          <p>The Master AI on <a href="../index.html">TryGomoku</a> uses this kind of search. It doesn't just look at the board; it looks at sequences of threats and blocks. If you want to see how far you can push a human player, try setting up a VCF against the Hard AI. Our <a href="beat-gomoku-ai.html">guide to beating the AI</a> explains how each difficulty handles these tactics differently.</p>
+
+          <p>One warning: VCF only works if your opponent has no counter-threat. If they can make a live four of their own while blocking yours, your whole sequence falls apart. Always check both sides of the board before you commit to a forcing attack.</p>
+
+          <h2>How to practice this without memorizing theory</h2>
+
+          <p>You don't need to memorize dozens of patterns. You just need to ask two questions after every move: "What live shapes did I just create?" and "What live shapes did my opponent just create?" If you do that for ten games, your eyes will start to see threats automatically.</p>
+
+          <p>Start by playing against the Medium AI and forcing yourself to find one live three per move. Not every move has to be a live three, but you should be able to point to a threat. Once that's comfortable, move up to Hard and look for double threats. The Master level will teach you humility, but it will also show you what clean VCF sequences look like in real games.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Put these tactics to the test</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Open a game on TryGomoku, pick a difficulty, and try to build one live three on purpose. Then see if you can turn it into a double threat. The board is waiting.</p>
+            <a href="../index.html#game" class="cta-btn">Play Gomoku Online</a>
+          </div>
+
+        </div><!-- /article-body -->
+      </div><!-- /container -->
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html#game">Play Game</a></li>
+            <li><a href="../index.html#rules">Rules</a></li>
+            <li><a href="../index.html#strategy">Strategy</a></li>
+            <li><a href="../index.html#history">History</a></li>
+            <li><a href="index.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Site Info</h4>
+          <ul>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../index.html#game">Play Now</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/game.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Strategy 201: Live Threes, Double Threats, and VCF",
+    "description": "Learn advanced Gomoku strategy: live threes, live fours, double threats, and VCF. These four ideas are what separate casual players from people who actually win.",
+    "datePublished": "2026-06-26",
+    "dateModified": "2026-06-26",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/advanced-gomoku-strategy.html"}
+  }
+  </script>
+</body>
+</html>
