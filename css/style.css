@@ -249,6 +249,25 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
 
 .status-text.warning { color: #e74c3c; }
 
+/* AI depth indicator - shows calculation progress */
+.ai-depth-indicator {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 10px;
+  background: #e8f4f8;
+  border: 1px solid #4a90d9;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #2c5282;
+  font-weight: 600;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
 @keyframes foulPulse {
   0% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
   60% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }

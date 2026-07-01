@@ -176,6 +176,7 @@
             <div class="game-status" id="gameStatus">
               <span class="status-dot" id="statusDot"></span>
               <span class="status-text" id="statusText" data-i18n="game.your_turn">Your turn &mdash; Black</span>
+              <span class="ai-depth-indicator" id="aiDepthIndicator" style="display:none;"></span>
             </div>
             <div class="renju-foul-toast" id="renjuFoulToast"></div>
             <div class="renju-foul-backdrop" id="renjuFoulBackdrop"></div>
@@ -579,15 +580,15 @@
   <script src="js/game.js"></script>
 
   <!-- Victory Overlay -->
-  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true">
-    <div class="victory-card" id="victoryCard">
+  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true" role="dialog" aria-labelledby="victoryTitle" aria-describedby="victorySubtitle">
+    <div class="victory-card" id="victoryCard" role="document">
       <div class="victory-icon-wrap" id="victoryIconWrap">
         <div class="victory-icon" id="victoryIcon">&#9733;</div>
         <div class="star-burst" id="starBurst"></div>
       </div>
       <div class="victory-title" id="victoryTitle" role="heading" aria-level="2"></div>
       <p class="victory-subtitle" id="victorySubtitle"></p>
-      <button class="cta-btn" id="btnPlayAgain">Play Again</button>
+      <button class="cta-btn" id="btnPlayAgain" aria-label="Start a new game">Play Again</button>
     </div>
   </div>
 </body>

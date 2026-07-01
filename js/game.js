@@ -45,6 +45,33 @@ let soundEnabled;    // boolean
 let aiThinking;      // boolean - prevent input while AI is computing
 
 // ============================================================
+// AI PERFORMANCE: Transposition Table & Opening Book
+// ============================================================
+let transpositionTable = {};  // Cache for evaluated board states
+let aiSearchDepth = 0;        // Current search depth for UI feedback
+
+// Common Gomoku openings (first 3 moves for Black)
+// Format: { center_move, suggested_responses }
+const OPENING_BOOK = {
+  // Direct opening (天元直指)
+  '7,7': [
+    { row: 7, col: 8, name: 'Horizontal extension' },
+    { row: 8, col: 7, name: 'Vertical extension' },
+    { row: 8, col: 8, name: 'Diagonal extension' },
+    { row: 6, col: 6, name: 'Diagonal down-left' }
+  ],
+  // Indirect opening (斜指)
+  '7,8': [
+    { row: 7, col: 7, name: 'Center approach' },
+    { row: 8, col: 7, name: 'Vertical block' }
+  ],
+  '8,7': [
+    { row: 7, col: 7, name: 'Center approach' },
+    { row: 7, col: 8, name: 'Horizontal block' }
+  ]
+};
+
+// ============================================================
 // CANVAS STATE
 // ============================================================
 let canvas, ctx;
@@ -216,7 +243,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
     observer.observe(sentinel);
   })();
+
+  // ============================================================
+  // MOBILE MENU: prevent body scroll when menu is open
+  // ============================================================
+  if (navToggle && navLinks && siteNav) {
+    function openNavMenu() {
+      navLinks.classList.add('nav-open');
+      navToggle.classList.add('open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      siteNav.classList.add('menu-open');
+      document.body.style.overflow = 'hidden'; // prevent scroll
+    }
+
+    function closeNavMenu() {
+      navLinks.classList.remove('nav-open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      siteNav.classList.remove('menu-open');
+      document.body.style.overflow = ''; // restore scroll
+    }
+  }
+
   } catch(e) { console.error('Gomoku init error:', e); alert('Init error: ' + e.message); }
+});
+
+// ============================================================
+// CLEANUP: prevent memory leaks on page unload
+// ============================================================
+window.addEventListener('beforeunload', function () {
+  // Stop hover animation
+  stopHoverAnim();
+  
+  // Clear any pending foul warning timer
+  if (_foulWarningTimer) {
+    clearTimeout(_foulWarningTimer);
+    _foulWarningTimer = null;
+  }
+  
+  // Clear AI search deadline timeout if running
+  aiThinking = false;
+  
+  // Release audio context
+  if (audioCtx) {
+    audioCtx.close();
+    audioCtx = null;
+  }
 });
 
 // ============================================================
@@ -693,6 +765,9 @@ function resetBoard() {
   hoverCol = null;
   stonesDirty = true;
   stopHoverAnim();
+  
+  // Clear transposition table for new game
+  clearTranspositionTable();
 
   updateUI();
   drawBoard();
@@ -1062,10 +1137,30 @@ function setupCanvasEvents() {
 // AI LOGIC
 // ============================================================
 
+function showAIDepthIndicator(depth) {
+  var indicator = document.getElementById('aiDepthIndicator');
+  if (indicator) {
+    indicator.textContent = 'Depth: ' + depth;
+    indicator.style.display = 'inline-block';
+  }
+}
+
+function hideAIDepthIndicator() {
+  var indicator = document.getElementById('aiDepthIndicator');
+  if (indicator) {
+    indicator.style.display = 'none';
+  }
+}
+
 function doAIMove() {
   if (gameOver) return;
   aiThinking = true;
   updateStatus();
+  
+  // Show AI is thinking
+  if (difficulty === 'hard' || difficulty === 'master') {
+    showAIDepthIndicator('searching...');
+  }
 
   // Use setTimeout to avoid blocking UI
   setTimeout(function () {
@@ -1146,6 +1241,7 @@ function doAIMove() {
     }
 
     aiThinking = false;
+    hideAIDepthIndicator();  // Hide depth indicator after AI completes
     updateStatus();
   }, 50);
 }
@@ -1479,9 +1575,39 @@ function masterAI() {
   return { row: bestMove.row, col: bestMove.col };
 }
 
+// ============================================================
+// TRANSPOSITION TABLE: board hash for caching evaluations
+// ============================================================
+function getBoardHash() {
+  // Create a unique hash for current board state
+  // Uses move history for efficient hashing
+  return moveHistory.map(function(m) { 
+    return m.row + ',' + m.col + ':' + m.player; 
+  }).join('|');
+}
+
+// Clear transposition table when starting new game
+function clearTranspositionTable() {
+  transpositionTable = {};
+}
+
 function minimax(depth, alpha, beta, maximizing, player, limitCandidates) {
+  // Update current search depth for UI feedback
+  aiSearchDepth = depth;
+  
+  // Periodically update UI during search (every 100ms)
+  if (difficulty === 'master' && Date.now() % 100 < 10) {
+    showAIDepthIndicator(depth);
+  }
+  
   if (depth === 0) {
     return evaluateBoard();
+  }
+
+  // Check transposition table for cached result
+  var hash = getBoardHash() + ':' + depth + ':' + maximizing;
+  if (transpositionTable[hash]) {
+    return transpositionTable[hash];
   }
 
   var candidates = getCandidateMoves(player);
@@ -1490,6 +1616,7 @@ function minimax(depth, alpha, beta, maximizing, player, limitCandidates) {
   candidates.sort(function (a, b) { return b.score - a.score; });
   var limit = Math.min(limitCandidates || 10, candidates.length);
 
+  var result;
   if (maximizing) {
     var maxEval = -Infinity;
     for (var i = 0; i < limit; i++) {
@@ -1501,7 +1628,7 @@ function minimax(depth, alpha, beta, maximizing, player, limitCandidates) {
       alpha = Math.max(alpha, eval_);
       if (beta <= alpha) break;
     }
-    return maxEval;
+    result = maxEval;
   } else {
     var minEval = Infinity;
     for (var j = 0; j < limit; j++) {
@@ -1513,8 +1640,12 @@ function minimax(depth, alpha, beta, maximizing, player, limitCandidates) {
       beta = Math.min(beta, eval2);
       if (beta <= alpha) break;
     }
-    return minEval;
+    result = minEval;
   }
+
+  // Cache result in transposition table
+  transpositionTable[hash] = result;
+  return result;
 }
 
 function evaluateBoard() {
@@ -2049,8 +2180,26 @@ function countDevelopingPatterns(row, col, player) {
 
 function getOpeningMove() {
   var center = Math.floor(BOARD_SIZE / 2);
-  if (board[center][center] === EMPTY) return { row: center, col: center };
-
+  
+  // First move: always center
+  if (board[center][center] === EMPTY) {
+    return { row: center, col: center };
+  }
+  
+  // Second move: use opening book if available
+  if (moveHistory.length === 1) {
+    var lastMoveKey = moveHistory[0].row + ',' + moveHistory[0].col;
+    if (OPENING_BOOK[lastMoveKey]) {
+      var openingMoves = OPENING_BOOK[lastMoveKey];
+      // Pick a random move from the opening book
+      var chosen = openingMoves[Math.floor(Math.random() * openingMoves.length)];
+      if (board[chosen.row][chosen.col] === EMPTY) {
+        return { row: chosen.row, col: chosen.col };
+      }
+    }
+  }
+  
+  // Third move and beyond: near center
   var moves = [];
   for (var dr = -2; dr <= 2; dr++) {
     for (var dc = -2; dc <= 2; dc++) {
