@@ -664,8 +664,6 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
 
 /* --- Responsive: Wide Screen Side-by-Side Layout (≥960px) --- */
 @media (min-width: 960px) {
-  :root { --board-max: 520px; }
-
   .game-layout {
     display: grid;
     grid-template-columns: minmax(0, var(--board-max)) minmax(260px, 300px);
@@ -722,6 +720,18 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
     padding: 8px 6px;
     font-size: 0.8rem;
     min-height: 38px;
+  }
+
+  /* Difficulty: 2×2 grid to save vertical space */
+  .game-controls #difficultyGroup .toggle-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: none;
+    gap: 4px;
+  }
+  .game-controls #difficultyGroup .toggle-btn {
+    border: 1px solid #d4c8b0;
+    border-radius: 6px;
   }
 
   /* Action buttons: 2×2 grid */
