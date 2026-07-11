@@ -662,6 +662,72 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
   text-align: center; font-size: 0.85rem; color: #6b5e4a;
 }
 
+/* --- Responsive: Wide Screen Side-by-Side Layout (≥960px) --- */
+@media (min-width: 960px) {
+  .game-layout {
+    display: grid;
+    grid-template-columns: minmax(0, var(--board-max)) minmax(280px, 320px);
+    grid-template-areas:
+      "info controls"
+      "board controls";
+    gap: 16px 24px;
+    align-items: start;
+    justify-content: center;
+  }
+
+  .game-info {
+    grid-area: info;
+    max-width: none;
+  }
+
+  .board-wrapper {
+    grid-area: board;
+    max-width: none;
+  }
+
+  .game-controls {
+    grid-area: controls;
+    max-width: none;
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 76px;
+  }
+
+  /* Stack label above buttons in sidebar */
+  .game-controls .control-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .game-controls .control-label {
+    min-width: 0;
+  }
+
+  .game-controls .toggle-group {
+    width: 100%;
+  }
+
+  .game-controls .toggle-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Action buttons: 2×2 grid */
+  .game-controls .control-group.actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .game-controls .action-btn {
+    width: 100%;
+  }
+}
+
 /* --- Responsive: Mobile (≤768px) --- */
 @media (max-width: 768px) {
   /* ---- Mobile Navigation ---- */
