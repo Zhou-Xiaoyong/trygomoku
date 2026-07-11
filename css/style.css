@@ -664,13 +664,15 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
 
 /* --- Responsive: Wide Screen Side-by-Side Layout (≥960px) --- */
 @media (min-width: 960px) {
+  :root { --board-max: 520px; }
+
   .game-layout {
     display: grid;
-    grid-template-columns: minmax(0, var(--board-max)) minmax(280px, 320px);
+    grid-template-columns: minmax(0, var(--board-max)) minmax(260px, 300px);
     grid-template-areas:
       "info controls"
       "board controls";
-    gap: 16px 24px;
+    gap: 12px 20px;
     align-items: start;
     justify-content: center;
   }
@@ -678,6 +680,7 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
   .game-info {
     grid-area: info;
     max-width: none;
+    padding: 10px 14px;
   }
 
   .board-wrapper {
@@ -690,21 +693,23 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
     max-width: none;
     background: #fff;
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 14px 16px;
     box-shadow: var(--shadow-sm);
     position: sticky;
-    top: 76px;
+    top: 70px;
+    gap: 8px;
   }
 
-  /* Stack label above buttons in sidebar */
+  /* Compact control groups in sidebar */
   .game-controls .control-group {
     flex-direction: column;
     align-items: stretch;
-    gap: 6px;
+    gap: 4px;
   }
 
   .game-controls .control-label {
     min-width: 0;
+    font-size: 0.72rem;
   }
 
   .game-controls .toggle-group {
@@ -714,17 +719,24 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
   .game-controls .toggle-btn {
     flex: 1;
     text-align: center;
+    padding: 8px 6px;
+    font-size: 0.8rem;
+    min-height: 38px;
   }
 
   /* Action buttons: 2×2 grid */
   .game-controls .control-group.actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 6px;
+    margin-top: 4px;
   }
 
   .game-controls .action-btn {
     width: 100%;
+    padding: 10px 8px;
+    font-size: 0.85rem;
+    min-height: 40px;
   }
 }
 
