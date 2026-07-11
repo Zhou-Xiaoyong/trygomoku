@@ -212,6 +212,16 @@
               </div>
             </div>
 
+            <!-- Board Size -->
+            <div class="control-group" id="boardSizeGroup">
+              <span class="control-label" data-i18n="game.board_size_label">Board Size</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Board size">
+                <button class="toggle-btn" data-size="9" role="radio" aria-checked="false" id="btnSize9" data-i18n="game.size_9">9×9</button>
+                <button class="toggle-btn active" data-size="15" role="radio" aria-checked="true" id="btnSize15" data-i18n="game.size_15">15×15</button>
+                <button class="toggle-btn" data-size="19" role="radio" aria-checked="false" id="btnSize19" data-i18n="game.size_19">19×19</button>
+              </div>
+            </div>
+
             <!-- Rule Set -->
             <div class="control-group" id="ruleGroup">
               <span class="control-label" data-i18n="game.rule_label">Правила</span>
@@ -243,6 +253,7 @@
 
             <!-- Action Buttons -->
             <div class="control-group actions">
+              <button class="action-btn" id="btnHint" data-i18n="game.hint" title="Show hint">&#128161; <span data-i18n="game.hint">Hint</span></button>
               <button class="action-btn" id="btnUndo" data-i18n="game.undo" title="Undo last move">&#8630; <span data-i18n="game.undo">Undo</span></button>
               <button class="action-btn" id="btnRestart" data-i18n="game.restart" title="Start a new game">&#8635; <span data-i18n="game.restart">Restart</span></button>
               <button class="action-btn" id="btnSound"><span class="sound-icon">&#9834;</span> <span class="sound-text" data-i18n="game.sound_on">Sound</span></button>

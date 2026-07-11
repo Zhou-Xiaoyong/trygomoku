@@ -212,6 +212,16 @@
               </div>
             </div>
 
+            <!-- Board Size -->
+            <div class="control-group" id="boardSizeGroup">
+              <span class="control-label" >棋盘尺寸</span>
+              <div class="toggle-group" role="radiogroup" aria-label="棋盘尺寸">
+                <button class="toggle-btn" data-size="9" role="radio" aria-checked="false" id="btnSize9" >9×9</button>
+                <button class="toggle-btn active" data-size="15" role="radio" aria-checked="true" id="btnSize15" >15×15</button>
+                <button class="toggle-btn" data-size="19" role="radio" aria-checked="false" id="btnSize19" >19×19</button>
+              </div>
+            </div>
+
             <!-- Rule Set -->
             <div class="control-group" id="ruleGroup">
               <span class="control-label" >规则集</span>
@@ -243,6 +253,7 @@
 
             <!-- Action Buttons -->
             <div class="control-group actions">
+              <button class="action-btn" id="btnHint" title="显示提示">&#128161; 提示</button>
               <button class="action-btn" id="btnUndo" title="悔棋">&#8630; 悔棋</button>
               <button class="action-btn" id="btnRestart" title="开始新游戏">&#8635; 重新开始</button>
               <button class="action-btn" id="btnSound" title="切换音效"><span class="sound-icon">&#9834;</span> <span class="sound-text" data-i18n="game.sound_on">音效</span></button>

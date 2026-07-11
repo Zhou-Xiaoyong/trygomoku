@@ -6,16 +6,35 @@
 // ============================================================
 // CONSTANTS
 // ============================================================
-const BOARD_SIZE = 15;
+let BOARD_SIZE = 15;
 const EMPTY = 0;
 const BLACK = 1;
 const WHITE = 2;
 
-const STAR_POINTS = [
-  [3, 3], [3, 7], [3, 11],
-  [7, 3], [7, 7], [7, 11],
-  [11, 3], [11, 7], [11, 11]
-];
+function getStarPoints(size) {
+  if (size === 9) {
+    return [
+      [2, 2], [2, 6],
+      [4, 4],
+      [6, 2], [6, 6]
+    ];
+  } else if (size === 15) {
+    return [
+      [3, 3], [3, 7], [3, 11],
+      [7, 3], [7, 7], [7, 11],
+      [11, 3], [11, 7], [11, 11]
+    ];
+  } else if (size === 19) {
+    return [
+      [3, 3], [3, 9], [3, 15],
+      [9, 3], [9, 9], [9, 15],
+      [15, 3], [15, 9], [15, 15]
+    ];
+  }
+  return [];
+}
+
+let STAR_POINTS = getStarPoints(15);
 
 const DIRECTIONS = [
   [0, 1],   // horizontal
@@ -43,6 +62,9 @@ let lastMove;        // {row, col} | null
 let scores;          // { black: 0, white: 0, draw: 0 }
 let soundEnabled;    // boolean
 let aiThinking;      // boolean - prevent input while AI is computing
+let boardSize;       // 9 | 15 | 19
+let hintMove;        // {row, col} | null - current hint position
+let hintAnimId = null; // requestAnimationFrame id for hint pulse
 
 // ============================================================
 // AI PERFORMANCE: Transposition Table & Opening Book
@@ -274,6 +296,9 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('beforeunload', function () {
   // Stop hover animation
   stopHoverAnim();
+  
+  // Stop hint animation
+  stopHintAnim();
   
   // Clear any pending foul warning timer
   if (_foulWarningTimer) {
@@ -554,6 +579,11 @@ function drawBoard() {
     }
   }
 
+  // Draw hint marker
+  if (hintMove && !gameOver) {
+    drawHintMarker();
+  }
+
   drawOverlay();
 }
 
@@ -744,6 +774,10 @@ function initPreferences() {
   aiColor   = WHITE;
   soundEnabled = true;
   scores = { black: 0, white: 0, draw: 0 };
+  boardSize = 15;
+  BOARD_SIZE = 15;
+  STAR_POINTS = getStarPoints(15);
+  hintMove = null;
 }
 
 function resetBoard() {
@@ -763,6 +797,8 @@ function resetBoard() {
   renjuFoul = null;
   hoverRow = null;
   hoverCol = null;
+  hintMove = null;
+  stopHintAnim();
   stonesDirty = true;
   stopHoverAnim();
   
@@ -803,6 +839,8 @@ function placeStone(row, col) {
   lastMove = { row: row, col: col };
   hoverRow = null;
   hoverCol = null;
+  hintMove = null;
+  stopHintAnim();
   stopHoverAnim();
   addStoneToCache(row, col, currentPlayer);
 
@@ -2548,6 +2586,11 @@ function setupUI() {
   _on('btnPvE', 'click', function () { switchMode('pve'); });
   _on('btnPvP', 'click', function () { switchMode('pvp'); });
 
+  // Board size buttons
+  _on('btnSize9', 'click', function () { switchBoardSize(9); });
+  _on('btnSize15', 'click', function () { switchBoardSize(15); });
+  _on('btnSize19', 'click', function () { switchBoardSize(19); });
+
   // Difficulty buttons
   _on('btnEasy', 'click', function () { switchDifficulty('easy'); });
   _on('btnMedium', 'click', function () { switchDifficulty('medium'); });
@@ -2562,6 +2605,7 @@ function setupUI() {
   _on('btnUndo', 'click', undoMove);
   _on('btnRestart', 'click', resetGame);
   _on('btnSound', 'click', toggleSound);
+  _on('btnHint', 'click', showHint);
   _on('btnPlayAgain', 'click', resetGame);
 
   // Rule buttons (may not exist on all pages)
@@ -2639,6 +2683,108 @@ function switchRule(rule) {
   resetGame();
 }
 
+function switchBoardSize(size) {
+  if (boardSize === size) return;
+  boardSize = size;
+  BOARD_SIZE = size;
+  STAR_POINTS = getStarPoints(size);
+
+  var btn9 = document.getElementById('btnSize9');
+  var btn15 = document.getElementById('btnSize15');
+  var btn19 = document.getElementById('btnSize19');
+  if (btn9) {
+    btn9.classList.toggle('active', size === 9);
+    btn9.setAttribute('aria-checked', size === 9);
+  }
+  if (btn15) {
+    btn15.classList.toggle('active', size === 15);
+    btn15.setAttribute('aria-checked', size === 15);
+  }
+  if (btn19) {
+    btn19.classList.toggle('active', size === 19);
+    btn19.setAttribute('aria-checked', size === 19);
+  }
+
+  setupCanvas();
+  resetGame();
+}
+
+function startHintAnim() {
+  if (hintAnimId) return;
+  function loop() {
+    if (!hintMove) {
+      hintAnimId = null;
+      return;
+    }
+    drawBoard();
+    hintAnimId = requestAnimationFrame(loop);
+  }
+  hintAnimId = requestAnimationFrame(loop);
+}
+
+function stopHintAnim() {
+  if (hintAnimId) {
+    cancelAnimationFrame(hintAnimId);
+    hintAnimId = null;
+  }
+}
+
+function drawHintMarker() {
+  if (!hintMove) return;
+  var cx = margin + hintMove.col * cellSize;
+  var cy = margin + hintMove.row * cellSize;
+  var r = stoneRadius * 0.6;
+
+  var pulseAlpha = 0.4 + 0.3 * Math.sin(Date.now() / 300);
+
+  ctx.save();
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, r + 6, 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(46, 204, 113, ' + pulseAlpha + ')';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(46, 204, 113, 0.5)';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(39, 174, 96, 0.8)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold ' + Math.floor(r * 1.2) + 'px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('?', cx, cy);
+
+  ctx.restore();
+}
+
+function showHint() {
+  if (gameOver || aiThinking) return;
+
+  var player = currentPlayer;
+  if (gameMode === 'pve' && currentPlayer !== humanColor) return;
+
+  var candidates = getCandidateMoves(player);
+  if (candidates.length === 0) return;
+
+  candidates.sort(function (a, b) { return b.score - a.score; });
+
+  var best = candidates[0];
+  hintMove = { row: best.row, col: best.col };
+  startHintAnim();
+  drawBoard();
+
+  setTimeout(function () {
+    hintMove = null;
+    stopHintAnim();
+    drawBoard();
+  }, 3000);
+}
+
 function toggleSound() {
   soundEnabled = !soundEnabled;
   var btn = document.getElementById('btnSound');
@@ -2658,6 +2804,23 @@ function toggleSound() {
 function updateUI() {
   document.getElementById('btnPvE').classList.toggle('active', gameMode === 'pve');
   document.getElementById('btnPvP').classList.toggle('active', gameMode === 'pvp');
+  
+  var btnSize9 = document.getElementById('btnSize9');
+  var btnSize15 = document.getElementById('btnSize15');
+  var btnSize19 = document.getElementById('btnSize19');
+  if (btnSize9) {
+    btnSize9.classList.toggle('active', boardSize === 9);
+    btnSize9.setAttribute('aria-checked', boardSize === 9);
+  }
+  if (btnSize15) {
+    btnSize15.classList.toggle('active', boardSize === 15);
+    btnSize15.setAttribute('aria-checked', boardSize === 15);
+  }
+  if (btnSize19) {
+    btnSize19.classList.toggle('active', boardSize === 19);
+    btnSize19.setAttribute('aria-checked', boardSize === 19);
+  }
+  
   document.getElementById('btnEasy').classList.toggle('active', difficulty === 'easy');
   document.getElementById('btnMedium').classList.toggle('active', difficulty === 'medium');
   document.getElementById('btnHard').classList.toggle('active', difficulty === 'hard');

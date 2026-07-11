@@ -367,6 +367,19 @@ a:hover { color: var(--color-primary-hover); text-decoration: underline; }
 .action-btn:hover { background: #f8f0dd; border-color: #b8a080; }
 .action-btn:active { background: #efe0c8; }
 
+#btnHint {
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+  border-color: #f0c040;
+  color: #8b6914;
+}
+#btnHint:hover {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffe9a3 100%);
+  border-color: #e0a800;
+}
+#btnHint:active {
+  background: #ffe9a3;
+}
+
 /* --- Victory Overlay --- */
 .victory-overlay {
   position: fixed; inset: 0; z-index: 200;
