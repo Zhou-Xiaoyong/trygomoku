@@ -4,5 +4,9 @@
 # Python build/translation scripts
 *.py
 
+# Python bytecode cache
+__pycache__/
+*.pyc
+
 # Project docs (not for deployment)
 overview.md
