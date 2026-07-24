@@ -1370,6 +1370,17 @@ function mediumAI() {
   var blockMove = findWinningMove(humanColor);
   if (blockMove) return blockMove;
 
+  // Urgent defense: block opponent's forced win (live four / double threat)
+  // BEFORE attacking — otherwise making our own four could let the opponent win.
+  var blockForced = findForcedWin(humanColor);
+  if (blockForced) return blockForced;
+
+  // Offense-first: if we can make a four (forcing winning threat), take it
+  // instead of over-defending weak opponent threats (e.g. blocking a two).
+  var myFour = findMyFourMove(aiColor);
+  if (myFour) return myFour;
+
+  // Block opponent open three / developing threat (deferrable to the attack above).
   var blockThree = findOpenThreatBlock(humanColor);
   if (blockThree) return blockThree;
 
@@ -1418,7 +1429,15 @@ function hardAI() {
   var blockMove = findWinningMove(humanColor);
   if (blockMove) return blockMove;
 
-  // Aggressive threat blocking
+  // Urgent defense: block opponent's forced win (live four / double threat) before attacking.
+  var blockForced = findForcedWin(humanColor);
+  if (blockForced) return blockForced;
+
+  // Offense-first: grab our own four when available.
+  var myFour = findMyFourMove(aiColor);
+  if (myFour) return myFour;
+
+  // Aggressive threat blocking (open threes / deeper threats).
   var blockThreat = findThreatSequence(humanColor);
   if (blockThreat) return blockThreat;
 
@@ -1462,14 +1481,6 @@ function masterAI() {
   if (winMove) return winMove;
 
   // ================================================================
-  // TIER 1.5 — AI's FORCED WIN: create unstoppable threats
-  // (live-four, double-threat). These GUARANTEE victory in 1-2 moves
-  // and MUST be played BEFORE any defensive consideration.
-  // ================================================================
-  var forcedWin = findForcedWin(aiColor);
-  if (forcedWin) return forcedWin;
-
-  // ================================================================
   // TIER 2 — IMMEDIATE DEFENSE: block opponent's 5-in-a-row
   // ================================================================
   var blockMove = findWinningMove(humanColor);
@@ -1477,10 +1488,20 @@ function masterAI() {
 
   // ================================================================
   // TIER 2.5 — BLOCK OPPONENT FORCED WIN: prevent opponent's
-  // live-four or double-threat creation (would guarantee their win)
+  // live-four or double-threat creation (would guarantee their win).
+  // MUST run before our own forced win, otherwise we lose the race
+  // (we make our four while the opponent already has a live four).
   // ================================================================
   var forcedBlock = findForcedWin(humanColor);
   if (forcedBlock) return forcedBlock;
+
+  // ================================================================
+  // TIER 1.5 — AI's FORCED WIN: create unstoppable threats
+  // (live-four, double-threat). Safe now: opponent has no forced win,
+  // so making our own wins the tempo.
+  // ================================================================
+  var forcedWin = findForcedWin(aiColor);
+  if (forcedWin) return forcedWin;
 
   // ================================================================
   // TIER 3 — DEFENSE: detect and block opponent threats
@@ -1504,6 +1525,10 @@ function masterAI() {
     board[blockOpenThree.row][blockOpenThree.col] = EMPTY;
     if (evalAfter - evalBefore > 3000) return blockOpenThree;
   }
+
+  // Offense-first: grab our own four once no urgent defensive need remains.
+  var myFour = findMyFourMove(aiColor);
+  if (myFour) return myFour;
 
   // ================================================================
   // TIER 4 — OFFENSE: only when no immediate defensive needs
@@ -1686,8 +1711,14 @@ function minimax(depth, alpha, beta, maximizing, player, limitCandidates) {
   return result;
 }
 
+// Offense weighting: value > 1 makes the AI prefer building its own
+// threats over an equally-valued defensive block. The explicit win / block-5
+// / block-open-threat tiers run BEFORE minimax, so this only shifts the
+// minimax tie-breaks (and the general "too defensive" feel) — not correctness.
+var OFFENSE_BIAS = 1.15;
+
 function evaluateBoard() {
-  return evalForPlayer(aiColor) - evalForPlayer(humanColor);
+  return Math.round(evalForPlayer(aiColor) * OFFENSE_BIAS) - evalForPlayer(humanColor);
 }
 
 function evalForPlayer(player) {
@@ -1973,6 +2004,30 @@ function findForcedWin(player) {
     }
   }
 
+  return null;
+}
+
+// ============================================================
+// MAKE-FOUR: find a move that creates a four-in-a-row (forcing,
+// winning threat) for `player`. Playing it forces the opponent to
+// respond, gaining tempo. Used as an OFFENSE-FIRST tier so the AI
+// builds its own threats instead of over-defending weak ones.
+// ============================================================
+function findMyFourMove(player) {
+  for (var r = 0; r < BOARD_SIZE; r++) {
+    for (var c = 0; c < BOARD_SIZE; c++) {
+      if (board[r][c] !== EMPTY) continue;
+      if (!hasNeighbor(r, c, 1)) continue;
+      board[r][c] = player;
+      var made = false;
+      for (var d = 0; d < DIRECTIONS.length; d++) {
+        var p = countPattern(r, c, DIRECTIONS[d][0], DIRECTIONS[d][1], player);
+        if (p.count >= 4) { made = true; break; }
+      }
+      board[r][c] = EMPTY;
+      if (made) return { row: r, col: c };
+    }
+  }
   return null;
 }
 
