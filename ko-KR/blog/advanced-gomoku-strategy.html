@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 전략 201: 활삼, 이중 위협, VCF | 오목 블로그</title>
+  <meta name="description" content="고급 오목 전략을 배우세요: 활삼, 활사, 이중 위협, VCF. 이 네 가지가 캐주얼과 진짜 승리자 사이를 가릅니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy.html">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/advanced-gomoku-strategy.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/advanced-gomoku-strategy.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/advanced-gomoku-strategy.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/advanced-gomoku-strategy.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy.html">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy.html">
+  <meta property="og:title" content="오목 전략 201: 활삼, 이중 위협, VCF">
+  <meta property="og:description" content="고급 전략(활삼·활사·이중 위협·VCF)으로 캐주얼과 승리자를 구분하세요.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 전략 201">
+  <meta name="twitter:description" content="활삼·활사·이중 위협·VCF — 승리자를 가르는 전략.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/index.html" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/index.html#game">플레이</a></li>
+        <li><a href="/ko-KR/index.html#rules">규칙</a></li>
+        <li><a href="/ko-KR/index.html#strategy">전략</a></li>
+        <li><a href="/ko-KR/index.html#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">오목 전략 201: 활삼, 이중 위협, VCF</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-06-26">2026년 6월 26일</time>
+            <span class="blog-read-time">7 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>규칙은 압니다: 다섯 목. 하지만 몇 판 이상 둬본 적이 있다면, 운으로는 설명 안 되는 만큼 자주 이기는 사람이 있다는 걸 눈치챘을 겁니다. 그들은 짐작하는 게 아닙니다. 우리들이 놓치는 위협을 보고, 조용히 필승의 형태를 깔아둡니다.</p>
+
+          <p>좋은 소식은 「규칙을 안다」와 「진짜 이긴다」 사이의 격차가 사실 네 가지 개념뿐이라는 겁니다. 활삼을 읽고, 활사를 알아보고, 이중 위협을 만들며, VCF를 이해하면 당신은 희생양이 아니라 골칫거리가 됩니다.</p>
+
+          <h2>활삼과 활사: 진짜로 중요한 유일한 형태</h2>
+
+          <p><strong>활삼</strong>은 세 돌이 한 줄로 연결되고 양 끝이 비어 있는 형태입니다. 막 뒀을 때는 무해해 보이지만 그렇지 않습니다. 상대가 무시하면 다음 수에 한쪽 끝에서 활사로 늘립니다. 그쪽을 막으면 반대쪽으로 늘립니다. 상대는 한 방향만 막을 수 있으니, 활삼은 기본적으로 「다음 수에 반드시 활사가 된다」는 약속입니다.</p>
+
+          <p><strong>활사</strong>는 더 까다롭습니다. 네 돌이 한 줄로 연결되고 양 끝이 비어 있습니다. 수비는 한쪽 끝을 막아야 하고, 당신이 반대쪽을 두면 이깁니다. 활사를 두 수 전에 미리 봤다면 모를까, 깔끔한 방어는 없습니다.</p>
+
+          <p>초보자가 이렇게 빨리 지는 이유가 여기에 있습니다. 그들은 「죽은 형태」 — 한쪽이 막힌 세 연결, 또는 입구 하나뿐인 네 연결 — 를 만듭니다. 무섭게 보이지만 치명적이지 않습니다. 이 게임의 핵심은 살아있는 형태를 만들고 상대를 그것에 반응하게 만드는 겁니다. 눈을 훈련하려면 <a href="pattern-recognition-gomoku.html">형태 인식 가이드</a>에서 찾아야 할 정확한 형태를 단계별로 보여줍니다.</p>
+
+          <h2>이중 위협: 한 곳에 두 곳 공격</h2>
+
+          <p>오목의 재미는 여기 있습니다. <strong>이중 위협</strong>은 한 수로 서로 다른 두 승리 위협을 동시에 만드는 겁니다. 보통 교차하는 두 활삼, 또는 한 돌을 공유하는 활삼과 활사입니다. 상대는 하나만 막을 수 있으니 다음 수에 이깁니다.</p>
+
+          <p>고전적인 예는 포크(일자 쌍살)입니다: 돌 하나를 두어 가로 활삼과 세로 활삼을 동시에 완성합니다. 상대가 하나를 막으면, 당신은 다른 하나를 활사로 늘리고 양 끝을 동시에 막게 할 수 없습니다. 이게 대국을 끝내는 가장 깔끔한 방법입니다.</p>
+
+          <p>강한 플레이어는 이중 위협이 우연히 나타나길 기다리지 않습니다. 그들은 짠니다. 한 수로 두 위협을 모두 풀 수 있는 형태를 먼저 깔고, 그 돌을 두어 승리를 거둡니다. 이걸 눈여겨보기 시작하면 대국은 50수가 아니라 15수 만에 끝납니다.</p>
+
+          <h2>VCF: 승부를 결정짓는 강제 수열</h2>
+
+          <p>VCF는 <em>Victory by Continuous Fours</em>(연속 사 승리)의 약자입니다. 이름은 화려하지만 쓰임은 실용적입니다: 활사를 계속 만들고, 상대는 계속 막다가 결국 막을 수가 없어지면 당신이 이깁니다.</p>
+
+          <p>돌을 두면 활사가 만들어지는 국면이 있다고 칩시다. 상대가 막습니다. 그런데 그 막는 수가 다른 곳에 당신의 새 활사를 깔아둡니다. 또 막습니다. 또 하나. 각 수는 강제되고, 결국 동시에 나타난 두 위협 사이에서 택해야 합니다. 이것이 VCF — 승부를 끝내는 강제 수의 사슬입니다.</p>
+
+          <p><a href="../index.html">TryGomoku</a>의 마스터 AI가 바로 이런 탐색을 씁니다. 판만 보는 게 아니라 위협과 막기의 수열을 봅니다. 인간 상대를 어디까지 몰아붙일 수 있는지 시험하고 싶다면 하드 AI 상대로 VCF를 짜보세요. <a href="beat-gomoku-ai.html">AI 이기는 법 가이드</a>에서 각 난이도가 이 전술을 어떻게 다루는지 설명합니다.</p>
+
+          <p>한 가지 경고: VCF는 상대에게 역위협이 없을 때만 먹힙니다. 상대가 당신을 막으면서 자신도 활사를 만들 수 있다면 당신의 수열은 무너집니다. 강제 공격을 들이대기 전엔 반드시 판 양쪽을 확인하세요.</p>
+
+          <h2>이론 암기 없이 연습하는 법</h2>
+
+          <p>수십 가지 형태를 외울 필요는 없습니다. 수를 둔 뒤 두 가지 질문만 하세요: 「방금 무슨 살아있는 형태를 만들었지?」 「상대는 무슨 살아있는 형태를 만들었지?」 이걸 10판 하면 눈이 자동으로 위협을 보기 시작합니다.</p>
+
+          <p>먼저 미디엄 AI 상대로 두며 수마다 의식적으로 활삼 하나를 찾으세요. 모든 수가 활삼일 필요는 없지만 위협을 한 곳은 가리킬 수 있어야 합니다. 그것이 습관이 되면 하드로 올려 이중 위협을 찾으세요. 마스터급은 겸손을 가르쳐 주고, 실전에서 깔끔한 VCF 수열이 어떻게 생겼는지도 보여줍니다.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">이 전술을 실전에서 시험하세요</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">TryGomoku에서 게임을 열고 난이도를 고른 뒤, 의도적으로 활삼 하나를 만들어 보세요. 그리고 그것을 이중 위협으로 키울 수 있는지 보세요. 판이 기다립니다.</p>
+            <a href="/ko-KR/index.html#game" class="cta-btn">온라인 오목 플레이</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/index.html#game">플레이</a></li>
+            <li><a href="/ko-KR/index.html#rules">규칙</a></li>
+            <li><a href="/ko-KR/index.html#strategy">전략</a></li>
+            <li><a href="/ko-KR/index.html#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about.html">소개</a></li>
+            <li><a href="/privacy.html">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/index.html#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 전략 201: 활삼, 이중 위협, VCF",
+    "description": "고급 오목 전략을 배우세요: 활삼, 활사, 이중 위협, VCF. 이 네 가지가 캐주얼과 진짜 승리자 사이를 가릅니다.",
+    "datePublished": "2026-06-26",
+    "dateModified": "2026-06-26",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy.html"}
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋 vs 四子连珠：同一个点子，完全不同的游戏 | 五子棋博客</title>
+  <meta name="description" content="从小玩四子连珠？这里讲清为什么五子棋看着像，玩起来却完全不同——以及为什么 15×15 棋盘改变了一切。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four.html">
+  <meta property="og:title" content="五子棋 vs 四子连珠：同点子，不同游戏">
+  <meta property="og:description" content="从小玩四子连珠？为什么五子棋在 15×15 棋盘上是完全不同的挑战。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-vs-connect-four.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋 vs 四子连珠">
+  <meta name="twitter:description" content="同宗同源，但 15×15 棋盘改变一切。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/index.html" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/index.html#game">玩棋</a></li>
+        <li><a href="/zh-CN/index.html#rules">规则</a></li>
+        <li><a href="/zh-CN/index.html#strategy">策略</a></li>
+        <li><a href="/zh-CN/index.html#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/index.html#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">对比</span>
+          <h1 itemprop="headline">五子棋 vs 四子连珠：同一个点子，完全不同的游戏</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-06-19">2026年6月19日</time>
+            <span class="blog-read-time">7 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>如果你在西方长大，四子连珠很可能是你最早的「正经」桌游之一。投一枚棋子，试图四子连珠，别让兄弟姐妹也做到。简单、满足——老实说，一旦摸出门道，没那么难赢。</p>
+
+          <p>所以人们第一次发现五子棋时，反应通常是：「哦，就是大棋盘上的四子连珠。」</p>
+
+          <p>嗯，也对也不对。它们同源。但四子连珠和五子棋的区别，有点像西洋跳棋与国际象棋。一个是很好的家庭游戏；另一个会占据你大脑好几年。</p>
+
+          <h2>相同（与不同）之处</h2>
+
+          <p>两款游戏共享核心目标：让自己的棋子（或四子）连成一行，任意方向。都能在网格上玩。都易学难精。</p>
+
+          <p>但相似基本到此为止。</p>
+
+          <table class="compare-table">
+            <tr class="tr-dark"><th>特性</th><th>四子连珠</th><th>五子棋</th></tr>
+            <tr class="tr-light"><td><strong>棋盘大小</strong></td><td>6 &times; 7</td><td>15 &times; 15</td></tr>
+            <tr class="tr-dark"><td><strong>落子</strong></td><td>从顶端落下，受重力</td><td>放在任意空位</td></tr>
+            <tr class="tr-light"><td><strong>胜利条件</strong></td><td>四子连珠</td><td>五子连珠</td></tr>
+            <tr class="tr-dark"><td><strong>先手优势</strong></td><td>强（已破解：先手必胜）</td><td>很强（连珠规则下被平衡）</td></tr>
+            <tr class="tr-light"><td><strong>策略深度</strong></td><td>中等（已被计算机破解）</td><td>极深（尚未完全破解）</td></tr>
+          </table>
+
+          <h2>重力这件事改变一切</h2>
+
+          <p>在四子连珠里，你只能把棋子投进某一列。它落到最低的空位。这个限制大大减少了你的选择——这也是它被破解的部分原因。如果你知道正确的开局序列，作为先手可以每次都逼出胜利。</p>
+
+          <p>五子棋没有重力。你可以把棋子放在棋盘上任意空交点。这份自由正是游戏深得多的原因。到第三手，你已经有数百个有意义的走法要考虑。到第十手，分支因子已经极其庞大。</p>
+
+          <p>这也意味着你不能只「从下往上搭」。你必须同时思考整块棋盘。威胁可能来自任何地方，而不只是碰巧落在某列底部的棋子。</p>
+
+          <h2>五子连珠比四子更难</h2>
+
+          <p>这听起来显然，但值得说清。需要五子而非四子，让游戏更少关于快速战术取胜，更多关于建立多个对手无法全部封堵的威胁。</p>
+
+          <p>在四子连珠里，如果你有三子连珠且一端空着，你形势大好——对手必须立刻封堵。在五子棋里，三子连珠（「活三」）有用，但不是立刻制胜。你需要造出<em>两个</em>活三，或活三加活四，或某种能造出对手无法应对的「双威胁」的组合。</p>
+
+          <p>真正的策略就在这里。不在于发现明显的胜着，而在于布出一个局面：你<em>下一手</em>能同时造出两条取胜路径。</p>
+
+          <h2>该玩哪个？</h2>
+
+          <p>四子连珠更适合小孩子或五分钟快歇。它有触感、快、实体版还有那满足的「咔咔咔——咚」声。</p>
+
+          <p>但如果你想要一款让你深夜还在琢磨「那手我漏了」的游戏，五子棋就是不二之选。15&times;15 棋盘意味着没有两局会以同样方式展开。而且不像四子连珠，我们至今仍未完全理解最优策略——这意味着总有更多可学。</p>
+
+          <p>想亲眼看看区别？<a href="../index.html">来试试五子棋</a>，对阵我们的 AI。新手从简单级开始——一开始觉得 overwhelming 也没关系。那正是重点。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">准备好试试五子棋了吗？</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">无需下载，无需注册。点开就玩。</p>
+            <a href="/zh-CN/index.html#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/index.html#game">玩棋</a></li>
+            <li><a href="/zh-CN/index.html#rules">规则</a></li>
+            <li><a href="/zh-CN/index.html#strategy">策略</a></li>
+            <li><a href="/zh-CN/index.html#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/index.html#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about.html">关于我们</a></li>
+            <li><a href="/privacy.html">隐私政策</a></li>
+            <li><a href="/zh-CN/index.html#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋 vs 四子连珠：同一个点子，完全不同的游戏",
+    "description": "从小玩四子连珠？这里讲清为什么五子棋看着像，玩起来却完全不同——以及为什么 15×15 棋盘改变了一切。",
+    "datePublished": "2026-06-19",
+    "dateModified": "2026-06-19",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-vs-connect-four.html"}
+  }
+  </script>
+</body>
+</html>

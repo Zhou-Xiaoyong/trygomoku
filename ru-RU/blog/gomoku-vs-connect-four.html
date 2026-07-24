@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гомоку против Connect Four: та же идея, совсем другая игра | Блог Гомоку</title>
+  <meta name="description" content="Росли на Connect Four? Вот почему Гомоку выглядит похоже, но играется совсем иначе — и почему доска 15×15 меняет всё.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-connect-four.html">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four.html">
+  <meta property="og:title" content="Гомоку против Connect Four: та же идея, другая игра">
+  <meta property="og:description" content="Росли на Connect Four? Почему Гомоку — совсем иной вызов на доске 15×15.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-vs-connect-four.html">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Гомоку против Connect Four">
+  <meta name="twitter:description" content="Общее ДНК, но доска 15×15 меняет всё.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/index.html" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/index.html#game">Играть</a></li>
+        <li><a href="/ru-RU/index.html#rules">Правила</a></li>
+        <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/index.html#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Сравнение</span>
+          <h1 itemprop="headline">Гомоку против Connect Four: та же идея, совсем другая игра</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-06-19">19 июня 2026 г.</time>
+            <span class="blog-read-time">7 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>Если выросли на Западе, велика вероятность, что Connect Four была одной из первых «серьёзных» настолок. Брось диск, попробуй собрать четыре в ряд, не дай брату или сестре сделать то же. Просто, приятно — и, честно, не так уж трудно выиграть, поняв базовую тактику.</p>
+
+          <p>Поэтому когда люди впервые открывают Гомоку, реакция обычно: «О, это как Connect Four на большой доске».</p>
+
+          <p>Ну, да и нет. У них общее ДНК. Но разница между Connect Four и Гомоку немного похожа на разницу между шашками и шахматами. Одно — отличная семейная игра; другое займёт мозг на годы.</p>
+
+          <h2>Что общего (и чего нет)</h2>
+
+          <p>Обе игры делят главную цель: собрать пять (или четыре) своих фишек в ряд, в любом направлении. Обе играются на сетке. Обе легко учатся и невозможно освоить до конца.</p>
+
+          <p>Но примерно на этом сходство заканчивается.</p>
+
+          <table class="compare-table">
+            <tr class="tr-dark"><th>Свойство</th><th>Connect Four</th><th>Гомоку</th></tr>
+            <tr class="tr-light"><td><strong>Размер доски</strong></td><td>6 &times; 7</td><td>15 &times; 15</td></tr>
+            <tr class="tr-dark"><td><strong>Фишки</strong></td><td>Падают сверху, гравитация</td><td>Ставятся в любую пустую</td></tr>
+            <tr class="tr-light"><td><strong>Условие победы</strong></td><td>4 в ряд</td><td>5 в ряд</td></tr>
+            <tr class="tr-dark"><td><strong>Преимущество первого</strong></td><td>Сильное (решено: первый выигрывает)</td><td>Очень сильное (балансируется в Ренджу)</td></tr>
+            <tr class="tr-light"><td><strong>Глубина стратегии</strong></td><td>Умеренная (решена компьютером)</td><td>Очень глубокая (полностью не решена)</td></tr>
+          </table>
+
+          <h2>Гравитация меняет всё</h2>
+
+          <p>В Connect Four вы можете лишь уронить диск в колонку. Он падает на самое низкое свободное место. Это ограничение сильно сокращает варианты — отчасти поэтому игра решаема. Знаете правильную начальную последовательность — можете форсировать победу первым ходом каждый раз.</p>
+
+          <p>В Гомоку нет гравитации. Вы можете поставить камень на любое пустое пересечение. Эта свобода и делает игру куда более глубокой. На третьем ходу у вас уже сотни осмысленных вариантов, а к десятому фактор ветвления огромен.</p>
+
+          <p>Это также значит, что нельзя просто «строить снизу вверх». Нужно думать обо всей доске сразу. Угроза может прийти откуда угодно, а не только от фишек, что случайно лежат на дне колонки.</p>
+
+          <h2>Пять в ряд труднее четырёх</h2>
+
+          <p>Звучит очевидно, но стоит прояснить. Нужно пять, а не четыре — это смещает игру от быстрых тактических побед к построению нескольких угроз, что соперник не может все заблокировать.</p>
+
+          <p>В Connect Four, если у вас три в ряд с открытым концом, вы в отличной форме — соперник должен немедленно блокировать. В Гомоку три в ряд (живая тройка) полезны, но не мгновенно выигрышны. Нужно построить <em>две</em> живые тройки, или живую тройку плюс живую четвёрку, или комбинацию, создающую «двойную угрозу», на которую соперник не ответит.</p>
+
+          <p>Настоящая стратегия — здесь. Не в поиске очевидного выигрыша, а в создании позиции, где ваш <em>следующий</em> ход откроет сразу два пути к победе.</p>
+
+          <h2>Что выбрать?</h2>
+
+          <p>Connect Four лучше для маленьких детей или пятиминутного перерыва. Она тактильная, быстрая, а физическая версия издаёт то удовлетворяющее «клац-клац-клац-дун».</p>
+
+          <p>Но если хотите игру, из-за которой не уснёте, вспоминая тот пропущенный ход, — это Гомоку. Доска 15&times;15 означает, что ни две партии не развернутся одинаково. И в отличие от Connect Four, мы до сих пор не до конца понимаем оптимальную стратегию — значит, всегда есть что учить.</p>
+
+          <p>Хотите увидеть разницу сами? <a href="../index.html">Попробуйте Гомоку</a> против нашего ИИ. Новичкам — с Лёгкого. Если поначалу будет ошеломляюще — не страшно, в этом и суть.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Готовы попробовать Гомоку?</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Никакой загрузки, никакой регистрации. Просто нажмите и играйте.</p>
+            <a href="/ru-RU/index.html#game" class="cta-btn">Играть в Гомоку сейчас</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/index.html#game">Играть</a></li>
+            <li><a href="/ru-RU/index.html#rules">Правила</a></li>
+            <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/index.html#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about.html">О нас</a></li>
+            <li><a href="/privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/index.html#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Гомоку против Connect Four: та же идея, совсем другая игра",
+    "description": "Росли на Connect Four? Вот почему Гомоку выглядит похоже, но играется совсем иначе — и почему доска 15×15 меняет всё.",
+    "datePublished": "2026-06-19",
+    "dateModified": "2026-06-19",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-vs-connect-four.html"}
+  }
+  </script>
+</body>
+</html>

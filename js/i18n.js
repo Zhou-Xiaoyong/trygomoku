@@ -1,6 +1,6 @@
 /**
  * i18n Translation Engine for Gomoku Online
- * Supports: en, zh-CN
+ * Supports: en, zh-CN, ja-JP, ru-RU, ko-KR
  * Usage: add data-i18n="key" to elements; translations in i18n/*.json
  */
 
@@ -123,14 +123,20 @@ const i18n = {
     sel.value = this.currentLang;
     // Remove any existing handler to avoid duplicates
     sel.onchange = null;
-    sel.onchange = (e) => {
+    sel.onchange = () => {
       const lang = sel.value;
+      // Preserve the current page path when switching languages.
+      // e.g. /zh-CN/about.html -> /ja-JP/about.html ; /zh-CN/ -> /ja-JP/
+      const path = window.location.pathname;
+      const m = path.match(/^\/([a-z]{2}(-[A-Z]{2})?)(?:\/|$)/);
+      // Strip the language prefix; keep the remainder WITHOUT a leading slash.
+      let rest = m ? path.substring(m[1].length + 1) : path; // leading "/" included
+      rest = rest.replace(/^\//, ''); // -> "about.html", "blog/", or "" for root
+      const isRoot = (rest === '' || rest === 'index.html');
       if (lang === 'en') {
-        // Always go to site root for English
-        window.location.href = '/';
+        window.location.href = rest === '' ? '/' : '/' + rest;
       } else {
-        // Navigate to language subdirectory
-        window.location.href = '/' + lang + '/';
+        window.location.href = '/' + lang + '/' + rest;
       }
     };
   }

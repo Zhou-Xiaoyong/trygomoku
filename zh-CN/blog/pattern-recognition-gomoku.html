@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>精通五子棋的棋形识别 | 五子棋博客</title>
+  <meta name="description" content="棋形识别，正是普通玩家与高手的分水岭。学会一眼辨认活四、死四、活三与双威胁。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku.html">
+  <meta property="og:title" content="精通五子棋的棋形识别">
+  <meta property="og:description" content="学会一眼辨认活四、死四、活三与双威胁。这是所有进阶策略的根基。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="精通五子棋的棋形识别">
+  <meta name="twitter:description" content="学会一眼辨认活四、死四、活三与双威胁。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/index.html" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/index.html#game">玩棋</a></li>
+        <li><a href="/zh-CN/index.html#rules">规则</a></li>
+        <li><a href="/zh-CN/index.html#strategy">策略</a></li>
+        <li><a href="/zh-CN/index.html#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/index.html#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">精通五子棋的棋形识别</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-06-14">2026年6月14日</time>
+            <span class="blog-read-time">9 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>你有没有过这种时刻：一个高手盯着棋盘看两秒，就说「你麻烦了」？而你对着同一块棋盘盯了三十秒，还是没看出门道？</p>
+
+          <p>这就是棋形识别。他们以前见过这个形状——或者足够接近的形状——大脑瞬间就把它标记出来了。你没标记出来，是因为你还没建立起自己的「棋形记忆库」。</p>
+
+          <p>好消息是：这是一项可以训练出来的技能。你不需要在棋形识别上「天生有才」。你只需要知道该找哪些棋形，以及怎么练习快速看出它们。</p>
+
+          <h2>最关键的四种棋形</h2>
+
+          <p>暂时把那些花哨的开局理论抛到一边。如果你能一眼可靠地认出这四种棋形——无论在你自己的阵型还是对手的阵型里——你就能击败大多数休闲玩家。</p>
+
+          <h3>1. 活四（自由四）</h3>
+          <p>四个同色棋子连成一线，<em>两端都空着</em>。对手在其回合<strong>必须</strong>堵住一端，但无论如何你下一手就能连成五子。活四是即时获胜——除非对手也摆出了一个，那样这局就会以对手的回合结束。</p>
+
+          <p><strong>该练什么：</strong>扫一遍棋盘上所有四连。哪些真正「活」（两端皆空）？哪些「死」（一端或两端被堵）？这听起来显而易见，但初学者总是漏掉被堵的四连，以为自己构成了威胁，其实并没有。</p>
+
+          <h3>2. 活三</h3>
+          <p>三个同色棋子连成一线，两端都空着。如果对手不堵，你下一手就能把它延伸成活四。但关键点在这里：单独的活三并不等于即时获胜。对手可以（也理应）去堵它。</p>
+
+          <p>活三真正的威力，出现在你<em>同时</em>拥有两个活三——或者一个活三加一个活四。那时对手就堵不过来了。</p>
+
+          <h3>3. 死四 / 死三</h3>
+          <p>四连（或三连）中至少有一端被堵。这些仍有用处——比如死四会逼对手做出回应——但它们不是即时威胁。学会一眼区分「活」与「死」，大概是五子棋里最实用的一项技能。</p>
+
+          <h3>4. 双威胁（一子双杀）</h3>
+          <p>这是圣杯。一手棋同时制造出<em>两个</em>活棋威胁——通常是两个活三，或一个活三加一个活四。对手只能堵一个，所以你下一手就赢。</p>
+
+          <p>大多数初学者试图摆出一条又大又唬人的线。更强的玩家则会构建<em>两条</em>相交的线。它们的交点，就是你的双威胁。</p>
+
+          <h2>如何建立你的棋形库</h2>
+
+          <p>棋形识别不是把书上的形状背下来。它关乎重复——把同一种局面看得足够多次，大脑就会自动开始识别它。</p>
+
+          <p><strong>训练 1：危险扫描</strong><br>每走一步之前，扫一遍整块棋盘，寻找对手的活三和活四。连续两周，每一步都这么做。一开始会觉得慢，然后突然间，就不慢了。</p>
+
+          <p><strong>训练 2：「如果……会怎样」游戏</strong><br>你落下一子后，问自己：「如果我在它旁边再放一子，会造出什么？」别真的放下去——只是想象。这能培养你「向前看」的能力，而无需付出计算整条走法序列的脑力。</p>
+
+          <p><strong>训练 3：和强手对弈</strong><br><a href="../index.html">trygomoku.com</a> 上的 AI 是绝佳的练习对象。把它设在一个你大约 40% 概率会输的级别。你会开始看出 AI 布置威胁时的套路——并逐渐地，当你的人类朋友也这样下时，你能认出同样的棋形。</p>
+
+          <h2>「看见」与「注意到」的区别</h2>
+
+          <p>这里有微妙的区别。「看见」一个棋形，是指别人指出来时你能认出它。「注意到」则是指你的大脑<em>在没有</em>刻意寻找的情况下就标记了它。</p>
+
+          <p>你要追求的是「注意到」。那才是棋形识别在实战中真正帮到你的时刻。而达到那里的唯一途径就是重复——是的，也就是多下（并多输）很多局。</p>
+
+          <p>但如今你知道该找什么了。下次输棋，你至少会知道<em>为什么</em>——而这是修正它的第一步。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">现在就练习棋形识别</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">下几局，专注于在活三变成活四之前就发现它们。</p>
+            <a href="/zh-CN/index.html#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/index.html#game">玩棋</a></li>
+            <li><a href="/zh-CN/index.html#rules">规则</a></li>
+            <li><a href="/zh-CN/index.html#strategy">策略</a></li>
+            <li><a href="/zh-CN/index.html#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/index.html#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about.html">关于我们</a></li>
+            <li><a href="/privacy.html">隐私政策</a></li>
+            <li><a href="/zh-CN/index.html#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "精通五子棋的棋形识别",
+    "description": "棋形识别，正是普通玩家与高手的分水岭。学会一眼辨认活四、死四、活三与双威胁。",
+    "datePublished": "2026-06-14",
+    "dateModified": "2026-06-14",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku.html"}
+  }
+  </script>
+</body>
+</html>

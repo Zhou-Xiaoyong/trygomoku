@@ -1,6 +1,6 @@
 /**
  * Gomoku Online &mdash; Game Engine, Canvas Renderer, and AI
- * 15x15 standard board with 3D stones, wood texture, 3 AI difficulty levels.
+ * 15x15 standard board with 3D stones, wood texture, 4 AI difficulty levels.
  */
 
 // ============================================================

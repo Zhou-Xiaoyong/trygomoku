@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Освоение распознавания образцов в Гомоку | Блог Гомоку</title>
+  <meta name="description" content="Распознавание образцов отделяет неплохих игроков от великих. Научитесь мгновенно определять живые четвёрки, мёртвые четвёрки, живые тройки и двойные угрозы.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku.html">
+  <meta property="og:title" content="Освоение распознавания образцов в Гомоку">
+  <meta property="og:description" content="Научитесь мгновенно определять живые четвёрки, мёртвые четвёрки, живые тройки и двойные угрозы. Фундамент всей продвинутой стратегии Гомоку.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Освоение распознавания образцов в Гомоку">
+  <meta name="twitter:description" content="Научитесь мгновенно определять живые четвёрки, мёртвые четвёрки, живые тройки и двойные угрозы.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/index.html" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/index.html#game">Играть</a></li>
+        <li><a href="/ru-RU/index.html#rules">Правила</a></li>
+        <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/index.html#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Освоение распознавания образцов в Гомоку</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-06-14">14 июня 2026 г.</time>
+            <span class="blog-read-time">9 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>Знаете тот момент, когда сильный игрок смотрит на доску две секунды и говорит: «у тебя проблемы»? А вы смотрите на ту же доску тридцать секунд и всё равно не видите?</p>
+
+          <p>Это распознавание образцов. Они видели эту форму раньше — или что-то достаточно близкое — и мозг мгновенно её отметил. Ваш — нет, потому что вы ещё не выстроили ментальную библиотеку.</p>
+
+          <p>Хорошая новость: это натренируемый навык. Не нужно быть «от природы талантливым» в распознавании образцов. Нужно лишь знать, какие образцы искать, и как тренировать быстроту их замечания.</p>
+
+          <h2>Четыре образца, которые важнее всего</h2>
+
+          <p>Забудьте пока о замысловатой теории дебютов. Если вы надёжно замечаете эти четыре образца — в своей позиции и в позиции противника — с одного взгляда, вы обыграете большинство казуальных игроков.</p>
+
+          <h3>1. Живая четвёрка (свободная четвёрка)</h3>
+          <p>Ряд из четырёх камней с <em>обоими открытыми концами</em>. Противник <strong>должен</strong> на своём ходу закрыть один конец, но вы всё равно соберёте пять следующим ходом. Живая четвёрка — это мгновенная победа, если только у противника нет такой же, и тогда партия закончится на его ходу.</p>
+
+          <p><strong>Что тренировать:</strong> просматривайте каждый ряд из четырёх на доске. Какие из них по-настоящему «живые» (оба конца пусты)? Какие «мёртвые» (один или оба конца заблокированы)? Звучит очевидно, но новички постоянно пропускают заблокированные четвёрки и думают, что угрожают, хотя не угрожают.</p>
+
+          <h3>2. Живая тройка</h3>
+          <p>Три камня в ряд с обоими открытыми концами. Если противник не заблокирует, вы превратите это в живую четвёрку на следующем ходу. Но вот в чём ключ: сама по себе живая тройка не выигрывает мгновенно. Противник может (и должен) её заблокировать.</p>
+
+          <p>Настоящая сила живой тройки — когда у вас <em>две</em> сразу, или живая тройка плюс живая четвёрка. Тогда противник не может закрыть всё.</p>
+
+          <h3>3. Мёртвая четвёрка / мёртвая тройка</h3>
+          <p>Четвёрка (или тройка) с хотя бы одним заблокированным концом. Они всё ещё полезны — мёртвая четвёрка, например, заставляет противника ответить, — но не являются немедленной угрозой. Умение с одного взгляда отличать «живое» от «мёртвого» — пожалуй, самый полезный отдельный навык в Гомоку.</p>
+
+          <h3>4. Двойная угроза (вилок)</h3>
+          <p>Это святой грааль. Ход, создающий <em>две</em> живые угрозы сразу — обычно две живые тройки, или живую тройку и живую четвёрку. Противник может закрыть только одну, так что вы выигрываете следующим ходом.</p>
+
+          <p>Большинство новичков пытаются выстроить одну большую эффектную линию. Более сильные игроки строят <em>две</em> пересекающиеся линии. Точка пересечения — ваша двойная угроза.</p>
+
+          <h2>Как выстроить свою библиотеку образцов</h2>
+
+          <p>Распознавание образцов — не про зазубривание форм из книги. Это про повторение: видеть одну и ту же ситуацию достаточно часто, чтобы мозг начал узнавать её автоматически.</p>
+
+          <p><strong>Дрилл 1: «сканирование опасности»</strong><br>Перед каждым ходом просматривайте всю доску в поисках живых троек и живых четвёрок противника. Делайте так на каждом ходу две недели. Сначала будет казаться медленно. Потом вдруг — нет.</p>
+
+          <p><strong>Дрилл 2: игра «что если»</strong><br>Поставив камень, спросите: «если бы я поставил ещё один рядом, что бы получилось?» Не ставьте его на самом деле — просто визуализируйте. Это развивает способность «видеть вперёд» без ментальной цены расчёта полных последовательностей ходов.</p>
+
+          <p><strong>Дрилл 3: игра с сильными противниками</strong><br>ИИ на <a href="../index.html">trygomoku.com</a> для этого отличен. Поставьте уровень, где вы проигрываете около 40% партий. Вы начнёте замечать закономерности в том, как ИИ выстраивает угрозы, — и постепенно начнёте замечать те же образцы, когда ваши друзья-люди так играют.</p>
+
+          <h2>Разница между «видеть» и «замечать»</h2>
+
+          <p>Есть тонкая разница. «Видеть» образец — значит уметь опознать его, когда кто-то на него указал. «Замечать» — значит, что мозг отмечает его <em>без</em> того, чтобы вы сознательно его искали.</p>
+
+          <p>Вы хотите дойти до «замечать». Вот тогда распознавание образцов по-настоящему помогает в реальных партиях. И единственный путь туда — повторение, которое, да, означает много партий (и поражений).</p>
+
+          <p>Но теперь вы знаете, что искать. В следующий раз, проиграв, вы хотя бы будете знать <em>почему</em> — а это первый шаг к исправлению.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Потренируйте распознавание прямо сейчас</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Сыграйте несколько партий и фокусируйтесь на живых тройках до того, как они станут живыми четвёрками.</p>
+            <a href="/ru-RU/index.html#game" class="cta-btn">Играть в Гомоку сейчас</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/index.html#game">Играть</a></li>
+            <li><a href="/ru-RU/index.html#rules">Правила</a></li>
+            <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/index.html#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about.html">О нас</a></li>
+            <li><a href="/privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/index.html#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Освоение распознавания образцов в Гомоку",
+    "description": "Распознавание образцов отделяет неплохих игроков от великих. Научитесь мгновенно определять живые четвёрки, мёртвые четвёрки, живые тройки и двойные угрозы.",
+    "datePublished": "2026-06-14",
+    "dateModified": "2026-06-14",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html"}
+  }
+  </script>
+</body>
+</html>

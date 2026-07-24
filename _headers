@@ -2,10 +2,11 @@
 # Cloudflare Pages Headers — trygomoku.com
 # ==========================================
 #
-# ⚠️  DEVELOPMENT MODE — 开发阶段配置
-#    站点还在频繁修改，所有 HTML/CSS/JS 禁止缓存，
-#    每次访问都重新获取最新版本。
-#    网站稳定后请将此项改回长效缓存。
+# ✅ PRODUCTION MODE — 长效缓存配置
+#    HTML 缓存 1 小时（过期重新验证，内容更新最多 1 小时内生效）；
+#    CSS / JS 缓存 1 周；图片缓存 1 年（immutable）；
+#    i18n / manifest / sitemap / robots 缓存 1 天。
+#    站点仍在迭代时若要立即生效，可在 Cloudflare 后台做一次 Custom Purge。
 #
 
 /*
@@ -14,39 +15,45 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), microphone=(), payment=()
 
-# HTML — 不缓存，每次重新验证
+# HTML — 根目录索引、语言子站目录索引、以及所有 .html 页面，缓存 1 小时
+/
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/**/
+  Cache-Control: public, max-age=3600, must-revalidate
+
 /*.html
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=3600, must-revalidate
 
-# CSS — 不缓存，每次重新验证
+# CSS — 缓存 1 周
 /css/*
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=604800, must-revalidate
 
-# JS — 不缓存，每次重新验证
+# JS — 缓存 1 周
 /js/*
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=604800, must-revalidate
 
-# Images — 图片变化少，可适度缓存
+# Images — 缓存 1 年（immutable；更新图片请改名或 Purge）
 /*.png
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=31536000, immutable
 
 /*.svg
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=31536000, immutable
 
 /*.ico
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=31536000, immutable
 
-# JSON data — 不缓存（i18n 文件可能更新）
+# i18n JSON — 翻译可能更新，缓存 1 天
 /i18n/*
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=86400, must-revalidate
 
-# Manifest — 不缓存
+# Manifest — 缓存 1 天
 /manifest.json
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=86400, must-revalidate
 
-# Sitemap & robots — 不缓存
+# Sitemap & robots — 缓存 1 天
 /sitemap.xml
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=86400, must-revalidate
 
 /robots.txt
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=86400, must-revalidate
