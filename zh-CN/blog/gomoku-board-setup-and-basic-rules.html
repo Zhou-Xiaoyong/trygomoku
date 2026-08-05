@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href=" /blog//blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋棋盘摆法与基本规则：15×15 完整入门指南 | 五子棋博客</title>
+  <meta name="description" content="五子棋棋盘摆法与基本规则完整讲解：15×15 棋盘的 225 个交叉点、星位与天元、黑先白后、第一手下在哪、坐标怎么读，以及到底怎样才算连成五子。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:title" content="五子棋棋盘摆法与基本规则：15×15 完整入门指南">
+  <meta property="og:description" content="棋盘、棋子、谁先走、第一手落在哪，以及决定每一局胜负的五条基本规则。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋棋盘摆法与基本规则详解">
+  <meta name="twitter:description" content="225 个交叉点，棋子落在交点上，黑先从天元开局。落第一手之前该懂的全部内容。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/index.html" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/index.html#game">玩棋</a></li>
+        <li><a href="/zh-CN/index.html#rules">规则</a></li>
+        <li><a href="/zh-CN/index.html#strategy">策略</a></li>
+        <li><a href="/zh-CN/index.html#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/index.html#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">新手</span>
+          <h1 itemprop="headline">五子棋棋盘摆法与基本规则：落第一手之前该懂的全部内容</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-08-05">2026-08-05</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>五子棋的棋盘摆法与基本规则，认真讲也就一分钟：15&times;15 的空棋盘、黑白两色棋子、连成五子即胜。可偏偏很多新手第一步就摆错了。这篇文章把开局之前该弄明白的事情讲清楚&mdash;&mdash;棋盘到底长什么样、棋子怎么用、谁先走、第一手落在哪&mdash;&mdash;然后是那几条管住全局的基本规则。</p>
+          <h2>棋盘：横竖各 15 条线，不是 15 个格子</h2>
+          <p>标准五子棋盘由<strong>横竖各 15 条线</strong>组成，交叉出 <strong>225 个交叉点</strong>。新手最容易忽略的正是这一点：<em>棋子要落在线与线的交叉点上，而不是格子里面</em>。象棋、跳棋走格子，五子棋和围棋一样走交点。</p>
+          <p>棋盘上印着几个小圆点，那是<em>星位</em>，纯粹是方便定位的参考标记，本身不带任何规则含义。正中间那一点叫<strong>天元</strong>，它比其他星位重要，因为开局第一手通常就落在这里。</p>
+          <p>其他尺寸也能玩。19&times;19 的围棋盘直接拿来用完全没问题，很多人就是这么将就的；便携棋盘常见 13&times;13。但 15&times;15 是比赛标准，你看到的所有定式和开局理论都默认这个尺寸。</p>
+          <h2>棋子</h2>
+          <ul>
+            <li><strong>只有黑白两色</strong>，黑棋先行。</li>
+            <li>整副棋约<strong>黑 113 枚、白 112 枚</strong>，刚好能铺满 225 个点；实战一局往往用不到四十枚。</li>
+            <li><strong>落子不动。</strong>棋子放下就固定在那个交点上，不吃子、不提子、不移动、不升变。</li>
+          </ul>
+          <p>开局时棋盘上一枚棋子都没有。不像象棋要背开局阵型，五子棋从完全空白的棋盘起步&mdash;&mdash;这也是为什么最初几手分量特别重。</p>
+          <h2>谁先走，第一手下在哪</h2>
+          <p><strong>黑棋永远先行</strong>，而先手在五子棋里是实打实的优势&mdash;&mdash;大到竞技规则存在的主要目的就是把它压回来。休闲的自由规则下，黑棋第一手可以落在任意交叉点；正式比赛规则则要求黑棋首手必须下在天元，也就是棋盘正中。</p>
+          <p>不管用哪套规则，开局下中央都是好习惯。天元这个点能参与的五连线路比棋盘上任何一点都多，而角上的点最少。想知道高手接下来怎么走，可以看我们整理的<a href="/zh-CN/blog/top-10-gomoku-openings.html">常见五子棋开局定式</a>，里面逐手拆解了标准应对。</p>
+          <p>白棋应手几乎总是紧贴黑子附近，而不是跑到空旷的一角。离得太远，等于白送黑棋一片发展空间。</p>
+          <h2>基本规则，一次说完</h2>
+          <ol>
+            <li><strong>双方轮流落子。</strong>黑、白、黑、白，不能弃权，不能连下两手。</li>
+            <li><strong>每手一枚</strong>，落在任意空着的交叉点上。</li>
+            <li><strong>落子无悔</strong>，棋子不会被吃掉，也不能挪位。</li>
+            <li><strong>同色五子连成不间断的一条线即获胜</strong>&mdash;&mdash;横、竖、斜均可。</li>
+            <li>棋盘下满仍无人连五则<strong>和棋</strong>。在 15&times;15 上这种情况极其罕见。</li>
+          </ol>
+          <p>规则就这些。你之后读到的所有关于五子棋的内容&mdash;&mdash;冲四、活三、双三、先手连打&mdash;&mdash;都是搭在这五条之上的战术。</p>
+          <h2>到底怎样才算「连五」</h2>
+          <p>这五枚棋子必须<strong>同色、相邻、不间断，并且在同一条直线上</strong>：一行、一列，或者任一斜线。中间空一个交点就断了，被对方插一子当然也断了。</p>
+          <p>唯一真正有歧义的是<em>长连</em>&mdash;&mdash;六子及以上连成一线。自由规则下长连照样算赢；而在标准连珠规则里，黑棋走出长连属于禁手，当场判负，白棋则不受限制。下实体棋之前一定要先说好用哪套&mdash;&mdash;因为这个岔子决定胜负的次数比想象中多得多。完整的禁手清单可以看<a href="/zh-CN/blog/gomoku-vs-renju.html">五子棋与连珠规则的区别</a>。</p>
+          <h2>看懂棋盘坐标</h2>
+          <p>棋谱里，列从左到右标为 <strong>A 到 O</strong>，行从下到上标为 <strong>1 到 15</strong>，所以天元就是 <strong>H8</strong>。学会读坐标之后，所有战术文章和棋谱都对你开放了：<em>1. H8 H9 2. I8</em> 就是一段完整、可以照着摆出来的开局。线上棋盘一般会在四边标出这些坐标。</p>
+          <h2>实体棋盘和线上对局，差别在哪</h2>
+          <p>规则完全一样，麻烦事不一样。</p>
+          <ul>
+            <li><strong>实体棋盘：</strong>先说清用哪套规则（自由还是连珠），再定谁执黑&mdash;&mdash;抛硬币，或者让棋力弱的一方执黑&mdash;&mdash;黑白棋子分两个棋盒装。每局交换执子颜色，一晚上下来先手优势就摊平了。</li>
+            <li><strong>线上对局：</strong>棋盘已按标准画好，行棋顺序由程序保证，落在已有子的点上会被拒绝，连五瞬间自动判定。你根本没机会把棋盘摆错，所以入门阶段在线上学更省心。</li>
+          </ul>
+          <h2>五个值得避开的摆盘错误</h2>
+          <ol>
+            <li><strong>把棋子放进格子里。</strong>新手第一大错。棋子走交叉点。</li>
+            <li><strong>开局下在边角。</strong>合规，但等于开局就丢掉近一半的连五方向。</li>
+            <li><strong>没事先约定长连算不算赢。</strong>第一手之前说清楚，别等到最后一手才吵。</li>
+            <li><strong>永远同一个人执黑。</strong>连下几局，这就是白送的领先。要轮换。</li>
+            <li><strong>落子后手还在棋盘上蹭。</strong>木质棋盘很容易碰移棋子，盘面一密集，胜负可能就悄悄换了主人。</li>
+          </ol>
+          <h2>几个常见疑问</h2>
+          <p><strong>一定要有围棋盘才能下五子棋吗？</strong>不一定，但它最方便。19&times;19 的围棋套装棋子和格线都现成，想用标准尺寸就在其中划出 15&times;15 的范围。</p>
+          <p><strong>第一手真的可以随便下吗？</strong>自由规则可以；正式连珠比赛里，黑棋必须开在天元。</p>
+          <p><strong>斜着连五算赢吗？</strong>算，两个斜向都算。斜线恰恰是新手最容易漏看的方向，无论进攻还是防守。</p>
+          <p><strong>棋子不够用怎么办？</strong>不会不够。整副棋能铺满每个交点，而一局棋远远下不到那一步。</p>
+          <h2>摆好棋盘，开下</h2>
+          <p>棋盘摊开，黑白分盒，第一手落在天元&mdash;&mdash;可以开始了。想要带实例、带完整第一局演示的规则讲解，接着读<a href="/zh-CN/blog/how-to-play-gomoku-for-absolute-beginners.html">零基础五子棋入门教程</a>，然后到<a href="/zh-CN/index.html">免费 15&times;15 棋盘</a>上跟 AI 实战几局。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">棋盘已经给你摆好了</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">在浏览器里直接开一局标准 15×15 五子棋&mdash;&mdash;免下载、免注册，四档 AI 难度任选。</p>
+            <a href="/zh-CN/index.html#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/index.html#game">玩棋</a></li>
+            <li><a href="/zh-CN/index.html#rules">规则</a></li>
+            <li><a href="/zh-CN/index.html#strategy">策略</a></li>
+            <li><a href="/zh-CN/index.html#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/index.html#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about.html">关于我们</a></li>
+            <li><a href="/privacy.html">隐私政策</a></li>
+            <li><a href="/zh-CN/index.html#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋棋盘摆法与基本规则：落第一手之前该懂的全部内容",
+    "description": "五子棋棋盘摆法与基本规则完整讲解：15×15 棋盘的 225 个交叉点、星位与天元、黑先白后、第一手下在哪、坐标怎么读，以及到底怎样才算连成五子。",
+    "datePublished": "2026-08-05",
+    "dateModified": "2026-08-05",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html"}
+  }
+  </script>
+</body>
+</html>

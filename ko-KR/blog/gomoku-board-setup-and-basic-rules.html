@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href=" /blog//blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목판 세팅과 기본 규칙: 15×15 완전 입문 가이드 | 오목 블로그</title>
+  <meta name="description" content="오목판 세팅과 기본 규칙 완전 정리. 15×15 판의 225개 교차점, 화점과 천원, 흑선백후, 첫 수의 위치, 좌표 읽는 법, 그리고 오목으로 인정되는 정확한 조건까지 설명합니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:title" content="오목판 세팅과 기본 규칙: 15×15 완전 입문 가이드">
+  <meta property="og:description" content="판, 돌, 누가 먼저 두는지, 첫 수의 위치, 그리고 모든 대국을 결정하는 다섯 가지 기본 규칙.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목판 세팅과 기본 규칙 총정리">
+  <meta name="twitter:description" content="교차점 225개, 돌은 칸이 아니라 교차점에, 흑이 천원에서 선수. 첫 수 전에 알아야 할 모든 것.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/index.html" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/index.html#game">플레이</a></li>
+        <li><a href="/ko-KR/index.html#rules">규칙</a></li>
+        <li><a href="/ko-KR/index.html#strategy">전략</a></li>
+        <li><a href="/ko-KR/index.html#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">입문</span>
+          <h1 itemprop="headline">오목판 세팅과 기본 규칙: 첫 수를 두기 전에 알아야 할 모든 것</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-08-05">2026-08-05</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>오목판 세팅과 기본 규칙은 아무리 꼼꼼히 설명해도 1분이면 끝납니다. 비어 있는 15&times;15 판, 흑백 두 가지 돌, 그리고 단 하나의 승리 조건. 그런데도 입문자 상당수가 바로 그 첫 단계에서 실수합니다. 이 글에서는 대국이 시작되기 전에 알아야 할 것&mdash;&mdash;판의 구조, 돌을 다루는 법, 누가 먼저 두는지, 첫 수를 어디에 두는지&mdash;&mdash;을 정리하고, 그다음 판 전체를 지배하는 짧은 규칙 목록을 살펴봅니다.</p>
+          <h2>판: 가로세로 15줄이지 15칸이 아닙니다</h2>
+          <p>표준 오목판은 <strong>가로 15줄, 세로 15줄</strong>로 이루어져 있고, 이 선들이 만나 <strong>225개의 교차점</strong>을 만듭니다. 입문자가 가장 자주 놓치는 부분이 여기입니다. 돌은 <em>선과 선이 만나는 교차점 위</em>에 놓습니다. 칸 안이 아닙니다. 체스나 체커는 칸을 쓰지만, 오목은 바둑과 마찬가지로 교차점을 씁니다.</p>
+          <p>판에는 작은 점이 몇 개 찍혀 있습니다. <em>화점</em>이라고 부르는 이 표시는 위치를 가늠하기 위한 기준일 뿐, 그 자체에 규칙적 의미는 없습니다. 다만 정중앙의 점은 <strong>천원</strong>이라 부르며, 첫 수가 놓이는 자리라는 점에서 특별합니다.</p>
+          <p>다른 크기로도 둘 수 있습니다. 19&times;19 바둑판은 그대로 대용할 수 있어 실제로 많이들 그렇게 쓰고, 휴대용 세트는 13&times;13이 흔합니다. 하지만 공식 규격은 15&times;15이며, 앞으로 읽게 될 모든 정석과 포석 이론은 이 크기를 전제로 합니다.</p>
+          <h2>돌</h2>
+          <ul>
+            <li><strong>색은 흑과 백 두 가지뿐</strong>이고, 흑이 선수입니다.</li>
+            <li>한 세트에 <strong>흑 약 113개, 백 약 112개</strong>. 225개 교차점을 전부 채울 수 있는 수량이지만, 실전에서는 마흔 개도 잘 쓰지 않습니다.</li>
+            <li><strong>돌은 움직이지 않습니다.</strong> 한 번 놓은 돌은 끝까지 그 자리에 남습니다. 따내지도, 옮기지도, 승격하지도 않습니다.</li>
+          </ul>
+          <p>시작할 때 판 위에는 돌이 하나도 없습니다. 체스처럼 초기 배치를 외울 필요가 없는 대신, 초반 몇 수의 무게가 그만큼 커집니다.</p>
+          <h2>누가 먼저, 어디에 두는가</h2>
+          <p><strong>흑이 항상 먼저</strong> 두고, 오목에서 선수의 이점은 실재합니다. 경기용 규칙이 존재하는 가장 큰 이유가 바로 이 이점을 깎아내는 것이라고 해도 과언이 아닐 정도죠. 가벼운 자유 규칙에서는 흑이 아무 교차점에나 첫 수를 둘 수 있습니다. 공식 렌주 규칙에서는 흑의 첫 수가 반드시 천원, 즉 판의 정중앙이어야 합니다.</p>
+          <p>어느 쪽이든 중앙에서 시작하는 것은 좋은 습관입니다. 천원은 판 위 어떤 점보다 많은 오목 라인에 걸쳐 있고, 반대로 귀퉁이 점이 가장 적습니다. 그다음 수들이 궁금하다면 <a href="/ko-KR/blog/top-10-gomoku-openings.html">대표적인 오목 포석 정석</a>에서 표준 대응을 한 수씩 짚어 두었습니다.</p>
+          <p>백의 응수는 멀리 떨어진 빈 구역이 아니라 흑돌 가까이에 두는 것이 거의 정석입니다. 멀리 두면 그만큼 흑에게 마음껏 쓸 공간을 넘겨주는 셈이니까요.</p>
+          <h2>기본 규칙 전부</h2>
+          <ol>
+            <li><strong>번갈아 둡니다.</strong> 흑, 백, 흑, 백. 건너뛰기도, 연속 두 수도 없습니다.</li>
+            <li><strong>한 수에 돌 하나</strong>, 비어 있는 교차점이면 어디든 가능합니다.</li>
+            <li><strong>놓은 돌은 그대로</strong>, 따내거나 옮기지 않습니다.</li>
+            <li><strong>같은 색 돌 다섯 개가 끊기지 않고 한 줄로 이어지면 승리</strong>&mdash;&mdash;가로, 세로, 대각선 모두 인정됩니다.</li>
+            <li>판이 다 차도록 오목이 나오지 않으면 <strong>무승부</strong>입니다. 15&times;15에서는 극히 드뭅니다.</li>
+          </ol>
+          <p>규칙은 이게 전부입니다. 앞으로 접할 삼삼, 사사, 선수 몰이 같은 이야기는 모두 이 다섯 줄 위에 쌓아 올린 전술일 뿐입니다.</p>
+          <h2>무엇이 오목으로 인정되는가</h2>
+          <p>다섯 개의 돌은 <strong>같은 색이고, 서로 붙어 있고, 끊기지 않으며, 하나의 직선 위</strong>에 있어야 합니다. 가로줄, 세로줄, 또는 두 대각선 중 하나입니다. 가운데 빈 교차점이 하나만 있어도 성립하지 않고, 상대 돌이 끼어 있어도 마찬가지입니다.</p>
+          <p>진짜 애매한 지점은 <em>장목</em>&mdash;&mdash;여섯 개 이상이 한 줄로 늘어선 모양입니다. 자유 규칙에서는 장목도 그냥 승리입니다. 반면 표준 렌주 규칙에서 흑의 장목은 금수라 그 자리에서 패배가 되고, 백은 자유롭게 만들 수 있습니다. 실물 판에서 둘 때는 시작 전에 어느 쪽인지 반드시 정하세요. 이것 때문에 승부가 갈리는 경우가 생각보다 많습니다. 금수 전체 목록은 <a href="/ko-KR/blog/gomoku-vs-renju.html">오목과 렌주의 차이</a>에서 자세히 다룹니다.</p>
+          <h2>좌표 읽기</h2>
+          <p>기보에서는 열을 왼쪽부터 <strong>A&ndash;O</strong>, 행을 아래쪽부터 <strong>1&ndash;15</strong>로 표기하므로 중앙의 천원은 <strong>H8</strong>이 됩니다. 좌표를 읽을 수 있게 되면 전술 글도 기보도 한꺼번에 열립니다. <em>1. H8 H9 2. I8</em>이라고 쓰면 그대로 재현할 수 있는 포석 기록이 되죠. 온라인 판에는 대개 가장자리에 좌표가 표시되어 있습니다.</p>
+          <h2>실물 판과 온라인, 무엇이 다른가</h2>
+          <p>규칙은 같지만 챙길 것이 다릅니다.</p>
+          <ul>
+            <li><strong>실물 판:</strong> 먼저 어떤 규칙(자유인지 렌주인지)을 쓸지 합의하고, 누가 흑을 잡을지 정합니다. 동전 던지기도 좋고, 실력이 아래인 쪽에 흑을 주어도 좋습니다. 돌은 색깔별로 따로 담아 두세요. 매 판 색을 바꾸면 하룻저녁이면 선수 이점이 고르게 상쇄됩니다.</li>
+            <li><strong>온라인:</strong> 판은 표준 규격으로 그려져 있고, 순서는 자동으로 관리되며, 이미 돌이 있는 자리는 거부되고, 오목은 완성되는 즉시 판정됩니다. 애초에 세팅을 틀릴 수가 없어서 배우는 단계에서는 훨씬 편합니다.</li>
+          </ul>
+          <h2>피해야 할 세팅 실수 다섯 가지</h2>
+          <ol>
+            <li><strong>칸 안에 돌 놓기.</strong> 입문자 최대의 실수입니다. 돌은 교차점에 놓습니다.</li>
+            <li><strong>첫 수를 변이나 귀에 두기.</strong> 반칙은 아니지만, 시작도 전에 오목을 만들 방향의 절반가량을 버리는 셈입니다.</li>
+            <li><strong>장목 규칙을 안 정하고 시작하기.</strong> 마지막 수에서 다투기 전에, 첫 수 전에 정해 두세요.</li>
+            <li><strong>늘 같은 사람이 흑을 잡기.</strong> 여러 판을 두면 그건 그냥 얹어 주는 핸디캡입니다. 번갈아 잡으세요.</li>
+            <li><strong>놓은 뒤에 돌을 건드리기.</strong> 나무 판에서는 쉽게 밀리고, 판이 빽빽해지면 형세가 조용히 뒤바뀝니다.</li>
+          </ol>
+          <h2>자주 묻는 것들</h2>
+          <p><strong>오목을 두려면 바둑판이 꼭 필요한가요?</strong> 꼭은 아니지만 가장 편합니다. 19&times;19 바둑 세트가 있으면 돌과 격자가 모두 갖춰지니, 그 안에서 15&times;15 범위만 쓰면 표준 크기가 됩니다.</p>
+          <p><strong>첫 수는 정말 아무 데나 둬도 되나요?</strong> 자유 규칙이면 됩니다. 공식 렌주에서는 흑이 천원에 두어야 합니다.</p>
+          <p><strong>대각선 오목도 승리인가요?</strong> 승리입니다. 두 대각선 방향 모두 유효하며, 공격할 때든 막을 때든 입문자가 가장 자주 놓치는 방향이기도 합니다.</p>
+          <p><strong>돌이 모자라면 어떡하죠?</strong> 모자라지 않습니다. 한 세트로 모든 교차점을 채울 수 있고, 대국은 그 훨씬 전에 끝납니다.</p>
+          <h2>판을 놓았다면, 이제 두면 됩니다</h2>
+          <p>판을 펼치고, 흑백을 나누고, 첫 수는 중앙에&mdash;&mdash;준비 끝입니다. 실제 예시와 함께 한 판의 흐름을 따라가고 싶다면 다음으로 <a href="/ko-KR/blog/how-to-play-gomoku-for-absolute-beginners.html">왕초보를 위한 오목 입문 가이드</a>를 읽어 보세요. 그리고 <a href="/ko-KR/index.html">무료 15&times;15 판</a>에서 AI를 상대로 바로 연습해 보시길 권합니다.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">판은 이미 준비되어 있습니다</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">브라우저에서 바로 표준 15×15 오목을 즐기세요. 다운로드도 가입도 필요 없고 AI 난이도는 4단계입니다.</p>
+            <a href="/ko-KR/index.html#game" class="cta-btn">지금 오목 플레이하기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/index.html#game">플레이</a></li>
+            <li><a href="/ko-KR/index.html#rules">규칙</a></li>
+            <li><a href="/ko-KR/index.html#strategy">전략</a></li>
+            <li><a href="/ko-KR/index.html#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about.html">소개</a></li>
+            <li><a href="/privacy.html">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/index.html#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목판 세팅과 기본 규칙: 첫 수를 두기 전에 알아야 할 모든 것",
+    "description": "오목판 세팅과 기본 규칙 완전 정리. 15×15 판의 225개 교차점, 화점과 천원, 흑선백후, 첫 수의 위치, 좌표 읽는 법, 그리고 오목으로 인정되는 정확한 조건까지 설명합니다.",
+    "datePublished": "2026-08-05",
+    "dateModified": "2026-08-05",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules.html"}
+  }
+  </script>
+</body>
+</html>

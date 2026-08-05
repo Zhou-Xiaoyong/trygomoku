@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href=" /blog//blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べの盤の準備と基本ルール：15×15 完全入門ガイド | 五目並べブログ</title>
+  <meta name="description" content="五目並べの盤の準備と基本ルールを完全解説。15×15の盤と225の交点、星と天元、先手はどちらか、初手の位置、座標の読み方、そして五連として認められる正確な条件まで。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:title" content="五目並べの盤の準備と基本ルール：15×15 完全入門ガイド">
+  <meta property="og:description" content="盤、石、先手はどちらか、初手はどこか、そして勝敗を決める五つの基本ルール。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べの盤の準備と基本ルール解説">
+  <meta name="twitter:description" content="225の交点、石は交点の上、黒が天元から先手。初手を打つ前に知っておきたいことのすべて。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/index.html" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/index.html#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/index.html#rules">ルール</a></li>
+        <li><a href="/ja-JP/index.html#strategy">戦略</a></li>
+        <li><a href="/ja-JP/index.html#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/index.html#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">初心者</span>
+          <h1 itemprop="headline">五目並べの盤の準備と基本ルール：初手を打つ前に知っておくこと</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-08-05">2026-08-05</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>五目並べの盤の準備と基本ルールは、丁寧に説明しても一分ほどで終わります。15&times;15 の空の盤、白黒二色の石、そして勝敗条件はひとつだけ。ところが初心者の多くが、最初の一歩でつまずきます。この記事では対局が始まる前に押さえるべきこと&mdash;&mdash;盤の構造、石の扱い、先手はどちらか、初手をどこに打つか&mdash;&mdash;を整理し、そのあとに全体を支配する短いルールを並べます。</p>
+          <h2>盤：縦横15本の「線」であって、15個のマスではない</h2>
+          <p>標準的な五目並べの盤は<strong>縦15本・横15本の線</strong>でできており、交わって <strong>225 の交点</strong>を作ります。初心者が最も見落とすのがここです。石は<em>線と線が交わる交点の上</em>に置きます。マスの中ではありません。チェスやチェッカーはマスを使いますが、五目並べは囲碁と同じく交点を使います。</p>
+          <p>盤にはいくつか小さな黒い点が印刷されています。これが<em>星</em>で、位置を把握するための目印にすぎず、それ自体にルール上の意味はありません。ただし中央の一点は<strong>天元</strong>と呼ばれ、初手が置かれる場所として特別です。</p>
+          <p>他のサイズでも遊べます。19&times;19 の碁盤はそのまま代用でき、実際に流用している人は多いですし、携帯用は 13&times;13 が主流です。ただし公式サイズは 15&times;15 で、あなたが読むことになる定石や序盤理論はすべてこの盤を前提にしています。</p>
+          <h2>石について</h2>
+          <ul>
+            <li><strong>色は黒と白の二種類だけ。</strong>先手は黒です。</li>
+            <li>一組で<strong>黒がおよそ113個、白が112個</strong>。225の交点をすべて埋められる数ですが、実戦では40個も使わないのが普通です。</li>
+            <li><strong>石は動きません。</strong>一度置いた石は最後までその交点に残ります。取られることも、動かすことも、成ることもありません。</li>
+          </ul>
+          <p>開始時、盤上に石はひとつもありません。将棋やチェスのように初期配置を覚える必要がない代わりに、最初の数手の重みが非常に大きくなります。</p>
+          <h2>先手はどちらか、初手はどこか</h2>
+          <p><strong>常に黒が先手</strong>で、五目並べにおける先手の利は本物です。競技用のルールが存在する最大の理由が、この有利さを削ることだと言ってもいいほどです。自由ルールの気軽な対局では、黒は好きな交点に打てます。公式の連珠ルールでは、黒の初手は必ず天元、つまり盤の中央でなければなりません。</p>
+          <p>どちらのルールでも、中央から始めるのは良い習慣です。天元は盤上のどの点よりも多くの五連ラインに関わっており、逆に隅の点が最も少なくなります。そこから先の指し方が気になるなら、<a href="/ja-JP/blog/top-10-gomoku-openings.html">代表的な五目並べの序盤定石</a>で標準的な応手を一手ずつ解説しています。</p>
+          <p>白の応手は、離れた空白地帯ではなく黒石の近くに打つのがほぼ定跡です。遠くに打てば、その分だけ黒に自由な広さを与えてしまいます。</p>
+          <h2>基本ルールのすべて</h2>
+          <ol>
+            <li><strong>交互に打つ。</strong>黒、白、黒、白。パスも二手連続もありません。</li>
+            <li><strong>一手につき石は一個</strong>、空いている交点ならどこでも構いません。</li>
+            <li><strong>置いた石は動かせず</strong>、取られることもありません。</li>
+            <li><strong>自分の石が途切れずに五つ並べば勝ち</strong>&mdash;&mdash;縦、横、斜めのいずれでも同じです。</li>
+            <li>盤が埋まっても五連ができなければ<strong>引き分け</strong>。15&times;15 では極めて稀です。</li>
+          </ol>
+          <p>ルールはこれで全部です。この先読むことになる三々、四々、追い手といった話は、すべてこの五行の上に積み上げられた戦術にすぎません。</p>
+          <h2>「五連」として認められる形</h2>
+          <p>五つの石は<strong>同じ色で、隣り合い、途切れず、一直線上にある</strong>必要があります。縦の列、横の行、そして二方向の斜めのいずれかです。間に空点がひとつあれば成立せず、相手の石が挟まっていても当然成立しません。</p>
+          <p>唯一の本当の論点が<em>長連</em>&mdash;&mdash;六つ以上並んだ形です。自由ルールでは長連もそのまま勝ちになります。一方、標準の連珠ルールでは黒の長連は禁じ手で、その場で負けになりますが、白は自由に作れます。実物の盤で打つ前に、どちらを採用するか必ず決めておいてください。これが勝敗を分ける場面は想像以上に多いものです。禁じ手の一覧は<a href="/ja-JP/blog/gomoku-vs-renju.html">五目並べと連珠の違い</a>で詳しく扱っています。</p>
+          <h2>盤の座標を読む</h2>
+          <p>棋譜では列を左から <strong>A&ndash;O</strong>、行を下から <strong>1&ndash;15</strong> で表すため、中央の天元は <strong>H8</strong> になります。座標が読めるようになると、戦術記事も棋譜も一気に理解できるようになります。<em>1. H8 H9 2. I8</em> と書けば、そのまま再現できる序盤の記録です。オンラインの盤には通常、四辺に座標が表示されています。</p>
+          <h2>実物の盤とオンライン、何が変わるか</h2>
+          <p>ルールは同じですが、手間のかかり方が違います。</p>
+          <ul>
+            <li><strong>実物の盤：</strong>まず採用するルール（自由か連珠か）を決め、次に誰が黒を持つかを決めます。コイントスでも、棋力が下の人が黒でも構いません。石は色ごとに別の碁笥へ。一局ごとに色を交換すれば、先手の利は一晩でならされます。</li>
+            <li><strong>オンライン：</strong>盤は標準サイズで描かれ、手番は自動で管理され、埋まっている点への着手は弾かれ、五連は成立した瞬間に判定されます。そもそも準備を間違えようがないので、覚える段階ではこちらが楽です。</li>
+          </ul>
+          <h2>避けたい準備段階の失敗五つ</h2>
+          <ol>
+            <li><strong>マスの中に石を置く。</strong>初心者最大の間違い。石は交点に置きます。</li>
+            <li><strong>初手を端や隅に打つ。</strong>反則ではありませんが、対局開始前から五連の方向を半分近く捨てることになります。</li>
+            <li><strong>長連の扱いを決めずに始める。</strong>最後の一手で揉める前に、最初の一手の前に決めておきましょう。</li>
+            <li><strong>いつも同じ人が黒を持つ。</strong>何局も続ければ、それは差し上げているハンデです。交互に。</li>
+            <li><strong>置いたあとに石を触る。</strong>木の盤では簡単にずれますし、盤面が混んでくると形勢がひそかに入れ替わります。</li>
+          </ol>
+          <h2>よくある疑問</h2>
+          <p><strong>五目並べに碁盤は必須ですか。</strong>必須ではありませんが、最も手軽です。19&times;19 の碁石と盤があれば、その中の 15&times;15 の範囲を使えば標準サイズになります。</p>
+          <p><strong>初手は本当にどこでもいいのですか。</strong>自由ルールなら自由です。公式の連珠では黒は天元に打たなければなりません。</p>
+          <p><strong>斜めの五連も勝ちですか。</strong>勝ちです。二つの斜め方向どちらも有効で、攻めるときも守るときも初心者が最も見落とす方向です。</p>
+          <p><strong>石が足りなくなったら。</strong>足りなくなりません。一組ですべての交点を埋められますし、対局はそのはるか手前で決着します。</p>
+          <h2>盤を用意したら、あとは打つだけ</h2>
+          <p>盤を広げ、黒白を分け、初手は中央へ&mdash;&mdash;これで準備完了です。実例つきで一局の流れを追いたい方は、次に<a href="/ja-JP/blog/how-to-play-gomoku-for-absolute-beginners.html">初心者のための五目並べ入門</a>をどうぞ。そのまま<a href="/ja-JP/index.html">無料の 15&times;15 の盤</a>で AI を相手に試してみてください。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">盤はもう用意できています</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">ブラウザですぐに標準15×15の五目並べを。ダウンロードも登録も不要、AIは4段階から選べます。</p>
+            <a href="/ja-JP/index.html#game" class="cta-btn">今すぐ五目並べで遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/index.html#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/index.html#rules">ルール</a></li>
+            <li><a href="/ja-JP/index.html#strategy">戦略</a></li>
+            <li><a href="/ja-JP/index.html#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/index.html#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about.html">私たちについて</a></li>
+            <li><a href="/privacy.html">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/index.html#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べの盤の準備と基本ルール：初手を打つ前に知っておくこと",
+    "description": "五目並べの盤の準備と基本ルールを完全解説。15×15の盤と225の交点、星と天元、先手はどちらか、初手の位置、座標の読み方、そして五連として認められる正確な条件まで。",
+    "datePublished": "2026-08-05",
+    "dateModified": "2026-08-05",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules.html"}
+  }
+  </script>
+</body>
+</html>

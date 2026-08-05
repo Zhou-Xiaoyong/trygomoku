@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href=" /blog//blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Расстановка доски и базовые правила гомоку: гид по доске 15×15 | Блог Гомоку</title>
+  <meta name="description" content="Полный разбор расстановки доски и базовых правил гомоку: сетка 15×15 и её 225 пересечений, звёздные пункты и тэнгэн, кто ходит первым, куда идёт первый камень, координаты и точное условие победы.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:title" content="Расстановка доски и базовые правила гомоку: полный гид 15×15">
+  <meta property="og:description" content="Доска, камни, кто ходит первым, куда идёт первый камень и пять правил, решающих исход любой партии.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Расстановка доски и базовые правила гомоку">
+  <meta name="twitter:description" content="225 пересечений, камни на перекрестьях, чёрные начинают с центра. Всё, что нужно знать до первого хода.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/index.html" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/index.html#game">Играть</a></li>
+        <li><a href="/ru-RU/index.html#rules">Правила</a></li>
+        <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/index.html#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Новичкам</span>
+          <h1 itemprop="headline">Расстановка доски и базовые правила гомоку: всё, что нужно знать до первого хода</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-08-05">2026-08-05</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>Расстановка доски и базовые правила гомоку осваиваются примерно за минуту &mdash; в этом и состоит вся прелесть игры: пустая сетка 15&times;15, камни двух цветов и одно-единственное условие победы. И всё же удивительно много новичков ошибаются уже на первом шаге. Ниже разобрано всё, что происходит до начала партии: что представляет собой доска, как устроены камни, кто ходит первым и куда идёт этот первый камень, &mdash; а затем короткий список правил, которым подчиняется вся остальная игра.</p>
+          <h2>Доска: по 15 линий в каждую сторону, а не 15 клеток</h2>
+          <p>Стандартная доска для гомоку &mdash; это <strong>15 вертикальных и 15 горизонтальных линий</strong>, которые пересекаются, образуя <strong>225 пересечений</strong>. Именно эту деталь чаще всего упускают начинающие: камни ставятся <em>на пересечения линий</em>, а не внутрь клеток. Шахматы и шашки используют клетки; гомоку, как и го, использует перекрестья.</p>
+          <p>На доске напечатано несколько небольших точек &mdash; это <em>звёздные пункты</em>. Они служат только для ориентации и никаких правил за собой не несут. Исключение &mdash; точка ровно в центре: она называется <strong>тэнгэн</strong>, и она важна, потому что именно туда обычно кладётся первый камень.</p>
+          <p>Другие размеры тоже подходят. Доска для го 19&times;19 прекрасно заменяет стандартную, и многие просто играют на ней; дорожные наборы часто бывают 13&times;13. Но турнирный стандарт &mdash; 15&times;15, и вся теория дебютов, которую вы встретите, написана именно под него.</p>
+          <h2>Камни</h2>
+          <ul>
+            <li><strong>Только два цвета:</strong> чёрные и белые. Чёрные ходят первыми.</li>
+            <li>В полном наборе примерно <strong>113 чёрных и 112 белых</strong> камней &mdash; хватит, чтобы занять все 225 пунктов, хотя в реальной партии редко расходуется больше сорока.</li>
+            <li><strong>Камни не двигаются.</strong> Поставленный камень остаётся на своём пересечении до конца партии. Ничего не бьётся, не снимается и не превращается.</li>
+          </ul>
+          <p>В начале на доске нет ни одного камня. В отличие от шахмат, здесь нечего заучивать в качестве стартовой позиции &mdash; вы начинаете с абсолютно пустой сетки, и поэтому первые ходы весят так много.</p>
+          <h2>Кто ходит первым и куда</h2>
+          <p><strong>Чёрные всегда начинают</strong>, и преимущество первого хода в гомоку вполне реально &mdash; настолько, что соревновательные правила существуют главным образом для того, чтобы его урезать. В свободной версии чёрные могут открыть партию на любом пересечении. По турнирным правилам первый камень чёрных обязан стоять на тэнгэне, в центре доски.</p>
+          <p>Начинать с центра полезно в любом случае. Центральное пересечение лежит на большем числе потенциальных линий из пяти камней, чем любая другая точка, а угловое &mdash; на наименьшем. Если хотите увидеть, как продолжают сильные игроки, разбор <a href="/ru-RU/blog/top-10-gomoku-openings.html">самых частых дебютов в гомоку</a> проходит стандартные ответы ход за ходом.</p>
+          <p>Белые отвечают почти всегда рядом с камнем чёрных, а не в пустой части доски. Ход вдалеке просто дарит сопернику свободное пространство для построения.</p>
+          <h2>Базовые правила целиком</h2>
+          <ol>
+            <li><strong>Ходы чередуются.</strong> Чёрные, белые, чёрные, белые. Пропускать ход и ходить дважды нельзя.</li>
+            <li><strong>Один камень за ход</strong>, на любое свободное пересечение.</li>
+            <li><strong>Поставленные камни остаются на месте</strong> и никогда не снимаются.</li>
+            <li><strong>Пять своих камней подряд без разрывов &mdash; победа</strong>: по горизонтали, вертикали или диагонали.</li>
+            <li><strong>Ничья</strong>, если доска заполнилась, а ряда из пяти так и не возникло. На 15&times;15 это случается крайне редко.</li>
+          </ol>
+          <p>Это весь свод правил. Всё остальное, что вы прочитаете о гомоку &mdash; угрозы, вилки, форсированные серии, &mdash; это стратегия, надстроенная над этими пятью пунктами.</p>
+          <h2>Что именно считается рядом из пяти</h2>
+          <p>Пять камней должны быть <strong>одного цвета, стоять вплотную, без разрывов и на одной прямой</strong>: в строке, в столбце или на любой из двух диагоналей. Одно пустое пересечение в середине разрывает ряд, чужой камень &mdash; тем более.</p>
+          <p>Единственная настоящая неоднозначность &mdash; <em>длинный ряд</em>, шесть и более камней подряд. В свободном гомоку такой ряд просто выигрывает. По стандартным правилам рэндзю длинный ряд у чёрных считается запрещённым ходом и приводит к немедленному поражению, тогда как белым он разрешён. Договоритесь об этом до начала партии за настоящей доской: этот пункт решает исход чаще, чем принято думать. Полный список ограничений разобран в материале <a href="/ru-RU/blog/gomoku-vs-renju.html">гомоку и рэндзю: в чём разница</a>.</p>
+          <h2>Как читать координаты</h2>
+          <p>В записи партий столбцы обозначают буквами <strong>от A до O</strong> слева направо, а строки &mdash; числами <strong>от 1 до 15</strong> снизу вверх, так что центральный тэнгэн &mdash; это <strong>H8</strong>. Как только вы научитесь читать координаты, вам откроются все разборы и записи партий: <em>1. H8 H9 2. I8</em> &mdash; это законченное начало, которое можно повторить на доске. На онлайн-досках подписи обычно выведены по краям.</p>
+          <h2>Настоящая доска или онлайн: что меняется</h2>
+          <p>Правила те же, а вот бытовая часть отличается.</p>
+          <ul>
+            <li><strong>За настоящей доской:</strong> сначала договоритесь о варианте правил (свободный или рэндзю), затем решите, кто играет чёрными &mdash; подбросьте монетку или отдайте чёрные более слабому игроку. Держите цвета в разных чашках. Меняйтесь цветом каждую партию, тогда преимущество первого хода за вечер выровняется.</li>
+            <li><strong>Онлайн:</strong> доска уже начерчена по стандарту, очерёдность соблюдается автоматически, занятые пункты не принимаются, а победа фиксируется в тот же момент, когда возникает. Ошибиться в расстановке попросту невозможно, поэтому учиться проще именно так.</li>
+          </ul>
+          <h2>Пять ошибок при подготовке партии</h2>
+          <ol>
+            <li><strong>Ставить камни в клетки.</strong> Главная ошибка новичка. Камни идут на перекрестья.</li>
+            <li><strong>Открывать партию у края или в углу.</strong> Формально можно, но вы отдаёте почти половину направлений для будущего ряда ещё до начала игры.</li>
+            <li><strong>Не обговорить правило длинного ряда.</strong> Решите этот вопрос до первого камня, а не в споре из-за последнего.</li>
+            <li><strong>Один и тот же игрок всегда берёт чёрные.</strong> За серию партий это уже подаренная фора. Чередуйте.</li>
+            <li><strong>Поправлять камни после хода.</strong> На деревянной доске камень легко сдвинуть, а на плотной позиции это тихо меняет того, кто выигрывает.</li>
+          </ol>
+          <h2>Короткие ответы</h2>
+          <p><strong>Нужна ли доска для го, чтобы играть в гомоку?</strong> Не обязательно, но это самый удобный вариант. Набор 19&times;19 даёт и камни, и подходящую сетку &mdash; просто играйте в пределах области 15&times;15, если хотите стандартный размер.</p>
+          <p><strong>Первый камень действительно можно ставить куда угодно?</strong> В свободной версии &mdash; да. В турнирном рэндзю чёрные обязаны открыть партию на тэнгэне.</p>
+          <p><strong>Диагональный ряд из пяти засчитывается?</strong> Засчитывается, в обе диагональные стороны. Именно диагонали новички чаще всего не замечают &mdash; и когда строят, и когда защищаются.</p>
+          <p><strong>А если камни закончатся?</strong> Не закончатся. Полного набора хватает на все пересечения, а партии завершаются задолго до этого.</p>
+          <h2>Доска готова &mdash; можно играть</h2>
+          <p>Доска на столе, чёрные в одной чашке, белые в другой, первый камень в центре &mdash; вы готовы. Если хотите правила с разобранными примерами и полной первой партией, читайте дальше <a href="/ru-RU/blog/how-to-play-gomoku-for-absolute-beginners.html">руководство по гомоку для абсолютных новичков</a>, а затем закрепите всё на <a href="/ru-RU/index.html">бесплатной доске 15&times;15</a> в партии против ИИ.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Доска уже расставлена</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Играйте в гомоку прямо в браузере на стандартной доске 15×15 &mdash; без скачивания и регистрации, четыре уровня ИИ.</p>
+            <a href="/ru-RU/index.html#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/index.html#game">Играть</a></li>
+            <li><a href="/ru-RU/index.html#rules">Правила</a></li>
+            <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/index.html#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about.html">О нас</a></li>
+            <li><a href="/privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/index.html#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Расстановка доски и базовые правила гомоку: всё, что нужно знать до первого хода",
+    "description": "Полный разбор расстановки доски и базовых правил гомоку: сетка 15×15 и её 225 пересечений, звёздные пункты и тэнгэн, кто ходит первым, куда идёт первый камень, координаты и точное условие победы.",
+    "datePublished": "2026-08-05",
+    "dateModified": "2026-08-05",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules.html"}
+  }
+  </script>
+</body>
+</html>

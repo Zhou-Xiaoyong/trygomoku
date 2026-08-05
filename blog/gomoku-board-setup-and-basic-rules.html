@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Board Setup and Basic Rules: The 15x15 Starter Guide | Gomoku Blog</title>
+  <meta name="description" content="Gomoku board setup and basic rules explained in full: the 15x15 grid and its 225 intersections, star points and tengen, who moves first, where black opens, coordinate notation, and exactly what counts as five in a row.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:title" content="Gomoku Board Setup and Basic Rules: The Complete 15x15 Starter Guide">
+  <meta property="og:description" content="The board, the stones, who moves first, where black opens, and the five rules that decide every gomoku game.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Board Setup and Basic Rules Explained">
+  <meta name="twitter:description" content="225 intersections, stones on the crossings, black first from the centre. Everything to know before your first move.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html#game">Play</a></li>
+        <li><a href="../index.html#rules">Rules</a></li>
+        <li><a href="../index.html#strategy">Strategy</a></li>
+        <li><a href="../index.html#history">History</a></li>
+        <li><a href="index.html" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Beginner</span>
+          <h1 itemprop="headline">Gomoku Board Setup and Basic Rules: Everything to Know Before Your First Move</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-08-05">2026-08-05</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+          <p>Gomoku board setup and basic rules take about a minute to learn, and that is exactly the appeal: an empty 15&times;15 grid, two colours of stones, and one victory condition. Yet a surprising number of new players get the very first step wrong. This guide covers everything that happens before the game starts &mdash; what the board actually is, how the stones work, who moves first, where that first stone goes &mdash; and then the short list of rules that governs everything after.</p>
+          <h2>The Board: 15 Lines Each Way, Not 15 Squares</h2>
+          <p>A standard gomoku board is a grid of <strong>15 vertical and 15 horizontal lines</strong>, which cross to form <strong>225 intersections</strong>. This is the detail beginners most often miss: stones are placed <em>on the intersections where the lines cross</em>, never inside the squares. Chess and draughts use the squares; gomoku, like Go, uses the crossings.</p>
+          <p>You will notice a handful of small printed dots on the board. Those are the <em>star points</em>, and they are purely reference marks for orientation &mdash; they carry no rule of their own. The one in the exact middle is called <strong>tengen</strong>, and it does matter, because that is where the opening stone usually lands.</p>
+          <p>Other sizes work too. A 19&times;19 Go board is a perfectly good substitute and many players simply borrow one; travel sets are often 13&times;13. But 15&times;15 is the tournament standard, and every piece of opening theory you will ever read assumes it.</p>
+          <h2>The Stones</h2>
+          <ul>
+            <li><strong>Two colours only:</strong> black and white. Black is the first player.</li>
+            <li><strong>Roughly 113 black and 112 white</strong> in a full set &mdash; enough to fill all 225 points, although a real game rarely uses more than forty.</li>
+            <li><strong>Stones never move.</strong> Once placed, a stone stays on that intersection for the rest of the game. Nothing is captured, nothing is removed, nothing is promoted.</li>
+          </ul>
+          <p>No stones start on the board. Unlike chess, there is no opening position to memorise &mdash; you begin from a completely empty grid, which is why the first few moves carry so much weight.</p>
+          <h2>Who Goes First, and Where</h2>
+          <p><strong>Black always moves first</strong>, and moving first is a genuine advantage in gomoku &mdash; large enough that competitive rule sets exist mainly to trim it back. In casual freestyle play, black may open on any intersection. Under tournament rules, black&rsquo;s first stone must be played on tengen, the centre point.</p>
+          <p>Opening in the centre is a good habit either way. The centre intersection sits on more potential five-in-a-row lines than any other point on the board, while a corner point sits on the fewest. If you want to see how strong players continue from there, our guide to the <a href="top-10-gomoku-openings.html">most common gomoku openings</a> walks through the standard replies move by move.</p>
+          <p>White then answers, almost always close to black&rsquo;s stone rather than off in an empty region. Playing far away hands black free space to build in.</p>
+          <h2>The Basic Rules, in Full</h2>
+          <ol>
+            <li><strong>Players alternate turns.</strong> Black, white, black, white. No passing, no double moves.</li>
+            <li><strong>One stone per turn</strong>, placed on any empty intersection.</li>
+            <li><strong>Placed stones are permanent</strong> and are never captured or moved.</li>
+            <li><strong>Five of your own stones in an unbroken line wins</strong> &mdash; horizontally, vertically, or diagonally.</li>
+            <li><strong>The game is a draw</strong> if the board fills up with no five in a row. On 15&times;15 this is extremely rare.</li>
+          </ol>
+          <p>That is the entire rule set. Everything else you will read about gomoku &mdash; threats, forks, forcing sequences &mdash; is strategy built on top of these five lines.</p>
+          <h2>What Actually Counts as Five in a Row</h2>
+          <p>The five stones must be <strong>the same colour, adjacent, unbroken, and on a single straight line</strong>: a row, a column, or either diagonal. One empty intersection in the middle breaks the line, and so does one enemy stone.</p>
+          <p>The one genuine ambiguity is the <em>overline</em> &mdash; six or more of your stones in a row. In freestyle gomoku an overline simply wins. Under standard renju rules, an overline made by black is a forbidden move and loses the game on the spot, while white may make one freely. Agree on this before you start a physical game; it decides more matches than people expect. Our <a href="gomoku-vs-renju.html">gomoku vs renju comparison</a> explains the full list of restrictions.</p>
+          <h2>Reading Board Coordinates</h2>
+          <p>Annotated games label columns <strong>A to O</strong> from left to right and rows <strong>1 to 15</strong> from bottom to top, so the centre point tengen is <strong>H8</strong>. Once you can read a coordinate, every strategy article and recorded game opens up to you: <em>1. H8 H9 2. I8</em> is a complete, replayable opening. Online boards usually show these labels along the edges.</p>
+          <h2>Physical Board or Online: What Changes</h2>
+          <p>The rules are identical, but the housekeeping is not.</p>
+          <ul>
+            <li><strong>On a physical set:</strong> agree the rule variant first (freestyle or renju), decide who takes black &mdash; a coin toss, or give black to the weaker player &mdash; and keep the two colours in separate bowls. Swap colours every game so the first-move advantage evens out over a session.</li>
+            <li><strong>Online:</strong> the board is already drawn to standard, turn order is enforced, occupied points are rejected, and the win is detected the moment it happens. You cannot set the board up wrongly, which makes it the easier place to learn.</li>
+          </ul>
+          <h2>Five Setup Mistakes Worth Avoiding</h2>
+          <ol>
+            <li><strong>Playing inside the squares.</strong> The single most common beginner error. Stones go on the crossings.</li>
+            <li><strong>Opening near an edge or corner.</strong> Legal, but you throw away roughly half of your five-in-a-row directions before the game has started.</li>
+            <li><strong>Not agreeing on the overline rule.</strong> Settle it before the first stone, not during an argument over the last one.</li>
+            <li><strong>The same player always taking black.</strong> Over a session, that is a standing head start. Alternate.</li>
+            <li><strong>Nudging stones around after placing them.</strong> On a wooden board it is easy to shift a stone by accident; on a crowded board that quietly changes who is winning.</li>
+          </ol>
+          <h2>Quick Answers</h2>
+          <p><strong>Do I need a Go board to play gomoku?</strong> No, but it is the most convenient option. A 19&times;19 Go set gives you the stones and a compatible grid &mdash; just play within a 15&times;15 area if you want the standard size.</p>
+          <p><strong>Can the first stone go anywhere?</strong> In freestyle, yes. In tournament renju, black must open on tengen.</p>
+          <p><strong>Are diagonal fives valid?</strong> Yes, in both diagonal directions. Diagonals are the lines beginners overlook most, both when building and when blocking.</p>
+          <p><strong>What if we run out of stones?</strong> You will not. A full set covers every intersection, and games end long before that.</p>
+          <h2>Now Set Up the Board and Play</h2>
+          <p>Board on the table, black in one bowl, white in the other, first stone in the centre &mdash; you are ready. If you want the rules with worked examples and a first-game walkthrough, read the <a href="how-to-play-gomoku-for-absolute-beginners.html">absolute beginner guide to playing gomoku</a> next, then put it into practice on a <a href="../index.html">free 15&times;15 board</a> against the AI.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">The Board Is Already Set Up</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Play free gomoku in your browser on a standard 15x15 board &mdash; no download, no sign-up, four AI difficulty levels.</p>
+            <a href="../index.html#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html#game">Play Game</a></li>
+            <li><a href="../index.html#rules">Rules</a></li>
+            <li><a href="index.html">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Board Setup and Basic Rules: Everything to Know Before Your First Move",
+    "description": "Gomoku board setup and basic rules explained in full: the 15x15 grid and its 225 intersections, star points and tengen, who moves first, where black opens, coordinate notation, and exactly what counts as five in a row.",
+    "datePublished": "2026-08-05",
+    "dateModified": "2026-08-05",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html"}
+  }
+  </script>
+</body>
+</html>
