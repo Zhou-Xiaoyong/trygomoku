@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="prefetch" href="/zh-CN/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="prefetch" href="/ja-JP/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="prefetch" href="/ko-KR/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Что такое Гомоку и как в неё выигрывать? | Блог Гомоку</title>
+  <meta name="description" content="Что такое Гомоку (Пять в ряд), как в неё играть и как выигрывать. Правила, условие пяти подряд, почему игра интереснее крестиков-ноликов.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/what-is-gomoku-and-how-do-you-win">
+  <meta property="og:title" content="Что такое Гомоку и как в неё выигрывать? | Блог Гомоку">
+  <meta property="og:description" content="Что такое Гомоку (Пять в ряд), как в неё играть и как выигрывать. Правила, условие пяти подряд, почему игра интереснее крестиков-ноликов.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/what-is-gomoku-and-how-do-you-win">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Что такое Гомоку и как в неё выигрывать? | Блог Гомоку">
+  <meta name="twitter:description" content="Что такое Гомоку (Пять в ряд), как в неё играть и как выигрывать. Правила, условие пяти подряд, почему игра интереснее крестиков-ноликов.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Для начинающих</span>
+          <h1 itemprop="headline">Что такое Гомоку и как в неё выигрывать?</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-08-12">2026-08-12</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Что такое Гомоку</h2>
+<p>Гомоку (яп. «пять камней», она же «Пять в ряд») — стратегическая настольная игра для двоих, возникшая в Восточной Азии. На доске 15×15 вы по очереди ставите чёрные и белые камни, и побеждает тот, кто первым выстроит пять своих камней подряд по горизонтали, вертикали или диагонали.</p>
+
+<h2>Как выигрывать</h2>
+<p>Победа — в момент, когда вы соединили пять камней в непрерывный ряд. Правило простое, а интерес в том, чтобы одновременно строить свою линию и перекрывать чужую. Что важно знать:</p>
+<ul>
+  <li><strong>Пятёрка — ключ к победе.</strong> Соедините ровно пять камней — и вы выиграли. В обычной «свободной» игре шесть подряд тоже считаются выигрышем, а в строгих турнирных правилах Рендзю «длинная» линия не засчитывается. Новичкам достаточно целиться в пятёрку.</li>
+  <li><strong>Выиграть может любой на своём ходу.</strong> За ход ставится только один камень, поэтому вы одновременно и атакуете, и защищаетесь.</li>
+  <li><strong>Центр сильнее.</strong> Камень ближе к середине достижим в большем числе направлений, поэтому первый ход обычно делается у тэнгэна (центра).</li>
+</ul>
+
+<h2>Почему Гомоку интереснее крестиков-ноликов</h2>
+<p>В крестики-нолики почти все партии заканчиваются ничьей. А на большой доске 15×15 ничьи редки, угрозы прилетают отовсюду, и появляется настоящий простор для стратегии.</p>
+
+<h2>От правил к первой победе</h2>
+<p>Быстрее всего Гомоку понимается на практике. Чёрные ходят первыми, обычно у центра; белые отвечают, и дальше начинается гонка за пятёрку. Не гонитесь сразу за идеальной игрой — сначала научитесь замечать, как <a href="/ru-RU/blog/how-to-play-gomoku-for-absolute-beginners">строится четвёрка</a>, чем игра отличается от <a href="/ru-RU/blog/gomoku-vs-connect-four">Connect Four</a> и как <a href="/ru-RU/blog/beat-gomoku-ai">обыграть компьютер</a>, когда база освоена.</p>
+<p>Хотите попробовать прямо сейчас? <a href="/ru-RU/">Играйте в Гомоку бесплатно в браузере</a> и соедините пять камней прямо сейчас.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Готовы сыграть в Гомоку?</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Примените правила на практике: соедините пять камней и одержите первую победу.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в Гомоку бесплатно</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Что такое Гомоку и как в неё выигрывать?",
+    "description": "Что такое Гомоку (Пять в ряд), как в неё играть и как выигрывать. Правила, условие пяти подряд, почему игра интереснее крестиков-ноликов.",
+    "datePublished": "2026-08-12",
+    "dateModified": "2026-08-12",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/what-is-gomoku-and-how-do-you-win"}
+  }
+  </script>
+</body>
+</html>

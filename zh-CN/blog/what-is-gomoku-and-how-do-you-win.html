@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="prefetch" href="/ja-JP/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="prefetch" href="/ko-KR/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="prefetch" href="/ru-RU/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋是什么、怎么才算赢？| 五子棋博客</title>
+  <meta name="description" content="五子棋（连五子）是什么、怎么玩、怎么算赢？一文讲清规则：连成五子即胜、为何比井字棋更有策略，以及在哪里免费在线对弈。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/what-is-gomoku-and-how-do-you-win">
+  <meta property="og:title" content="五子棋是什么、怎么才算赢？| 五子棋博客">
+  <meta property="og:description" content="五子棋（连五子）是什么、怎么玩、怎么算赢？一文讲清规则：连成五子即胜、为何比井字棋更有策略，以及在哪里免费在线对弈。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/what-is-gomoku-and-how-do-you-win">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋是什么、怎么才算赢？| 五子棋博客">
+  <meta name="twitter:description" content="五子棋（连五子）是什么、怎么玩、怎么算赢？一文讲清规则：连成五子即胜、为何比井字棋更有策略，以及在哪里免费在线对弈。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">新手入门</span>
+          <h1 itemprop="headline">五子棋是什么、怎么才算赢？</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-08-12">2026-08-12</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>五子棋到底是什么？</h2>
+<p>五子棋（英文 Gomoku，也叫「连五子」）是一种两人对弈的策略棋类，起源于东亚。棋盘为 15×15 的网格，两人分执黑子与白子，轮流落子，先把五颗同色棋子在横、竖或斜方向连成一条不间断的直线者获胜。</p>
+
+<h2>怎么才算赢？</h2>
+<p>只要你率先连成五子，游戏就结束。规则虽简单，乐趣在于一边布局自己的连线，一边堵住对方的路线。几个关键点：</p>
+<ul>
+  <li><strong>五是关键数字。</strong>连成正好五子即胜。休闲玩法里连成六子通常也算赢；正式 Renju（连珠）规则则不认「长连」，但初学者先专注「连五」即可。</li>
+  <li><strong>双方每步都能赢。</strong>每回合只落一子，所以你既在进攻，也在防守。</li>
+  <li><strong>中心更强势。</strong>靠近中点的棋子可延伸的方向更多，因此先手通常落子在天元附近。</li>
+</ul>
+
+<h2>为什么比井字棋更好玩</h2>
+<p>玩过井字棋就知道，大多以平局收场。五子棋的 15×15 大棋盘让平局极少，威胁四面八方，策略空间充足，是井字棋的「进化版」。</p>
+
+<h2>从规则到你的第一胜</h2>
+<p>理解五子棋最快的方式就是上手。黑先，多落于中点附近；白方应对，此后便是「抢五」的较量。先别追求完美，学会识别<a href="/zh-CN/blog/how-to-play-gomoku-for-absolute-beginners">即将连成的四子</a>、弄清它和<a href="/zh-CN/blog/gomoku-vs-connect-four">四子棋（Connect Four）</a>的区别，等基本熟练后再看如何<a href="/zh-CN/blog/beat-gomoku-ai">打败电脑</a>。</p>
+<p>想立刻试试？<a href="/zh-CN/">在浏览器里免费玩五子棋</a>，现在就连成五子吧。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">准备好下五子棋了吗？</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">把规则用起来，连成五子，赢下你的第一局。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即免费玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋是什么、怎么才算赢？",
+    "description": "五子棋（连五子）是什么、怎么玩、怎么算赢？一文讲清规则：连成五子即胜、为何比井字棋更有策略，以及在哪里免费在线对弈。",
+    "datePublished": "2026-08-12",
+    "dateModified": "2026-08-12",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/what-is-gomoku-and-how-do-you-win"}
+  }
+  </script>
+</body>
+</html>

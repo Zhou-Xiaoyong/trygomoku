@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="prefetch" href="/zh-CN/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="prefetch" href="/ja-JP/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="prefetch" href="/ru-RU/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목이란? 어떻게 이기는지 쉽게 설명 | 오목 블로그</title>
+  <meta name="description" content="오목(Gomoku)이 무엇인지, 어떻게 이기는지 쉽게 설명합니다. 규칙, 다섯 돌을 잇는 승리 조건, 틱택토보다 전략적인 이유를 알아보세요.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/what-is-gomoku-and-how-do-you-win">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/what-is-gomoku-and-how-do-you-win">
+  <meta property="og:title" content="오목이란? 어떻게 이기는지 쉽게 설명 | 오목 블로그">
+  <meta property="og:description" content="오목(Gomoku)이 무엇인지, 어떻게 이기는지 쉽게 설명합니다. 규칙, 다섯 돌을 잇는 승리 조건, 틱택토보다 전략적인 이유를 알아보세요.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/what-is-gomoku-and-how-do-you-win">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목이란? 어떻게 이기는지 쉽게 설명 | 오목 블로그">
+  <meta name="twitter:description" content="오목(Gomoku)이 무엇인지, 어떻게 이기는지 쉽게 설명합니다. 규칙, 다섯 돌을 잇는 승리 조건, 틱택토보다 전략적인 이유를 알아보세요.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">초보자</span>
+          <h1 itemprop="headline">오목이란 무엇이고, 어떻게 이길까요?</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-08-12">2026-08-12</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>오목이란 무엇일까요</h2>
+<p>오목(Gomoku)은 동아시아에서 유래한 두 사람이 즐기는 전략 보드게임입니다. 15×15 격자 위에 흑돌과 백돌을 번갈아 두고, 가로·세로·대각선 중 한 방향으로 자신의 돌 다섯 개를 연속으로 잇는 사람이 이깁니다.</p>
+
+<h2>어떻게 이길까요</h2>
+<p>돌 다섯 개를 일직선으로 잇는 순간 승리합니다. 규칙은 간단하지만, 자신의 줄을 만들면서 상대의 줄을 막는 재미가 핵심입니다. 알아두면 좋은 점:</p>
+<ul>
+  <li><strong>다섯 개가 핵심입니다.</strong> 정확히 다섯 개를 잇으면 승리합니다. 캐주얼 규칙에서는 여섯 개도 승리로 보지만, 정식 렌주(Renju) 규칙은 장련(여섯 이상)을 인정하지 않습니다. 초보자는 일단 '오목 만들기'에 집중하세요.</li>
+  <li><strong>양쪽 모두 매 턴 이길 수 있습니다.</strong> 한 턴에 돌 하나만 두므로 공격과 수비를 동시에 합니다.</li>
+  <li><strong>중앙이 강합니다.</strong> 판 중심에 가까운 돌은 더 많은 방향으로 뻗을 수 있어, 선공은 보통 천원(중심) 부근에 둡니다.</li>
+</ul>
+
+<h2>틱택토보다 재미있는 이유</h2>
+<p>틱택토는 대부분 무승부로 끝나지만, 오목의 15×15 큰 판에서는 무승부가 드물고 사방에서 위협이 들어와 본격적인 전략을 즐길 수 있습니다.</p>
+
+<h2>규칙에서 첫 승리까지</h2>
+<p>오목을 가장 빨리 이해하는 방법은 직접 두는 것입니다. 흑이 선공이며 보통 천원 부근에 둡니다. 백이 받고, 이후로는 다섯 돌을 겨루는 승부입니다. 처음엔 완벽을 기하지 말고, <a href="/ko-KR/blog/how-to-play-gomoku-for-absolute-beginners">네 돌이 이어지는 수</a>를 읽는 법이나 <a href="/ko-KR/blog/gomoku-vs-connect-four">커넥트 포</a>와의 차이, 기본이 잡힌 뒤의 <a href="/ko-KR/blog/beat-gomoku-ai">컴퓨터 이기는 법</a>을 배워보세요.</p>
+<p>바로 해보고 싶나요? <a href="/ko-KR/">브라우저에서 무료 오목</a>을 열어 지금 당장 다섯 돌을 이어 보세요.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">지금 오목을 해볼까요?</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">규칙을 직접 써먹어 보세요. 다섯 돌을 잇고 첫 승리를 거두세요.</p>
+            <a href="/ko-KR/#game" class="cta-btn">무료로 오목 즐기기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목이란 무엇이고, 어떻게 이길까요?",
+    "description": "오목(Gomoku)이 무엇인지, 어떻게 이기는지 쉽게 설명합니다. 규칙, 다섯 돌을 잇는 승리 조건, 틱택토보다 전략적인 이유를 알아보세요.",
+    "datePublished": "2026-08-12",
+    "dateModified": "2026-08-12",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/what-is-gomoku-and-how-do-you-win"}
+  }
+  </script>
+</body>
+</html>
