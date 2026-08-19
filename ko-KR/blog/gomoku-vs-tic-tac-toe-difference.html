@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 vs 삼목(틱택토): 진짜 차이점은? | 오목 블로그</title>
+  <meta name="description" content="오목과 삼목(틱택토)은 비슷해 보이지만 전혀 다르게 즐겨집니다. 판 크기, 승리 조건, 전략 깊이를 비교하고 오목이 왜 거의 무승부가 없는지 알아보세요.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-tic-tac-toe-difference">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-tic-tac-toe-difference">
+  <meta property="og:title" content="오목 vs 삼목(틱택토): 진짜 차이점은? | 오목 블로그">
+  <meta property="og:description" content="오목과 삼목을 한눈에 비교: 판 크기, 이기는 법, 전략의 깊이, 그리고 어느 쪽이 시간을 들일 가치가 있는지.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-vs-tic-tac-toe-difference">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 vs 삼목(틱택토): 진짜 차이점은? | 오목 블로그">
+  <meta name="twitter:description" content="오목 vs 삼목: 더 큰 판, 더 깊은 전략, 강제 무승부 없음. 두 게임의 진짜 차이를 살펴보세요.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">비교</span>
+          <h1 itemprop="headline">오목 vs 삼목(틱택토): 진짜 차이점은 무엇인가요?</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-08-19">2026-08-19</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>친척처럼 닮은 두 게임</h2>
+<p>어릴 때 <strong>삼목(틱택토)</strong>을 배운 사람이라면 <strong>오목</strong>이 금세 친숙하게 느껴집니다. 둘 다 칸에 돌을 놓고 자신의 돌을 일직선으로 늘어놓는 게 목적이고, 규칙은 한 문장이면 설명됩니다. 하지만 오목과 삼목의 차이는 규칙표가 보여주는 것보다 훨씬 큽니다. 짧게 말하면 하나는 5분짜리 시간때우기, 다른 하나는 수년을 연구하는 게임입니다. 직접 느껴보고 싶으신가요? <a href="/ko-KR/">브라우저에서 무료로 오목 하기</a>를 누르면 그 차이는 바로 보입니다.</p>
+<h2>판 크기: 3x3 대 15x15</h2>
+<p>삼목은 작은 3x3 칸 안에서만 진행됩니다. 칸은 아홉 개, 그것이 전부의 세계입니다. 오목은 15x15 교차점 판을 쓰고, 돌을 놓 수 있는 자리는 225곳입니다. 이 단 한 가지 차이가 뒤따르는 모든 차이의 뿌리가 됩니다. 3x3에서는 놓을 수 있는 수에 한계가 있지만, 15x15에서는 판이 사실상 끝없이 열려 있어 빈 점 어디든 위협이 될 수 있습니다.</p>
+<h2>승리 조건</h2>
+<p>삼목에서는 세 개를 일직선으로 늘어놓으면 이깁니다. 오목에서는 <strong>다섯 개</strong>를 늘어놓아야 합니다—가로, 세로, 대각선 어느 쪽이든 상관없습니다. 3에서 5로의 작은 한 걸음처럼 보이지만 게임을 근본부터 바꿉니다. 안전하게 다섯 개를 만드는 데는 배치와 페인트, 그리고 상대의 의도를 읽는 것이 필요합니다. 규칙이 처음이라면 먼저 <a href="/ko-KR/blog/how-to-play-gomoku-for-absolute-beginners">오목 초보자 가이드</a>를 읽고 돌아오세요.</p>
+<h2>왜 삼목은 항상 무승부가 되나요</h2>
+<p>기본을 아는 상대와 삼목을 두면 대부분의 대국은 무승부로 끝납니다. 판이 너무 작아 이길 만한 위협을 숨길 수 없기 때문입니다. 신중한 두 플레이어는 영원히 서로를 상쇄합니다. 오목은 이것을 해결합니다. 15x15 판에서는 위협이 사방에서 생겨나고, 한 번의 방심한 수로 질 수도 있습니다. 그래서 오목은 다른 연결 게임과도 흥미롭게 비교됩니다. <a href="/ko-KR/blog/gomoku-vs-connect-four">오목과 커넥트 포(Connect Four)의 차이</a>도 살펴보세요.</p>
+<h2>전략의 깊이: 진짜 갈림길</h2>
+<p>여기서 두 게임은 친척이 아닌 것이 됩니다. 삼목에는 알려진 완벽한 결과가 있습니다. 양쪽이 최선의 수를 두면 무승부입니다. 오목에는 그런 깔끔한 결말이 없습니다. 당신은 끊임없이 공격과 수비 사이에서 선택하고, 이중 위협을 만들며, 상대가 반드시 응해야 하는 수를 강요합니다. 이기는 법의 큰 그림을 알고 싶다면 <a href="/ko-KR/blog/what-is-gomoku-and-how-do-you-win">오목이란 무엇이고 어떻게 이기는지</a>를 읽어보세요. 승리 조건과 왜 중앙이 중요한지 적혀 있습니다.</p>
+<h2>어느 쪽을 둘까요?</h2>
+<p>30초 기다리는 동안은 삼목으로 충분합니다. 진짜 의미 있는 판단이 하고 싶을 때는 오목을 고르세요. 브라우저에서 가벼운 한 판으로도, 진지한 대국으로도 즐길 수 있고, 실력 향상 곡선이 평평해지는 일은 거의 없습니다. 진짜 오목 다섯 개를 맞힌 승리를 맛보면 그 작은 칸은 그저 워밍업처럼 느껴질 겁니다.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">더 깊은 게임을 해볼 준비 되셨나요?</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">삼목은 잠깐 즐기기 좋지만, 오목은 평생 생각할 거리를 줍니다. 이 비교를 직접 확인해 보세요.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 플레이</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 vs 삼목(틱택토): 진짜 차이점은 무엇인가요?",
+    "description": "오목과 삼목(틱택토)은 비슷해 보이지만 전혀 다르게 즐겨집니다. 판 크기, 승리 조건, 전략 깊이를 비교하고 오목이 왜 거의 무승부가 없는지 알아보세요.",
+    "datePublished": "2026-08-19",
+    "dateModified": "2026-08-19",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-vs-tic-tac-toe-difference"}
+  }
+  </script>
+</body>
+</html>
