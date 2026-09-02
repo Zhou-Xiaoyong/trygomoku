@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-winning-combinations-explained">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выигрышные комбинации в Гомоку | Блог Гомоку</title>
+  <meta name="description" content="Шесть выигрышных комбинаций гомоку: открытая и закрытая четвёрка, открытая и разорванная тройка, «четыре-три» и двойная тройка — со схемами.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-winning-combinations-explained">
+  <meta property="og:title" content="Выигрышные комбинации в Гомоку">
+  <meta property="og:description" content="Шесть форм, которые решают исход партии, и как построить их раньше соперника.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-winning-combinations-explained">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Выигрышные комбинации в Гомоку">
+  <meta name="twitter:description" content="Открытая четвёрка, «четыре-три», двойная тройка: формы, решающие исход партии.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Выигрышные комбинации в Гомоку: от открытой четвёрки до двойной тройки</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-02">2026-09-02</time>
+            <span class="blog-read-time">9 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Любая победа начинается с формы</h2>
+<p>Новички описывают гомоку как игру «собери пять в ряд», но пятёрка — это лишь последний кадр. Исход обычно решается гораздо раньше, несколькими повторяющимися формами. Научитесь называть их и видеть за два-три хода до того, как они сложатся, и <strong>выигрышные комбинации в гомоку</strong> перестанут быть везением и станут планом. Ниже — шесть форм, которые стоит выучить, и короткие последовательности, которые их связывают.</p>
+<p>Если вы только осваиваете основы, начните с материала <a href="/ru-RU/blog/what-is-gomoku-and-how-do-you-win">что такое гомоку и как выиграть</a>, а потом возвращайтесь к формам, которые делают всю работу.</p>
+
+<h2>1. Открытая четвёрка — форма, которую нельзя заблокировать</h2>
+<p>Четыре камня подряд, оба конца свободны. У соперника один ход, а выигрышных точек две, поэтому закрыть он может только одну.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . X X X X . .</pre>
+<p>Обе крайние точки дают пятёрку. Белые занимают одну, чёрные играют в другую — партия закончена. Уже одна открытая четвёрка — это форсированный выигрыш, поэтому почти любой атакующий план в гомоку сводится к тому, как её построить. Перед ходом считайте пустые точки на обоих концах и проверяйте, не стоит ли камень соперника ещё на одну клетку дальше: перекрытый конец незаметно превращает форму в закрытую четвёрку.</p>
+
+<h2>2. Закрытая четвёрка — одна точка, один шанс</h2>
+<p>Четыре камня подряд, но свободен только один конец. Угроза настоящая, однако защита элементарна: соперник просто занимает эту точку.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">O . X X X X . .</pre>
+<p>Закрытые четвёрки всё равно полезны, потому что каждая из них отбирает темп. Соперник обязан отвечать вместо того, чтобы строить свою атаку, а в гомоку свободный темп часто дороже камня. Цепочки закрытых четвёрок — это двигатель форсированных последовательностей, о которых идёт речь в <a href="/ru-RU/blog/advanced-gomoku-strategy">продвинутой стратегии гомоку</a>.</p>
+
+<h2>3. Открытая тройка — угроза, на которую отвечают слишком поздно</h2>
+<p>Три камня подряд, оба конца свободны и есть место, чтобы вырасти в открытую четвёрку. Оставьте её на один ход — и она станет неудержимой.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . . X X X . . .
+     сыграть на конец  ->  . . X X X X . .</pre>
+<p>Открытая тройка требует ответа. Этим ответом обычно становится блок, а каждый блок — это ход, который соперник не потратил на атаку против вас. Сильные игроки строят открытые тройки не потому, что тройка выигрывает, а потому что вынужденный ответ позволяет перехватить течение партии.</p>
+
+<h2>4. Разорванная тройка — форма, которую упускают новички</h2>
+<p>Разорванная тройка (тройка с пропуском) выглядит безопасной, потому что в середине пусто. Но стоит заполнить пропуск — и получается открытая четвёрка.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . X X . X . .
+        заполнить пропуск  ->  . . X X X X . .</pre>
+<p>Это самый частый способ, которым игроки среднего уровня проигрывают партии: они блокируют видимую пару камней и не замечают одинокий камень в двух клетках, который как раз и завершает четвёрку. Приучите себя просматривать линии с пропусками, особенно диагонали — там разорванные тройки прячутся лучше всего.</p>
+
+<h2>5. «Четыре-три» — классическая комбинация в два хода</h2>
+<p>«Четыре-три» — это один ход, который создаёт закрытую четвёрку <em>и</em> открытую тройку одновременно. Соперник обязан ответить на четвёрку, после чего вы превращаете тройку в открытую четвёрку и выигрываете.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . O . . .
+2   . . . X . . .
+3   . . . X . . .
+4   . . . X . . .
+5   . . . ? X X .
+6   . . . . . . .</pre>
+<p>Чёрные играют в точку, отмеченную вопросительным знаком. По вертикали это даёт четвёрку в линии d, единственная выигрышная точка которой — снизу, поэтому белые вынуждены блокировать её. Тот же камень по горизонтали создаёт открытую тройку, уходящую вправо. Белые закрывают четвёрку, чёрные достраивают ряд до четвёрки с двумя свободными концами, и партия закончена. Ничего экзотического здесь нет — просто две обычные формы делят одну клетку.</p>
+
+<h2>6. Двойная тройка — оружие в фристайле, запрет в рэндзю</h2>
+<p>Двойная тройка — это один камень, создающий две открытые тройки сразу. Каждая открытая тройка хочет стать открытой четвёркой, а одним ходом две не заблокировать, поэтому защита рассыпается.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . . . . .
+2   . . . . . . .
+3   . . X X ? . .
+4   . . . . X . .
+5   . . . . X . .
+6   . . . . . . .</pre>
+<p>Отмеченный камень завершает горизонтальную и вертикальную открытые тройки, и у обеих свободны оба конца. В фристайле, по правилам без запретов, это просто выигрывающий ход. В турнирном рэндзю чёрным запрещено делать двойную тройку, двойную четвёрку и длинный ряд: эти запреты существуют, чтобы погасить преимущество первого хода. В лёгких партиях на этом сайте пользуйтесь этим сколько угодно, но перед турниром по рэндзю обязательно изучите список запрещённых ходов.</p>
+
+<h2>Как натренировать взгляд</h2>
+<p>Прочитать про формы один раз мало — они должны сами бросаться в глаза. Хорошо работает короткая рутина:</p>
+<ul>
+<li>Перед каждым ходом пересчитайте тройки соперника. Если есть открытая тройка без ответа, разберитесь с ней раньше, чем начнёте свою атаку.</li>
+<li>Затем спросите себя, нет ли клетки, где один ваш камень создаст две угрозы сразу. «Четыре-три» или двойная тройка почти всегда где-то на доске прячутся.</li>
+<li>После партии разберите последние десять ходов и найдите точный момент, когда форма стала необратимой.</li>
+</ul>
+<p>Короткие осознанные упражнения полезнее долгих партий. Несколько минут целенаправленного просмотра доски за одну игру постепенно развивают <a href="/ru-RU/blog/pattern-recognition-gomoku">распознавание паттернов в гомоку</a> — именно это отличает крепкого игрока от сильного.</p>
+
+<h2>Превратите формы в победу</h2>
+<p>Практический вывод небольшой, но мощный: перестаньте охотиться за пятёркой и начните охотиться за открытой четвёркой. Все комбинации на этой странице — просто разные дороги к одной цели. Создавайте угрозы, требующие ответа, тратьте заработанный темп и держите инициативу, пока одна из ваших форм не станет безответной. Когда захотите проверить это, <a href="/ru-RU/">сыграйте в гомоку бесплатно прямо в браузере</a> и попробуйте построить открытую четвёрку намеренно.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Пора перенести эти формы на доску</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Не гонитесь за пятёркой — стройте открытую четвёрку. Откройте бесплатную партию и проверьте комбинации на практике.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в Гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Выигрышные комбинации в Гомоку: от открытой четвёрки до двойной тройки",
+    "description": "Шесть выигрышных комбинаций гомоку: открытая и закрытая четвёрка, открытая и разорванная тройка, «четыре-три» и двойная тройка — со схемами.",
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-winning-combinations-explained"}
+  }
+  </script>
+</body>
+</html>

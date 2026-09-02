@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-winning-combinations-explained">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 승리 조합 완전 정리 | 오목 블로그</title>
+  <meta name="description" content="오목의 여섯 가지 승리 조합(열린 4·닫힌 4·열린 3·끊어진 3·사삼·삼삼)을 그림과 함께 쉽게 정리했습니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-winning-combinations-explained">
+  <meta property="og:title" content="오목 승리 조합 완전 정리">
+  <meta property="og:description" content="승부를 가르는 여섯 가지 형태와, 상대보다 먼저 만드는 방법.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-winning-combinations-explained">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 승리 조합 완전 정리">
+  <meta name="twitter:description" content="열린 4·사삼·삼삼: 승부를 결정하는 형태를 그림으로.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">오목 승리 조합 완전 정리: 열린 4부터 삼삼까지</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-02">2026-09-02</time>
+            <span class="blog-read-time">9 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>승리는 '형태'에서 시작됩니다</h2>
+<p>초보자는 오목을 "다섯 개를 잇는 게임"이라고 설명하지만, 다섯은 마지막 장면일 뿐입니다. 승부는 그보다 훨씬 앞서, 판 위에 되풀이해서 나타나는 몇 가지 '형태'에 의해 결정됩니다. 이 형태에 이름을 붙이고, 완성되기 두세 수 전에 알아볼 수 있게 되면 <strong>오목의 승리 조합</strong>은 더 이상 운이 아니라 계획이 됩니다. 아래에서 꼭 외워야 할 여섯 가지 형태와 그것들을 잇는 짧은 수순을 정리했습니다.</p>
+<p>기본 규칙이 아직 낯설다면 <a href="/ko-KR/blog/what-is-gomoku-and-how-do-you-win">오목이란 무엇이고 어떻게 이기는지</a>를 먼저 읽고 돌아오세요.</p>
+
+<h2>1. 열린 4 &mdash; 막을 수 없는 형태</h2>
+<p>네 개가 한 줄로 놓이고 양쪽 끝이 모두 비어 있는 상태입니다. 상대에게는 한 수뿐인데 승점은 두 곳이니, 둘 중 하나만 막을 수 있습니다.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . X X X X . .</pre>
+<p>양 끝의 빈 점은 모두 다섯을 만드는 자리입니다. 백이 한쪽을 메우면 흑이 다른 쪽을 두고 끝납니다. 열린 4는 그 자체로 이미 확정승이기 때문에, 오목의 공격은 거의 모두 "어떻게 열린 4를 만들 것인가"로 귀결됩니다. 착수하기 전에 양 끝의 빈 점을 세고, 그 바로 바깥 한 칸에 상대 돌이 없는지도 확인하세요. 한쪽 끝이 막혀 있으면 그 형태는 닫힌 4로 격하됩니다.</p>
+
+<h2>2. 닫힌 4 &mdash; 승점은 하나뿐</h2>
+<p>네 개가 이어졌지만 빈 끝이 한쪽만 있는 형태입니다. 분명한 위협이지만, 상대는 그 한 점만 두면 됩니다.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">O . X X X X . .</pre>
+<p>그래도 닫힌 4에는 값어치가 있습니다. 한 수마다 선수를 빼앗기 때문입니다. 상대는 자신의 공격을 쌓는 대신 받아야만 하고, 오목에서는 그 한 수가 돌 하나보다 더 큰 가치를 갖습니다. 닫힌 4를 연속으로 이어가는 수순이야말로 <a href="/ko-KR/blog/advanced-gomoku-strategy">오목 고급 전략</a>에서 다루는 강제 수순의 엔진입니다.</p>
+
+<h2>3. 열린 3 &mdash; 놔두면 늦는 위협</h2>
+<p>세 개가 이어지고 양쪽 끝이 비어 있으며, 열린 4로 자랄 여지가 있는 형태입니다. 한 턴만 방치하면 막을 수 없는 형태가 됩니다.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . . X X X . . .
+     어느 한쪽 끝에 두면  ->  . . X X X X . .</pre>
+<p>열린 3은 응수를 요구합니다. 그리고 그 응수는 대개 막는 수이며, 막는 데 쓴 한 수는 상대가 당신을 공격하는 데 쓰지 못한 한 수입니다. 강한 플레이어가 열린 3을 만드는 이유는 3 자체로 이겨서가 아니라, 그 응수를 이용해 국면의 흐름을 자기 쪽으로 끌어오기 위해서입니다.</p>
+
+<h2>4. 끊어진 3 &mdash; 중급자가 가장 많이 놓치는 형태</h2>
+<p>끊어진 3(한 칸 띤 3)은 중간이 비어 있어 위협적으로 보이지 않습니다. 하지만 그 틈을 메우면 열린 4가 됩니다.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . X X . X . .
+         틈을 메우면  ->  . . X X X X . .</pre>
+<p>이것이 중급자가 지는 가장 흔한 이유입니다. 눈앞의 이어진 두 돌을 막는 데 정신이 팔려, 두 칸 떨어진 곳에 놓인 외로운 돌 하나를 보지 못하고 4를 허용합니다. 틈이 있는 줄을 훑어보는 습관을 들이세요. 특히 대각선에서 끊어진 3은 가장 잘 숨습니다.</p>
+
+<h2>5. 사삼(4-3) &mdash; 가장 고전적인 두 수 필살</h2>
+<p>사삼은 한 수로 닫힌 4<em>와</em> 열린 3을 동시에 만드는 형태입니다. 상대는 4를 막아야 하고, 그다음 열린 3을 열린 4로 늘려 승리합니다.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . O . . .
+2   . . . X . . .
+3   . . . X . . .
+4   . . . X . . .
+5   . . . ? X X .
+6   . . . . . . .</pre>
+<p>흑이 물음표 자리에 둡니다. 세로로는 d열에 4가 완성되고 유일한 승점이 아래쪽이므로 백은 그곳을 막아야 합니다. 동시에 같은 돌이 가로로 오른쪽으로 뻗는 열린 3을 만듭니다. 백이 4를 막은 뒤 흑이 가로줄을 양 끝이 열린 4로 늘리면 끝납니다. 특별한 마법이 있는 게 아니라, 그저 평범한 두 형태가 한 교차점을 공유했을 뿐입니다.</p>
+
+<h2>6. 삼삼(3-3) &mdash; 자유 규칙에선 필살, 렌주에선 금수</h2>
+<p>삼삼은 한 수로 두 개의 열린 3을 동시에 만드는 형태입니다. 열린 3은 각각 열린 4를 노리는데, 한 수로 둘을 막을 수는 없으므로 방어가 무너집니다.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . . . . .
+2   . . . . . . .
+3   . . X X ? . .
+4   . . . . X . .
+5   . . . . X . .
+6   . . . . . . .</pre>
+<p>물음표 돌은 가로 열린 3과 세로 열린 3을 동시에 완성하며, 둘 다 양 끝이 열려 있습니다. 금수 없는 자유 규칙에서는 그대로 승착입니다. 반면 공식 렌주 규칙에서 흑은 삼삼·사사·장련이 금지되며, 이는 선수의 유리함을 상쇄하기 위한 장치입니다. 이곳의 가벼운 대국에서는 마음껏 써도 되지만, 렌주 대회에 나갈 때는 반드시 금수 규정을 확인하세요.</p>
+
+<h2>형태를 알아보는 눈을 기르는 법</h2>
+<p>한 번 읽었다고 몸에 배지는 않습니다. 저절로 눈에 띌 정도가 되어야 합니다. 짧은 루틴이 효과적입니다.</p>
+<ul>
+<li>착수 전에 상대의 3을 먼저 셉니다. 막지 않은 열린 3이 있다면 내 공격보다 먼저 처리하세요.</li>
+<li>그다음 한 수로 두 개의 위협을 만들 수 있는 자리가 있는지 찾습니다. 사삼이나 삼삼은 대개 판 어딘가에 숨어 있습니다.</li>
+<li>대국이 끝나면 마지막 열 수를 되짚어, 형태가 '돌이킬 수 없게 된' 정확한 한 수를 찾아냅니다.</li>
+</ul>
+<p>이 훈련은 오래 두는 것보다 짧고 집중된 연습이 훨씬 효과적입니다. 매번 의식적으로 판을 훑는 몇 분이 <a href="/ko-KR/blog/pattern-recognition-gomoku">오목 패턴 인식</a>을 키워 줍니다. 이것이 평범한 플레이어와 강한 플레이어를 가르는 기준입니다.</p>
+
+<h2>형태를 승리로 바꾸기</h2>
+<p>결론은 작지만 강력합니다. '다섯'을 쫓지 말고 '열린 4'를 쫓으세요. 이 글의 모든 조합은 같은 목적지로 가는 서로 다른 경로일 뿐입니다. 응수를 요구하는 위협을 쌓고, 얻은 선수를 쓰고, 상대가 더는 답하지 못할 때까지 주도권을 쥐세요. 준비됐다면 <a href="/ko-KR/">브라우저에서 오목을 무료로 두고</a> 열린 4를 의도적으로 만들어 보세요.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">이 형태를 직접 판 위에서 써 보세요</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">다섯을 쫓지 말고 열린 4를 만드세요. 무료 대국에서 직접 확인해 보세요.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 두기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 승리 조합 완전 정리: 열린 4부터 삼삼까지",
+    "description": "오목의 여섯 가지 승리 조합(열린 4·닫힌 4·열린 3·끊어진 3·사삼·삼삼)을 그림과 함께 쉽게 정리했습니다.",
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-winning-combinations-explained"}
+  }
+  </script>
+</body>
+</html>

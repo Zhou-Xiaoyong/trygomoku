@@ -13,8 +13,14 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/blog/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -73,6 +79,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/blog/gomoku-winning-combinations-explained</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/blog/how-many-pieces-to-win-gomoku</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -91,14 +103,8 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://trygomoku.com/blog/index</loc>
-    <lastmod>2026-08-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://trygomoku.com/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -116,7 +122,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/what-is-gomoku-and-how-do-you-win</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -134,13 +140,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -199,6 +205,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ja-JP/blog/gomoku-winning-combinations-explained</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ja-JP/blog/how-many-pieces-to-win-gomoku</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -218,7 +230,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -236,7 +248,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/what-is-gomoku-and-how-do-you-win</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -254,13 +266,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -319,6 +331,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ko-KR/blog/gomoku-winning-combinations-explained</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ko-KR/blog/how-many-pieces-to-win-gomoku</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -338,7 +356,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -356,7 +374,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/what-is-gomoku-and-how-do-you-win</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -380,13 +398,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -445,6 +463,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ru-RU/blog/gomoku-winning-combinations-explained</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ru-RU/blog/how-many-pieces-to-win-gomoku</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -464,7 +488,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -482,7 +506,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/what-is-gomoku-and-how-do-you-win</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -500,13 +524,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -565,6 +589,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/zh-CN/blog/gomoku-winning-combinations-explained</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/zh-CN/blog/how-many-pieces-to-win-gomoku</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -584,7 +614,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-06-14</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -602,7 +632,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/what-is-gomoku-and-how-do-you-win</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

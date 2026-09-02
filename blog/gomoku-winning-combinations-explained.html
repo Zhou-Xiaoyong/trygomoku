@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-winning-combinations-explained">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Winning Combinations Explained | Gomoku Blog</title>
+  <meta name="description" content="Gomoku winning combinations explained in plain language: open four, closed four, open three, broken three, four-three and double three, with diagrams.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-winning-combinations-explained">
+  <meta property="og:title" content="Gomoku Winning Combinations Explained">
+  <meta property="og:description" content="The six shapes that actually decide a gomoku game — and how to build one before your opponent does.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-winning-combinations-explained">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Winning Combinations Explained">
+  <meta name="twitter:description" content="Open four, four-three, double three: the combinations that decide gomoku games.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Winning Combinations Explained</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-02">2026-09-02</time>
+            <span class="blog-read-time">9 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Every Win Starts With a Shape</h2>
+<p>New players describe gomoku as "get five in a row", but five is only the last frame of the film. Long before the winning stone lands, the game has usually been decided by a handful of recurring shapes. Learn to name them, learn to see them forming two or three moves early, and <strong>gomoku winning combinations</strong> stop feeling like luck and start feeling like a plan. Below are the six shapes worth memorising, and the short sequences that connect them.</p>
+<p>If the basics are still fresh, read <a href="what-is-gomoku-and-how-do-you-win">what gomoku is and how you win</a> first, then come back for the patterns that do the real work.</p>
+
+<h2>1. Open Four &mdash; The Shape That Cannot Be Blocked</h2>
+<p>Four stones in a row with both ends empty. Your opponent has one move and two losing points, so they can only cover one of them.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . X X X X . .</pre>
+<p>Both dots are winning squares. White fills one, Black takes the other, game over. A single open four is already a forced win, which is why almost every attacking plan in gomoku is really a plan to manufacture one. Before you commit to a move, count the empty points at each end and check that no enemy stone sits one square beyond them &mdash; a blocked end quietly downgrades the shape to a closed four.</p>
+
+<h2>2. Closed Four &mdash; One Point, One Chance</h2>
+<p>Four in a row with a single open end. It is a real threat, but the defence is trivial: your opponent simply plays the point.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">O . X X X X . .</pre>
+<p>Closed fours still matter, because each one steals a tempo. Your opponent must answer instead of building their own attack, and a free tempo is often worth more than a stone. Chains of closed fours are the engine behind the forcing sequences described in <a href="advanced-gomoku-strategy">advanced gomoku strategy</a>.</p>
+
+<h2>3. Open Three &mdash; The Threat You Answer Too Late</h2>
+<p>Three in a row, both ends open, with room to grow into an open four. Leave it alone for one turn and it becomes unstoppable.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . . X X X . . .
+   play either end  ->  . . X X X X . .</pre>
+<p>An open three demands an answer. That answer is usually a block, and every block is a move your opponent did not spend attacking you. Strong players build open threes not because a three wins, but because the reply it extracts reroutes the whole game in their favour.</p>
+
+<h2>4. Broken Three &mdash; The Shape Beginners Miss</h2>
+<p>A broken three, also called a jump three, looks harmless because there is a gap in the middle. Fill the gap and you have an open four.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . X X . X . .
+        fill gap  ->  . . X X X X . .</pre>
+<p>This shape is the single most common way intermediate players lose a game: they block the visible pair of stones and never notice the lone stone two points away that would complete a four. Get in the habit of scanning for gapped lines, especially on the diagonals, where they hide best.</p>
+
+<h2>5. Four-Three &mdash; The Classic Two-Move Kill</h2>
+<p>A four-three is one move that creates a closed four <em>and</em> an open three at the same time. Your opponent must answer the four; you then convert the open three into an open four and win.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . O . . .
+2   . . . X . . .
+3   . . . X . . .
+4   . . . X . . .
+5   . . . ? X X .
+6   . . . . . . .</pre>
+<p>Black plays the point marked with a question mark. Vertically it completes a four in the d-file whose only winning square is at the bottom, so White is forced to block there. Horizontally the same stone creates an open three running to the right. White blocks the four, Black extends the row to four stones with both ends open, and the position is finished. Nothing exotic is happening &mdash; it is just two ordinary shapes sharing one square.</p>
+
+<h2>6. Double Three &mdash; Free-Style Weapon, Renju Forbidden Move</h2>
+<p>A double three is one stone that creates two open threes at once. Each open three wants to become an open four, and one block cannot stop two of them, so the defence collapses.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . . . . .
+2   . . . . . . .
+3   . . X X ? . .
+4   . . . . X . .
+5   . . . . X . .
+6   . . . . . . .</pre>
+<p>The marked stone completes a horizontal three and a vertical three, both open at both ends. Under the free-style rules most casual players use, this is simply a winning move. Under tournament Renju rules, Black is forbidden from making a double three, a double four or an overline; those bans exist to cancel the first player's edge. Play the lenient version here and enjoy it, but check the forbidden-move list before you ever enter a Renju event.</p>
+
+<h2>How to Train Your Eye</h2>
+<p>Reading these shapes once is not enough &mdash; you want them to pop out automatically. A short routine does it:</p>
+<ul>
+<li>Before every move, list your opponent's threes. If an open three is unanswered, deal with it before you start your own attack.</li>
+<li>Then ask whether any single stone of yours would create two threats at once. A four-three or a double three is usually hiding somewhere on the board.</li>
+<li>After each game, replay the last ten moves and find the exact moment a shape first became unavoidable.</li>
+</ul>
+<p>Short, focused drills beat long sessions for this. A few minutes of deliberate scanning each time you play builds the kind of <a href="pattern-recognition-gomoku">pattern recognition in gomoku</a> that separates decent players from strong ones.</p>
+
+<h2>Turn Shapes Into Wins</h2>
+<p>The practical takeaway is small but powerful: stop chasing five and start chasing open fours. Every combination on this page is just a different route to the same destination. Build threats that demand an answer, spend the tempo you earn, and keep the initiative until one of your shapes can no longer be answered. When you are ready to test it, <a href="../">play a free game of Gomoku in your browser</a> and try to construct an open four on purpose.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Ready to Put These Shapes on the Board?</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Stop chasing five and start building open fours. Open a free board and try the combinations yourself.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Winning Combinations Explained",
+    "description": "Gomoku winning combinations explained in plain language: open four, closed four, open three, broken three, four-three and double three, with diagrams.",
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-winning-combinations-explained"}
+  }
+  </script>
+</body>
+</html>

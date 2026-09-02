@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-winning-combinations-explained">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-winning-combinations-explained">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋获胜组合全解析 | 五子棋博客</title>
+  <meta name="description" content="用图解讲清五子棋的六种获胜组合：活四、冲四、活三、跳三、四三与双三，以及它们如何连成杀棋。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-winning-combinations-explained">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-winning-combinations-explained">
+  <meta property="og:title" content="五子棋获胜组合全解析">
+  <meta property="og:description" content="决定五子棋胜负的六种棋形，以及如何在对手之前做出它们。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-winning-combinations-explained">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋获胜组合全解析">
+  <meta name="twitter:description" content="活四、四三、双三：真正决定胜负的几种棋形。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">五子棋获胜组合全解析：从活四到双三</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-02">2026-09-02</time>
+            <span class="blog-read-time">9 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>赢棋从来不是"凑够五颗"</h2>
+<p>新手常把五子棋理解为"连成五颗就赢"，但"五"只是最后一格画面。真正决定胜负的，是几个反复出现的棋形——它们在最后一颗棋子落下之前就已经把结果写好了。能叫出这些棋形的名字，能在它们成形前两三步就看见它们，<strong>五子棋的获胜组合</strong>就不再靠运气，而是一套可以执行的计划。下面是要记住的六种棋形，以及把它们串起来的短杀法。</p>
+<p>如果基本规则还不熟，先看<a href="/zh-CN/blog/what-is-gomoku-and-how-do-you-win">什么是五子棋、怎么才算赢</a>，再回来学真正起作用的棋形。</p>
+
+<h2>一、活四：防不住的棋形</h2>
+<p>四颗连成一线，两端都空着。对手只有一步棋，却有两个成五点，只能堵住其中一个。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . X X X X . .</pre>
+<p>两端的两个空点都能成五。白棋补一头，黑棋走另一头，棋局结束。一个活四已经是必胜形，所以五子棋里几乎所有进攻计划，本质上都是在想办法做出活四。落子前先数一数两端有没有空点，还要确认端点再往外一格没有对方棋子——被堵住一头的"四"会悄悄降级成冲四。</p>
+
+<h2>二、冲四：只有一个成五点</h2>
+<p>四颗连成一线，但只有一头是空的。这是实打实的威胁，不过防守也很简单：对手把那个点补掉就行。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">O . X X X X . .</pre>
+<p>冲四依然有用，因为每冲一次都抢到一先。对手必须应，就没时间经营自己的进攻，而在五子棋里，一先往往比一颗棋子更值钱。连续冲四组成的推进，正是<a href="/zh-CN/blog/advanced-gomoku-strategy">五子棋进阶策略</a>里那类强制序列的发动机。</p>
+
+<h2>三、活三：不理它就来不及了</h2>
+<p>三颗连成一线，两端皆空，而且有空间发展成活四。放任它一回合，它就变成无法阻挡的形状。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . . X X X . . .
+   走任意一端  ->  . . X X X X . .</pre>
+<p>活三要求对方必须应。而这个"应"通常是堵，每一次堵，都是对手没用来进攻你的一手棋。高手做活三，不是指望三本身能赢，而是要用它换来的那一步，把整盘棋的走向拉到自己这边。</p>
+
+<h2>四、跳三：新手最容易漏看的棋形</h2>
+<p>跳三（中间隔着一格的三）看起来毫无威胁，因为它是断的。但只要把中间那格补上，就变成活四。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">. . X X . X . .
+        补中间  ->  . . X X X X . .</pre>
+<p>这是中级玩家输棋最常见的原因：他们盯着眼前那两颗连子去堵，却没注意到隔一格之外还有一颗孤子，补上就是四。养成扫描"带缺口连线"的习惯，尤其是斜线——斜线上的跳三最隐蔽。</p>
+
+<h2>五、四三：最经典的两步杀</h2>
+<p>四三，就是一手棋同时做出一个冲四<em>和</em>一个活三。对手必须先应冲四，你再把活三走成活四，直接取胜。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . O . . .
+2   . . . X . . .
+3   . . . X . . .
+4   . . . X . . .
+5   . . . ? X X .
+6   . . . . . . .</pre>
+<p>黑棋下在问号处。竖线上它补成了 d 列的四，唯一的成五点在下方，白棋被迫去堵；同一颗棋子在横线上又做出了一个向右延伸的活三。白棋堵完冲四，黑棋把横线接成两端皆空的四，棋局结束。这里没有任何玄妙的东西——只是两个普通棋形共用了一个交叉点。</p>
+
+<h2>六、双三：无禁手是杀招，有禁手是犯规</h2>
+<p>双三，就是一手棋同时做出两个活三。每个活三都想变成活四，而一步棋堵不住两个，防线当场崩掉。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . . . . .
+2   . . . . . . .
+3   . . X X ? . .
+4   . . . . X . .
+5   . . . . X . .
+6   . . . . . . .</pre>
+<p>问号这颗棋子同时补出了一个横向活三和一个纵向活三，两端都空。在大多数人玩的"无禁手"规则下，这就是一步制胜。但在正规连珠规则中，黑棋禁止走双三、双四和长连——这些禁手存在的意义就是抵消先手优势。本站休闲对局采用宽松规则，你尽管用；但哪天要去参加连珠比赛，一定先看清禁手条款。</p>
+
+<h2>怎么把眼力练出来</h2>
+<p>这些棋形看一遍不够，要练到它们自己"跳"出来。一个简单的流程很有用：</p>
+<ul>
+<li>落子前先清点对手的三。只要有没处理掉的活三，先处理它，再谈自己的进攻。</li>
+<li>然后问自己：有没有一颗棋子能同时造出两个威胁？四三或双三通常就藏在棋盘的某个角落。</li>
+<li>每局结束后，复盘最后十手，找出那个"棋形第一次变得无法挽回"的准确时刻。</li>
+</ul>
+<p>这种练习，短时间高专注比长时间对局有效得多。每次下棋前刻意扫几分钟，就能逐步建立<a href="/zh-CN/blog/pattern-recognition-gomoku">五子棋的棋形识别能力</a>——这恰恰是普通玩家和强手的分界线。</p>
+
+<h2>把棋形变成胜势</h2>
+<p>结论很短，却很管用：别盯着"五"，去追"活四"。本页所有组合，都只是通往同一个终点的不同路径。不断制造必须应的威胁，把抢到的先手花掉，保持主动，直到对手再也答不上来。想试试的话，<a href="/zh-CN/">打开浏览器免费下一局五子棋</a>，试着有意识地做一个活四出来。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">想把这些棋形落到棋盘上？</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">别再盯着五连，先学会做活四。开一局免费对局，亲手试试这些组合。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋获胜组合全解析：从活四到双三",
+    "description": "用图解讲清五子棋的六种获胜组合：活四、冲四、活三、跳三、四三与双三，以及它们如何连成杀棋。",
+    "datePublished": "2026-09-02",
+    "dateModified": "2026-09-02",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-winning-combinations-explained"}
+  }
+  </script>
+</body>
+</html>
