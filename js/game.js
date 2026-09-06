@@ -1504,6 +1504,14 @@ function masterAI() {
   if (forcedWin) return forcedWin;
 
   // ================================================================
+  // TIER 1.6 — AI's VCF WIN: force a win by a sequence of fours.
+  // Safe to try now: opponent has no immediate/forced win, so a VCF
+  // from us wins the game regardless of what they do.
+  // ================================================================
+  var vcfWin = findVCFMove(aiColor, 22);
+  if (vcfWin) return vcfWin;
+
+  // ================================================================
   // TIER 3 — DEFENSE: detect and block opponent threats
   // ================================================================
   var threatBlock = findThreatSequence(humanColor);
@@ -1512,6 +1520,14 @@ function masterAI() {
   // Deep threat: opponent moves that create unstoppable 2-step sequences
   var deepThreat = findDeepThreatBlock(humanColor);
   if (deepThreat) return deepThreat;
+
+  // ================================================================
+  // TIER 2.7 — BLOCK OPPONENT VCF: prevent a forced four-sequence win.
+  // Humans set up VCFs constantly; if we don't proactively kill them,
+  // we lose. Run before any further offense.
+  // ================================================================
+  var vcfBlock = findVCFDefense(humanColor, 18);
+  if (vcfBlock) return vcfBlock;
 
   // ================================================================
   // TIER 3.5 — STRATEGIC DEFENSE: block dangerous developing threes
@@ -1541,21 +1557,23 @@ function masterAI() {
   if (candidates.length === 0) return getOpeningMove();
   candidates.sort(function (a, b) { return b.score - a.score; });
 
-  var maxCandidates = Math.min(30, candidates.length);
+  var maxCandidates = Math.min(40, candidates.length);
   var bestMove = candidates[0];
   var bestScore = -Infinity;
 
-  // Safety timeout: 5 seconds max
-  var searchDeadline = Date.now() + 5000;
+  // Safety timeout: 12 seconds max — master level needs time to think.
+  var searchDeadline = Date.now() + 12000;
 
-  // Iterative deepening: depth 2 → 4 → 6 → 8 with kill-move ordering
-  for (var d = 2; d <= 8; d += 2) {
+  // Iterative deepening: depth 2 → 4 → 6 → 8 → 10 → 12 with kill-move ordering
+  for (var d = 2; d <= 12; d += 2) {
     // Adaptive pruning: wider at shallow, narrower at deep
     var prune;
-    if (d === 2) prune = 18;
-    else if (d === 4) prune = 14;
-    else if (d === 6) prune = 10;
-    else prune = 8;  // depth 8 — tight pruning for speed
+    if (d === 2) prune = 22;
+    else if (d === 4) prune = 18;
+    else if (d === 6) prune = 14;
+    else if (d === 8) prune = 12;
+    else if (d === 10) prune = 10;
+    else prune = 8;  // depth 12
 
     var depthBest = -Infinity;
     var depthMove = candidates[0];
@@ -1758,16 +1776,16 @@ function evalForPlayer(player) {
         if (count >= 5) {
           score += 10000000;
         } else if (count === 4) {
-          if (openEnds === 2)      score += 100000;  // live four
-          else if (openEnds === 1) score += 10000;   // dead four
+          if (openEnds === 2)      score += 300000;  // live four — unstoppable next move
+          else if (openEnds === 1) score += 20000;   // dead four — forces a block
         } else if (count === 3) {
-          if (openEnds === 2)      score += 10000;   // live three
-          else if (openEnds === 1) score += 1000;    // sleep three
+          if (openEnds === 2)      score += 25000;   // live three — becomes live four
+          else if (openEnds === 1) score += 2000;    // sleep three
         } else if (count === 2) {
-          if (openEnds === 2)      score += 500;     // live two
-          else if (openEnds === 1) score += 100;     // sleep two
+          if (openEnds === 2)      score += 600;     // live two
+          else if (openEnds === 1) score += 120;     // sleep two
         } else if (count === 1) {
-          if (openEnds === 2)      score += 10;
+          if (openEnds === 2)      score += 12;
           else if (openEnds === 1) score += 1;
         }
       }
@@ -1815,18 +1833,18 @@ function evalForPlayer(player) {
         } else if (pStones === 4) {
           // Any form of four-in-window (XXXX_, _XXXX, XXX_X, XX_XX, X_XXX)
           // — essentially a winning threat that must be blocked
-          score += 120000;
+          score += 180000;
         } else if (pStones === 3) {
           // Three stones in a 5-window — developing threat
           // Bonus higher if stones are close together (more threatening)
           if (stoneIndices.length >= 3) {
             var spread = stoneIndices[stoneIndices.length - 1] - stoneIndices[0];
-            if (spread <= 3) score += 8000;  // compact three, very threatening
-            else score += 3000;              // scattered three
+            if (spread <= 3) score += 18000;  // compact three, very threatening
+            else score += 6000;              // scattered three
           }
         } else if (pStones === 2) {
           // Two stones in a window — potential
-          score += 200;
+          score += 300;
         }
       }
     }
@@ -2456,6 +2474,137 @@ function findForcingAttack(player) {
     return best;
   }
 
+  return null;
+}
+
+// ============================================================
+// VCF (Victory by Continuous Fours) SEARCH
+// The key to master-level Gomoku: a "four" forces the opponent to
+// block (otherwise they lose next move), so the branching factor
+// collapses and we can search 20+ plies almost for free. This
+// detects forced wins that a shallow minimax would miss entirely.
+// ============================================================
+
+// All moves for `player` that create at least one four-threat
+// (contiguous four with an open end, or a broken four XXX_X / XX_XX /
+// X_XXX). Each is a forcing move the opponent must answer.
+function findFourMoves(player) {
+  var moves = [];
+  for (var r = 0; r < BOARD_SIZE; r++) {
+    for (var c = 0; c < BOARD_SIZE; c++) {
+      if (board[r][c] !== EMPTY) continue;
+      if (!hasNeighbor(r, c, 2)) continue;
+      board[r][c] = player;
+      var threats = countLiveThreats(r, c, player);
+      board[r][c] = EMPTY;
+      if (threats >= 1) moves.push({ row: r, col: c });
+    }
+  }
+  return moves;
+}
+
+// Returns true if `player` can force a win within `depth` plies by
+// making consecutive fours. For each four-move we try every possible
+// opponent block; only if EVERY block still leaves `player` with a
+// forced win do we return true.
+function vcfSearch(player, depth) {
+  if (depth <= 0) return false;
+  var fourMoves = findFourMoves(player);
+  if (fourMoves.length === 0) return false;
+
+  var opponent = (player === BLACK) ? WHITE : BLACK;
+
+  for (var i = 0; i < fourMoves.length; i++) {
+    var move = fourMoves[i];
+    board[move.row][move.col] = player;
+
+    // Immediate five = win.
+    if (checkWin(move.row, move.col, player)) {
+      board[move.row][move.col] = EMPTY;
+      return true;
+    }
+
+    // Every possible block for the four(s) just created.
+    var blocks = findAllBlockPositions(move.row, move.col, player);
+
+    var forced = true;
+    if (blocks.length === 0) {
+      // Unblockable four (should be caught by checkWin, but safe).
+      board[move.row][move.col] = EMPTY;
+      return true;
+    }
+
+    for (var j = 0; j < blocks.length; j++) {
+      var block = blocks[j];
+      if (board[block.row][block.col] !== EMPTY) continue;
+      board[block.row][block.col] = opponent;
+      var stillWin = vcfSearch(player, depth - 2);
+      board[block.row][block.col] = EMPTY;
+      if (!stillWin) {
+        forced = false;
+        break;
+      }
+    }
+
+    board[move.row][move.col] = EMPTY;
+    if (forced) return true;
+  }
+  return false;
+}
+
+// Offensive VCF: return the first four-move that forces a win.
+function findVCFMove(player, depth) {
+  if (depth <= 0) return null;
+  var fourMoves = findFourMoves(player);
+  if (fourMoves.length === 0) return null;
+  var opponent = (player === BLACK) ? WHITE : BLACK;
+
+  for (var i = 0; i < fourMoves.length; i++) {
+    var move = fourMoves[i];
+    board[move.row][move.col] = player;
+
+    if (checkWin(move.row, move.col, player)) {
+      board[move.row][move.col] = EMPTY;
+      return move;
+    }
+
+    var blocks = findAllBlockPositions(move.row, move.col, player);
+    var forced = true;
+    if (blocks.length > 0) {
+      for (var j = 0; j < blocks.length; j++) {
+        var block = blocks[j];
+        if (board[block.row][block.col] !== EMPTY) continue;
+        board[block.row][block.col] = opponent;
+        var stillWin = vcfSearch(player, depth - 2);
+        board[block.row][block.col] = EMPTY;
+        if (!stillWin) { forced = false; break; }
+      }
+    }
+    board[move.row][move.col] = EMPTY;
+    if (forced) return move;
+  }
+  return null;
+}
+
+// Defensive VCF: find an AI move that removes the opponent's forced
+// four-sequence win. Returns a blocking move or null (within candidate
+// budget). Crucial so the AI never lets a human set up a VCF.
+function findVCFDefense(opponent, depth) {
+  var candidates = getCandidateMoves(aiColor);
+  if (candidates.length === 0) return null;
+  candidates.sort(function (a, b) { return b.score - a.score; });
+
+  var budget = Math.min(40, candidates.length);
+  for (var i = 0; i < budget; i++) {
+    var m = candidates[i];
+    if (gameRule === 'renju' && aiColor === BLACK) {
+      if (checkRenjuFoul(m.row, m.col, BLACK)) continue;
+    }
+    board[m.row][m.col] = aiColor;
+    var oppStillForces = vcfSearch(opponent, depth);
+    board[m.row][m.col] = EMPTY;
+    if (!oppStillForces) return { row: m.row, col: m.col };
+  }
   return null;
 }
 
