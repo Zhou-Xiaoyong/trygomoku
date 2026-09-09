@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -56,7 +56,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/blog/gomoku-terms-glossary-for-new-players</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -104,7 +110,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -140,7 +146,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -164,7 +170,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -182,7 +188,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ja-JP/blog/gomoku-terms-glossary-for-new-players</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -230,7 +242,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -266,7 +278,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -290,7 +302,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -308,7 +320,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ko-KR/blog/gomoku-terms-glossary-for-new-players</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -356,7 +374,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -398,7 +416,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -422,7 +440,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -440,7 +458,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ru-RU/blog/gomoku-terms-glossary-for-new-players</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -488,7 +512,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -524,7 +548,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -548,7 +572,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -566,7 +590,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/blog/gomoku-terms-glossary-for-new-players</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -614,7 +644,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
