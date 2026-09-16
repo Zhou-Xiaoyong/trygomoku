@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
-  <link rel="prefetch" href="/blog/common-gomoku-mistakes.html">
-  <link rel="prefetch" href="/zh-CN/blog/common-gomoku-mistakes.html">
-  <link rel="prefetch" href="/ja-JP/blog/common-gomoku-mistakes.html">
-  <link rel="prefetch" href="/ru-RU/blog/common-gomoku-mistakes.html">
+  <link rel="prefetch" href="/blog/common-gomoku-mistakes">
+  <link rel="prefetch" href="/zh-CN/blog/common-gomoku-mistakes">
+  <link rel="prefetch" href="/ja-JP/blog/common-gomoku-mistakes">
+  <link rel="prefetch" href="/ru-RU/blog/common-gomoku-mistakes">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
@@ -19,17 +19,17 @@
   <title>초보자가 자주 하는 7가지 오목 실수(와 고치는 법) | 오목 블로그</title>
   <meta name="description" content="가장자리에 두기, 상대 위협 무시, 터널 시야——초보자가 가장 자주 하는 7가지 오목 실수와 하나씩 고치는 법을 배우세요.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/common-gomoku-mistakes.html">
-  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/common-gomoku-mistakes.html">
-  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/common-gomoku-mistakes.html">
-  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/common-gomoku-mistakes.html">
-  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/common-gomoku-mistakes.html">
-  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/common-gomoku-mistakes.html">
-  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/common-gomoku-mistakes.html">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/common-gomoku-mistakes">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/common-gomoku-mistakes">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/common-gomoku-mistakes">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/common-gomoku-mistakes">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/common-gomoku-mistakes">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/common-gomoku-mistakes">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/common-gomoku-mistakes">
   <meta property="og:title" content="초보자가 자주 하는 7가지 오목 실수">
   <meta property="og:description" content="가장자리에 두기, 상대 위협 무시, 터널 시야. 가장 흔한 7가지 실수와 고치는 법.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/common-gomoku-mistakes.html">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/common-gomoku-mistakes">
   <meta property="og:locale" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="흔한 7가지 오목 실수">
@@ -50,19 +50,19 @@
   <header>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/ko-KR/index.html" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
       <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="/ko-KR/index.html#game">플레이</a></li>
-        <li><a href="/ko-KR/index.html#rules">규칙</a></li>
-        <li><a href="/ko-KR/index.html#strategy">전략</a></li>
-        <li><a href="/ko-KR/index.html#history">역사</a></li>
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
         <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
-        <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
       </ul>
       <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
         <option value="en">English</option>
@@ -133,12 +133,12 @@
           <p><strong>고치는 법:</strong> 일주일에 진 판 하나 골라 리플레이하세요. 어디서 판이 빠져나갔나? 지금이라면 어느 수를 바꿀까? 매판 할 필요 없습니다——주 1회면 자각은 생깁니다.</p>
 
           <p>초보와 중급자 사이 격차는 재능이 아닙니다. 그냥 이 7가지 실수를 그리 자주 안 하는 겁니다.</p>
-                    <p style="margin-top:28px;">관련 글: <a href="/ko-KR/blog/how-to-play-gomoku-for-absolute-beginners.html" >오목 처음인 분들을 위한 방법: 기초 규칙</a></p>
+                    <p style="margin-top:28px;">관련 글: <a href="/ko-KR/blog/how-to-play-gomoku-for-absolute-beginners" >오목 처음인 분들을 위한 방법: 기초 규칙</a></p>
           <p style="margin-top:28px;">관련 글: <a href="/ko-KR/blog/how-many-pieces-to-win-gomoku" >오목에서 이기려면 몇 개의 돌이 필요할까요?</a></p>
 <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
             <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">실전에서 이 실수들을 찾을 수 있는지 보세요</h3>
             <p style="margin-bottom:16px;color:#d0d0f0;">몇 판 두며 터널 시야를 조심하세요 — 처음엔 다에게 일어납니다.</p>
-            <a href="/ko-KR/index.html#game" class="cta-btn">지금 오목 플레이</a>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 플레이</a>
           </div>
         </div>
       </div>
@@ -156,20 +156,20 @@
         <div class="footer-links">
           <h4>빠른 링크</h4>
           <ul>
-            <li><a href="/ko-KR/index.html#game">플레이</a></li>
-            <li><a href="/ko-KR/index.html#rules">규칙</a></li>
-            <li><a href="/ko-KR/index.html#strategy">전략</a></li>
-            <li><a href="/ko-KR/index.html#history">역사</a></li>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
             <li><a href="/ko-KR/blog/">블로그</a></li>
-            <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>사이트 정보</h4>
           <ul>
-            <li><a href="/ko-KR/about.html">소개</a></li>
-            <li><a href="/privacy.html">개인정보 처리방침</a></li>
-            <li><a href="/ko-KR/index.html#game">지금 플레이</a></li>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
           </ul>
         </div>
       </div>
@@ -188,7 +188,7 @@
     "dateModified": "2026-06-13",
     "author": {"@type": "Organization", "name": "오목 온라인"},
     "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/common-gomoku-mistakes.html"}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/common-gomoku-mistakes"}
   }
   </script>
 </body>

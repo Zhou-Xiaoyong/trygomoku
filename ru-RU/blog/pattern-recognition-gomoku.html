@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
 <head>
-  <link rel="prefetch" href="/blog/pattern-recognition-gomoku.html">
-  <link rel="prefetch" href="/zh-CN/blog/pattern-recognition-gomoku.html">
-  <link rel="prefetch" href="/ja-JP/blog/pattern-recognition-gomoku.html">
-  <link rel="prefetch" href="/ko-KR/blog/pattern-recognition-gomoku.html">
+  <link rel="prefetch" href="/blog/pattern-recognition-gomoku">
+  <link rel="prefetch" href="/zh-CN/blog/pattern-recognition-gomoku">
+  <link rel="prefetch" href="/ja-JP/blog/pattern-recognition-gomoku">
+  <link rel="prefetch" href="/ko-KR/blog/pattern-recognition-gomoku">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
@@ -19,17 +19,17 @@
   <title>Освоение распознавания образцов в Гомоку | Блог Гомоку</title>
   <meta name="description" content="Распознавание образцов отделяет неплохих игроков от великих. Научитесь мгновенно определять живые четвёрки, мёртвые четвёрки, живые тройки и двойные угрозы.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku.html">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku">
   <meta property="og:title" content="Освоение распознавания образцов в Гомоку">
   <meta property="og:description" content="Научитесь мгновенно определять живые четвёрки, мёртвые четвёрки, живые тройки и двойные угрозы. Фундамент всей продвинутой стратегии Гомоку.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku">
   <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Освоение распознавания образцов в Гомоку">
@@ -50,19 +50,19 @@
   <header>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/ru-RU/index.html" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
       <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="/ru-RU/index.html#game">Играть</a></li>
-        <li><a href="/ru-RU/index.html#rules">Правила</a></li>
-        <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
-        <li><a href="/ru-RU/index.html#history">История</a></li>
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
         <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
-        <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
       </ul>
       <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
         <option value="en">English</option>
@@ -122,7 +122,7 @@
 
           <p><strong>Дрилл 2: игра «что если»</strong><br>Поставив камень, спросите: «если бы я поставил ещё один рядом, что бы получилось?» Не ставьте его на самом деле — просто визуализируйте. Это развивает способность «видеть вперёд» без ментальной цены расчёта полных последовательностей ходов.</p>
 
-          <p><strong>Дрилл 3: игра с сильными противниками</strong><br>ИИ на <a href="../index.html">trygomoku.com</a> для этого отличен. Поставьте уровень, где вы проигрываете около 40% партий. Вы начнёте замечать закономерности в том, как ИИ выстраивает угрозы, — и постепенно начнёте замечать те же образцы, когда ваши друзья-люди так играют.</p>
+          <p><strong>Дрилл 3: игра с сильными противниками</strong><br>ИИ на <a href="../">trygomoku.com</a> для этого отличен. Поставьте уровень, где вы проигрываете около 40% партий. Вы начнёте замечать закономерности в том, как ИИ выстраивает угрозы, — и постепенно начнёте замечать те же образцы, когда ваши друзья-люди так играют.</p>
 
           <h2>Разница между «видеть» и «замечать»</h2>
 
@@ -137,7 +137,7 @@
 <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
             <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Потренируйте распознавание прямо сейчас</h3>
             <p style="margin-bottom:16px;color:#d0d0f0;">Сыграйте несколько партий и фокусируйтесь на живых тройках до того, как они станут живыми четвёрками.</p>
-            <a href="/ru-RU/index.html#game" class="cta-btn">Играть в Гомоку сейчас</a>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в Гомоку сейчас</a>
           </div>
         </div>
       </div>
@@ -155,20 +155,20 @@
         <div class="footer-links">
           <h4>Быстрые ссылки</h4>
           <ul>
-            <li><a href="/ru-RU/index.html#game">Играть</a></li>
-            <li><a href="/ru-RU/index.html#rules">Правила</a></li>
-            <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
-            <li><a href="/ru-RU/index.html#history">История</a></li>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
             <li><a href="/ru-RU/blog/">Блог</a></li>
-            <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>О сайте</h4>
           <ul>
-            <li><a href="/ru-RU/about.html">О нас</a></li>
-            <li><a href="/privacy.html">Политика конфиденциальности</a></li>
-            <li><a href="/ru-RU/index.html#game">Играть сейчас</a></li>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
           </ul>
         </div>
       </div>
@@ -187,7 +187,7 @@
     "dateModified": "2026-06-14",
     "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
     "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html"}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku"}
   }
   </script>
 </body>

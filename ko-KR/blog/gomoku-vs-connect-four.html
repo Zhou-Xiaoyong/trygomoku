@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
-  <link rel="prefetch" href="/blog/gomoku-vs-connect-four.html">
-  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-connect-four.html">
-  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-connect-four.html">
-  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-connect-four.html">
+  <link rel="prefetch" href="/blog/gomoku-vs-connect-four">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-connect-four">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-connect-four">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-connect-four">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
@@ -19,17 +19,17 @@
   <title>오목 vs 커넥트 포: 같은 아이디어, 완전히 다른 게임 | 오목 블로그</title>
   <meta name="description" content="커넥트 포로 자랐나요? 오목이 비슷해 보여도 완전히 다르게 플레이되는 이유——그리고 15×15 판이 모든 것을 바꾸는 이유를.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four.html">
-  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-connect-four.html">
-  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-connect-four.html">
-  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-connect-four.html">
-  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-connect-four.html">
-  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-connect-four.html">
-  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four.html">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-connect-four">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-connect-four">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-connect-four">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-connect-four">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-connect-four">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four">
   <meta property="og:title" content="오목 vs 커넥트 포: 같은 아이디어, 다른 게임">
   <meta property="og:description" content="커넥트 포로 자랐나요? 오목이 15×15 판에서 왜 완전히 다른 도전인지.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four.html">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four">
   <meta property="og:locale" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="오목 vs 커넥트 포">
@@ -50,19 +50,19 @@
   <header>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/ko-KR/index.html" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
       <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="/ko-KR/index.html#game">플레이</a></li>
-        <li><a href="/ko-KR/index.html#rules">규칙</a></li>
-        <li><a href="/ko-KR/index.html#strategy">전략</a></li>
-        <li><a href="/ko-KR/index.html#history">역사</a></li>
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
         <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
-        <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
       </ul>
       <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
         <option value="en">English</option>
@@ -129,14 +129,14 @@
 
           <p>하지만 「그 한 수 놓친 걸」 밤중에 생각하게 해줄 게임이 필요하다면 오목입니다. 15&times;15 판은 두 판이 같은 전개가 안 된다는 뜻입니다. 그리고 커넥트 포와 달리 최적 전략을 아직 완전히 이해 못 했으니——늘 배울 게 있습니다.</p>
 
-          <p>직접 차이를 보고 싶나요? <a href="../index.html">오목을 해보세요</a>, 우리 AI 상대로. 새라면 이지부터. 처음 압도당해도 괜찮습니다, 그게 요점이니까.</p>
-                    <p style="margin-top:28px;">관련 글: <a href="/ko-KR/blog/how-to-play-gomoku-for-absolute-beginners.html" >오목 처음인 분들을 위한 방법: 기초 규칙</a></p>
+          <p>직접 차이를 보고 싶나요? <a href="../">오목을 해보세요</a>, 우리 AI 상대로. 새라면 이지부터. 처음 압도당해도 괜찮습니다, 그게 요점이니까.</p>
+                    <p style="margin-top:28px;">관련 글: <a href="/ko-KR/blog/how-to-play-gomoku-for-absolute-beginners" >오목 처음인 분들을 위한 방법: 기초 규칙</a></p>
           <p style="margin-top:28px;">관련 글: <a href="/ko-KR/blog/what-is-gomoku-and-how-do-you-win" >오목이란 무엇이고, 어떻게 이길까요?</a></p>
           <p style="margin-top:28px;">관련 글: <a href="/ko-KR/blog/gomoku-vs-tic-tac-toe-difference" >오목 vs 삼목(틱택토): 진짜 차이점은 무엇인가요?</a></p>
 <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
             <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">오목을 해볼 준비 되셨나요?</h3>
             <p style="margin-bottom:16px;color:#d0d0f0;">다운로드 없음, 가입 없음. 클릭하면 바로.</p>
-            <a href="/ko-KR/index.html#game" class="cta-btn">지금 오목 플레이</a>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 플레이</a>
           </div>
         </div>
       </div>
@@ -154,20 +154,20 @@
         <div class="footer-links">
           <h4>빠른 링크</h4>
           <ul>
-            <li><a href="/ko-KR/index.html#game">플레이</a></li>
-            <li><a href="/ko-KR/index.html#rules">규칙</a></li>
-            <li><a href="/ko-KR/index.html#strategy">전략</a></li>
-            <li><a href="/ko-KR/index.html#history">역사</a></li>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
             <li><a href="/ko-KR/blog/">블로그</a></li>
-            <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>사이트 정보</h4>
           <ul>
-            <li><a href="/ko-KR/about.html">소개</a></li>
-            <li><a href="/privacy.html">개인정보 처리방침</a></li>
-            <li><a href="/ko-KR/index.html#game">지금 플레이</a></li>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
           </ul>
         </div>
       </div>
@@ -186,7 +186,7 @@
     "dateModified": "2026-06-19",
     "author": {"@type": "Organization", "name": "오목 온라인"},
     "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four.html"}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four"}
   }
   </script>
 </body>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
-  <link rel="prefetch" href="/blog/pattern-recognition-gomoku.html">
-  <link rel="prefetch" href="/zh-CN/blog/pattern-recognition-gomoku.html">
-  <link rel="prefetch" href="/ja-JP/blog/pattern-recognition-gomoku.html">
-  <link rel="prefetch" href="/ru-RU/blog/pattern-recognition-gomoku.html">
+  <link rel="prefetch" href="/blog/pattern-recognition-gomoku">
+  <link rel="prefetch" href="/zh-CN/blog/pattern-recognition-gomoku">
+  <link rel="prefetch" href="/ja-JP/blog/pattern-recognition-gomoku">
+  <link rel="prefetch" href="/ru-RU/blog/pattern-recognition-gomoku">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
@@ -19,17 +19,17 @@
   <title>오목의 형태 인식 마스터하기 | 오목 블로그</title>
   <meta name="description" content="형태 인식이 일반 플레이어와 훌륭한 플레이어를 가릅니다. 활사, 사사, 활삼, 이중 위협을 한눈에 알아보는 법을 배우세요.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku.html">
-  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku.html">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku">
   <meta property="og:title" content="오목의 형태 인식 마스터하기">
   <meta property="og:description" content="활사, 사사, 활삼, 이중 위협을 한눈에 알아보는 법을 배우세요. 모든 고급 전략의 기초입니다.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku.html">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku">
   <meta property="og:locale" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="오목의 형태 인식 마스터하기">
@@ -50,19 +50,19 @@
   <header>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/ko-KR/index.html" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
       <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="/ko-KR/index.html#game">플레이</a></li>
-        <li><a href="/ko-KR/index.html#rules">규칙</a></li>
-        <li><a href="/ko-KR/index.html#strategy">전략</a></li>
-        <li><a href="/ko-KR/index.html#history">역사</a></li>
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
         <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
-        <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
       </ul>
       <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
         <option value="en">English</option>
@@ -122,7 +122,7 @@
 
           <p><strong>드릴 2: 「만약」 게임</strong><br>돌을 둔 후 스스로 묻세요: 「이 돌 옆에 또 하나를 두면 무엇이 만들어질까?」 실제로 두지 마세요 — 그저 머릿속으로 그려보세요. 이는 전체 수순을 계산하는 정신 비용 없이 「앞을 내다보는」 능력을 기릅니다.</p>
 
-          <p><strong>드릴 3: 강한 상대와 두기</strong><br><a href="../index.html">trygomoku.com</a>의 AI는 이에 딱 맞습니다. 약 40% 확률로 지는 단계로 설정하세요. AI가 위협을 어떻게 세팅하는지 패턴이 보이기 시작하고 — 점차, 인간 친구가 그렇게 둘 때도 같은 형태를 알아채게 됩니다.</p>
+          <p><strong>드릴 3: 강한 상대와 두기</strong><br><a href="../">trygomoku.com</a>의 AI는 이에 딱 맞습니다. 약 40% 확률로 지는 단계로 설정하세요. AI가 위협을 어떻게 세팅하는지 패턴이 보이기 시작하고 — 점차, 인간 친구가 그렇게 둘 때도 같은 형태를 알아채게 됩니다.</p>
 
           <h2>「보는」 것과 「눈치채는」 것의 차이</h2>
 
@@ -137,7 +137,7 @@
 <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
             <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">지금 바로 형태 인식 연습하기</h3>
             <p style="margin-bottom:16px;color:#d0d0f0;">몇 판 두며 활삼이 활사가 되기 전에 알아채는 데 집중하세요.</p>
-            <a href="/ko-KR/index.html#game" class="cta-btn">지금 오목 플레이</a>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 플레이</a>
           </div>
         </div>
       </div>
@@ -155,20 +155,20 @@
         <div class="footer-links">
           <h4>빠른 링크</h4>
           <ul>
-            <li><a href="/ko-KR/index.html#game">플레이</a></li>
-            <li><a href="/ko-KR/index.html#rules">규칙</a></li>
-            <li><a href="/ko-KR/index.html#strategy">전략</a></li>
-            <li><a href="/ko-KR/index.html#history">역사</a></li>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
             <li><a href="/ko-KR/blog/">블로그</a></li>
-            <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>사이트 정보</h4>
           <ul>
-            <li><a href="/ko-KR/about.html">소개</a></li>
-            <li><a href="/privacy.html">개인정보 처리방침</a></li>
-            <li><a href="/ko-KR/index.html#game">지금 플레이</a></li>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
           </ul>
         </div>
       </div>
@@ -187,7 +187,7 @@
     "dateModified": "2026-06-14",
     "author": {"@type": "Organization", "name": "오목 온라인"},
     "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku.html"}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku"}
   }
   </script>
 </body>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="prefetch" href="/zh-CN/blog/advanced-gomoku-strategy.html">
-  <link rel="prefetch" href="/ja-JP/blog/advanced-gomoku-strategy.html">
-  <link rel="prefetch" href="/ko-KR/blog/advanced-gomoku-strategy.html">
-  <link rel="prefetch" href="/ru-RU/blog/advanced-gomoku-strategy.html">
+  <link rel="prefetch" href="/zh-CN/blog/advanced-gomoku-strategy">
+  <link rel="prefetch" href="/ja-JP/blog/advanced-gomoku-strategy">
+  <link rel="prefetch" href="/ko-KR/blog/advanced-gomoku-strategy">
+  <link rel="prefetch" href="/ru-RU/blog/advanced-gomoku-strategy">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
@@ -19,12 +19,12 @@
   <title>Gomoku Strategy 201: Live Threes, Double Threats, and VCF | Gomoku Blog</title>
   <meta name="description" content="Learn advanced Gomoku strategy: live threes, live fours, double threats, and VCF. These four ideas are what separate casual players from people who actually win.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trygomoku.com/blog/advanced-gomoku-strategy.html">
+  <link rel="canonical" href="https://trygomoku.com/blog/advanced-gomoku-strategy">
 
   <meta property="og:title" content="Gomoku Strategy 201: Live Threes, Double Threats, and VCF">
   <meta property="og:description" content="Learn advanced Gomoku strategy: live threes, live fours, double threats, and VCF. These ideas separate casual players from people who actually win.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://trygomoku.com/blog/advanced-gomoku-strategy.html">
+  <meta property="og:url" content="https://trygomoku.com/blog/advanced-gomoku-strategy">
   <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
@@ -48,19 +48,19 @@
   <header>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="../index.html" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="../index.html#game">Play</a></li>
-        <li><a href="../index.html#rules">Rules</a></li>
-        <li><a href="../index.html#strategy">Strategy</a></li>
-        <li><a href="../index.html#history">History</a></li>
-        <li><a href="index.html" class="active" aria-current="page">Blog</a></li>
-        <li><a href="../index.html#faq">FAQ</a></li>
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
       </ul>
     </div>
   </nav>
@@ -91,7 +91,7 @@
 
           <p>A <strong>live four</strong> is even nastier. It's four stones in a row with both ends open. The defender has to block one end. You play at the other end and win. There is no clean defense against a live four unless you already saw it coming two moves earlier.</p>
 
-          <p>This is why beginners lose so fast. They build dead shapes — three-in-a-row with one end blocked, or four-in-a-row with only one open end. Those look scary but they aren't lethal. The whole game is really about creating live shapes and forcing your opponent to react to them. If you want to train your eye, our <a href="pattern-recognition-gomoku.html">pattern recognition guide</a> walks through the exact shapes to look for.</p>
+          <p>This is why beginners lose so fast. They build dead shapes — three-in-a-row with one end blocked, or four-in-a-row with only one open end. Those look scary but they aren't lethal. The whole game is really about creating live shapes and forcing your opponent to react to them. If you want to train your eye, our <a href="pattern-recognition-gomoku">pattern recognition guide</a> walks through the exact shapes to look for.</p>
 
           <h2>Double threats: attacking two places at once</h2>
 
@@ -107,7 +107,7 @@
 
           <p>Imagine you have a position where you can play a stone that creates a live four. They block it. But the blocking move also sets up a new live four for you somewhere else. They block that. Then another. Each block is forced, and eventually they have to choose between two simultaneous threats. That's VCF — a chain of forced moves that ends the game.</p>
 
-          <p>The Master AI on <a href="../index.html">TryGomoku</a> uses this kind of search. It doesn't just look at the board; it looks at sequences of threats and blocks. If you want to see how far you can push a human player, try setting up a VCF against the Hard AI. Our <a href="beat-gomoku-ai.html">guide to beating the AI</a> explains how each difficulty handles these tactics differently.</p>
+          <p>The Master AI on <a href="../">TryGomoku</a> uses this kind of search. It doesn't just look at the board; it looks at sequences of threats and blocks. If you want to see how far you can push a human player, try setting up a VCF against the Hard AI. Our <a href="beat-gomoku-ai">guide to beating the AI</a> explains how each difficulty handles these tactics differently.</p>
 
           <p>One warning: VCF only works if your opponent has no counter-threat. If they can make a live four of their own while blocking yours, your whole sequence falls apart. Always check both sides of the board before you commit to a forcing attack.</p>
 
@@ -122,7 +122,7 @@
 <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
             <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Put these tactics to the test</h3>
             <p style="margin-bottom:16px;color:#d0d0f0;">Open a game on TryGomoku, pick a difficulty, and try to build one live three on purpose. Then see if you can turn it into a double threat. The board is waiting.</p>
-            <a href="../index.html#game" class="cta-btn">Play Gomoku Online</a>
+            <a href="../#game" class="cta-btn">Play Gomoku Online</a>
           </div>
 
         </div><!-- /article-body -->
@@ -143,19 +143,19 @@
         <div class="footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="../index.html#game">Play Game</a></li>
-            <li><a href="../index.html#rules">Rules</a></li>
-            <li><a href="../index.html#strategy">Strategy</a></li>
-            <li><a href="../index.html#history">History</a></li>
-            <li><a href="index.html">Blog</a></li>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="../#strategy">Strategy</a></li>
+            <li><a href="../#history">History</a></li>
+            <li><a href="./">Blog</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>Site Info</h4>
           <ul>
-            <li><a href="../about.html">About Us</a></li>
-            <li><a href="../privacy.html">Privacy Policy</a></li>
-            <li><a href="../index.html#game">Play Now</a></li>
+            <li><a href="../about">About Us</a></li>
+            <li><a href="../privacy">Privacy Policy</a></li>
+            <li><a href="../#game">Play Now</a></li>
           </ul>
         </div>
       </div>
@@ -176,7 +176,7 @@
     "dateModified": "2026-06-26",
     "author": {"@type": "Organization", "name": "Gomoku Online"},
     "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/advanced-gomoku-strategy.html"}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/advanced-gomoku-strategy"}
   }
   </script>
 </body>

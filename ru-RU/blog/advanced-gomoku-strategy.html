@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
 <head>
-  <link rel="prefetch" href="/blog/advanced-gomoku-strategy.html">
-  <link rel="prefetch" href="/zh-CN/blog/advanced-gomoku-strategy.html">
-  <link rel="prefetch" href="/ja-JP/blog/advanced-gomoku-strategy.html">
-  <link rel="prefetch" href="/ko-KR/blog/advanced-gomoku-strategy.html">
+  <link rel="prefetch" href="/blog/advanced-gomoku-strategy">
+  <link rel="prefetch" href="/zh-CN/blog/advanced-gomoku-strategy">
+  <link rel="prefetch" href="/ja-JP/blog/advanced-gomoku-strategy">
+  <link rel="prefetch" href="/ko-KR/blog/advanced-gomoku-strategy">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
@@ -19,17 +19,17 @@
   <title>Стратегия Гомоку 201: живые тройки, двойные угрозы и VCF | Блог Гомоку</title>
   <meta name="description" content="Изучите продвинутую стратегию Гомоку: живые тройки, живые четвёрки, двойные угрозы и VCF. Эти четыре идеи отделяют любителей от тех, кто реально выигрывает.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy.html">
-  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/advanced-gomoku-strategy.html">
-  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/advanced-gomoku-strategy.html">
-  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/advanced-gomoku-strategy.html">
-  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/advanced-gomoku-strategy.html">
-  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy.html">
-  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy.html">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/advanced-gomoku-strategy">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/advanced-gomoku-strategy">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/advanced-gomoku-strategy">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/advanced-gomoku-strategy">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy">
   <meta property="og:title" content="Стратегия Гомоку 201: живые тройки, двойные угрозы и VCF">
   <meta property="og:description" content="Продвинутая стратегия: живые тройки, четвёрки, двойные угрозы и VCF.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy.html">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy">
   <meta property="og:locale" content="ru_RU">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Стратегия Гомоку 201">
@@ -50,19 +50,19 @@
   <header>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/ru-RU/index.html" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
       <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="/ru-RU/index.html#game">Играть</a></li>
-        <li><a href="/ru-RU/index.html#rules">Правила</a></li>
-        <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
-        <li><a href="/ru-RU/index.html#history">История</a></li>
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
         <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
-        <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
       </ul>
       <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
         <option value="en">English</option>
@@ -96,7 +96,7 @@
 
           <p><strong>Живая четвёрка</strong> ещё коварнее. Это четыре камня в ряд с открытыми концами. Защищающийся обязан закрыть один конец, а вы играете в другой и выигрываете. Чистой защиты от живой четвёрки нет, если вы не увидели её на два хода раньше.</p>
 
-          <p>Поэтому начинающие так быстро проигрывают. Они строят «мёртвые» формы — тройку с одним заблокированным концом или четвёрку с одним открытым. Они выглядят страшно, но не смертельны. Вся игра — о создании живых форм и принуждении противника на них реагировать. Чтобы натренировать глаз, наше <a href="pattern-recognition-gomoku.html">руководство по распознаванию форм</a> разбирает конкретные образцы, на которые стоит смотреть.</p>
+          <p>Поэтому начинающие так быстро проигрывают. Они строят «мёртвые» формы — тройку с одним заблокированным концом или четвёрку с одним открытым. Они выглядят страшно, но не смертельны. Вся игра — о создании живых форм и принуждении противника на них реагировать. Чтобы натренировать глаз, наше <a href="pattern-recognition-gomoku">руководство по распознаванию форм</a> разбирает конкретные образцы, на которые стоит смотреть.</p>
 
           <h2>Двойные угрозы: атака в два места сразу</h2>
 
@@ -112,7 +112,7 @@
 
           <p>Представьте позицию, где вы можете поставить камень, создающий живую четвёрку. Он блокирует. Но этот блок сам создаёт для вас новую живую четвёрку где-то ещё. Он блокирует её. Потом ещё. Каждый блок вынужден, и в конце он должен выбирать между двумя одновременными угрозами. Это VCF — цепь вынужденных ходов, что заканчивает игру.</p>
 
-          <p>Мастер-ИИ на <a href="../index.html">TryGomoku</a> использует именно такой поиск. Он смотрит не только на доску, но и на последовательности угроз и блоков. Хотите узнать, насколько далеко можно загнать человека — попробуйте устроить VCF против Сложного ИИ. Наше <a href="beat-gomoku-ai.html">руководство по победе над ИИ</a> объясняет, как каждый уровень по-разному обрабатывает эти тактики.</p>
+          <p>Мастер-ИИ на <a href="../">TryGomoku</a> использует именно такой поиск. Он смотрит не только на доску, но и на последовательности угроз и блоков. Хотите узнать, насколько далеко можно загнать человека — попробуйте устроить VCF против Сложного ИИ. Наше <a href="beat-gomoku-ai">руководство по победе над ИИ</a> объясняет, как каждый уровень по-разному обрабатывает эти тактики.</p>
 
           <p>Одно предупреждение: VCF работает, только если у противника нет встречной угрозы. Если он может сделать свою живую четвёрку, пока блокирует вашу, вся ваша последовательность рушится. Перед форсирующей атакой всегда проверяйте обе стороны доски.</p>
 
@@ -126,7 +126,7 @@
 <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
             <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Проверьте эти тактики в деле</h3>
             <p style="margin-bottom:16px;color:#d0d0f0;">Откройте партию на TryGomoku, выберите уровень и попробуйте намеренно построить одну живую тройку. Затем посмотрите, сможете ли вы превратить её в двойную угрозу. Доска ждёт.</p>
-            <a href="/ru-RU/index.html#game" class="cta-btn">Играть в Гомоку онлайн</a>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в Гомоку онлайн</a>
           </div>
         </div>
       </div>
@@ -144,20 +144,20 @@
         <div class="footer-links">
           <h4>Быстрые ссылки</h4>
           <ul>
-            <li><a href="/ru-RU/index.html#game">Играть</a></li>
-            <li><a href="/ru-RU/index.html#rules">Правила</a></li>
-            <li><a href="/ru-RU/index.html#strategy">Стратегия</a></li>
-            <li><a href="/ru-RU/index.html#history">История</a></li>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
             <li><a href="/ru-RU/blog/">Блог</a></li>
-            <li><a href="/ru-RU/index.html#faq">FAQ</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>О сайте</h4>
           <ul>
-            <li><a href="/ru-RU/about.html">О нас</a></li>
-            <li><a href="/privacy.html">Политика конфиденциальности</a></li>
-            <li><a href="/ru-RU/index.html#game">Играть сейчас</a></li>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
           </ul>
         </div>
       </div>
@@ -176,7 +176,7 @@
     "dateModified": "2026-06-26",
     "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
     "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy.html"}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy"}
   }
   </script>
 </body>

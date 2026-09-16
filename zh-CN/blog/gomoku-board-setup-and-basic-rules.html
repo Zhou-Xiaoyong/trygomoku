@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <link rel="prefetch" href=" /blog//blog/gomoku-board-setup-and-basic-rules.html">
-  <link rel="prefetch" href="/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
-  <link rel="prefetch" href="/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
-  <link rel="prefetch" href="/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="prefetch" href="/blog/gomoku-board-setup-and-basic-rules">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-board-setup-and-basic-rules">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-board-setup-and-basic-rules">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-board-setup-and-basic-rules">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
@@ -19,17 +19,17 @@
   <title>五子棋棋盘摆法与基本规则：15×15 完整入门指南 | 五子棋博客</title>
   <meta name="description" content="五子棋棋盘摆法与基本规则完整讲解：15×15 棋盘的 225 个交叉点、星位与天元、黑先白后、第一手下在哪、坐标怎么读，以及到底怎样才算连成五子。">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
-  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
-  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules.html">
-  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
-  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules.html">
-  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules.html">
-  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules.html">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules">
   <meta property="og:title" content="五子棋棋盘摆法与基本规则：15×15 完整入门指南">
   <meta property="og:description" content="棋盘、棋子、谁先走、第一手落在哪，以及决定每一局胜负的五条基本规则。">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="五子棋棋盘摆法与基本规则详解">
@@ -50,19 +50,19 @@
   <header>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/zh-CN/index.html" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
       <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="/zh-CN/index.html#game">玩棋</a></li>
-        <li><a href="/zh-CN/index.html#rules">规则</a></li>
-        <li><a href="/zh-CN/index.html#strategy">策略</a></li>
-        <li><a href="/zh-CN/index.html#history">历史</a></li>
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
         <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
-        <li><a href="/zh-CN/index.html#faq">问答</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
       </ul>
       <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
         <option value="en">English</option>
@@ -100,7 +100,7 @@
           <p>开局时棋盘上一枚棋子都没有。不像象棋要背开局阵型，五子棋从完全空白的棋盘起步&mdash;&mdash;这也是为什么最初几手分量特别重。</p>
           <h2>谁先走，第一手下在哪</h2>
           <p><strong>黑棋永远先行</strong>，而先手在五子棋里是实打实的优势&mdash;&mdash;大到竞技规则存在的主要目的就是把它压回来。休闲的自由规则下，黑棋第一手可以落在任意交叉点；正式比赛规则则要求黑棋首手必须下在天元，也就是棋盘正中。</p>
-          <p>不管用哪套规则，开局下中央都是好习惯。天元这个点能参与的五连线路比棋盘上任何一点都多，而角上的点最少。想知道高手接下来怎么走，可以看我们整理的<a href="/zh-CN/blog/top-10-gomoku-openings.html">常见五子棋开局定式</a>，里面逐手拆解了标准应对。</p>
+          <p>不管用哪套规则，开局下中央都是好习惯。天元这个点能参与的五连线路比棋盘上任何一点都多，而角上的点最少。想知道高手接下来怎么走，可以看我们整理的<a href="/zh-CN/blog/top-10-gomoku-openings">常见五子棋开局定式</a>，里面逐手拆解了标准应对。</p>
           <p>白棋应手几乎总是紧贴黑子附近，而不是跑到空旷的一角。离得太远，等于白送黑棋一片发展空间。</p>
           <h2>基本规则，一次说完</h2>
           <ol>
@@ -113,7 +113,7 @@
           <p>规则就这些。你之后读到的所有关于五子棋的内容&mdash;&mdash;冲四、活三、双三、先手连打&mdash;&mdash;都是搭在这五条之上的战术。</p>
           <h2>到底怎样才算「连五」</h2>
           <p>这五枚棋子必须<strong>同色、相邻、不间断，并且在同一条直线上</strong>：一行、一列，或者任一斜线。中间空一个交点就断了，被对方插一子当然也断了。</p>
-          <p>唯一真正有歧义的是<em>长连</em>&mdash;&mdash;六子及以上连成一线。自由规则下长连照样算赢；而在标准连珠规则里，黑棋走出长连属于禁手，当场判负，白棋则不受限制。下实体棋之前一定要先说好用哪套&mdash;&mdash;因为这个岔子决定胜负的次数比想象中多得多。完整的禁手清单可以看<a href="/zh-CN/blog/gomoku-vs-renju.html">五子棋与连珠规则的区别</a>。</p>
+          <p>唯一真正有歧义的是<em>长连</em>&mdash;&mdash;六子及以上连成一线。自由规则下长连照样算赢；而在标准连珠规则里，黑棋走出长连属于禁手，当场判负，白棋则不受限制。下实体棋之前一定要先说好用哪套&mdash;&mdash;因为这个岔子决定胜负的次数比想象中多得多。完整的禁手清单可以看<a href="/zh-CN/blog/gomoku-vs-renju">五子棋与连珠规则的区别</a>。</p>
           <h2>看懂棋盘坐标</h2>
           <p>棋谱里，列从左到右标为 <strong>A 到 O</strong>，行从下到上标为 <strong>1 到 15</strong>，所以天元就是 <strong>H8</strong>。学会读坐标之后，所有战术文章和棋谱都对你开放了：<em>1. H8 H9 2. I8</em> 就是一段完整、可以照着摆出来的开局。线上棋盘一般会在四边标出这些坐标。</p>
           <h2>实体棋盘和线上对局，差别在哪</h2>
@@ -136,13 +136,13 @@
           <p><strong>斜着连五算赢吗？</strong>算，两个斜向都算。斜线恰恰是新手最容易漏看的方向，无论进攻还是防守。</p>
           <p><strong>棋子不够用怎么办？</strong>不会不够。整副棋能铺满每个交点，而一局棋远远下不到那一步。</p>
           <h2>摆好棋盘，开下</h2>
-          <p>棋盘摊开，黑白分盒，第一手落在天元&mdash;&mdash;可以开始了。想要带实例、带完整第一局演示的规则讲解，接着读<a href="/zh-CN/blog/how-to-play-gomoku-for-absolute-beginners.html">零基础五子棋入门教程</a>，然后到<a href="/zh-CN/index.html">免费 15&times;15 棋盘</a>上跟 AI 实战几局。</p>
+          <p>棋盘摊开，黑白分盒，第一手落在天元&mdash;&mdash;可以开始了。想要带实例、带完整第一局演示的规则讲解，接着读<a href="/zh-CN/blog/how-to-play-gomoku-for-absolute-beginners">零基础五子棋入门教程</a>，然后到<a href="/zh-CN/">免费 15&times;15 棋盘</a>上跟 AI 实战几局。</p>
                     <p style="margin-top:28px;">相关阅读: <a href="/zh-CN/blog/how-many-pieces-to-win-gomoku" >五子棋需要几颗棋子才能赢？</a></p>
           <p style="margin-top:28px;">相关阅读: <a href="/zh-CN/blog/gomoku-terms-glossary-for-new-players" >五子棋术语入门词典：新手必备词汇表</a></p>
 <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
             <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">棋盘已经给你摆好了</h3>
             <p style="margin-bottom:16px;color:#d0d0f0;">在浏览器里直接开一局标准 15×15 五子棋&mdash;&mdash;免下载、免注册，四档 AI 难度任选。</p>
-            <a href="/zh-CN/index.html#game" class="cta-btn">立即游玩五子棋</a>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
           </div>
         </div>
       </div>
@@ -160,20 +160,20 @@
         <div class="footer-links">
           <h4>快速链接</h4>
           <ul>
-            <li><a href="/zh-CN/index.html#game">玩棋</a></li>
-            <li><a href="/zh-CN/index.html#rules">规则</a></li>
-            <li><a href="/zh-CN/index.html#strategy">策略</a></li>
-            <li><a href="/zh-CN/index.html#history">历史</a></li>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
             <li><a href="/zh-CN/blog/">博客</a></li>
-            <li><a href="/zh-CN/index.html#faq">问答</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>网站信息</h4>
           <ul>
-            <li><a href="/zh-CN/about.html">关于我们</a></li>
-            <li><a href="/privacy.html">隐私政策</a></li>
-            <li><a href="/zh-CN/index.html#game">立即游玩</a></li>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
           </ul>
         </div>
       </div>
@@ -192,7 +192,7 @@
     "dateModified": "2026-08-05",
     "author": {"@type": "Organization", "name": "五子棋在线"},
     "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules.html"}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules"}
   }
   </script>
 </body>

@@ -15,14 +15,13 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), microphone=(), payment=()
 
-# HTML — 根目录索引、语言子站目录索引、以及所有 .html 页面，缓存 1 小时
+# HTML — 根目录索引、语言子站目录索引、以及所有干净 URL 页面，缓存 1 小时
+# 注意：站点已启用干净 URL（Cloudflare Pretty URLs），请求路径不含 .html，
+#      因此不能再用 /*.html 规则来匹配 HTML，否则永远不生效。
 /
   Cache-Control: public, max-age=3600, must-revalidate
 
 /**/
-  Cache-Control: public, max-age=3600, must-revalidate
-
-/*.html
   Cache-Control: public, max-age=3600, must-revalidate
 
 # CSS — 缓存 1 周

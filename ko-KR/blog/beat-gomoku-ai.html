@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
-  <link rel="prefetch" href="/blog/beat-gomoku-ai.html">
-  <link rel="prefetch" href="/zh-CN/blog/beat-gomoku-ai.html">
-  <link rel="prefetch" href="/ja-JP/blog/beat-gomoku-ai.html">
-  <link rel="prefetch" href="/ru-RU/blog/beat-gomoku-ai.html">
+  <link rel="prefetch" href="/blog/beat-gomoku-ai">
+  <link rel="prefetch" href="/zh-CN/blog/beat-gomoku-ai">
+  <link rel="prefetch" href="/ja-JP/blog/beat-gomoku-ai">
+  <link rel="prefetch" href="/ru-RU/blog/beat-gomoku-ai">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
@@ -19,17 +19,17 @@
   <title>오목 AI를 이기는 법: 난이도별 팁 | 오목 블로그</title>
   <meta name="description" content="AI에게 막혔나요? 각 난이도의 작동 방식을 배우고 이지·미디엄·하드·마스터를 이기는 구체적 전술을 얻으세요.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/beat-gomoku-ai.html">
-  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/beat-gomoku-ai.html">
-  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/beat-gomoku-ai.html">
-  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/beat-gomoku-ai.html">
-  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/beat-gomoku-ai.html">
-  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/beat-gomoku-ai.html">
-  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/beat-gomoku-ai.html">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/beat-gomoku-ai">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/beat-gomoku-ai">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/beat-gomoku-ai">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/beat-gomoku-ai">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/beat-gomoku-ai">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/beat-gomoku-ai">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/beat-gomoku-ai">
   <meta property="og:title" content="오목 AI를 이기는 법: 난이도별 팁">
   <meta property="og:description" content="각 난이도의 작동 방식과 각 AI 레벨을 이기는 구체적 전술을 배우세요.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/beat-gomoku-ai.html">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/beat-gomoku-ai">
   <meta property="og:locale" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="오목 AI를 이기는 법">
@@ -50,19 +50,19 @@
   <header>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/ko-KR/index.html" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
       <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="/ko-KR/index.html#game">플레이</a></li>
-        <li><a href="/ko-KR/index.html#rules">규칙</a></li>
-        <li><a href="/ko-KR/index.html#strategy">전략</a></li>
-        <li><a href="/ko-KR/index.html#history">역사</a></li>
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
         <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
-        <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
       </ul>
       <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
         <option value="en">English</option>
@@ -86,7 +86,7 @@
           </div>
         </header>
         <div class="article-body" itemprop="articleBody">
-          <p><a href="/ko-KR/index.html">trygomoku.com</a>의 AI는 4단계 난이도가 있습니다. 이지는 가벼운 입문, 마스터는 당신의 인생 선택을 의심하게 만듭니다. 각 레벨이 어떻게 생각하는지, 그리고 정확히 이기는 법을 설명합니다.</p>
+          <p><a href="/ko-KR/">trygomoku.com</a>의 AI는 4단계 난이도가 있습니다. 이지는 가벼운 입문, 마스터는 당신의 인생 선택을 의심하게 만듭니다. 각 레벨이 어떻게 생각하는지, 그리고 정확히 이기는 법을 설명합니다.</p>
 
           <h2>이지: 「방금 규칙 배움」 레벨</h2>
 
@@ -130,7 +130,7 @@
 <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
             <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">이 팁을 시험해보세요</h3>
             <p style="margin-bottom:16px;color:#d0d0f0;">자신의 수준에서 시작해 단계적으로 올리세요. AI는 인내심이 있습니다.</p>
-            <a href="/ko-KR/index.html#game" class="cta-btn">AI와 대전</a>
+            <a href="/ko-KR/#game" class="cta-btn">AI와 대전</a>
           </div>
         </div>
       </div>
@@ -148,20 +148,20 @@
         <div class="footer-links">
           <h4>빠른 링크</h4>
           <ul>
-            <li><a href="/ko-KR/index.html#game">플레이</a></li>
-            <li><a href="/ko-KR/index.html#rules">규칙</a></li>
-            <li><a href="/ko-KR/index.html#strategy">전략</a></li>
-            <li><a href="/ko-KR/index.html#history">역사</a></li>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
             <li><a href="/ko-KR/blog/">블로그</a></li>
-            <li><a href="/ko-KR/index.html#faq">Q&A</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>사이트 정보</h4>
           <ul>
-            <li><a href="/ko-KR/about.html">소개</a></li>
-            <li><a href="/privacy.html">개인정보 처리방침</a></li>
-            <li><a href="/ko-KR/index.html#game">지금 플레이</a></li>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
           </ul>
         </div>
       </div>
@@ -180,7 +180,7 @@
     "dateModified": "2026-06-16",
     "author": {"@type": "Organization", "name": "오목 온라인"},
     "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/beat-gomoku-ai.html"}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/beat-gomoku-ai"}
   }
   </script>
 </body>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <link rel="prefetch" href="/blog/how-to-improve-gomoku-game.html">
-  <link rel="prefetch" href="/ja-JP/blog/how-to-improve-gomoku-game.html">
-  <link rel="prefetch" href="/ko-KR/blog/how-to-improve-gomoku-game.html">
-  <link rel="prefetch" href="/ru-RU/blog/how-to-improve-gomoku-game.html">
+  <link rel="prefetch" href="/blog/how-to-improve-gomoku-game">
+  <link rel="prefetch" href="/ja-JP/blog/how-to-improve-gomoku-game">
+  <link rel="prefetch" href="/ko-KR/blog/how-to-improve-gomoku-game">
+  <link rel="prefetch" href="/ru-RU/blog/how-to-improve-gomoku-game">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
@@ -19,17 +19,17 @@
   <title>想在五子棋里赢更多？这才是真正管用的方法 | 五子棋博客</title>
   <meta name="description" content="光靠自己瞎练不会自动让你变强。学习三种真正奏效的练习方法：刻意复盘败局、棋形训练，以及和高手对弈。">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/how-to-improve-gomoku-game.html">
-  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/how-to-improve-gomoku-game.html">
-  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/how-to-improve-gomoku-game.html">
-  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/how-to-improve-gomoku-game.html">
-  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/how-to-improve-gomoku-game.html">
-  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/how-to-improve-gomoku-game.html">
-  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/how-to-improve-gomoku-game.html">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/how-to-improve-gomoku-game">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/how-to-improve-gomoku-game">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/how-to-improve-gomoku-game">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/how-to-improve-gomoku-game">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/how-to-improve-gomoku-game">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/how-to-improve-gomoku-game">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/how-to-improve-gomoku-game">
   <meta property="og:title" content="想在五子棋里赢更多？这才是真正管用的方法">
   <meta property="og:description" content="学习三种真正奏效的练习方法：刻意复盘败局、棋形训练，以及和高手对弈。">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/how-to-improve-gomoku-game.html">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/how-to-improve-gomoku-game">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="想在五子棋里赢更多？">
@@ -50,19 +50,19 @@
   <header>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/zh-CN/index.html" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
       <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-links">
-        <li><a href="/zh-CN/index.html#game">玩棋</a></li>
-        <li><a href="/zh-CN/index.html#rules">规则</a></li>
-        <li><a href="/zh-CN/index.html#strategy">策略</a></li>
-        <li><a href="/zh-CN/index.html#history">历史</a></li>
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
         <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
-        <li><a href="/zh-CN/index.html#faq">问答</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
       </ul>
       <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
         <option value="en">English</option>
@@ -112,7 +112,7 @@
 
           <p>解决办法是棋形训练。不是那种背清单的无聊训练，而是实用的那种：训练你的眼睛在危险致命之前就察觉它。</p>
 
-          <p>这里有一个你能在 <a href="../index.html">trygomoku.com</a> 上五分钟完成的简单训练：把 AI 设为简单，走几步，然后暂停。看着棋盘，试着找出双方任何一方下一步能做出活四或三三的所有位置。然后落子，看自己猜得对不对。</p>
+          <p>这里有一个你能在 <a href="../">trygomoku.com</a> 上五分钟完成的简单训练：把 AI 设为简单，走几步，然后暂停。看着棋盘，试着找出双方任何一方下一步能做出活四或三三的所有位置。然后落子，看自己猜得对不对。</p>
 
           <p>一开始你会漏掉东西。没关系。目标不是完美——而是开始<em>留意</em>整块棋盘，而不是只对你对手上一手做出反应。</p>
 
@@ -124,7 +124,7 @@
 
           <p>理想的练习对象，是大约 70% 概率能赢你的人。这个差距足够近，让你有时能看清哪里出了错；又足够远，逼你走出舒适区。如果你 100% 全输，那太难了——你只会沮丧。如果你 60% 全赢，那太简单——你什么也没学到。</p>
 
-          <p>我们的 <a href="../index.html">AI 对手</a>其实是完美的练习对象。从简单开始打基础，稳定获胜后升到中等，想真正检验棋形识别时再推到困难。每一级都逼你适应、留意新类型的威胁。</p>
+          <p>我们的 <a href="../">AI 对手</a>其实是完美的练习对象。从简单开始打基础，稳定获胜后升到中等，想真正检验棋形识别时再推到困难。每一级都逼你适应、留意新类型的威胁。</p>
 
           <p>有一点提醒：别只是不停地和高手下却不复盘。如果你连输十局却不知为何而输，那不是练习——你只是在收集败局。把高难度对局和复盘结合起来，你的进步会快得多。</p>
 
@@ -134,11 +134,11 @@
 
           <p>每周复盘一局败局。开局前做五分钟棋形训练。和比你稍强的对手下。就这些。持续做到这三点，你会惊讶于胜率爬升得有多快。</p>
 
-          <p>准备好检验成果了吗？<a href="../index.html">前往对战页面</a>，用这些技巧和我们的 AI 过招。从中等开始，看看效果如何——如果输了，你知道该做什么。</p>
+          <p>准备好检验成果了吗？<a href="../">前往对战页面</a>，用这些技巧和我们的 AI 过招。从中等开始，看看效果如何——如果输了，你知道该做什么。</p>
           <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
             <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">现在就把这些技巧用起来</h3>
             <p style="margin-bottom:16px;color:#d0d0f0;">和我们的 AI 下几局，专注于在威胁出现之前就发现它们。</p>
-            <a href="/zh-CN/index.html#game" class="cta-btn">立即游玩五子棋</a>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
           </div>
         </div>
       </div>
@@ -156,20 +156,20 @@
         <div class="footer-links">
           <h4>快速链接</h4>
           <ul>
-            <li><a href="/zh-CN/index.html#game">玩棋</a></li>
-            <li><a href="/zh-CN/index.html#rules">规则</a></li>
-            <li><a href="/zh-CN/index.html#strategy">策略</a></li>
-            <li><a href="/zh-CN/index.html#history">历史</a></li>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
             <li><a href="/zh-CN/blog/">博客</a></li>
-            <li><a href="/zh-CN/index.html#faq">问答</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h4>网站信息</h4>
           <ul>
-            <li><a href="/zh-CN/about.html">关于我们</a></li>
-            <li><a href="/privacy.html">隐私政策</a></li>
-            <li><a href="/zh-CN/index.html#game">立即游玩</a></li>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
           </ul>
         </div>
       </div>
@@ -188,7 +188,7 @@
     "dateModified": "2026-06-20",
     "author": {"@type": "Organization", "name": "五子棋在线"},
     "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
-    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/how-to-improve-gomoku-game.html"}
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/how-to-improve-gomoku-game"}
   }
   </script>
 </body>
