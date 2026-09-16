@@ -14,19 +14,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/blog/beat-gomoku-ai</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -39,6 +39,12 @@
   <url>
     <loc>https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules</loc>
     <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/blog/gomoku-double-threat-fork-strategy</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -110,7 +116,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -146,19 +152,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/beat-gomoku-ai</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -171,6 +177,12 @@
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules</loc>
     <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ja-JP/blog/gomoku-double-threat-fork-strategy</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -242,7 +254,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -278,19 +290,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/beat-gomoku-ai</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -303,6 +315,12 @@
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules</loc>
     <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ko-KR/blog/gomoku-double-threat-fork-strategy</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -374,7 +392,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -416,19 +434,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/beat-gomoku-ai</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -441,6 +459,12 @@
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules</loc>
     <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ru-RU/blog/gomoku-double-threat-fork-strategy</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -512,7 +536,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -548,19 +572,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/beat-gomoku-ai</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -573,6 +597,12 @@
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules</loc>
     <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/blog/gomoku-double-threat-fork-strategy</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -644,7 +674,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/pattern-recognition-gomoku</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

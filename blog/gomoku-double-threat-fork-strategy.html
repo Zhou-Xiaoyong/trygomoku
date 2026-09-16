@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-double-threat-fork-strategy">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Double Threat Fork Strategy: Win with One Stone | Gomoku Blog</title>
+  <meta name="description" content="A practical guide to the gomoku double threat fork: what makes a fork real, four-three and double-three patterns, how to build one on purpose, and why the AI falls for it.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-double-threat-fork-strategy">
+  <meta property="og:title" content="Gomoku Double Threat Fork Strategy">
+  <meta property="og:description" content="One stone, two threats, one win. How to build forks on purpose in gomoku — and why the AI keeps falling for them.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-double-threat-fork-strategy">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Double Threat Fork Strategy">
+  <meta name="twitter:description" content="Build two threats with one stone: the gomoku fork, explained.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Double Threat Fork Strategy: Winning with One Stone</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-16">2026-09-16</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>What a Double Threat Really Is</h2>
+<p>A <strong>gomoku double threat</strong> &mdash; most players just say <em>fork</em> &mdash; is a single stone that creates two separate winning threats at the same time. Your opponent can answer only one of them, so the other one finishes the game. That is the whole attacking side of gomoku in one sentence: everything else in strategy exists either to build this position or to stop it. Once you can see forks, you stop waiting for five in a row to happen and start manufacturing it.</p>
+<p>The reason a fork is so decisive comes down to arithmetic. Gomoku is a race, and every turn gives you exactly one stone. One threat can always be met with one block. But two threats arriving from directions that do not overlap demand two blocks, and you only get one per turn. From the moment a real fork lands, the defender is one answer short &mdash; permanently.</p>
+
+<h2>Anatomy of a Fork: the Crossing Point</h2>
+<p>Almost every fork is built at a <em>crossing point</em>: an empty intersection that sits on two separate lines, both of them nearly complete. Putting a stone there advances two half-finished shapes with one move. That is the whole trick, and it is worth training your eye to scan for crossing points instead of scanning for stones.</p>
+
+<h3>Four-three: the reliable kill</h3>
+<p>The four-three is the fork you should be hunting constantly. One stone completes a four in one direction and an open three in another. The four must be answered immediately &mdash; ignore it and you lose on the spot &mdash; and whatever block your opponent makes does nothing at all about the open three. Next move you extend the three into an open four, and an open four cannot be stopped.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . O . . .
+2   . . . X . . .
+3   . . . X . . .
+4   . . . X . . .
+5   . . . ? X X .
+6   . . . . . . .</pre>
+<p>Black plays the point marked <strong>?</strong>. Down the d-file that makes four in a row; d1 is already occupied by White, so the four has exactly one winning point, d6, and White is forced to take it. Across row 5, the same stone turns d5&ndash;e5&ndash;f5 into an open three with both ends free. White blocks the four, Black plays c5, and row 5 becomes an open four with b5 and g5 both empty. Two threats, one stone, one forced reply, one win.</p>
+
+<h3>Double three: a freestyle weapon</h3>
+<p>A double three is one stone that creates two open threes at once. Each of them wants to become an open four, and a single block cannot stop both. One warning worth repeating: under renju rules a double three is a <em>forbidden move</em> for Black, so this pattern belongs to freestyle gomoku, or to White in renju. If you are playing competitive rules, know which fork you are allowed to build.</p>
+
+<h2>Looks Like a Fork, Is Not a Fork</h2>
+<p>The most common way intermediate players lose is the fake fork: two shapes, one of which is a dead three that can never become an open four. The defender kills both with a single stone, and the attacker has simply donated a move.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . . . . .
+2   . . . . O . .
+3   . . . . X . .
+4   . . . . X . .
+5   . . X X ? . .
+6   . . . . . . .</pre>
+<p>Black plays <strong>?</strong> at e5. Row 5 becomes an open three &mdash; c5, d5, e5, with b5 and f5 both empty. The e-file looks like a matching three: e3, e4, e5. But e2 is already White's. That shape is a dead three: its best future is a closed four, and a closed four is answered with one stone. White blocks row 5 and the attack evaporates.</p>
+<p>So before you commit, ask the question directly: <em>can each of these two threats become an open four on its own?</em> If the answer is no for either one, you are not holding a fork. You are holding a forcing move that costs you a tempo.</p>
+
+<h2>How to Build a Fork on Purpose</h2>
+<ol>
+<li><strong>Look at empty crossings, not at stones.</strong> Scan for intersections where two nearly-complete lines meet. Those are your candidate points, and there are usually only two or three on the board.</li>
+<li><strong>Grow both lines to "one move away".</strong> Build one line to a two-that-becomes-three and another to a three-that-becomes-four. The crossing point appears by itself once both lines are loaded.</li>
+<li><strong>Count your opponent's forcing moves first.</strong> If they already hold a four in hand, their four scores before your fork does. Before every attack, count how many points on the board would win the game next turn &mdash; for both sides.</li>
+<li><strong>Mine the diagonals.</strong> Diagonal shapes hide crossing points better than horizontal and vertical ones, because the eye follows rows and columns automatically. Most of the forks beginners miss are diagonal. The drills in <a href="pattern-recognition-gomoku">pattern recognition for gomoku</a> are built for exactly this.</li>
+</ol>
+
+<h2>Why Even the AI Falls for It</h2>
+<p>An engine decides by searching forward and scoring positions, and a fork only shows up as a threat at the depth where both lines are evaluated separately. At the easier difficulties the search is shallow: the engine sees whichever threat scores highest right now, dutifully blocks the four, and never notices the open three waiting behind it. That is not a bug you are exploiting &mdash; it is a genuine consequence of a limited search horizon, and it is the same limitation that makes human beginners miss forks.</p>
+<p>At Hard and Master, the picture changes. Those levels will occupy the crossing point <em>before</em> you play it, or answer your setup with a forcing four of their own to steal the tempo. Against that kind of defence, a fork has to arrive one move sooner than the opponent's horizon allows. The most reliable way is to deliver it with a forcing move &mdash; a four-three, where the first threat must be answered immediately &mdash; or to build it while the opponent is busy dealing with a different threat. <a href="beat-gomoku-ai">Beating the gomoku AI</a> walks through how each difficulty defends and where its horizon ends.</p>
+<p>If you want to develop this in order, the sequence in <a href="advanced-gomoku-strategy">advanced gomoku strategy</a> is the sensible path: first make sure every move you play carries a threat, then practise forcing sequences, and only then start hunting forks. Forks are the payoff of good shape, not a shortcut around it.</p>
+
+<h2>Three Habits That Make Forks Appear</h2>
+<ul>
+<li><strong>Count live shapes after every move.</strong> Both players' open threes and fours. If you cannot list them, you do not yet know who is winning.</li>
+<li><strong>Pause for two seconds before you play.</strong> Ask whether the opponent has a point that wins immediately. If they do, that is the move to deal with &mdash; not your attack.</li>
+<li><strong>Prefer forks delivered by force.</strong> A four-three gives the opponent no choice, so they cannot counter-attack while you finish. A slow double three gives them a free move to spend on their own plan.</li>
+</ul>
+
+<h2>How to Practise This</h2>
+<p>Set yourself a target rather than reading more theory: build one four-three within ten moves of the opening. If you cannot, replay the game and find the exact move where the two shapes stopped being connected &mdash; that move is the lesson. Once you can do it against a passive opponent, try it against a defender who is actively blocking your threes, and then against the Medium AI.</p>
+<p>Every position in this article can be set up and tested for free on the <a href="../">gomoku game page</a>. No download, no sign-up, and you can restart instantly whenever a fork collapses &mdash; which, at the start, will be often.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Go Build One</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Reading about forks is fine; playing them is better. Open a free board and try to land a four-three within ten moves.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Double Threat Fork Strategy: Winning with One Stone",
+    "description": "A practical guide to the gomoku double threat fork: what makes a fork real, four-three and double-three patterns, how to build one on purpose, and why the AI falls for it.",
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-16",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-double-threat-fork-strategy"}
+  }
+  </script>
+</body>
+</html>

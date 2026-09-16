@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-double-threat-fork-strategy">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋双威胁（双杀）策略：一子定胜负 | 五子棋博客</title>
+  <meta name="description" content="五子棋双威胁实战指南：什么样的双杀才算真威胁、四三与双三怎么用、如何主动造出双威胁，以及为什么连 AI 也会中招。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-double-threat-fork-strategy">
+  <meta property="og:title" content="五子棋双威胁（双杀）策略：一子定胜负">
+  <meta property="og:description" content="一子出两个威胁，对手一步只能挡一个。五子棋双杀的构造、造法与实战时机。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-double-threat-fork-strategy">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋双威胁（双杀）策略">
+  <meta name="twitter:description" content="一子造两个威胁——五子棋双杀怎么造、怎么用。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">五子棋双威胁策略：用一颗子赢下整盘棋</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-16">2026-09-16</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>先说清楚：什么叫"双威胁"</h2>
+<p><strong>五子棋双威胁</strong>，棋友平时叫"双杀"或"一子双杀"，英文写作 fork，指一手棋同时做出两个各自独立的取胜威胁。对手一步只能应一个，另一个直接成五。五子棋的进攻逻辑说到底就是这一句话——其他所有战术，要么是为了造出这个局面，要么是为了不让对手造出来。真正学会看双威胁，你就不再靠等运气成五，而是自己动手做。</p>
+<p>双威胁之所以这么致命，是算术决定的。五子棋本质是比谁快，而每回合只能落一子。单个威胁，一子可挡；但两个方向互不重叠的威胁，必须两子才能挡，而你一回合只有一子。双威胁一旦落定，防守方就永远差一手，再没有翻盘机会。</p>
+
+<h2>双威胁的结构：一切都在"交叉点"上</h2>
+<p>绝大多数双威胁都落在<em>交叉点</em>上——一个空点，同时位于两条各自都快要连成的线上。你的子落在那里，等于用一手棋把两个半成品同时推进了一步。这就是双威胁的全部诀窍。练棋时该练的不是"看棋子"，而是"扫空点"：找出两条接近完成的路线的交汇处。</p>
+
+<h3>四三：最可靠的杀法</h3>
+<p>四三应该是你随时都在找的形状。一手同时做出一个四（一个方向）和一个活三（另一个方向）。四必须马上应，不应就当场输；而对手去堵四的那一手，对活三毫无影响。下一步你把活三冲成活四，活四谁也挡不住。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . O . . .
+2   . . . X . . .
+3   . . . X . . .
+4   . . . X . . .
+5   . . . ? X X .
+6   . . . . . . .</pre>
+<p>黑棋下在标着 <strong>?</strong> 的 d5。竖着的 d 列连成四——注意 d1 已经是白子，所以这个四只有一个成五点 d6，白棋只能去堵。同时这颗子让第 5 行的 d5、e5、f5 变成两端都空的活三。白棋堵 d6，黑棋落 c5，第 5 行变成 b5 和 g5 全空的活四。一颗子、两个威胁、对手一步只能挡一个，棋就结束了。</p>
+
+<h3>双三：自由规则下的武器</h3>
+<p>双三是一手做出两个活三。两个活三都想长成活四，而一子堵不住两个。这里要提醒一句：在连珠规则里，双三是<em>黑棋的禁手</em>。所以这个形属于无禁手的自由五子棋，或者由白棋使用。如果你打的是竞技规则，先搞清楚自己允许做哪种双威胁。</p>
+
+<h2>看着像双威胁，其实不是</h2>
+<p>中等水平棋手最常见的输法，就是做出一个"假双威胁"：两个形状里有一个是眠三，永远长不成活四。对手一子就能同时化解，而你白送了一手棋。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . . . . .
+2   . . . . O . .
+3   . . . . X . .
+4   . . . . X . .
+5   . . X X ? . .
+6   . . . . . . .</pre>
+<p>黑棋落 <strong>?</strong> 在 e5。第 5 行成了活三——c5、d5、e5，b5 和 f5 都空着。e 列看上去也是三：e3、e4、e5。但 e2 已经是白子。这个三被堵了一头，最多只能冲成四，而四是一子就能挡住的。白棋在第 5 行落一子堵住，攻势就没了。</p>
+<p>所以落子之前，直接问自己这个问题：<em>这两个威胁，每一个都能单独长成活四吗？</em>只要有一个不能，你手里就不是双威胁，而是一次普通的逼迫——它只会消耗你一步先手。</p>
+
+<h2>怎么主动造出双威胁</h2>
+<ol>
+<li><strong>盯空点，不盯棋子。</strong>扫棋盘时先找两条都快连成的线的交汇空点。这种候选点一盘棋里通常只有两三个，找出来就赢一半。</li>
+<li><strong>把两条线各自养成"差一手"。</strong>一条做成"两子待三"，另一条做成"三子待四"。两条线都装好之后，交叉点是自然浮现的。</li>
+<li><strong>先数对手的逼迫手段。</strong>如果对手手里已经有一个四，那他的四比你的双威胁先成五。每走一步攻击之前，双方各自有几个"下一手就能赢"的点，都要数清楚。</li>
+<li><strong>重点扫斜线。</strong>斜线上的棋形最难看清，也最容易藏交叉点——因为眼睛会本能地跟着横线和竖线走。新手漏掉的双威胁大多在斜线上。这也是<a href="/zh-CN/blog/pattern-recognition-gomoku">棋形识别训练</a>专门针对的地方。</li>
+</ol>
+
+<h2>为什么电脑也会中招</h2>
+<p>AI 靠向前搜索和局面评分做决定，而双威胁只有搜索到"两条线分别展开"的那一层，才会显露出价值。在较低难度下搜索层数浅，引擎看到的只是"眼前哪个威胁分数最高"，于是老老实实去堵那个四，完全没注意到后面的活三。这不是什么可以钻的空子，而是搜索视野有限的必然结果——人类新手漏掉双威胁，原因完全相同。</p>
+<p>到了 Hard 和 Master，情况就变了：它会在你落子<em>之前</em>就占掉交叉点，或者干脆自己冲一个四来抢走先手。对这样的防守，双威胁不能硬做，必须让它"比对手的视野早一手"出现。最稳的做法是用带强制的着手去完成——比如四三，第一个威胁非应不可；或者等对手正忙着处理另一个威胁时再动手。各难度具体怎么防、视野边界在哪里，可以看<a href="/zh-CN/blog/beat-gomoku-ai">这篇对付五子棋 AI 的指南</a>。</p>
+<p>如果想按顺序练，建议照<a href="/zh-CN/blog/advanced-gomoku-strategy">进阶五子棋策略</a>里的路线走：先保证每一手都带着威胁，再练连续逼迫，最后才开始主动找双威胁。双威胁是好棋形的回报，不是绕开基本功的捷径。</p>
+
+<h2>三个立刻能用的习惯</h2>
+<ul>
+<li><strong>每落一子就数一遍活形。</strong>双方各有多少活三、多少四。数不出来的时候，就是你最危险的时候。</li>
+<li><strong>落子前停两秒。</strong>先看对手有没有一步就能赢的点。有，就先处理它，而不是继续推进自己的攻势。</li>
+<li><strong>优先做"带强制"的双威胁。</strong>四三让对手没有选择，他没法一边防守一边反攻；慢慢悠悠做一个双三，等于送他一步棋去干自己的事。</li>
+</ul>
+
+<h2>怎么练</h2>
+<p>别再往下读理论了，给自己定个目标：开局十手之内做出一个四三。做不到就复盘，找出到底是哪一步让两个形状失去了联系——那一步就是这次的收获。能在对手被动防守时做出来之后，再换一个会主动堵你活三的对手，最后去找 Medium 难度。
+
+这篇文章里的每个局面，都能在<a href="/zh-CN/">五子棋游戏页</a>上免费摆出来验证。不用下载、不用注册，双威胁做崩了随时重开——刚开始的时候，你会重开很多次。
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">现在就去做一个双威胁</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">看会不如做会。打开棋盘，给自己十分钟，做一个四三出来。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋双威胁策略：用一颗子赢下整盘棋",
+    "description": "五子棋双威胁实战指南：什么样的双杀才算真威胁、四三与双三怎么用、如何主动造出双威胁，以及为什么连 AI 也会中招。",
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-16",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-double-threat-fork-strategy"}
+  }
+  </script>
+</body>
+</html>

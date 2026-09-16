@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-double-threat-fork-strategy">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Стратегия вилки в гомоку: победа одним камнем | Блог Гомоку</title>
+  <meta name="description" content="Практическое руководство по двойной угрозе в гомоку: когда вилка настоящая, как работают «четыре-три» и двойная тройка, как строить их намеренно и почему ИИ на них попадается.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-double-threat-fork-strategy">
+  <meta property="og:title" content="Стратегия вилки в гомоку: двойная угроза">
+  <meta property="og:description" content="Один камень, две угрозы, одна победа. Как строить вилки в гомоку и почему ИИ на них попадается.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-double-threat-fork-strategy">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Стратегия вилки в гомоку">
+  <meta name="twitter:description" content="Две угрозы одним камнем — как устроена вилка в гомоку.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Стратегия вилки в гомоку: как выиграть одним камнем</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-16">2026-09-16</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Что такое двойная угроза</h2>
+<p><strong>Двойная угроза в гомоку</strong> — чаще её называют вилкой, или fork, — это один камень, который создаёт сразу две независимые угрозы победы. Соперник может закрыть только одну, поэтому вторая и решает партию. Вся атакующая сторона гомоку укладывается в одну эту фразу: любая другая тактика существует либо чтобы построить такую позицию, либо чтобы не дать построить её противнику. Как только вы научитесь видеть вилки, вы перестанете ждать случайных «пять в ряд» и начнёте их делать сами.</p>
+<p>Решает здесь простая арифметика. Гомоку — это гонка, а за ход вы ставите ровно один камень. Одиночную угрозу всегда можно закрыть одним камнем. Но две угрозы, приходящие с разных направлений, требуют двух камней, а ход у вас один. С момента, когда настоящая вилка встала на доску, защищающийся навсегда отстаёт на один ход.</p>
+
+<h2>Устройство вилки: точка пересечения</h2>
+<p>Почти любая вилка строится в <em>точке пересечения</em>: пустое пересечение, которое лежит сразу на двух линиях, и обе почти завершены. Камень там продвигает сразу две недоделанные фигуры одним ходом. В этом весь фокус. Поэтому смотреть на доску стоит не на камни, а на пустые пересечения — привычку искать их стоит натренировать отдельно.</p>
+
+<h3>«Четыре-три»: самый надёжный удар</h3>
+<p>«Четыре-три» — форма, которую стоит искать постоянно. Один камень завершает четвёрку в одном направлении и открытую тройку в другом. Четвёрку нужно закрывать немедленно, иначе партия заканчивается на месте, но этот ответ никак не влияет на открытую тройку. Следующим ходом вы достраиваете тройку до открытой четвёрки, а открытую четвёрку остановить нельзя.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . O . . .
+2   . . . X . . .
+3   . . . X . . .
+4   . . . X . . .
+5   . . . ? X X .
+6   . . . . . . .</pre>
+<p>Чёрные играют в точку <strong>?</strong> — это d5. По вертикали d получается четвёрка; d1 уже занято белым, поэтому у четвёрки ровно одна выигрышная точка, d6, и белые вынуждены её занять. Одновременно тот же камень превращает горизонталь 5 в открытую тройку d5–e5–f5 с двумя свободными концами. Белые закрывают четвёрку, чёрные играют c5 — и горизонталь 5 становится открытой четвёркой с пустыми b5 и g5. Один камень, две угрозы, один вынужденный ответ, одна победа.</p>
+
+<h3>Двойная тройка: оружие свободного гомоку</h3>
+<p>Двойная тройка — это один камень, создающий две открытые тройки одновременно. Каждая хочет стать открытой четвёркой, а одним камнем обе не закрыть. Но есть важная оговорка: по правилам рендзю двойная тройка — <em>запрещённый ход</em> для чёрных. Так что эта форма принадлежит свободному гомоку или белым в рендзю. Если играете по соревновательным правилам, сначала уточните, какую вилку вам вообще разрешено строить.</p>
+
+<h2>Похоже на вилку, но вилкой не является</h2>
+<p>Самый частый способ проиграть на среднем уровне — «фальшивая вилка»: из двух форм одна оказывается мёртвой тройкой, которая никогда не станет открытой четвёркой. Защищающийся убивает обе одним камнем, а атакующий просто подарил ход.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . . . . .
+2   . . . . O . .
+3   . . . . X . .
+4   . . . . X . .
+5   . . X X ? . .
+6   . . . . . . .</pre>
+<p>Чёрные играют в <strong>?</strong> — это e5. Горизонталь 5 становится открытой тройкой: c5, d5, e5, при пустых b5 и f5. Вертикаль e тоже выглядит как тройка: e3, e4, e5. Но e2 уже занято белым. Эта форма — мёртвая тройка: в лучшем случае она дорастёт до закрытой четвёрки, а закрытая четвёрка закрывается одним камнем. Белые ставят камень на горизонталь 5, и атака исчезает.</p>
+<p>Поэтому перед ходом задайте прямой вопрос: <em>может ли каждая из этих двух угроз самостоятельно стать открытой четвёркой?</em> Если хотя бы одна не может — у вас на руках не вилка, а обычный вынуждающий ход, который стоит вам темпа.</p>
+
+<h2>Как строить вилку намеренно</h2>
+<ol>
+<li><strong>Смотрите на пустые пересечения, а не на камни.</strong> Ищите точки, где сходятся две почти готовые линии. Таких кандидатов на доске обычно всего два или три.</li>
+<li><strong>Доведите обе линии до «одного хода».</strong> Одну — до формы, где «два становятся тремя», другую — где «три становятся четырьмя». Когда заряжены обе, точка пересечения появляется сама.</li>
+<li><strong>Сначала посчитайте вынуждающие ходы соперника.</strong> Если у него уже на руках четвёрка, его четвёрка станет пятёркой раньше вашей вилки. Перед каждой атакой считайте, сколько точек на доске выигрывают партию следующим ходом — за обе стороны.</li>
+<li><strong>Прочёсывайте диагонали.</strong> Диагональные формы прячут точки пересечения лучше всех, потому что взгляд сам идёт по горизонталям и вертикалям. Большинство вилок, которые пропускают новички, находятся именно на диагоналях. Упражнения из <a href="/ru-RU/blog/pattern-recognition-gomoku">тренировки распознавания форм</a> сделаны ровно под это.</li>
+</ol>
+
+<h2>Почему ИИ тоже попадается</h2>
+<p>Движок решает, просчитывая позиции вперёд и оценивая их. Ценность вилки проявляется только на той глубине, где обе линии считаются отдельно. На лёгких уровнях просчёт неглубокий: движок видит лишь угрозу с наибольшей оценкой прямо сейчас, добросовестно закрывает четвёрку и не замечает открытую тройку, ждущую за ней. Это не баг, который вы эксплуатируете, а прямое следствие ограниченного горизонта поиска — та же самая причина, по которой вилки пропускают люди-новички.</p>
+<p>На Hard и Master картина другая. Эти уровни занимают точку пересечения <em>до</em> того, как вы туда сыграете, или отвечают на вашу подготовку собственной вынуждающей четвёркой, отбирая темп. Против такой защиты вилка должна прийти на ход раньше, чем позволяет горизонт соперника. Надёжнее всего провести её вынуждающим ходом — «четыре-три», где первую угрозу нельзя игнорировать, — либо строить её, пока соперник занят другой угрозой. В материале <a href="/ru-RU/blog/beat-gomoku-ai">как обыграть ИИ в гомоку</a> разобрано, как защищается каждый уровень и где заканчивается его горизонт.</p>
+<p>Если хотите развивать это по порядку, разумный путь — последовательность из <a href="/ru-RU/blog/advanced-gomoku-strategy">продвинутой стратегии гомоку</a>: сначала добиться, чтобы каждый ваш ход нёс угрозу, затем отработать вынуждающие серии и только потом начинать охоту за вилками. Вилка — это награда за хорошую форму, а не короткая дорога в обход базы.</p>
+
+<h2>Три привычки, после которых вилки начинают находиться</h2>
+<ul>
+<li><strong>Считайте живые формы после каждого хода.</strong> Открытые тройки и четвёрки у обеих сторон. Если не можете их перечислить, вы пока не знаете, кто выигрывает.</li>
+<li><strong>Останавливайтесь на две секунды перед ходом.</strong> Проверьте, есть ли у соперника точка, выигрывающая немедленно. Если есть — заниматься нужно ею, а не своей атакой.</li>
+<li><strong>Предпочитайте вилки, проведённые силой.</strong> «Четыре-три» не оставляет выбора, поэтому соперник не успевает контратаковать, пока вы завершаете. Медленная двойная тройка дарит ему свободный ход на собственный план.</li>
+</ul>
+
+<h2>Как это тренировать</h2>
+<p>Поставьте себе цель вместо чтения очередной теории: построить одно «четыре-три» в пределах десяти ходов от начала. Не получилось — переиграйте партию и найдите тот самый ход, после которого две формы перестали быть связанными. Этот ход и есть урок. Когда получится против пассивного соперника, попробуйте против того, кто активно блокирует ваши тройки, а затем против ИИ уровня Medium.</p>
+<p>Любую позицию из этой статьи можно выставить и проверить бесплатно на <a href="/ru-RU/">странице игры в гомоку</a>. Без скачивания и регистрации, и партию можно перезапустить мгновенно, как только вилка развалилась — а поначалу это будет часто.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Постройте её сами</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Читать про вилки полезно, но играть ими лучше. Откройте бесплатную доску и попробуйте собрать «четыре-три» за десять ходов.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в Гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Стратегия вилки в гомоку: как выиграть одним камнем",
+    "description": "Практическое руководство по двойной угрозе в гомоку: когда вилка настоящая, как работают «четыре-три» и двойная тройка, как строить их намеренно и почему ИИ на них попадается.",
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-16",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-double-threat-fork-strategy"}
+  }
+  </script>
+</body>
+</html>

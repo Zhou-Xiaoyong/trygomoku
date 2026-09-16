@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-double-threat-fork-strategy">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-double-threat-fork-strategy">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べの両狙い（フォーク）戦略：一手で勝つ | 五目並べブログ</title>
+  <meta name="description" content="五目並べの両狙いを実戦目線で解説。本物のフォークの条件、四三と三三の使い方、意図的に作る手順、そしてAIが引っかかる理由まで。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-double-threat-fork-strategy">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-double-threat-fork-strategy">
+  <meta property="og:title" content="五目並べの両狙い（フォーク）戦略">
+  <meta property="og:description" content="石1つで脅威2つ、相手が受けられるのは1つだけ。両狙いの作り方と決めどころ。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-double-threat-fork-strategy">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べの両狙い（フォーク）戦略">
+  <meta name="twitter:description" content="一手で2つの脅威を作る——両狙いの仕組みと決め方。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">五目並べの両狙い戦略：石ひとつで勝ちを決める</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-16">2026-09-16</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>「両狙い（フォーク）」とは何か</h2>
+<p><strong>五目並べの両狙い（ダブルスレット、フォーク）</strong>とは、一手で同時に2つの独立した勝ち筋を作ることです。相手は片方しか受けられないので、もう片方で勝ちが決まります。五目並べの攻めは、突き詰めればこの一言に尽きます。ほかの戦術はすべて、この形を作るためか、作らせないために存在します。両狙いが見えるようになれば、五連が偶然できるのを待つ側から、自分で作り出す側に回れます。</p>
+<p>両狙いが決定的なのは、一手しか打てないという単純な算数のせいです。五目並べは競争であり、1ターンに置ける石は1つだけ。単独の脅威なら石1つで受けられます。しかし方向の異なる2つの脅威は石2つを要求し、こちらには1つしかありません。本物の両狙いが成立した瞬間から、受け手は永遠に一手足りなくなります。</p>
+
+<h2>構造を理解する：交差点</h2>
+<p>五目並べの両狙いは、ほぼ例外なく<em>交差点</em>で作られます。両方が「あと一手で完成する」線の上に同時に乗っている空点のことです。そこに石を置けば、一手で2つの半完成形を同時に進められます。これが仕組みのすべてです。だから盤を見るときは、石ではなく空点を探す——この癖をつける価値があります。</p>
+
+<h3>四三：最も確実な決め手</h3>
+<p>四三は、常に探し続けるべき形です。一手で、ある方向に「四」、別の方向に「活三」を作ります。四は即座に受けなければその場で負けますが、その受けは活三には何の影響も与えません。次に活三を活四に伸ばせば、活四は止められません。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . O . . .
+2   . . . X . . .
+3   . . . X . . .
+4   . . . X . . .
+5   . . . ? X X .
+6   . . . . . . .</pre>
+<p>黒が <strong>?</strong> のd5に打ちます。d列は縦に四になりますが、d1はすでに白なので成五点はd6の1つだけ。白はそこを受けざるを得ません。同時にこの石で、5行目はd5・e5・f5の活三（b5とf5が空いています）になります。白が四を受け、黒がc5。5行目はb5とg5の両端が空いた活四になり、決着です。石1つ、脅威2つ、相手の応手は1つだけ。</p>
+
+<h3>三三：フリースタイルの武器</h3>
+<p>三三は一手で活三を2つ作る形です。どちらも活四に育とうとし、石1つでは両方は止められません。ただし注意点があります。連珠のルールでは、三三は<em>黒の禁手</em>です。この形が使えるのは禁手のないフリースタイル、または白として打つ場合です。競技ルールで指すなら、自分がどの両狙いを許されているのかを先に確認しましょう。</p>
+
+<h2>両狙いに見えて、両狙いではない形</h2>
+<p>中級者がもっとも負けやすいのが「偽の両狙い」です。2つの形のうち片方が眠三で、活四に育ちません。相手は石1つで両方を無効化でき、攻めた側はただ一手を無駄にしただけになります。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">    a b c d e f g
+1   . . . . . . .
+2   . . . . O . .
+3   . . . . X . .
+4   . . . . X . .
+5   . . X X ? . .
+6   . . . . . . .</pre>
+<p>黒が <strong>?</strong> のe5に打ちます。5行目はc5・d5・e5の活三になり、b5とf5は空いたまま。e列もe3・e4・e5で三に見えます。しかしe2はすでに白です。この形は眠三で、最善でも四にしかなれず、四は石1つで受けられます。白が5行目を止めれば、攻めは消えます。</p>
+<p>ですから打つ前に、はっきり自問してください。<em>この2つの脅威は、それぞれ単独で活四になれるか。</em>どちらかがなれないなら、それは両狙いではなく、先手を1つ消費するだけの催促です。</p>
+
+<h2>両狙いを自分から作る手順</h2>
+<ol>
+<li><strong>石ではなく、空の交差点を見る。</strong>どちらもあと少しで完成する2本の線が交わる空点を探します。盤上に候補はたいてい2〜3か所しかありません。</li>
+<li><strong>2本の線を「あと一手」まで育てる。</strong>片方を「2つから3つになる形」、もう片方を「3つから4つになる形」にします。両方が装填されれば、交差点は自然に見えてきます。</li>
+<li><strong>相手の強制手を先に数える。</strong>相手がすでに四を持っているなら、その四のほうが先に五になります。攻める前に、次で勝てる点が双方にいくつあるか数えましょう。</li>
+<li><strong>斜めを重点的に探す。</strong>斜めの形は交差点を隠しやすくします。目が行や列を自然に追ってしまうからです。初心者が見落とす両狙いは、ほとんどが斜めにあります。<a href="/ja-JP/blog/pattern-recognition-gomoku">形の認識を鍛える練習</a>が、まさにこのために作られています。</li>
+</ol>
+
+<h2>なぜAIも引っかかるのか</h2>
+<p>エンジンは先読みと局面評価で手を決めます。両狙いの価値は、2本の線をそれぞれ展開して読む深さに達して初めて見えてきます。やさしい難易度では読みが浅く、エンジンは「今いちばん点数の高い脅威」だけを見て素直に四を受け、その奥に控える活三には気づきません。これは突けるバグではなく、読みの範囲が限られていることの当然の帰結です。人間の初心者が両狙いを見落とす理由と、まったく同じです。</p>
+<p>HardやMasterになると話が変わります。あなたが打つ<em>前に</em>交差点を占めてきますし、あるいは自分で四を放って先手を奪ってきます。そうした守りに対しては、両狙いを正面から作っても通りません。「相手の読みより一手早く」届かせる必要があります。もっとも確実なのは、強制力のある手で決めること——たとえば四三なら、最初の四を無視できません。あるいは相手が別の脅威の対応に追われている隙に作る方法です。各難易度の守り方と読みの境界は、<a href="/ja-JP/blog/beat-gomoku-ai">五目並べAI攻略ガイド</a>で解説しています。</p>
+<p>順番に身につけたいなら、<a href="/ja-JP/blog/advanced-gomoku-strategy">上級の五目並べ戦略</a>に書いた流れがおすすめです。まずすべての手に脅威を持たせる、次に強制の連続を練習する、最後に両狙いを探し始める。両狙いは良い形の報酬であって、基本を飛ばす近道ではありません。</p>
+
+<h2>すぐ使える3つの習慣</h2>
+<ul>
+<li><strong>1手ごとに活形を数える。</strong>双方の活三と四の数です。数えられないなら、まだどちらが優勢か分かっていません。</li>
+<li><strong>打つ前に2秒止まる。</strong>相手に次で勝てる点がないか確認します。あるなら、そちらを先に処理します。</li>
+<li><strong>強制力のある両狙いを優先する。</strong>四三なら相手に選択肢がなく、守りながら反撃する余裕も与えません。のんびり三三を作ると、その1手を相手の攻めに使われます。</li>
+</ul>
+
+<h2>練習のしかた</h2>
+<p>理論を読み進めるより、目標を決めましょう。序盤から10手以内に四三を1つ作ること。できなければ局面を並べ直し、2つの形がつながらなくなった一手を探します。その一手が今回の収穫です。受け身の相手に決められるようになったら、こちらの活三を積極的に止めてくる相手に、最後はMediumのAIに挑戦してください。</p>
+<p>この記事の局面はすべて、<a href="/ja-JP/">五目並べのゲームページ</a>で無料で並べて試せます。ダウンロードも登録も不要で、両狙いが崩れたらすぐやり直せます。最初のうちは、何度もやり直すことになります。
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">実際に作ってみよう</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">読むより打つほうが早く身につきます。盤を開いて、10手以内に四三をひとつ作ってみてください。</p>
+            <a href="/ja-JP/#game" class="cta-btn">今すぐ五目並べを遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べの両狙い戦略：石ひとつで勝ちを決める",
+    "description": "五目並べの両狙いを実戦目線で解説。本物のフォークの条件、四三と三三の使い方、意図的に作る手順、そしてAIが引っかかる理由まで。",
+    "datePublished": "2026-09-16",
+    "dateModified": "2026-09-16",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-double-threat-fork-strategy"}
+  }
+  </script>
+</body>
+</html>
