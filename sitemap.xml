@@ -19,6 +19,54 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/tournaments/world-renju-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/tournaments/world-renju-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/tournaments/all-japan-renju-meijinsen.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ja-JP/tournaments/all-japan-renju-meijinsen.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/tournaments/korean-gomoku-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ko-KR/tournaments/korean-gomoku-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/tournaments/russian-renju-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ru-RU/tournaments/russian-renju-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/about</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>

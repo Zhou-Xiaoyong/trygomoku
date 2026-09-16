@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全日本連珠名人戦のルール — 禁手 online 練習</title>
+  <meta name="description" content="全日本連珠名人戦の公式ルールで五目並べをオンライン練習。15×15盤、黒番禁手（三三、四四、長連）。AI相手に無料で練習し、名人戦ルールに慣れましょう。">
+  <meta name="keywords" content="全日本連珠名人戦, 連珠名人戦, 連珠ルール, 禁手, 三三禁手, 四四禁手, 長連禁手, 日本連珠, 15×15, 連珠練習, 五目並べ大会ルール">
+  <meta name="author" content="Gomoku Online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/tournaments/all-japan-renju-meijinsen.html">
+
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/tournaments/all-japan-renju-meijinsen.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/tournaments/all-japan-renju-meijinsen.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/tournaments/all-japan-renju-meijinsen.html">
+
+  <meta property="og:title" content="全日本連珠名人戦のルール — 禁手ルールオンライン練習">
+  <meta property="og:description" content="全日本連珠名人戦の公式ルールで五目並べをオンライン練習。15×15盤、黒番禁手（三三、四四、長連）。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/tournaments/all-japan-renju-meijinsen.html">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="全日本連珠名人戦のルール — オンライン練習">
+  <meta name="twitter:description" content="全日本連珠名人戦の公式ルールで五目並べをオンライン練習。黒番禁手（三三、四四、長連）。">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <!-- 全日本連珠名人戦ルールに事前設定 -->
+  <script>
+    window.GOMOKU_CONFIG = {
+      boardSize: 15,
+      rule: 'renju',
+      mode: 'pve',
+      difficulty: 'medium',
+      humanColor: 'black',
+      lockBoardSize: true,
+      lockRule: true
+    };
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "全日本連珠名人戦ルール練習",
+    "description": "全日本連珠名人戦の公式ルールで五目並べを練習。黒番禁手（三三、四四、長連）ルールを含みます。",
+    "url": "https://trygomoku.com/ja-JP/tournaments/all-japan-renju-meijinsen.html",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#game" class="skip-link">対局へ進む</a>
+
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="メインナビゲーション">
+    <div class="nav-inner">
+      <a href="../../ja-JP/index.html" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを開閉" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../../ja-JP/index.html#game">対局</a></li>
+        <li><a href="../../ja-JP/index.html#rules">ルール</a></li>
+        <li><a href="../../ja-JP/index.html#strategy">戦略</a></li>
+        <li><a href="../../ja-JP/blog/">ブログ</a></li>
+        <li><a href="../../tournaments/all-japan-renju-meijinsen.html">English</a></li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="tournament-badge">大会練習モード</p>
+        <h1>全日本連珠名人戦</h1>
+        <p class="hero-subtitle"><strong>全日本連珠名人戦</strong>、日本で最も権威ある連珠タイトル戦の公式ルールでオンライン練習。15×15 盤、黒番の禁手（三三、四四、長連）——名人戦と全く同じルール。</p>
+        <div class="hero-cta">
+          <a href="#game" class="cta-btn">練習を始める &darr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game -->
+    <section id="game" class="game-section" aria-label="五目並べの盤">
+      <div class="container">
+        <div class="game-layout">
+          <div class="game-info" id="gameInfo">
+            <div class="game-status" id="gameStatus">
+              <span class="status-dot" id="statusDot"></span>
+              <span class="status-text" id="statusText" data-i18n="game.your_turn">あなたの番 — 黒番</span>
+              <span class="ai-depth-indicator" id="aiDepthIndicator" style="display:none;"></span>
+            </div>
+            <div class="renju-foul-toast" id="renjuFoulToast"></div>
+            <div class="renju-foul-backdrop" id="renjuFoulBackdrop"></div>
+            <div class="game-score">
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.black">黒</span> <span class="stone-icon black"></span></span>
+                <span class="score-value" id="scoreBlack">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.white">白</span> <span class="stone-icon white"></span></span>
+                <span class="score-value" id="scoreWhite">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label" data-i18n="game.draws">引き分け</span>
+                <span class="score-value" id="scoreDraw">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="board-wrapper" id="boardWrapper">
+            <canvas id="gomokuBoard" aria-label="五目並べの盤、15×15"></canvas>
+            <canvas id="gomokuOverlay"></canvas>
+          </div>
+
+          <div class="game-controls" id="gameControls">
+            <div class="control-group mode-switch">
+              <span class="control-label" data-i18n="game.mode_label">モード</span>
+              <div class="toggle-group" role="radiogroup" aria-label="ゲームモード">
+                <button class="toggle-btn active" data-mode="pve" role="radio" aria-checked="true" id="btnPvE" data-i18n="game.pve">コンピュータと対戦</button>
+                <button class="toggle-btn" data-mode="pvp" role="radio" aria-checked="false" id="btnPvP" data-i18n="game.pvp">友達と対戦</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="boardSizeGroup">
+              <span class="control-label" data-i18n="game.board_size_label">盤のサイズ</span>
+              <div class="toggle-group" role="radiogroup" aria-label="盤のサイズ">
+                <button class="toggle-btn" data-size="9" role="radio" aria-checked="false" id="btnSize9" data-i18n="game.size_9">9×9</button>
+                <button class="toggle-btn active" data-size="15" role="radio" aria-checked="true" id="btnSize15" data-i18n="game.size_15">15×15</button>
+                <button class="toggle-btn" data-size="19" role="radio" aria-checked="false" id="btnSize19" data-i18n="game.size_19">19×19</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="ruleGroup">
+              <span class="control-label" data-i18n="game.rule_label">ルール</span>
+              <div class="toggle-group" role="radiogroup" aria-label="ルール">
+                <button class="toggle-btn" data-rule="freestyle" role="radio" aria-checked="false" id="btnFreestyle" data-i18n="game.freestyle">フリールール</button>
+                <button class="toggle-btn active" data-rule="renju" role="radio" aria-checked="true" id="btnRenju">禁手（連珠ルール）</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="difficultyGroup">
+              <span class="control-label" data-i18n="game.difficulty_label">難易度</span>
+              <div class="toggle-group" role="radiogroup" aria-label="AI難易度">
+                <button class="toggle-btn" data-diff="easy" role="radio" aria-checked="false" id="btnEasy" data-i18n="game.easy">初級</button>
+                <button class="toggle-btn active" data-diff="medium" role="radio" aria-checked="true" id="btnMedium" data-i18n="game.medium">中級</button>
+                <button class="toggle-btn" data-diff="hard" role="radio" aria-checked="false" id="btnHard" data-i18n="game.hard">上級</button>
+                <button class="toggle-btn" data-diff="master" role="radio" aria-checked="false" id="btnMaster" data-i18n="game.master">達人</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="colorGroup">
+              <span class="control-label" data-i18n="game.you_play_as">あなたの石</span>
+              <div class="toggle-group" role="radiogroup" aria-label="あなたの石の色">
+                <button class="toggle-btn active" data-color="black" role="radio" aria-checked="true" id="btnBlack" data-i18n="game.black_first">黒 ← 先手</button>
+                <button class="toggle-btn" data-color="white" role="radio" aria-checked="false" id="btnWhite" data-i18n="game.white_btn">白</button>
+              </div>
+            </div>
+
+            <div class="control-group actions">
+              <button class="action-btn" id="btnHint">&#128161; <span data-i18n="game.hint">ヒント</span></button>
+              <button class="action-btn" id="btnUndo">&#8630; <span data-i18n="game.undo">一手戻す</span></button>
+              <button class="action-btn" id="btnRestart">&#8635; <span data-i18n="game.restart">やり直し</span></button>
+              <button class="action-btn" id="btnSound"><span class="sound-icon">&#9834;</span> <span class="sound-text" data-i18n="game.sound_on">サウンド</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 大会ルール -->
+    <section id="rules" class="content-section" aria-labelledby="rulesHeading">
+      <div class="container">
+        <h2 id="rulesHeading">全日本連珠名人戦 — 公式ルール</h2>
+        <p class="section-intro"><strong>全日本連珠名人戦</strong>は日本連珠社が主催する、日本で最も歴史ある権威ある連珠タイトル戦です。以下は名人戦で使用される中核ルールであり、この練習盤が自動的に強制します。</p>
+
+        <div class="rules-steps">
+          <div class="rule-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>盤と石</h3>
+              <p><strong>15×15</strong>の盤で行います。一方が<strong>黒石</strong>、もう一方が<strong>白石</strong>を持ち、<strong>黒が必ず先手</strong>です。</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>勝利条件</h3>
+              <p>横・縦・斜めのいずれかで連続<strong>五石</strong>を先に並べた方が勝ちです。<strong>白</strong>は五つ以上（長連）でも勝ちとなりますが、<strong>黒</strong>はちょうど五つでなければならず、六つ以上は禁手です。</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>黒の禁手</h3>
+              <p>黒の先手の有利を均衡させるため、黒は以下の三つの形を作ることが禁止されています。黒が禁手を打つと、<strong>即座に負け</strong>となります：</p>
+              <ul>
+                <li><strong>三三禁手</strong>：一石で同時に二つ以上の「活三」を作ること。</li>
+                <li><strong>四四禁手</strong>：一石で同時に二つ以上の「四」（活四または衝四）を作ること。</li>
+                <li><strong>長連禁手</strong>：一石で六つ以上の連続する石を作ること。</li>
+              </ul>
+              <p>黒は<strong>四三</strong>（一石で同時に一つの四と一つの三を作る）でのみ勝つことができます。</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>引き分け</h3>
+              <p>盤がすべて埋まってもどちらも五連を作れなかった場合、<strong>引き分け</strong>となります。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rule-note">
+          <p><strong>盤の歴史について：</strong>名人戦は<strong>15×15盤と禁手</strong>を用いており、第二次世界大戦後の<strong>高川格司</strong>による改革以降の「新名人戦」時代に定着しました。それ以前は19×19盤が使われていました。この練習盤が強制する中核競技ルール——15×15盤と黒の禁手（三三、四四、長連）——は現在の名人戦そのものです。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 大会紹介 -->
+    <section id="about" class="content-section alt-bg" aria-labelledby="aboutHeading">
+      <div class="container">
+        <h2 id="aboutHeading">全日本連珠名人戦について</h2>
+        <div class="content-grid">
+          <div class="content-text">
+            <p><strong>全日本連珠名人戦</strong>は<strong>1902年</strong>に創設され、日本で最も古く、最も権威ある連珠タイトル戦です。初代名人（名人）は<strong>黒岩涙香</strong>で、ジャーナリストであり詩人であった彼が、黒の先手の有利を均衡させるための連珠ルールを整備しました。</p>
+
+            <h3>「新名人戦」の時代</h3>
+            <p>第二次世界大戦後、大会は<strong>高川格司</strong>の主導で改革され、それまでの19×19盤から現代の15×15盤へと移行し、禁手ルールが成文化されました。高川自身が伝説的な存在となり、<strong>六連覇</strong>を達成して名人戦を連珠の頂点として定着させました。</p>
+
+            <h3>禁手ルールの意義</h3>
+            <p>禁手（禁手）ルール——三三、四四、長連——は連珠の決定的な特徴であり、名人戦の核心です。五目並べは黒（先手）が完璧な指し方で必ず勝てる解明済みのゲームであるため、禁手ルールは公平な対局に不可欠です。黒をより慎重かつ戦略的に指すことを強いることで、最高水準におけるゲームの深さと美しさを保ちます。現在、名人戦は<strong>60回以上</strong>にわたり開催されています。</p>
+          </div>
+          <aside class="content-sidebar" aria-label="全日本連珠名人戦の概要">
+            <div class="info-card">
+              <h4>概要</h4>
+              <dl>
+                <dt>正式名称</dt>
+                <dd>全日本連珠名人戦</dd>
+                <dt>創設</dt>
+                <dd>1902年</dd>
+                <dt>盤のサイズ</dt>
+                <dd>15×15</dd>
+                <dt>初代名人</dt>
+                <dd>黒岩涙香（Kuroiwa Ruikō）</dd>
+                <dt>主催</dt>
+                <dd>日本連珠社</dd>
+                <dt>黒の禁手</dt>
+                <dd>三三、四四、長連</dd>
+                <dt>最多タイトル</dt>
+                <dd>高川格司</dd>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 練習のヒント -->
+    <section id="tips" class="content-section" aria-labelledby="tipsHeading">
+      <div class="container">
+        <h2 id="tipsHeading">名人戦ルールの練習のヒント</h2>
+        <div class="strategy-grid">
+          <article class="strategy-card">
+            <h3>禁手の形を覚える</h3>
+            <ul>
+              <li><strong>三三禁手</strong>の形を時間をかけて研究しましょう。多くの初心者が意図せずこのルールで負けてしまいます。</li>
+              <li><strong>四四禁手</strong>も攻撃を組み立てる際に陥りやすいです。</li>
+              <li><strong>長連</strong>（六つ以上）は黒にとって勝ちではなく負けであることを忘れないでください。</li>
+            </ul>
+          </article>
+          <article class="strategy-card">
+            <h3>黒番で禁手を体得する</h3>
+            <ul>
+              <li>黒番を選んで練習しましょう。盤が非法な着手を自動的に拒否します。</li>
+              <li>禁手の制限を理解すれば、白番でもより強くなれます——黒を意図的に禁手に追い込むことができます。</li>
+              <li>黒は<strong>四三</strong>で勝つ必要があります。この勝ち方の組み合わせを練習しましょう。</li>
+            </ul>
+          </article>
+          <article class="strategy-card">
+            <h3>AIをスパーリングパートナーに</h3>
+            <ul>
+              <li>まず<strong>中級</strong>難易度で始め、禁手ルールに慣れましょう。</li>
+              <li>禁手を避けられるようになったら、<strong>上級</strong>や<strong>達人</strong>難易度に挑戦しましょう。</li>
+              <li>ある手が合法か、戦略的に妥当か迷ったときは<strong>ヒント</strong>ボタンを使いましょう。</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="content-section alt-bg" aria-labelledby="faqHeading">
+      <div class="container">
+        <h2 id="faqHeading">よくある質問 — 全日本連珠名人戦ルール</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>名人戦ルールにおける禁手とは何ですか？</summary>
+            <div class="faq-answer">
+              <p>黒には三種類の禁手があります：<strong>三三禁手</strong>——一石で二つ以上の活三を同時に作ること；<strong>四四禁手</strong>——一石で二つ以上の四を同時に作ること；<strong>長連禁手</strong>——六つ以上の連続する石を作ること。黒がこれらのいずれかを打つと、その時点で負けとなります。</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>白にも禁手はありますか？</summary>
+            <div class="faq-answer">
+              <p>いいえ。<strong>白には禁手はありません</strong>。白は五つ、六つ、あるいはそれ以上の連続する石で勝つことができます。制限は黒の先手の有利を補うため黒にのみ適用されます。</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>黒が六つ以上連続させると勝ちですか？</summary>
+            <div class="faq-answer">
+              <p>いいえ。名人戦ルールでは、黒は<strong>ちょうど五つ</strong>の連続する石でのみ勝てます。六つ以上は<strong>長連禁手</strong>で、黒は即座に負けとなります。白は五つ以上で勝てます。</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>四三での勝ちとは何ですか？</summary>
+            <div class="faq-answer">
+              <p><strong>四三</strong>は黒の標準的な勝ち方です：一つの石を置くことで同時に「四」（少なくとも一端が開いた四連続）と「三」（両端が開いた三連続）を作ること。黒は四四や三三を使えないため、四三が黒の主な勝利手段です。</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>名人戦の盤のサイズは何ですか？</summary>
+            <div class="faq-answer">
+              <p>現代の名人戦は<strong>15×15盤</strong>を使用します。第二次世界大戦後、<strong>高川格司</strong>の改革による「新名人戦」時代に採用されました。それ以前は19×19盤が使われていました。この練習盤は現代の15×15盤と公式の黒の禁手（三三、四四、長連）を使用します。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">五目並べの定番ゲーム、無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h3>クイックリンク</h3>
+          <ul>
+            <li><a href="../../ja-JP/index.html#game">対局を始める</a></li>
+            <li><a href="../../ja-JP/index.html#rules">ルール</a></li>
+            <li><a href="../../ja-JP/index.html#strategy">戦略</a></li>
+            <li><a href="../../ja-JP/blog/">ブログ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>大会モード</h3>
+          <ul>
+            <li><a href="china-national-gomoku-championship.html">中国全国選手権</a></li>
+            <li><a href="world-renju-championship.html">世界連珠選手権</a></li>
+            <li><a href="all-japan-renju-meijinsen.html">全日本連珠名人戦</a></li>
+            <li><a href="korean-gomoku-championship.html">韓国五子棋選手権</a></li>
+            <li><a href="russian-renju-championship.html">ロシア連珠選手権</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. 無料で遊べます — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/game.js"></script>
+
+  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true" role="dialog" aria-labelledby="victoryTitle" aria-describedby="victorySubtitle">
+    <div class="victory-card" id="victoryCard" role="document">
+      <div class="victory-icon-wrap" id="victoryIconWrap">
+        <div class="victory-icon" id="victoryIcon">&#9733;</div>
+        <div class="star-burst" id="starBurst"></div>
+      </div>
+      <div class="victory-title" id="victoryTitle" role="heading" aria-level="2"></div>
+      <p class="victory-subtitle" id="victorySubtitle"></p>
+      <button class="cta-btn" id="btnPlayAgain" aria-label="新しいゲームを始める">もう一度対局</button>
+    </div>
+  </div>
+</body>
+</html>
