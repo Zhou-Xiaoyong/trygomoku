@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US Gomoku Open Rules — Practice Freestyle Five-in-a-Row Online</title>
+  <meta name="description" content="Practice Gomoku under the official rules of the US Gomoku Open. 15×15 board, American freestyle rules with no forbidden moves — first to get 5+ in a row wins. Free online practice vs AI.">
+  <meta name="keywords" content="us gomoku open, american gomoku, freestyle gomoku, five-in-a-row, no forbidden moves, us gomoku rules, american gomoku open, freestyle five in a row, gomoku tournament usa, casual gomoku rules">
+  <meta name="author" content="Gomoku Online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/tournaments/us-gomoku-open.html">
+
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/tournaments/us-gomoku-open.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/tournaments/us-gomoku-open.html">
+
+  <meta property="og:title" content="US Gomoku Open Rules — Practice Freestyle Five-in-a-Row Online">
+  <meta property="og:description" content="Practice Gomoku with the official rules of the US Gomoku Open. 15×15 board, American freestyle rules with no forbidden moves.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trygomoku.com/tournaments/us-gomoku-open.html">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="US Gomoku Open Rules — Practice Freestyle Five-in-a-Row Online">
+  <meta name="twitter:description" content="Practice Gomoku with the official rules of the US Gomoku Open. American freestyle rules, no forbidden moves.">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Pre-configure the game to US Gomoku Open rules (freestyle) -->
+  <script>
+    window.GOMOKU_CONFIG = {
+      boardSize: 15,
+      rule: 'freestyle',
+      mode: 'pve',
+      difficulty: 'medium',
+      humanColor: 'black',
+      lockBoardSize: true,
+      lockRule: true
+    };
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "US Gomoku Open Practice",
+    "description": "Practice Gomoku under the official rules of the US Gomoku Open, using American freestyle rules with no forbidden moves.",
+    "url": "https://trygomoku.com/tournaments/us-gomoku-open.html",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#game" class="skip-link">Skip to game</a>
+
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html#game">Play</a></li>
+        <li><a href="../index.html#rules">Rules</a></li>
+        <li><a href="../index.html#strategy">Strategy</a></li>
+        <li><a href="../blog/">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="tournament-badge">Tournament Practice Mode</p>
+        <h1>US Gomoku Open</h1>
+        <p class="hero-subtitle">Practice with American freestyle Gomoku rules: 15×15 board, no forbidden moves — first to get 5+ in a row wins, whether Black or White. Simple, fast, and fun.</p>
+        <div class="hero-cta">
+          <a href="#game" class="cta-btn">Start Practicing &darr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game -->
+    <section id="game" class="game-section" aria-label="Gomoku game board">
+      <div class="container">
+        <div class="game-layout">
+          <div class="game-info" id="gameInfo">
+            <div class="game-status" id="gameStatus">
+              <span class="status-dot" id="statusDot"></span>
+              <span class="status-text" id="statusText">Your turn — Black</span>
+              <span class="ai-depth-indicator" id="aiDepthIndicator" style="display:none;"></span>
+            </div>
+            <div class="renju-foul-toast" id="renjuFoulToast"></div>
+            <div class="renju-foul-backdrop" id="renjuFoulBackdrop"></div>
+            <div class="game-score">
+              <div class="score-item">
+                <span class="score-label">Black <span class="stone-icon black"></span></span>
+                <span class="score-value" id="scoreBlack">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label">White <span class="stone-icon white"></span></span>
+                <span class="score-value" id="scoreWhite">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label">Draws</span>
+                <span class="score-value" id="scoreDraw">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="board-wrapper" id="boardWrapper">
+            <canvas id="gomokuBoard" aria-label="Gomoku game board, 15 by 15 grid"></canvas>
+            <canvas id="gomokuOverlay"></canvas>
+          </div>
+
+          <div class="game-controls" id="gameControls">
+            <div class="control-group mode-switch">
+              <span class="control-label">Mode</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Game mode">
+                <button class="toggle-btn active" data-mode="pve" role="radio" aria-checked="true" id="btnPvE">vs Computer</button>
+                <button class="toggle-btn" data-mode="pvp" role="radio" aria-checked="false" id="btnPvP">vs Friend</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="boardSizeGroup">
+              <span class="control-label">Board Size</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Board size">
+                <button class="toggle-btn" data-size="9" role="radio" aria-checked="false" id="btnSize9">9×9</button>
+                <button class="toggle-btn active" data-size="15" role="radio" aria-checked="true" id="btnSize15">15×15</button>
+                <button class="toggle-btn" data-size="19" role="radio" aria-checked="false" id="btnSize19">19×19</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="ruleGroup">
+              <span class="control-label">Rule Set</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Rule set">
+                <button class="toggle-btn active" data-rule="freestyle" role="radio" aria-checked="true" id="btnFreestyle">Freestyle (US Rules)</button>
+                <button class="toggle-btn" data-rule="renju" role="radio" aria-checked="false" id="btnRenju" disabled>禁手 (Renju)</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="difficultyGroup">
+              <span class="control-label">Difficulty</span>
+              <div class="toggle-group" role="radiogroup" aria-label="AI difficulty">
+                <button class="toggle-btn" data-diff="easy" role="radio" aria-checked="false" id="btnEasy">Easy</button>
+                <button class="toggle-btn active" data-diff="medium" role="radio" aria-checked="true" id="btnMedium">Medium</button>
+                <button class="toggle-btn" data-diff="hard" role="radio" aria-checked="false" id="btnHard">Hard</button>
+                <button class="toggle-btn" data-diff="master" role="radio" aria-checked="false" id="btnMaster">Master</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="colorGroup">
+              <span class="control-label">You play as</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Your stone color">
+                <button class="toggle-btn active" data-color="black" role="radio" aria-checked="true" id="btnBlack">Black &larr; first</button>
+                <button class="toggle-btn" data-color="white" role="radio" aria-checked="false" id="btnWhite">White</button>
+              </div>
+            </div>
+
+            <div class="control-group actions">
+              <button class="action-btn" id="btnHint">&#128161; Hint</button>
+              <button class="action-btn" id="btnUndo">&#8630; Undo</button>
+              <button class="action-btn" id="btnRestart">&#8635; Restart</button>
+              <button class="action-btn" id="btnSound"><span class="sound-icon">&#9834;</span> Sound</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tournament Rules -->
+    <section id="rules" class="content-section" aria-labelledby="rulesHeading">
+      <div class="container">
+        <h2 id="rulesHeading">US Gomoku Open — Official Rules</h2>
+        <p class="section-intro">The <strong>US Gomoku Open</strong> follows the American freestyle tradition of Five-in-a-Row. Below are the core rules used in the tournament, which this practice board enforces automatically.</p>
+
+        <div class="rules-steps">
+          <div class="rule-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Board &amp; Stones</h3>
+              <p>Played on a <strong>15×15 grid</strong>. One player uses <strong>black stones</strong>, the other <strong>white stones</strong>. <strong>Black always moves first</strong>.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Winning Condition</h3>
+              <p>The first player to form an unbroken line of <strong>five or more stones</strong> horizontally, vertically, or diagonally wins. Both <strong>Black</strong> and <strong>White</strong> can win with five or more in a row — there are <strong>no forbidden moves</strong> for either color.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>American Freestyle Tradition</h3>
+              <p>US Gomoku traditionally uses <strong>freestyle rules</strong>. There are <strong>no 三三 (double three), 四四 (double four), or 長連 (overline) restrictions</strong> for Black — this is casual-friendly and the most common style of play in the US. Black may win with six or more in a row, and any double-three or double-four pattern is legal. The game is decided purely by forming 5+ in a row.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Draw</h3>
+              <p>If the entire board fills up without either player forming five in a row, the game is a <strong>draw</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rule-note">
+          <p><strong>Note on the US Gomoku scene:</strong> The US Gomoku scene is primarily casual/community-driven. Most American tournaments and online platforms use freestyle rules. Some serious players may practice Renju rules separately for international competitions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Tournament -->
+    <section id="about" class="content-section alt-bg" aria-labelledby="aboutHeading">
+      <div class="container">
+        <h2 id="aboutHeading">About the US Gomoku Open</h2>
+        <div class="content-grid">
+          <div class="content-text">
+            <p>The <strong>US Gomoku Open</strong> is the American showcase for Five-in-a-Row competition. Gomoku in the US is a grassroots game — picked up casually and played for fun — and the Open reflects that spirit with its straightforward freestyle ruleset: a 15×15 board, no forbidden moves, and the first player to line up five (or more) stones wins.</p>
+
+            <h3>Gomoku on College Campuses &amp; Online</h3>
+            <p>In the US, Gomoku is especially popular on <strong>college campuses</strong> and across <strong>online platforms</strong>, where students and casual players pick it up between classes or in browser-based lobbies. The simple rules and quick games make it an easy entry point into abstract strategy games, and the freestyle tradition keeps every match fast, attack-oriented, and beginner-friendly.</p>
+
+            <h3>Growing Interest in Board Game Communities</h3>
+            <p>There is a <strong>growing interest in board game communities</strong> across the United States, and Gomoku is riding that wave. Local game shops, university clubs, and online communities have embraced it as an accessible yet deep strategy title. The US Gomoku Open brings these players together — casual and competitive alike — under the freestyle rules that define the American style of play.</p>
+          </div>
+          <aside class="content-sidebar" aria-label="Quick facts about the US Gomoku Open">
+            <div class="info-card">
+              <h4>Quick Facts</h4>
+              <dl>
+                <dt>Full Name</dt>
+                <dd>US Gomoku Open</dd>
+                <dt>Board</dt>
+                <dd>15×15</dd>
+                <dt>Forbidden Moves</dt>
+                <dd>None (Freestyle)</dd>
+                <dt>Black First</dt>
+                <dd>Yes</dd>
+                <dt>Win</dt>
+                <dd>5+ in a row</dd>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips for the Tournament -->
+    <section id="tips" class="content-section" aria-labelledby="tipsHeading">
+      <div class="container">
+        <h2 id="tipsHeading">Tips for Practicing with US Freestyle Rules</h2>
+        <div class="strategy-grid">
+          <article class="strategy-card">
+            <h3>Embrace the Freestyle Mindset</h3>
+            <ul>
+              <li>With <strong>no forbidden moves</strong>, you can attack freely — double threes, double fours, and overlines are all legal wins.</li>
+              <li>American freestyle Gomoku rewards fast, aggressive play. Build multiple threats in parallel rather than waiting passively.</li>
+              <li>Don't hold back looking for a "clean" win — any 5+ in a row counts, including six or more.</li>
+            </ul>
+          </article>
+          <article class="strategy-card">
+            <h3>Watch for Overlines and Double Attacks</h3>
+            <ul>
+              <li>In freestyle, a <strong>six-in-a-row overline (長連)</strong> is a win, not a foul — set them up deliberately.</li>
+              <li><strong>Double-fours</strong> and <strong>double-threes</strong> are unstoppable threats. Practice creating them in a single move.</li>
+              <li>Always scan for your opponent's fork opportunities — they're far more dangerous here than in Renju.</li>
+            </ul>
+          </article>
+          <article class="strategy-card">
+            <h3>Use the AI Sparring Partner</h3>
+            <ul>
+              <li>Start on <strong>Medium</strong> difficulty to get comfortable with the open, attack-oriented rhythm of US freestyle Gomoku.</li>
+              <li>Move up to <strong>Hard</strong> or <strong>Master</strong> once you're reading threats a few moves ahead.</li>
+              <li>Use the <strong>Hint</strong> button when you need help spotting a winning combination or a hidden threat.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="content-section alt-bg" aria-labelledby="faqHeading">
+      <div class="container">
+        <h2 id="faqHeading">FAQ — US Gomoku Open Rules</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Does the US Gomoku Open use forbidden moves like Renju?</summary>
+            <div class="faq-answer">
+              <p>No. The US Gomoku Open uses <strong>freestyle rules</strong> — there are <strong>no forbidden moves</strong> for either Black or White. The 三三 (double three), 四四 (double four), and 長連 (overline) restrictions used in Japanese Renju and Chinese national rules do not apply in American tournament play.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Can Black win with six or more in a row under US rules?</summary>
+            <div class="faq-answer">
+              <p>Yes. Under US freestyle rules, Black wins with <strong>five or more</strong> consecutive stones — six (overline) or more counts as a win, not a foul. White can also win with five or more. There is no upper limit; the first to reach 5+ in a row wins.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>What's the main difference between US Gomoku and Renju?</summary>
+            <div class="faq-answer">
+              <p>The key difference is the <strong>forbidden-move system</strong>. Renju (and the Chinese national rules) forbid Black from making double threes (三三), double fours (四四), and overlines (长连) to balance Black's first-move advantage. <strong>US Gomoku has none of these restrictions</strong> — both colors play freely, and any 5+ in a row wins. This makes the American style simpler and more casual-friendly.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Why does the US use freestyle rules instead of Renju?</summary>
+            <div class="faq-answer">
+              <p>The US Gomoku scene is primarily <strong>casual and community-driven</strong>, growing out of campus clubs and online play rather than a long professional tradition. Freestyle rules are simpler to learn, faster to play, and don't require memorizing forbidden-move patterns — which is why they became the most common style in American tournaments and online platforms.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Can I practice Renju rules on this site too?</summary>
+            <div class="faq-answer">
+              <p>Yes. This practice board is locked to <strong>freestyle (US rules)</strong> for the US Gomoku Open, but the site also hosts dedicated Renju and 禁手 practice pages — including the World Renju Championship, All Japan Renju Meijinsen, Russian Renju Championship, and China National Gomoku Championship modes linked in the footer. American players who want to compete internationally often practice Renju there separately.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../index.html#game">Play Game</a></li>
+            <li><a href="../index.html#rules">Rules</a></li>
+            <li><a href="../index.html#strategy">Strategy</a></li>
+            <li><a href="../blog/">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Tournament Modes</h3>
+          <ul>
+            <li><a href="china-national-gomoku-championship.html">China National Championship</a></li>
+            <li><a href="world-renju-championship.html">RIF World Renju Championship</a></li>
+            <li><a href="all-japan-renju-meijinsen.html">All Japan Renju Meijinsen</a></li>
+            <li><a href="korean-gomoku-championship.html">Korean Gomoku Championship</a></li>
+            <li><a href="russian-renju-championship.html">Russian Renju Championship</a></li>
+            <li><a href="singapore-gomoku-championship.html">Singapore Gomoku Championship</a></li>
+            <li><a href="us-gomoku-open.html">US Gomoku Open</a></li>
+            <li><a href="hong-kong-gomoku-championship.html">Hong Kong Gomoku Championship</a></li>
+            <li><a href="china-youth-gomoku-championship.html">China Youth Gomoku Championship</a></li>
+            <li><a href="japan-student-renju-championship.html">Japan Student Renju Championship</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. Free to play — no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/game.js"></script>
+
+  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true" role="dialog" aria-labelledby="victoryTitle" aria-describedby="victorySubtitle">
+    <div class="victory-card" id="victoryCard" role="document">
+      <div class="victory-icon-wrap" id="victoryIconWrap">
+        <div class="victory-icon" id="victoryIcon">&#9733;</div>
+        <div class="star-burst" id="starBurst"></div>
+      </div>
+      <div class="victory-title" id="victoryTitle" role="heading" aria-level="2"></div>
+      <p class="victory-subtitle" id="victorySubtitle"></p>
+      <button class="cta-btn" id="btnPlayAgain" aria-label="Start a new game">Play Again</button>
+    </div>
+  </div>
+</body>
+</html>

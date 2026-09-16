@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чемпионат России по рэндзю — практика с запрещёнными ходами</title>
+  <meta name="description" content="Практикуйте рэндзю по официальным правилам Чемпионата России по рэндзю. Доска 15×15, запрещённые ходы чёрных (三三, 四四, 長連). Бесплатная игра против ИИ онлайн.">
+  <meta name="keywords" content="чемпионат россии по рэндзю, правила рэндзю, запрещённые ходы, 三三禁手, 四四禁手, 長連禁手, русские правила рэндзю, rif renju rules, renju championship practice, гомоку правила, турнирные правила">
+  <meta name="author" content="Гомоку Онлайн">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/tournaments/russian-renju-championship.html">
+
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/tournaments/russian-renju-championship.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/tournaments/russian-renju-championship.html">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/tournaments/russian-renju-championship.html">
+
+  <meta property="og:title" content="Чемпионат России по рэндзю — практика онлайн">
+  <meta property="og:description" content="Практикуйте рэндзю по официальным правилам Чемпионата России. Доска 15×15, запрещённые ходы чёрных (三三, 四四, 長連).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/tournaments/russian-renju-championship.html">
+  <meta property="og:locale" content="ru_RU">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Чемпионат России по рэндзю — практика онлайн">
+  <meta name="twitter:description" content="Практикуйте рэндзю по официальным правилам Чемпионата России. Запрещённые ходы чёрных (三三, 四四, 長連).">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <!-- Преднастройка игры под правила Чемпионата России по рэндзю -->
+  <script>
+    window.GOMOKU_CONFIG = {
+      boardSize: 15,
+      rule: 'renju',
+      mode: 'pve',
+      difficulty: 'medium',
+      humanColor: 'black',
+      lockBoardSize: true,
+      lockRule: true
+    };
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Практика Чемпионата России по рэндзю",
+    "description": "Практикуйте рэндзю по официальным правилам Чемпионата России, включая запрещённые ходы чёрных (三三, 四四, 長連).",
+    "url": "https://trygomoku.com/ru-RU/tournaments/russian-renju-championship.html",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#game" class="skip-link">Перейти к игре</a>
+
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Основная навигация">
+    <div class="nav-inner">
+      <a href="../../ru-RU/index.html" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить меню навигации" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../../ru-RU/index.html#game">Играть</a></li>
+        <li><a href="../../ru-RU/index.html#rules">Правила</a></li>
+        <li><a href="../../ru-RU/index.html#strategy">Стратегия</a></li>
+        <li><a href="../../ru-RU/blog/">Блог</a></li>
+        <li><a href="../../tournaments/russian-renju-championship.html">English</a></li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="tournament-badge">Режим турнирной практики</p>
+        <h1>Чемпионат России по рэндзю</h1>
+        <p class="hero-subtitle">Россия — одна из сильнейших рэндзю-держав мира. Практикуйтесь по правилам российского чемпионата: доска 15×15 с запрещёнными ходами чёрных (三三, 四四, 長連).</p>
+        <div class="hero-cta">
+          <a href="#game" class="cta-btn">Начать практику &darr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game -->
+    <section id="game" class="game-section" aria-label="Игровое поле гомоку">
+      <div class="container">
+        <div class="game-layout">
+          <div class="game-info" id="gameInfo">
+            <div class="game-status" id="gameStatus">
+              <span class="status-dot" id="statusDot"></span>
+              <span class="status-text" id="statusText" data-i18n="game.your_turn">Ваш ход — Чёрные</span>
+              <span class="ai-depth-indicator" id="aiDepthIndicator" style="display:none;"></span>
+            </div>
+            <div class="renju-foul-toast" id="renjuFoulToast"></div>
+            <div class="renju-foul-backdrop" id="renjuFoulBackdrop"></div>
+            <div class="game-score">
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.black">Чёрные</span> <span class="stone-icon black"></span></span>
+                <span class="score-value" id="scoreBlack">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label"><span data-i18n="game.white">Белые</span> <span class="stone-icon white"></span></span>
+                <span class="score-value" id="scoreWhite">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label" data-i18n="game.draws">Ничьи</span>
+                <span class="score-value" id="scoreDraw">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="board-wrapper" id="boardWrapper">
+            <canvas id="gomokuBoard" aria-label="Игровое поле гомоку, 15×15"></canvas>
+            <canvas id="gomokuOverlay"></canvas>
+          </div>
+
+          <div class="game-controls" id="gameControls">
+            <div class="control-group mode-switch">
+              <span class="control-label" data-i18n="game.mode_label">Режим</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Режим игры">
+                <button class="toggle-btn active" data-mode="pve" role="radio" aria-checked="true" id="btnPvE" data-i18n="game.pve">Против компьютера</button>
+                <button class="toggle-btn" data-mode="pvp" role="radio" aria-checked="false" id="btnPvP" data-i18n="game.pvp">Против друга</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="boardSizeGroup">
+              <span class="control-label" data-i18n="game.board_size_label">Размер доски</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Размер доски">
+                <button class="toggle-btn" data-size="9" role="radio" aria-checked="false" id="btnSize9" data-i18n="game.size_9">9×9</button>
+                <button class="toggle-btn active" data-size="15" role="radio" aria-checked="true" id="btnSize15" data-i18n="game.size_15">15×15</button>
+                <button class="toggle-btn" data-size="19" role="radio" aria-checked="false" id="btnSize19" data-i18n="game.size_19">19×19</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="ruleGroup">
+              <span class="control-label" data-i18n="game.rule_label">Правила</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Набор правил">
+                <button class="toggle-btn" data-rule="freestyle" role="radio" aria-checked="false" id="btnFreestyle" data-i18n="game.freestyle">Свободные</button>
+                <button class="toggle-btn active" data-rule="renju" role="radio" aria-checked="true" id="btnRenju">禁手 (правила рэндзю)</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="difficultyGroup">
+              <span class="control-label" data-i18n="game.difficulty_label">Сложность</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Сложность ИИ">
+                <button class="toggle-btn" data-diff="easy" role="radio" aria-checked="false" id="btnEasy" data-i18n="game.easy">Лёгкая</button>
+                <button class="toggle-btn active" data-diff="medium" role="radio" aria-checked="true" id="btnMedium" data-i18n="game.medium">Средняя</button>
+                <button class="toggle-btn" data-diff="hard" role="radio" aria-checked="false" id="btnHard" data-i18n="game.hard">Сложная</button>
+                <button class="toggle-btn" data-diff="master" role="radio" aria-checked="false" id="btnMaster" data-i18n="game.master">Мастер</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="colorGroup">
+              <span class="control-label" data-i18n="game.you_play_as">Вы играете</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Цвет ваших камней">
+                <button class="toggle-btn active" data-color="black" role="radio" aria-checked="true" id="btnBlack" data-i18n="game.black_first">Чёрные &larr; первыми</button>
+                <button class="toggle-btn" data-color="white" role="radio" aria-checked="false" id="btnWhite" data-i18n="game.white_btn">Белые</button>
+              </div>
+            </div>
+
+            <div class="control-group actions">
+              <button class="action-btn" id="btnHint">&#128161; <span data-i18n="game.hint">Подсказка</span></button>
+              <button class="action-btn" id="btnUndo">&#8630; <span data-i18n="game.undo">Отменить</span></button>
+              <button class="action-btn" id="btnRestart">&#8635; <span data-i18n="game.restart">Заново</span></button>
+              <button class="action-btn" id="btnSound"><span class="sound-icon">&#9834;</span> <span class="sound-text" data-i18n="game.sound_on">Звук</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Правила турнира -->
+    <section id="rules" class="content-section" aria-labelledby="rulesHeading">
+      <div class="container">
+        <h2 id="rulesHeading">Чемпионат России по рэндзю — официальные правила</h2>
+        <p class="section-intro"><strong>Чемпионат России по рэндзю</strong> — главное национальное соревнование по рэндзю в России, проводимое Российской федерацией рэндзю. Ниже приведены основные правила, применяемые на чемпионате, которые данная тренировочная доска выполняет автоматически.</p>
+
+        <div class="rules-steps">
+          <div class="rule-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Доска и камни</h3>
+              <p>Игра ведётся на <strong>доске 15×15</strong>. Один игрок играет <strong>чёрными</strong>, другой — <strong>белыми</strong>. <strong>Чёрные всегда ходят первыми</strong>.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Условие победы</h3>
+              <p>Побеждает тот, кто первым выстроит непрерывный ряд из <strong>пяти камней</strong> по горизонтали, вертикали или диагонали. <strong>Белые</strong> также могут выиграть, собрав <strong>пять или более</strong> камней (длинный ряд разрешён для белых). <strong>Чёрные должны собрать ровно пять</strong> — шесть и более является запрещённым ходом.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Запрещённые ходы чёрных (黑棋禁手)</h3>
+              <p>Для уравновешивания преимущества первого хода чёрным запрещено создавать три типа позиций. Если чёрные делают запрещённый ход, они <strong>немедленно проигрывают</strong>:</p>
+              <ul>
+                <li><strong>三三禁手 (двойной тройник)</strong> — ход, одновременно создающий два или более «живых тройников» (活三).</li>
+                <li><strong>四四禁手 (двойная четвёрка)</strong> — ход, одновременно создающий две или более «четвёрки» (活四 или 冲四).</li>
+                <li><strong>長連禁手 (длинный ряд)</strong> — ход, образующий шесть или более подряд идущих камней.</li>
+              </ul>
+              <p>Чёрные могут победить только ходом <strong>四三 (четвёрка-тройник)</strong> — одним ходом создающим одновременно четвёрку и тройник.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Ничья</h3>
+              <p>Если вся доска заполнена и ни один из игроков не собрал пять в ряд, игра заканчивается <strong>вничью</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rule-note">
+          <p><strong>О правилах открытия:</strong> Российское рэндзю следует <strong>стандарту RIF</strong>. Россия была одним из трёх стран-основательниц RIF (наряду с Японией и Швецией) в 1988 году. Российские игроки выигрывали титулы чемпионов мира несколько раз. Основные соревновательные правила, перечисленные выше — доска 15×15 и запрещённые ходы чёрных — применяются во всех группах чемпионата и строго выполняются данной тренировочной доской.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- О турнире -->
+    <section id="about" class="content-section alt-bg" aria-labelledby="aboutHeading">
+      <div class="container">
+        <h2 id="aboutHeading">О Чемпионате России по рэндзю</h2>
+        <div class="content-grid">
+          <div class="content-text">
+            <p><strong>Чемпионат России по рэндзю</strong> — главное национальное соревнование по рэндзю в России, ежегодно проводимое Российской федерацией рэндзю. Традиция рэндзю в России уходит корнями в советскую эпоху, и СССР был одним из трёх стран-основательниц <strong>RIF (Renju International Federation)</strong> в 1988 году наряду с Японией и Швецией.</p>
+
+            <h3>Наследие чемпионов мира</h3>
+            <p>Российские игроки доминируют в международном рэндзю на протяжении десятилетий. Чемпионами мира из России становились <strong>Aлександр Чингин (Alexander Chingin)</strong>, <strong>Константин Чернецов (Konstantin Chernetsov)</strong> и <strong>Павел Сальников (Pavel Salnikov)</strong>, каждый из которых выигрывал титулы чемпиона мира несколько раз. Россия продолжает ежегодно проводить национальный чемпионат как ключевое отборочное соревнование для сборной России к Чемпионатам мира по рэндзю.</p>
+
+            <h3>Значение правил 禁手</h3>
+            <p>Правила запрещённых ходов (禁手) — определяющая черта соревновательного рэндзю в России. Поскольку гомоку является решённой игрой, в которой чёрные (первый игрок) могут форсировать победу при идеальной игре, правила 禁手 необходимы для честной борьбы. Они заставляют чёрных играть более осторожно и стратегически, делая игру сбалансированной и интересной на высшем уровне.</p>
+          </div>
+          <aside class="content-sidebar" aria-label="Краткие сведения о Чемпионате России по рэндзю">
+            <div class="info-card">
+              <h4>Краткие сведения</h4>
+              <dl>
+                <dt>Полное название</dt>
+                <dd>Чемпионат России по рэндзю</dd>
+                <dt>Организатор</dt>
+                <dd>Российская федерация рэндзю</dd>
+                <dt>Член RIF</dt>
+                <dd>С 1988 года (учредитель)</dd>
+                <dt>Доска</dt>
+                <dd>15×15</dd>
+                <dt>Запрещённые ходы чёрных</dt>
+                <dd>三三, 四四, 長連</dd>
+                <dt>Открытие</dt>
+                <dd>Стандарт RIF (Swap2)</dd>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Советы по практике -->
+    <section id="tips" class="content-section" aria-labelledby="tipsHeading">
+      <div class="container">
+        <h2 id="tipsHeading">Советы по практике с правилами российского чемпионата</h2>
+        <div class="strategy-grid">
+          <article class="strategy-card">
+            <h3>Изучите запрещённые паттерны</h3>
+            <ul>
+              <li>Уделите время изучению того, как выглядит <strong>三三 (двойной тройник)</strong>. Многие новички случайно проигрывают из-за этого правила.</li>
+              <li>В <strong>四四 (двойную четвёрку)</strong> также легко попасть при построении атак.</li>
+              <li>Помните, что <strong>длинный ряд (長連)</strong> из 6+ камней приносит чёрным поражение, а не победу.</li>
+            </ul>
+          </article>
+          <article class="strategy-card">
+            <h3>Играйте чёрными, чтобы освоить 禁手</h3>
+            <ul>
+              <li>Практикуйтесь за чёрных, чтобы выучить запрещённые ходы. Доска будет автоматически отклонять нелегальные ходы.</li>
+              <li>Понимание ограничений сделает вас и более сильным игроком за белых — можно намеренно заводить чёрных в позиции 禁手.</li>
+              <li>Чёрные обязаны побеждать ходом <strong>四三 (четвёрка-тройник)</strong>. Отрабатывайте эту победную комбинацию.</li>
+            </ul>
+          </article>
+          <article class="strategy-card">
+            <h3>Используйте ИИ как спарринг-партнёра</h3>
+            <ul>
+              <li>Начните со сложности <strong>Средняя</strong>, чтобы привыкнуть к правилам запрещённых ходов.</li>
+              <li>Переходите на <strong>Сложную</strong> или <strong>Мастер</strong>, когда научитесь избегать 禁手.</li>
+              <li>Используйте кнопку <strong>Подсказка</strong>, когда не уверены, законен ли ход или стратегически оправдан.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="content-section alt-bg" aria-labelledby="faqHeading">
+      <div class="container">
+        <h2 id="faqHeading">FAQ — Правила Чемпионата России по рэндзю</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Какие запрещённые ходы (禁手) в российских правилах рэндзю?</summary>
+            <div class="faq-answer">
+              <p>У чёрных есть три типа запрещённых ходов: <strong>三三禁手 (двойной тройник)</strong> — создание двумя или более живыми тройниками одним ходом; <strong>四四禁手 (двойная четвёрка)</strong> — создание двух или более четвёрок одним ходом; и <strong>長連禁手 (длинный ряд)</strong> — построение шести или более подряд идущих камней. Если чёрные делают любой из этих ходов, они проигрывают.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Есть ли запрещённые ходы у белых?</summary>
+            <div class="faq-answer">
+              <p>Нет. <strong>У белых нет запрещённых ходов</strong>. Белые могут победить, собрав пять, шесть и более подряд идущих камней. Ограничения применяются только к чёрным, чтобы компенсировать преимущество первого хода.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Была ли Россия учредителем RIF?</summary>
+            <div class="faq-answer">
+              <p>Да. СССР (представленный российскими игроками в рэндзю) был одним из трёх стран-основательниц <strong>Renju International Federation (RIF)</strong> в 1988 году наряду с Японией и Швецией. Россия остаётся ведущей рэндзю-державой по сей день.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Кто известные российские чемпионы мира по рэндзю?</summary>
+            <div class="faq-answer">
+              <p>Среди выдающихся российских чемпионов мира — <strong>Aлександр Чингин (Alexander Chingin)</strong>, <strong>Константин Чернецов (Konstantin Chernetsov)</strong> и <strong>Павел Сальников (Pavel Salnikov)</strong>. Каждый из них выигрывал титулы чемпиона мира несколько раз, что закрепляет за Россией место одной из сильнейших рэндзю-держав мира.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Совпадают ли российские правила рэндзю с японскими?</summary>
+            <div class="faq-answer">
+              <p>Российское рэндзю следует <strong>стандарту RIF</strong>, разделяя ту же основную систему запрещённых ходов (三三, 四四, 長連) с японским <strong>рэндзю</strong>. Оба варианта предназначены для уравновешивания преимущества первого хода чёрных. Главное отличие — в правилах открытия: на российском чемпионате обычно применяется система открытия RIF Swap2. На данной тренировочной доске набор правил обозначен как «禁手 (правила рэндзю)» и применяет стандартные запрещённые ходы.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд», бесплатная.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Быстрые ссылки</h3>
+          <ul>
+            <li><a href="../../ru-RU/index.html#game">Играть</a></li>
+            <li><a href="../../ru-RU/index.html#rules">Правила</a></li>
+            <li><a href="../../ru-RU/index.html#strategy">Стратегия</a></li>
+            <li><a href="../../ru-RU/blog/">Блог</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Режимы турниров</h3>
+          <ul>
+            <li><a href="russian-renju-championship.html">Чемпионат России по рэндзю</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Гомоку Онлайн. Бесплатная игра — регистрация не требуется.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/i18n.js"></script>
+  <script src="../../js/game.js"></script>
+
+  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true" role="dialog" aria-labelledby="victoryTitle" aria-describedby="victorySubtitle">
+    <div class="victory-card" id="victoryCard" role="document">
+      <div class="victory-icon-wrap" id="victoryIconWrap">
+        <div class="victory-icon" id="victoryIcon">&#9733;</div>
+        <div class="star-burst" id="starBurst"></div>
+      </div>
+      <div class="victory-title" id="victoryTitle" role="heading" aria-level="2"></div>
+      <p class="victory-subtitle" id="victorySubtitle"></p>
+      <button class="cta-btn" id="btnPlayAgain" aria-label="Начать новую игру">Играть снова</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Japan Student Renju Championship — Practice 連珠 Online</title>
+  <meta name="description" content="Practice Gomoku under the rules of the Japan Student Renju Championship (全日本学生連珠選手権). 15×15 board, Black forbidden moves (三三, 四四, 長連). For elementary, middle, and high school students. Free online practice vs AI.">
+  <meta name="keywords" content="japan student renju championship, 全日本学生連珠選手権, renju forbidden moves, 三三禁手, 四四禁手, 長連禁手, japanese renju rules, student renju practice, 連珠 tournament rules, 15x15 gomoku">
+  <meta name="author" content="Gomoku Online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/tournaments/japan-student-renju-championship.html">
+
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/tournaments/japan-student-renju-championship.html">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/tournaments/japan-student-renju-championship.html">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/tournaments/japan-student-renju-championship.html">
+
+  <meta property="og:title" content="Japan Student Renju Championship — Practice Online">
+  <meta property="og:description" content="Practice Gomoku with the rules of the Japan Student Renju Championship. 15×15 board, Black forbidden moves (三三, 四四, 長連). For elementary, middle, and high school students.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trygomoku.com/tournaments/japan-student-renju-championship.html">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Japan Student Renju Championship — Practice Online">
+  <meta name="twitter:description" content="Practice Gomoku with the rules of the Japan Student Renju Championship. Black forbidden moves (三三, 四四, 長連).">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Pre-configure the game to Japan Student Renju Championship rules -->
+  <script>
+    window.GOMOKU_CONFIG = {
+      boardSize: 15,
+      rule: 'renju',
+      mode: 'pve',
+      difficulty: 'medium',
+      humanColor: 'black',
+      lockBoardSize: true,
+      lockRule: true
+    };
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Japan Student Renju Championship Practice",
+    "description": "Practice Gomoku under the rules of the Japan Student Renju Championship, including Black forbidden moves (三三, 四四, 長連).",
+    "url": "https://trygomoku.com/tournaments/japan-student-renju-championship.html",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#game" class="skip-link">Skip to game</a>
+
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html#game">Play</a></li>
+        <li><a href="../index.html#rules">Rules</a></li>
+        <li><a href="../index.html#strategy">Strategy</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../ja-JP/tournaments/japan-student-renju-championship.html">日本語</a></li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="tournament-badge">Student Tournament Practice</p>
+        <h1>Japan Student Renju Championship</h1>
+        <p class="hero-subtitle">Practice with the rules of the <em>全日本学生連珠選手権</em> — Japan's student Renju competition. 15×15 board with Black forbidden moves (禁手) — 三三, 四四, 長連. For elementary, middle, and high school students.</p>
+        <div class="hero-cta">
+          <a href="#game" class="cta-btn">Start Practicing &darr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Game -->
+    <section id="game" class="game-section" aria-label="Gomoku game board">
+      <div class="container">
+        <div class="game-layout">
+          <div class="game-info" id="gameInfo">
+            <div class="game-status" id="gameStatus">
+              <span class="status-dot" id="statusDot"></span>
+              <span class="status-text" id="statusText">Your turn — Black</span>
+              <span class="ai-depth-indicator" id="aiDepthIndicator" style="display:none;"></span>
+            </div>
+            <div class="renju-foul-toast" id="renjuFoulToast"></div>
+            <div class="renju-foul-backdrop" id="renjuFoulBackdrop"></div>
+            <div class="game-score">
+              <div class="score-item">
+                <span class="score-label">Black <span class="stone-icon black"></span></span>
+                <span class="score-value" id="scoreBlack">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label">White <span class="stone-icon white"></span></span>
+                <span class="score-value" id="scoreWhite">0</span>
+              </div>
+              <div class="score-item">
+                <span class="score-label">Draws</span>
+                <span class="score-value" id="scoreDraw">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="board-wrapper" id="boardWrapper">
+            <canvas id="gomokuBoard" aria-label="Gomoku game board, 15 by 15 grid"></canvas>
+            <canvas id="gomokuOverlay"></canvas>
+          </div>
+
+          <div class="game-controls" id="gameControls">
+            <div class="control-group mode-switch">
+              <span class="control-label">Mode</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Game mode">
+                <button class="toggle-btn active" data-mode="pve" role="radio" aria-checked="true" id="btnPvE">vs Computer</button>
+                <button class="toggle-btn" data-mode="pvp" role="radio" aria-checked="false" id="btnPvP">vs Friend</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="boardSizeGroup">
+              <span class="control-label">Board Size</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Board size">
+                <button class="toggle-btn" data-size="9" role="radio" aria-checked="false" id="btnSize9">9×9</button>
+                <button class="toggle-btn active" data-size="15" role="radio" aria-checked="true" id="btnSize15">15×15</button>
+                <button class="toggle-btn" data-size="19" role="radio" aria-checked="false" id="btnSize19">19×19</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="ruleGroup">
+              <span class="control-label">Rule Set</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Rule set">
+                <button class="toggle-btn" data-rule="freestyle" role="radio" aria-checked="false" id="btnFreestyle">Freestyle</button>
+                <button class="toggle-btn active" data-rule="renju" role="radio" aria-checked="true" id="btnRenju">禁手 (Renju Rules)</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="difficultyGroup">
+              <span class="control-label">Difficulty</span>
+              <div class="toggle-group" role="radiogroup" aria-label="AI difficulty">
+                <button class="toggle-btn" data-diff="easy" role="radio" aria-checked="false" id="btnEasy">Easy</button>
+                <button class="toggle-btn active" data-diff="medium" role="radio" aria-checked="true" id="btnMedium">Medium</button>
+                <button class="toggle-btn" data-diff="hard" role="radio" aria-checked="false" id="btnHard">Hard</button>
+                <button class="toggle-btn" data-diff="master" role="radio" aria-checked="false" id="btnMaster">Master</button>
+              </div>
+            </div>
+
+            <div class="control-group" id="colorGroup">
+              <span class="control-label">You play as</span>
+              <div class="toggle-group" role="radiogroup" aria-label="Your stone color">
+                <button class="toggle-btn active" data-color="black" role="radio" aria-checked="true" id="btnBlack">Black &larr; first</button>
+                <button class="toggle-btn" data-color="white" role="radio" aria-checked="false" id="btnWhite">White</button>
+              </div>
+            </div>
+
+            <div class="control-group actions">
+              <button class="action-btn" id="btnHint">&#128161; Hint</button>
+              <button class="action-btn" id="btnUndo">&#8630; Undo</button>
+              <button class="action-btn" id="btnRestart">&#8635; Restart</button>
+              <button class="action-btn" id="btnSound"><span class="sound-icon">&#9834;</span> Sound</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tournament Rules -->
+    <section id="rules" class="content-section" aria-labelledby="rulesHeading">
+      <div class="container">
+        <h2 id="rulesHeading">Japan Student Renju Championship — Rules</h2>
+        <p class="section-intro">The <strong>全日本学生連珠選手権</strong> (Japan Student Renju Championship) is Japan's premier student Renju competition, organized by the Japan Renju Federation. Below are the core rules used in the competitive divisions, which this practice board enforces automatically.</p>
+
+        <div class="rules-steps">
+          <div class="rule-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Board &amp; Stones</h3>
+              <p>Played on a <strong>15×15 grid</strong>. One player uses <strong>black stones</strong>, the other <strong>white stones</strong>. <strong>Black always moves first</strong>.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Winning Condition</h3>
+              <p>The first player to form an unbroken line of <strong>five stones</strong> horizontally, vertically, or diagonally wins. <strong>White</strong> may also win with <strong>five or more</strong> (overline allowed for White). <strong>Black must form exactly five</strong> — six or more is a forbidden move.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Black Forbidden Moves (黒棋禁手)</h3>
+              <p>To balance Black's first-move advantage, Black is forbidden from creating three patterns. If Black plays a forbidden move, <strong>Black loses immediately</strong>:</p>
+              <ul>
+                <li><strong>三三禁手 (Double Three)</strong> — placing a stone that simultaneously creates two or more "live threes" (活三).</li>
+                <li><strong>四四禁手 (Double Four)</strong> — placing a stone that simultaneously creates two or more "fours" (活四 or 冲四).</li>
+                <li><strong>長連禁手 (Overline)</strong> — placing a stone that forms six or more consecutive stones.</li>
+              </ul>
+              <p>Black can only win by a <strong>四三 (Four-Three)</strong> — one four and one three from the same move.</p>
+            </div>
+          </div>
+          <div class="rule-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Student Divisions</h3>
+              <p>The championship features divisions for <strong>elementary school (小学生)</strong>, <strong>middle school (中学生)</strong>, and <strong>high school (高校生)</strong> students. Each division lets students compete against peers of similar age and experience.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rule-note">
+          <p><strong>Note on the rule system:</strong> The student championship follows standard Japanese Renju rules. Some younger divisions may use simplified rules, but the competitive divisions use the full <strong>禁手 rules</strong> (三三, 四四, 長連). This practice board enforces the full 禁手 rules so students can train against the competitive standard.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Tournament -->
+    <section id="about" class="content-section alt-bg" aria-labelledby="aboutHeading">
+      <div class="container">
+        <h2 id="aboutHeading">About the Japan Student Renju Championship</h2>
+        <div class="content-grid">
+          <div class="content-text">
+            <p>The <strong>全日本学生連珠選手権</strong> (Japan Student Renju Championship) is Japan's premier student Renju competition. It is organized by the <strong>Japan Renju Federation</strong> and held annually, providing a national stage for young Renju talent.</p>
+
+            <h3>Promoting Renju Among Young Players</h3>
+            <p>The championship exists to <strong>promote Renju among young players</strong>. By offering divisions for elementary, middle, and high school students, it gives players a clear path from their first games to competitive play against peers nationwide.</p>
+
+            <h3>Connection to the Meijinsen</h3>
+            <p>Strong student performers often go on to compete in the <strong>All Japan Renju Meijinsen</strong>, Japan's most prestigious Renju title. The student championship is therefore an important stepping stone toward the highest levels of Japanese Renju.</p>
+          </div>
+          <aside class="content-sidebar" aria-label="Quick facts about the Japan Student Renju Championship">
+            <div class="info-card">
+              <h4>Quick Facts</h4>
+              <dl>
+                <dt>Full Name</dt>
+                <dd>全日本学生連珠選手権</dd>
+                <dt>Divisions</dt>
+                <dd>Elementary, Middle, High School</dd>
+                <dt>Board</dt>
+                <dd>15×15</dd>
+                <dt>Rules</dt>
+                <dd>禁手 (Renju)</dd>
+                <dt>Black Forbidden</dt>
+                <dd>三三, 四四, 長連</dd>
+                <dt>Win for Black</dt>
+                <dd>Exactly 5 in a row</dd>
+                <dt>Win for White</dt>
+                <dd>5 or more in a row</dd>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips for Students -->
+    <section id="tips" class="content-section" aria-labelledby="tipsHeading">
+      <div class="container">
+        <h2 id="tipsHeading">Tips for Student Renju Practice</h2>
+        <div class="strategy-grid">
+          <article class="strategy-card">
+            <h3>Learn the Forbidden Patterns</h3>
+            <ul>
+              <li>Spend time studying what a <strong>三三 (double three)</strong> looks like. Many students lose accidentally to this rule.</li>
+              <li>A <strong>四四 (double four)</strong> is also easy to stumble into when building attacks.</li>
+              <li>Remember that a <strong>長連 (overline)</strong> of 6+ stones counts as a loss for Black, not a win.</li>
+            </ul>
+          </article>
+          <article class="strategy-card">
+            <h3>Play as Black to Master 禁手</h3>
+            <ul>
+              <li>Practice as Black to learn which moves are forbidden. The board will reject illegal moves automatically.</li>
+              <li>Understanding the restrictions will make you a stronger White player too — you can deliberately steer Black into 禁手 positions.</li>
+              <li>Black must win with a <strong>四三 (four-three)</strong>. Practice setting up this winning combination.</li>
+            </ul>
+          </article>
+          <article class="strategy-card">
+            <h3>Train for Your Division</h3>
+            <ul>
+              <li>Start on <strong>Medium</strong> difficulty to get used to the forbidden-move rules used in the competitive divisions.</li>
+              <li>Move up to <strong>Hard</strong> or <strong>Master</strong> once you're comfortable avoiding 禁手.</li>
+              <li>Use the <strong>Hint</strong> button when you're unsure whether a move is legal or strategically sound.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="content-section alt-bg" aria-labelledby="faqHeading">
+      <div class="container">
+        <h2 id="faqHeading">FAQ — Japan Student Renju Championship Rules</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What are the forbidden moves (禁手) in Japanese Renju?</summary>
+            <div class="faq-answer">
+              <p>Black has three types of forbidden moves: <strong>三三禁手 (double three)</strong> — creating two or more live threes in one move; <strong>四四禁手 (double four)</strong> — creating two or more fours in one move; and <strong>長連禁手 (overline)</strong> — forming six or more consecutive stones. If Black makes any of these moves, Black loses the game.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Does White also have forbidden moves?</summary>
+            <div class="faq-answer">
+              <p>No. <strong>White has no forbidden moves</strong>. White can win with five, six, or more consecutive stones. The restrictions apply only to Black to compensate for the first-move advantage.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>What student divisions does the championship have?</summary>
+            <div class="faq-answer">
+              <p>The championship features divisions for <strong>elementary school (小学生)</strong>, <strong>middle school (中学生)</strong>, and <strong>high school (高校生)</strong> students. Each division lets students compete against peers of similar age and experience.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Can Black win with six or more in a row?</summary>
+            <div class="faq-answer">
+              <p>No. In Renju rules, Black can only win with <strong>exactly five</strong> consecutive stones. Six or more is a <strong>長連禁手 (overline)</strong> and results in an immediate loss for Black. White, however, can win with five or more.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Is the student championship connected to the Meijinsen?</summary>
+            <div class="faq-answer">
+              <p>Yes. Strong student performers often go on to compete in the <strong>All Japan Renju Meijinsen</strong>, Japan's most prestigious Renju title. The student championship is therefore an important stepping stone toward the highest levels of Japanese Renju.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../index.html#game">Play Game</a></li>
+            <li><a href="../index.html#rules">Rules</a></li>
+            <li><a href="../index.html#strategy">Strategy</a></li>
+            <li><a href="../blog/">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Tournament Modes</h3>
+          <ul>
+            <li><a href="china-national-gomoku-championship.html">China National Championship</a></li>
+            <li><a href="world-renju-championship.html">World Renju Championship</a></li>
+            <li><a href="all-japan-renju-meijinsen.html">All Japan Renju Meijinsen</a></li>
+            <li><a href="korean-gomoku-championship.html">Korean Gomoku Championship</a></li>
+            <li><a href="russian-renju-championship.html">Russian Renju Championship</a></li>
+            <li><a href="hong-kong-gomoku-championship.html">Hong Kong Gomoku Championship</a></li>
+            <li><a href="china-youth-gomoku-championship.html">China Youth Gomoku Championship</a></li>
+            <li><a href="japan-student-renju-championship.html">Japan Student Renju Championship</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. Free to play — no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/i18n.js"></script>
+  <script src="../js/game.js"></script>
+
+  <div class="victory-overlay" id="victoryOverlay" aria-hidden="true" role="dialog" aria-labelledby="victoryTitle" aria-describedby="victorySubtitle">
+    <div class="victory-card" id="victoryCard" role="document">
+      <div class="victory-icon-wrap" id="victoryIconWrap">
+        <div class="victory-icon" id="victoryIcon">&#9733;</div>
+        <div class="star-burst" id="starBurst"></div>
+      </div>
+      <div class="victory-title" id="victoryTitle" role="heading" aria-level="2"></div>
+      <p class="victory-subtitle" id="victorySubtitle"></p>
+      <button class="cta-btn" id="btnPlayAgain" aria-label="Start a new game">Play Again</button>
+    </div>
+  </div>
+</body>
+</html>
