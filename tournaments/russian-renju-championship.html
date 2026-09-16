@@ -54,6 +54,52 @@
       lockBoardSize: true,
       lockRule: true
     };
+
+  // Fallback: enforce correct button states even with cached old game.js
+  window.addEventListener('load', function () {
+    var cfg = window.GOMOKU_CONFIG || {};
+    setTimeout(function () {
+      var fs = document.getElementById('btnFreestyle');
+      var rj = document.getElementById('btnRenju');
+      if (fs && rj && cfg.rule) {
+        fs.classList.toggle('active', cfg.rule === 'freestyle');
+        fs.setAttribute('aria-checked', cfg.rule === 'freestyle');
+        rj.classList.toggle('active', cfg.rule === 'renju');
+        rj.setAttribute('aria-checked', cfg.rule === 'renju');
+      }
+      if (cfg.lockRule) {
+        var rBtns = document.querySelectorAll('#ruleGroup .toggle-btn');
+        for (var i = 0; i < rBtns.length; i++) rBtns[i].disabled = true;
+        var rg = document.getElementById('ruleGroup');
+        if (rg) rg.classList.add('control-locked');
+      }
+      if (cfg.lockBoardSize) {
+        var sBtns = document.querySelectorAll('#boardSizeGroup .toggle-btn');
+        for (var j = 0; j < sBtns.length; j++) sBtns[j].disabled = true;
+        var sg = document.getElementById('boardSizeGroup');
+        if (sg) sg.classList.add('control-locked');
+      }
+      var s9 = document.getElementById('btnSize9');
+      var s15 = document.getElementById('btnSize15');
+      var s19 = document.getElementById('btnSize19');
+      if (s9) { s9.classList.toggle('active', cfg.boardSize === 9); s9.setAttribute('aria-checked', cfg.boardSize === 9); }
+      if (s15) { s15.classList.toggle('active', cfg.boardSize === 15); s15.setAttribute('aria-checked', cfg.boardSize === 15); }
+      if (s19) { s19.classList.toggle('active', cfg.boardSize === 19); s19.setAttribute('aria-checked', cfg.boardSize === 19); }
+      var dBtns = { easy: 'btnEasy', medium: 'btnMedium', hard: 'btnHard', master: 'btnMaster' };
+      for (var dk in dBtns) {
+        var db = document.getElementById(dBtns[dk]);
+        if (db) db.classList.toggle('active', cfg.difficulty === dk);
+      }
+      var bBtn = document.getElementById('btnBlack');
+      var wBtn = document.getElementById('btnWhite');
+      if (bBtn) { bBtn.classList.toggle('active', cfg.humanColor === 'black'); bBtn.setAttribute('aria-checked', cfg.humanColor === 'black'); }
+      if (wBtn) { wBtn.classList.toggle('active', cfg.humanColor === 'white'); wBtn.setAttribute('aria-checked', cfg.humanColor === 'white'); }
+      var pve = document.getElementById('btnPvE');
+      var pvp = document.getElementById('btnPvP');
+      if (pve) { pve.classList.toggle('active', cfg.mode === 'pve'); pve.setAttribute('aria-checked', cfg.mode === 'pve'); }
+      if (pvp) { pvp.classList.toggle('active', cfg.mode === 'pvp'); pvp.setAttribute('aria-checked', cfg.mode === 'pvp'); }
+    }, 0);
+  });
   </script>
 
   <script type="application/ld+json">
@@ -388,8 +434,8 @@
     </div>
   </footer>
 
-  <script src="../js/i18n.js"></script>
-  <script src="../js/game.js"></script>
+  <script src="../js/i18n.js?v=20260916"></script>
+  <script src="../js/game.js?v=20260916"></script>
 
   <div class="victory-overlay" id="victoryOverlay" aria-hidden="true" role="dialog" aria-labelledby="victoryTitle" aria-describedby="victorySubtitle">
     <div class="victory-card" id="victoryCard" role="document">
