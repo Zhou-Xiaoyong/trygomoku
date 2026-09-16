@@ -778,6 +778,36 @@ function initPreferences() {
   BOARD_SIZE = 15;
   STAR_POINTS = getStarPoints(15);
   hintMove = null;
+
+  // Page-level override (e.g. tournament-specific rule pages)
+  // Set window.GOMOKU_CONFIG before game.js loads to pre-configure.
+  // Supported keys: boardSize(9|15|19), rule('freestyle'|'renju'),
+  // mode('pve'|'pvp'), difficulty, humanColor('black'|'white'),
+  // lockBoardSize(bool), lockRule(bool).
+  var cfg = (typeof window !== 'undefined' && window.GOMOKU_CONFIG) || {};
+  if (cfg.boardSize === 9 || cfg.boardSize === 15 || cfg.boardSize === 19) {
+    boardSize = cfg.boardSize;
+    BOARD_SIZE = cfg.boardSize;
+    STAR_POINTS = getStarPoints(cfg.boardSize);
+  }
+  if (cfg.rule === 'freestyle' || cfg.rule === 'renju') {
+    gameRule = cfg.rule;
+  }
+  if (cfg.mode === 'pve' || cfg.mode === 'pvp') {
+    gameMode = cfg.mode;
+  }
+  if (cfg.difficulty === 'easy' || cfg.difficulty === 'medium' ||
+      cfg.difficulty === 'hard' || cfg.difficulty === 'master') {
+    difficulty = cfg.difficulty;
+  }
+  if (cfg.humanColor === 'black') {
+    humanColor = BLACK;
+    aiColor = WHITE;
+  } else if (cfg.humanColor === 'white') {
+    humanColor = WHITE;
+    aiColor = BLACK;
+  }
+  aiColor = gameMode === 'pve' ? (humanColor === BLACK ? WHITE : BLACK) : null;
 }
 
 function resetBoard() {
@@ -2815,6 +2845,21 @@ function setupUI() {
   // Rule buttons (may not exist on all pages)
   _on('btnFreestyle', 'click', function () { switchRule('freestyle'); });
   _on('btnRenju', 'click', function () { switchRule('renju'); });
+
+  // Tournament-page locks: disable board-size / rule switching
+  var cfg2 = (typeof window !== 'undefined' && window.GOMOKU_CONFIG) || {};
+  if (cfg2.lockBoardSize) {
+    var sizeBtns = document.querySelectorAll('#boardSizeGroup .toggle-btn');
+    for (var s = 0; s < sizeBtns.length; s++) sizeBtns[s].disabled = true;
+    var sizeGroup = document.getElementById('boardSizeGroup');
+    if (sizeGroup) sizeGroup.classList.add('control-locked');
+  }
+  if (cfg2.lockRule) {
+    var ruleBtns = document.querySelectorAll('#ruleGroup .toggle-btn');
+    for (var r = 0; r < ruleBtns.length; r++) ruleBtns[r].disabled = true;
+    var ruleGroup = document.getElementById('ruleGroup');
+    if (ruleGroup) ruleGroup.classList.add('control-locked');
+  }
 }
 
 
