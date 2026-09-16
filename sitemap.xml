@@ -67,6 +67,60 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/tournaments/singapore-gomoku-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/tournaments/singapore-gomoku-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/tournaments/us-gomoku-open.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/tournaments/hong-kong-gomoku-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/tournaments/hong-kong-gomoku-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/tournaments/china-youth-gomoku-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/tournaments/china-youth-gomoku-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/tournaments/japan-student-renju-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ja-JP/tournaments/japan-student-renju-championship.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/about</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
