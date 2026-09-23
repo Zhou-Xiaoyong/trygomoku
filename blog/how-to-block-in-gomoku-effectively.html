@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/how-to-block-in-gomoku-effectively">
+  <link rel="prefetch" href="/ja-JP/blog/how-to-block-in-gomoku-effectively">
+  <link rel="prefetch" href="/ko-KR/blog/how-to-block-in-gomoku-effectively">
+  <link rel="prefetch" href="/ru-RU/blog/how-to-block-in-gomoku-effectively">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Block in Gomoku Effectively: A Defensive Playbook | Gomoku Blog</title>
+  <meta name="description" content="Learn how to block in gomoku effectively: which threats you must answer right now, where to place the blocking stone, why over-blocking loses games, and when a counter-threat beats a block.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/how-to-block-in-gomoku-effectively">
+  <meta property="og:title" content="How to Block in Gomoku Effectively">
+  <meta property="og:description" content="Stop answering the wrong threat. Threat priority, block placement, and when a counter-threat is the better defence.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/how-to-block-in-gomoku-effectively">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Block in Gomoku Effectively">
+  <meta name="twitter:description" content="Read the threat, pick the right square, and know when not to block at all.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">How to Block in Gomoku Effectively: A Defensive Playbook</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-23">2026-09-23</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Blocking Is Not the Passive Move</h2>
+<p>Most beginners treat <strong>blocking in gomoku</strong> as the move you make when there is nothing better to do. That framing is exactly why they lose. A well-timed block deletes your opponent's next idea, buys you a tempo, and often hands you the initiative. A late or badly-placed block just starts a chain of fires you can never quite put out. Learning to defend properly is worth more rating than learning one more fancy attacking pattern.</p>
+<p>The aim of this guide is to turn blocking from a reflex into a decision: read the threat, rank it, place the stone where it actually cuts the line &mdash; and know when blocking is the wrong move altogether.</p>
+
+<h2>Rule 1: Count the Threats Before You Move</h2>
+<p>Almost every &ldquo;how did I lose that&rdquo; moment in gomoku comes from answering a threat that was never the real problem. Before you touch a stone, scan the board for three categories of danger:</p>
+<ul>
+<li><strong>An open four.</strong> Four in a row with both ends free, one move from five. If it is your turn and your opponent already has one, there is no defence &mdash; you can close only one end. Open fours have to be prevented one move earlier, always.</li>
+<li><strong>An open three.</strong> Three in a row with both ends free. Leave it and it becomes an open four, and an open four wins. This is the threat you must answer <em>now</em>.</li>
+<li><strong>A fork in progress.</strong> Any square that would create two of the above at once.</li>
+</ul>
+<p>The rule of thumb: <em>answer the open three, always; answer the closed three only when it is part of a bigger shape; never spend a move on a two that is doing nothing.</em> Spotting these shapes fast is a separate skill &mdash; it is what <a href="pattern-recognition-gomoku">pattern recognition in gomoku</a> trains &mdash; and it is the single biggest lever on how fast you can defend.</p>
+
+<h2>Rule 2: Block the Intersection, Not the Nearest Stone</h2>
+<p>Where you place the blocking stone matters as much as remembering to place it. A horizontal open three can be stopped at two squares, but only one of them also helps your own vertical or diagonal line.</p>
+<p>Block one end of an open three and the other end is still live: your opponent simply plays there, gets a closed four, and you have to answer all over again. That is a lost tempo, and sometimes it cannot be avoided. But when you do have a choice, prefer the square that:</p>
+<ol>
+<li>also cuts a diagonal or vertical line of your opponent's;</li>
+<li>connects to your own stones, so the block doubles as development;</li>
+<li>faces the centre, where your future lines have room to run.</li>
+</ol>
+<p>This is the most profitable single upgrade for an intermediate player: the same defensive move, one square different, that also builds something. It is the bridge into <a href="advanced-gomoku-strategy">advanced gomoku strategy</a> &mdash; defence that quietly gains tempo instead of merely surviving.</p>
+
+<h2>Rule 3: Do Not Chase Every Threat</h2>
+<p>Over-blocking is the most expensive habit in the game, and it looks like solid play. You block one three, then the next, then the next &mdash; and then you lose to a threat that was built <em>because</em> you kept spending stones on the wrong side of the board.</p>
+<p>Three signals that you are over-blocking:</p>
+<ul>
+<li><strong>All your stones are on the edges.</strong> Defensive blocks strand you away from the centre, where lines actually go somewhere.</li>
+<li><strong>You have blocked four moves in a row.</strong> If your opponent has produced a live threat on every single turn, the game was already lost several moves back. The fix is earlier prevention, not another block.</li>
+<li><strong>Your blocks do not connect.</strong> A block that links to nothing wastes a stone twice: it only postpones the threat and grows your own attack by zero.</li>
+</ul>
+<p>If two or more of these are true, stop blocking and ask a different question: <em>can I make a threat of my own?</em> A counter-threat forces your opponent to answer you, which is a strictly better version of a block. The ways people burn moves like this are worth reading once, slowly: <a href="common-gomoku-mistakes">common gomoku mistakes</a>.</p>
+
+<h2>Rule 4: Sometimes the Right Block Is a Threat</h2>
+<p>In a balanced position, the strongest defence is often an attack with a defensive side-effect. Say your opponent has an open three on one line and you have an open two on another. Extending your two into an open three does two things at once:</p>
+<ol>
+<li>it forces your opponent to stop and answer <em>you</em>;</li>
+<li>it keeps your own line growing instead of frozen.</li>
+</ol>
+<p>It is a tempo exchange: you hand over the obligation to block. It only works if your threat is at least as urgent as theirs &mdash; an open three for an open three is fine, a sleepy two against an open three is suicide. When the threats are not comparable, block.</p>
+
+<h2>Rule 5: Know When Blocking Is Already Too Late</h2>
+<p>Two positions cannot be saved by a block, and recognising them early stops you from wasting moves that could have built a counter-attack:</p>
+<ul>
+<li><strong>Your opponent already has a double threat (a fork).</strong> Two independent lines, one stone. You can answer only one of them. If it is your move, go looking for your own fastest forcing sequence instead &mdash; a defensive move here is a resignation in slow motion.</li>
+<li><strong>Your opponent has an open four.</strong> The game ends next move whatever you do. A block buys one extra turn, and that only matters if that turn wins the game for you.</li>
+</ul>
+<p>In both cases the move that saves you is almost never a block. It is the fastest forcing sequence you have, played immediately.</p>
+
+<h2>A Three-Step Blocking Checklist</h2>
+<p>Run this in the ten seconds before every defensive move. It is deliberately short, because long checklists never get used in a real game:</p>
+<ol>
+<li><strong>What is the biggest threat right now?</strong> Open four &gt; fork &gt; open three &gt; closed three.</li>
+<li><strong>Can I answer it with a threat of my own?</strong> If yes, and the threats are comparable, play the threat.</li>
+<li><strong>If I must block, is this the square that also builds?</strong> Same-line intersection, connected to my stones, facing the centre.</li>
+</ol>
+<p>Three questions, in that order. Most club-level players who plateau are skipping question two.</p>
+
+<h2>Drilling It</h2>
+<p>Blocking is a reading skill, not a knowledge skill, so it has to be practised under pressure. A simple routine that works:</p>
+<ul>
+<li>Play one game where you deliberately defend for the first ten moves, and after each move note which threat you answered and whether a threat of your own was available.</li>
+<li>Replay the game afterwards and find the exact move where blocking stopped working.</li>
+<li>Set the computer a notch above your comfort zone and try to reach move twenty without ever handing over an open four.</li>
+</ul>
+<p>You can start that right now, free, with no download and no sign-up: <a href="../#game">open a board and play a game</a>, giving yourself the rule &ldquo;no defensive stone that does not also build.&rdquo; It will feel awkward for ten minutes, and then something clicks.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Practise the Block</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Defence is a skill you can only build on a board. Open a free game and run the three-step checklist yourself.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Block in Gomoku Effectively: A Defensive Playbook",
+    "description": "Learn how to block in gomoku effectively: which threats you must answer right now, where to place the blocking stone, why over-blocking loses games, and when a counter-threat beats a block.",
+    "datePublished": "2026-09-23",
+    "dateModified": "2026-09-23",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/how-to-block-in-gomoku-effectively"}
+  }
+  </script>
+</body>
+</html>
