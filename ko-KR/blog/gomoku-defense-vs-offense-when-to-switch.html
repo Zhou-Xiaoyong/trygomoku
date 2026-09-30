@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 공수 전환: 언제 공격하고 언제 수비할까 | 오목 블로그</title>
+  <meta name="description" content="오목에서 공격과 수비를 바꾸는 기준을 정리했습니다. 세 가지 질문으로 판단하고, 수 계산으로 먼저 완성되는 위협을 가려내며, 승리를 놓치는 네 가지 실수를 피하는 방법.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch">
+  <meta property="og:title" content="오목 공수 전환: 언제 공격하고 언제 수비할까">
+  <meta property="og:description" content="세 가지 질문과 수 계산으로 지금 공격할지 수비할지 판단하는 기준을 정리했습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 공수 전환: 언제 공격하고 언제 수비할까">
+  <meta name="twitter:description" content="세 가지 질문과 수 계산으로 공수 전환 시점을 잡는 방법.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">오목 공수 전환: 언제 공격하고 언제 수비할까</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-30">2026-09-30</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>공격과 수비는 성격이 아니라 하나의 판단</h2>
+<p>오목을 막 배운 사람일수록 공격형과 수비형을 성격 문제로 봅니다. 신중한 사람, 과감한 사람——하지만 그렇게 나누면 집니다. <a href="/ko-KR/#game">오목</a>은 먼저 다섯 개를 이은 쪽이 그대로 승리합니다. 지켜야 할 점수도, 주고받을 영역도 없습니다. 놓는 돌은 언제나 '위협을 만드는 수' 아니면 '위협에 응수하는 수'이고, 위협을 계속 만드는 쪽이 이깁니다. 진짜 실력은 '공격적인가 수비적인가'가 아니라, 국면을 읽고 바꿔야 할 순간에 바꾸는 것입니다.</p>
+<p>이 글에서는 그 전환을 판단하는 세 가지 질문, 그 뒤에 있는 '수 계산법', 그리고 승리를 놓치는 대표적인 실수를 정리합니다.</p>
+
+<h2>'공격할까 수비할까'가 아니라 '누가 상대를 묶고 있나'</h2>
+<p>공격과 수비는 대립 개념이 아닙니다. 상대를 막으면서 동시에 자기 줄을 늘리는 수는 수비 옷을 입은 공격입니다. 반대로 '안전해 보이는' 자리에 잘못 놓은 돌은 그냥 버린 한 수입니다.</p>
+<p>실제로 오가는 것은 <strong>템포</strong>, 즉 상대에게 응수를 강요할 권리입니다. 상대가 응하지 않으면 지는 수만 <em>강제수</em>입니다. 열린 셋은 강제이고, 열린 넷은 더 강합니다. 닫힌 셋은 대개 강제하지 못합니다. 상대는 그것을 무시하고 자기 모양을 만들고, 나는 한 수를 더 써서 마무리하게 됩니다.</p>
+<p>그래서 실전 질문은 '공격이냐 수비냐'가 아니라, <em>지금 누구의 위협이 상대를 묶고 있고, 서로 몇 수 남았는가</em>입니다.</p>
+
+<h2>전환을 정하는 세 가지 질문</h2>
+<p>돌을 놓기 전에 순서대로 확인합니다.</p>
+<ol>
+<li><strong>상대에게 따라잡을 수 없는 위협이 있는가.</strong> 열린 셋이면 해당합니다. 열린 넷은 이미 진 것이고, 애초에 만들어 주면 안 됩니다. 강제 위협이 있는 순간 수비는 선택지가 아닙니다.</li>
+<li><strong>한 수로 둘 다 할 수 있는가.</strong> 오목에서 가장 값진 자리는 상대 위협을 지우면서 내 줄을 늘리는 자리입니다. 그런 수가 있으면 애초에 고를 필요가 없습니다.</li>
+<li><strong>지금 막고 나서 되돌아올 수 있는가.</strong> 막은 뒤 내 모든 줄이 죽는다면 그것은 느린 항복입니다. 적어도 중앙으로 향하는 활선 하나는 남기는 수비를 고르세요.</li>
+</ol>
+<p>답이 '위협 없음', '막아도 이득 없음', '시간은 충분'이라면 공격입니다. 판단은 이게 전부입니다.</p>
+
+<h2>수 계산법: 어느 위협이 먼저 끝나는가</h2>
+<p>양쪽에 위협이 있을 때는 크기를 비교하지 말고 <strong>수</strong>를 비교합니다.</p>
+<ul>
+<li>내 위협이 한 수, 상대가 두 수라면——상대를 무시하고 이깁니다. 아마추어 대국에서 가장 흔히 놓치는 승리입니다. 내 넷이 한 수면 끝나는데 상대의 열린 셋을 보고 막아 버리는 경우입니다.</li>
+<li>둘 다 한 수라면, 차례가 나이고 그 한 수로 끝낼 수 있을 때만 먼저 완성됩니다. 아니면 막아야 합니다.</li>
+<li>내가 두 수, 상대가 한 수라면 읽기 착오입니다. 공격하는 것이 아니라 한 수 늦은 것입니다. 지금은 막고 다시 짜야 합니다.</li>
+</ul>
+<p>세는 것은 <em>내 수</em>이고, 판 위의 돌 개수가 아닙니다. 이 규율이 '이기는 공격'과 '공격을 좋아할 뿐'을 갈라놓습니다.</p>
+
+<h2>정말 수비해야 하는 국면</h2>
+<p>수비가 분명히 맞는 경우는 세 가지이고, 어느 것도 두려움과는 무관합니다.</p>
+<ul>
+<li><strong>상대에게 열린 셋이 있고 내게 강제수가 없다.</strong> 내 반격은 두 수, 상대는 한 수. 막습니다.</li>
+<li><strong>내가 꼬박 한 수 뒤처져 있다.</strong> 상대 위협이 더 빨리 도착합니다. 수비는 따라잡기 위한 한 수를 사는 일입니다.</li>
+<li><strong>종반에 들어가 국면이 강제 순서로 좁혀졌다.</strong> 판이 조여지면 한 수의 느슨함이 치명적입니다. 수비는 인내가 아니라 정확성이 됩니다.</li>
+</ul>
+<p>이 목록에 없는 것에 주목하세요. '막는 게 마음 편해서'는 전략이 아닙니다.</p>
+
+<h2>공격으로 바꿔야 할 신호</h2>
+<p>공격 신호는 '기분이 좋아졌다'가 아니라, 상대가 자기 계획을 밀면서 동시에 처리할 수 없는 위협을 한 수로 만들 수 있다는 것입니다.</p>
+<ul>
+<li><strong>내 위협이 상대보다 한 수 빠르다.</strong> 위의 수 계산 그대로입니다.</li>
+<li><strong>한 수로 두 개의 위협을 만들 수 있다.</strong> 쌍위협(포크)은 한 수로 둘 다 막을 수 없어 대개 그대로 승리가 됩니다. 이것을 의도적으로 만드는 것이 <a href="/ko-KR/blog/gomoku-double-threat-fork-strategy">쌍위협(포크) 전술</a>이며, 요지는 '한 수로 둘을 만들 수 있으면 하나에 만족하지 말라'입니다.</li>
+<li><strong>상대의 '위협'이 죽은 셋이다.</strong> 양끝이 막힌 셋은 장식입니다. 응수하는 것은 템포 낭비입니다. 내 수를 두고 상대가 한 수를 쓰게 하세요.</li>
+<li><strong>수비수가 곧 발전수다.</strong> 가장 매끄러운 전환입니다. 막은 돌이 내 공격 줄의 첫 돌이 됩니다.</li>
+</ul>
+
+<h2>공격하는 수비: 반격 위협</h2>
+<p>고수 수준이 되면 공수 경계가 흐려집니다. 상대 위협에 응수하는 대신 다른 곳에 더 큰 위협을 만들어 상대가 먼저 처리하게 합니다. 논리는 역시 수 계산입니다. <em>상대 계획이 두 수, 내가 한 수라면 응수할 필요가 없습니다.</em></p>
+<p>강한 사람이 뻔한 위협을 무시하고 이기는 이유가 이것입니다. 무시하는 것이 아니라, 세어 본 뒤 더 빠른 길을 고른 것입니다. 이런 반격 위협을 꾸준히 보는 것이 <a href="/ko-KR/blog/advanced-gomoku-strategy">오목 고급 전략</a>의 핵심입니다. 공수 전환은 '결정'에서 '국면 읽기'로 바뀝니다.</p>
+
+<h2>컴퓨터를 상대로 전환하기</h2>
+<p>엔진을 상대로는 사정이 조금 다릅니다. 엔진은 사람보다 일관되게 위협을 평가하기 때문입니다. 조정할 점은 두 가지입니다.</p>
+<ul>
+<li><strong>강제수에는 거의 반드시 응수한다.</strong> 이 예측 가능성이 도구가 됩니다. 넷은 위협인 동시에 엔진을 내가 지정한 자리로 '끌어오는' 수입니다. 강제수로 엔진을 실제 승부처에서 떼어내세요.</li>
+<li><strong>지루해하지도, 욕심내지도 않는다.</strong> 사람은 느린 준비를 무시하지만 잘 만든 AI는 그렇지 않습니다. AI를 상대로는 진짜 강제인 위협만으로 공격하세요. 사람이라면 상대하지 않을 이 정도의 '이'는 그냥 무시되고, AI가 자기 순서를 먼저 끝냅니다.</li>
+</ul>
+<p>전환만 집중적으로 연습하고 싶다면 <a href="/ko-KR/blog/beat-gomoku-ai">오목 AI 이기는 법</a>에서 난이도별로 위협을 어떻게 평가하는지 다룹니다. 어떤 수에 반응하는지가 거기서 드러납니다.</p>
+
+<h2>승리를 놓치는 네 가지 실수</h2>
+<ol>
+<li><strong>가장 빠른 위협이 아니라 가장 눈에 띄는 위협을 막는다.</strong> 넓게 퍼진 큰 셋은 눈에 띄지만, 조용히 기다리는 넷은 보이지 않습니다. 보지 말고 세세요.</li>
+<li><strong>공격 전환이 한 수 늦다.</strong> 지난 차례에는 성립하던 공격이 지금은 소방 작업이 됩니다.</li>
+<li><strong>수비로 너무 일찍 돌아간다.</strong> 무해한 이를 막으려고 살아 있는 공격을 버리면 주도권을 그대로 돌려줍니다.</li>
+<li><strong>발전하지 않는 수비.</strong> 내 어느 줄에도 도움이 안 되는 수비수는 템포 기부입니다. 수비수도 반드시 어딘가를 향해야 합니다.</li>
+</ol>
+
+<h2>전환을 훈련하는 복기 습관</h2>
+<p>읽어서는 늘지 않습니다. 한 판 두세요. AI든 친구든 <a href="/ko-KR/#game">판 위</a>에서면 됩니다. 그리고 내 모든 수에 한 글자씩 붙이세요. <strong>A</strong>는 위협을 만든 수, <strong>D</strong>는 위협에 응수한 수입니다. 그리고 되돌아봅니다.</p>
+<ul>
+<li>내가 한 수면 이기는 상황에서 <strong>D</strong>를 두지 않았는가. 그것은 놓친 승리입니다.</li>
+<li>상대에게 열린 셋이 있는데 <strong>A</strong>를 두지 않았는가. 그것은 잃은 한 판입니다.</li>
+<li>두 글자 어디에도 해당하지 않는 수는 없었는가. 그것은 버린 돌입니다.</li>
+</ul>
+<p>이걸 다섯 판만 해 보면 자기 패턴이 뚜렷해집니다. 당신은 수비형도 공격형도 아니고, 그저 전환 시점을 놓치고 있을 뿐이라는 걸 알게 됩니다. 그걸 고치는 것이 어떤 정석을 외우는 것보다 값집니다.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">실전에서 확인해 보세요</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">읽는 것만으로는 늘지 않습니다. 무료 대국을 열고 한 수마다 위협을 세어 보세요.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 플레이하기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 공수 전환: 언제 공격하고 언제 수비할까",
+    "description": "오목에서 공격과 수비를 바꾸는 기준을 정리했습니다. 세 가지 질문으로 판단하고, 수 계산으로 먼저 완성되는 위협을 가려내며, 승리를 놓치는 네 가지 실수를 피하는 방법.",
+    "datePublished": "2026-09-30",
+    "dateModified": "2026-09-30",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch"}
+  }
+  </script>
+</body>
+</html>

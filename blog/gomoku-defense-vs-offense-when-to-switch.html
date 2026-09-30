@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Defense vs Offense: When to Switch Styles | Gomoku Blog</title>
+  <meta name="description" content="Learn when to switch between defense and offense in gomoku: the tempo test, the counting rule that decides attacks, and the mistakes that cost games.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch">
+  <meta property="og:title" content="Gomoku Defense vs Offense: When to Switch Styles">
+  <meta property="og:description" content="Learn when to switch between defense and offense in gomoku: the tempo test, the counting rule that decides attacks, and the mistakes that cost games.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Defense vs Offense: When to Switch Styles">
+  <meta name="twitter:description" content="The tempo test, the counting rule, and the mistakes that cost gomoku games.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Defense vs Offense: When to Switch</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-30">2026-09-30</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Attack and Defence Are One Decision, Not Two Personalities</h2>
+<p>Ask a dozen gomoku players what separates a defensive player from an attacking one and most will describe a temperament: cautious versus bold. That framing loses games. In <a href="../#game">gomoku</a> the first player to line up five stones wins outright &mdash; there is no score to protect and no territory to trade. Every stone you place either creates a threat or answers one, and the player who keeps creating them usually wins. The real skill is not &ldquo;being aggressive&rdquo; or &ldquo;being solid&rdquo;; it is reading the position and switching between the two at the right moment.</p>
+<p>This guide gives you a three-question test for that switch, the counting rule behind it, and the mistakes that turn a winning position into a loss.</p>
+
+<h2>Why &ldquo;Should I Attack or Defend?&rdquo; Is the Wrong Question</h2>
+<p>The question assumes the two are opposites. They are not. A block that also extends your own line is an attacking move wearing a defender&rsquo;s coat. A &ldquo;safe&rdquo; stone in the wrong square is simply a wasted tempo.</p>
+<p>What actually changes hands is <strong>tempo</strong> &mdash; the right to force the other player to react. A move is <em>forcing</em> when your opponent must answer it immediately or lose. An open three forces. An open four forces even harder. A closed three usually does not: your opponent can happily ignore it and build their own threat while you spend another stone finishing it off.</p>
+<p>So the practical question is never &ldquo;attack or defend?&rdquo;. It is: <em>whose threats are forcing right now, and how many moves does each side still need to finish the job?</em></p>
+
+<h2>The Three-Question Test</h2>
+<p>Before you commit a stone to either job, answer these in order:</p>
+<ol>
+<li><strong>Does my opponent have a threat I cannot outrun?</strong> An open three qualifies. An open four means you have already lost &mdash; it should never have been allowed on the board. If a forcing threat exists, defence is no longer optional.</li>
+<li><strong>Can I do both with one move?</strong> The best square in gomoku is the one that answers their threat and extends one of yours at the same time. If such a square exists, you never had to choose.</li>
+<li><strong>If I defend now, do I still have a way back?</strong> A defensive move that leaves every one of your lines dead is a slow resignation. Prefer a block that keeps at least one of your lines alive toward the centre.</li>
+</ol>
+<p>If the answers are &ldquo;no threat&rdquo;, &ldquo;nothing that helps me&rdquo; and &ldquo;plenty of time&rdquo;, then attack. That is the whole framework.</p>
+
+<h2>The Counting Rule: Which Threat Finishes First</h2>
+<p>When both sides have threats on the board, do not compare their size. Compare <strong>move counts</strong>.</p>
+<ul>
+<li>If your threat needs one move to win and theirs needs two, ignore theirs and win. This is the single most common missed win at club level: a player sees the opponent&rsquo;s open three and blocks it, when their own forcing four was one move from victory.</li>
+<li>If both need one move, you go first only if it is your turn and that one move actually completes the line. Otherwise you must defend.</li>
+<li>If your threat needs two moves and theirs needs one, you have misread the position &mdash; you are not attacking, you are one move late. Defend now and rebuild.</li>
+</ul>
+<p>Count <em>your own</em> moves, not the stones already on the board. This discipline is what separates players who win on the attack from players who merely enjoy attacking.</p>
+
+<h2>When Defence Is Genuinely Correct</h2>
+<p>There are three situations where blocking is clearly the right call, and none of them involve fear:</p>
+<ul>
+<li><strong>Your opponent has an open three and you have no forcing move.</strong> Your counter-threat would need two moves; theirs needs one. Block.</li>
+<li><strong>You are a full tempo behind.</strong> Their threats are arriving faster than yours. Blocking is how you buy the single move you need to catch up.</li>
+<li><strong>The endgame has narrowed to a forced sequence.</strong> Once the board is tight, one loose stone is fatal; there is no room left for speculative development. Defence becomes precise rather than patient.</li>
+</ul>
+<p>Notice what is missing from that list: &ldquo;I feel safer blocking.&rdquo; Comfort is not a strategy.</p>
+
+<h2>When to Switch to Attack</h2>
+<p>The signal to attack is not that you feel strong. It is that your move creates a threat your opponent cannot handle while pursuing their own plan:</p>
+<ul>
+<li><strong>Your threat is one move quicker than theirs.</strong> Covered by the counting rule above.</li>
+<li><strong>You can create two threats at once.</strong> A double threat &mdash; the fork &mdash; usually wins outright, because a single reply cannot cover both squares. Building one deliberately is <a href="gomoku-double-threat-fork-strategy">the fork strategy</a> in a sentence: never settle for one threat when the same stone or the next one can make two.</li>
+<li><strong>Their &ldquo;threat&rdquo; is a dead three.</strong> A three with both ends blocked is decoration. Answering it is pure tempo given away. Play your own move instead and let them waste a turn trying to revive it.</li>
+<li><strong>Your defensive move is also a developing move.</strong> This is the smoothest switch of all: you block, and the blocking stone becomes the first stone of your own attacking line.</li>
+</ul>
+
+<h2>Defence That Attacks: the Counter-Threat</h2>
+<p>Advanced play blurs the two categories entirely. Instead of answering a threat, you create a bigger one somewhere else, forcing your opponent to stop and deal with you. The logic is the counting rule again: <em>if his plan takes two moves and mine takes one, I do not need to answer his at all.</em></p>
+<p>This is why strong players seem to ignore obvious threats and still win. They have counted, and they are not ignoring anything &mdash; they have simply found a faster route. Learning to see those counter-threats consistently is what <a href="advanced-gomoku-strategy">advanced gomoku strategy</a> is really about; the switch between attack and defence stops being a decision and becomes a single reading of the board.</p>
+
+<h2>Switching Against the Computer</h2>
+<p>Against an engine the switch has a different flavour, because the engine evaluates threats more consistently than a human does. Two adjustments matter:</p>
+<ul>
+<li><strong>It will almost always answer your forcing moves.</strong> That predictability is a tool: a forcing four does not just threaten, it steers the engine to a square of your choosing. Use forcing moves to drag it away from the area where you actually intend to win.</li>
+<li><strong>It does not get bored or greedy.</strong> A human opponent may ignore your slow build; a well-made bot rarely does. Against the machine, attack only with threats that are genuinely forcing &mdash; a speculative two that no human would bother blocking may simply be ignored while the engine finishes its own sequence.</li>
+</ul>
+<p>If you want to train the switch specifically, <a href="beat-gomoku-ai">beating the gomoku AI</a> walks through how the different difficulty levels evaluate threats, which tells you exactly which moves it will bother to answer.</p>
+
+<h2>Four Mistakes That Cost Games</h2>
+<ol>
+<li><strong>Blocking the loudest threat instead of the fastest one.</strong> A big sprawling three is more visible than a quiet four-in-waiting. Count, do not stare.</li>
+<li><strong>Switching to attack one move too late.</strong> The attacking sequence was available last turn; now it is a defensive emergency.</li>
+<li><strong>Switching back to defence too early.</strong> Abandoning a live attack to block a harmless two hands the initiative straight back.</li>
+<li><strong>Defending without developing.</strong> A pure block that helps no line of yours is a tempo donation. Every defensive stone should still point somewhere.</li>
+</ol>
+
+<h2>A Practice Routine That Trains the Switch</h2>
+<p>You cannot learn this by reading. Play a game &mdash; against the AI or a friend on <a href="../#game">the board</a> &mdash; and annotate every one of your moves with a single letter: <strong>A</strong> for a move that created a threat, <strong>D</strong> for one that answered a threat. Then review:</p>
+<ul>
+<li>Any <strong>D</strong> you played while your own threat was one move from winning? That was a lost win.</li>
+<li>Any <strong>A</strong> you played while your opponent had an open three? That was a lost game.</li>
+<li>Any move that earns neither letter? That was a wasted stone.</li>
+</ul>
+<p>Do this for five games and the pattern in your own play becomes obvious &mdash; you will find you are not really a defensive or an attacking player at all, just someone who switches at the wrong moments. Fixing that is worth more than any new opening you could memorise.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Test the Switch on a Real Board</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">This only sticks once you play it. Open a free game and count the threats before every stone.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Defense vs Offense: When to Switch",
+    "description": "Learn when to switch between defense and offense in gomoku: the tempo test, the counting rule that decides attacks, and the mistakes that cost games.",
+    "datePublished": "2026-09-30",
+    "dateModified": "2026-09-30",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch"}
+  }
+  </script>
+</body>
+</html>

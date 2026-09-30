@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べの攻守の切り替え：攻める時・守る時の判断 | 五目並べブログ</title>
+  <meta name="description" content="五目並べで攻守を切り替えるタイミングを解説。3つの質問で「攻めるか守るか」を判断し、手数計算で先に決まる脅威を見極め、勝ちを逃す4つのミスを避ける方法。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch">
+  <meta property="og:title" content="五目並べの攻守の切り替え：攻める時・守る時の判断">
+  <meta property="og:description" content="3つの質問と手数計算で、いま攻めるべきか守るべきかを判断する方法を解説します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べの攻守の切り替え：攻める時・守る時の判断">
+  <meta name="twitter:description" content="3つの質問と手数計算で、攻守の切り替えどきが分かります。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">五目並べの攻守の切り替え：攻める時、守る時</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-30">2026-09-30</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>攻めと守りは「性格」ではなく、ひとつの判断</h2>
+<p>五目並べを覚えたての人ほど、攻めるか守るかを性格の話だと考えがちです。慎重な人、大胆な人——ですが、それでは勝てません。<a href="/ja-JP/#game">五目並べ</a>は先に五連を作った側がそのまま勝ちます。守るべき得点も、やり取りすべき陣地もありません。打った石は必ず「脅威を作る」か「脅威に応える」かのどちらかで、脅威を作り続けた側が勝ちます。本当の実力は「攻めているか守っているか」ではなく、局面を読んで、切り替えるべき瞬間に切り替えられるかどうかです。</p>
+<p>この記事では、その切り替えを判断する3つの質問、背後にある「手数計算」、そして勝ちを逃す典型的なミスを整理します。</p>
+
+<h2>「攻めるか守るか」ではなく「どちらが相手を縛っているか」</h2>
+<p>攻めと守りは対立概念ではありません。自分の並びを伸ばしながら相手を止める手は、守りの顔をした攻めです。逆に「安全そう」に見えて置き場所を間違えた石は、ただの一手の浪費です。</p>
+<p>実際にやり取りされているのは<strong>テンポ</strong>、つまり相手に応手を強要する権利です。相手が応じなければ負ける、という手だけが<em>強制手</em>です。活三は強制ですし、活四はさらに強力です。死三は普通は強制できません。相手はそれを無視して自分の形を組み、こちらはもう一手使って始末することになります。</p>
+<p>ですから実践的な問いは「攻めか守りか」ではなく、<em>いまどちらの脅威が相手を縛っているか、そして互いにあと何手で仕上がるか</em>です。</p>
+
+<h2>切り替えを決める3つの質問</h2>
+<p>石を置く前に、順番に確認します。</p>
+<ol>
+<li><strong>相手に、追いつけない脅威はあるか。</strong>活三なら該当します。活四はすでに負けで、そもそも作らせてはいけません。強制の脅威がある時点で、守りは選択肢ではなくなります。</li>
+<li><strong>一手で両方を兼ねられないか。</strong>五目並べで最も価値のあるマスは、相手の脅威を消しながら自分のラインを伸ばすマスです。そういう手があるなら、そもそも選ぶ必要がありません。</li>
+<li><strong>いま受けに回って、戻ってこられるか。</strong>受けた結果、自分のすべてのラインが死ぬなら、それは緩やかな降参です。せめて中央へ向かう一本の活線を残す受けを選んでください。</li>
+</ol>
+<p>答えが「脅威なし」「受けても得なし」「時間は十分」なら、攻めです。判断はこれだけです。</p>
+
+<h2>手数計算：どちらの脅威が先に仕上がるか</h2>
+<p>互いに脅威があるときは、脅威の大きさではなく<strong>手数</strong>を比べます。</p>
+<ul>
+<li>自分の脅威があと一手、相手があと二手なら——相手を無視して勝ちます。アマチュアの対局で最もよく見逃される勝ち筋がこれです。自分の四が一手で決まる局面なのに、相手の活三を見て受けに回ってしまう。</li>
+<li>互いにあと一手なら、手番が自分で、しかもその一手で仕上がるときだけ先に決められます。それ以外は受けなければなりません。</li>
+<li>自分があと二手、相手があと一手なら、読み違いです。攻めているのではなく、一手遅れています。いまは受けに回って組み直しましょう。</li>
+</ul>
+<p>数えるのは<em>自分の手数</em>で、盤上の石の数ではありません。この規律が「勝てる攻め」と「攻めが好きなだけ」を分けます。</p>
+
+<h2>守るべき局面</h2>
+<p>守りが明確に正しいのは次の3つで、どれも恐怖とは関係ありません。</p>
+<ul>
+<li><strong>相手に活三があり、自分に強制手がない。</strong>自分の反撃は二手、相手は一手。受けます。</li>
+<li><strong>自分がまるまる一手遅れている。</strong>相手の脅威のほうが速く届く。受けは、追いつくための一手を買う行為です。</li>
+<li><strong>終盤で局面が強制手順に絞られた。</strong>盤面が詰まれば、一手の緩みが致命傷になります。守りは「我慢」ではなく「正確さ」になります。</li>
+</ul>
+<p>このリストにないものに注意してください。「受けたほうが安心する」は戦略ではありません。</p>
+
+<h2>攻めに切り替える合図</h2>
+<p>攻めの合図は「強気になった」ことではなく、相手が自分の計画を進めながらでは処理できない脅威を、一手で作れることです。</p>
+<ul>
+<li><strong>自分の脅威が相手より一手速い。</strong>上の手数計算のとおりです。</li>
+<li><strong>一手で二つの脅威を作れる。</strong>両にらみ（フォーク）は、一手で両方を消せないため、多くの場合そのまま勝ちになります。これを意図的に作るのが<a href="/ja-JP/blog/gomoku-double-threat-fork-strategy">ダブルスレット（フォーク）の戦術</a>であり、要は「一手で二つ作れるなら、一つだけで満足しない」ということです。</li>
+<li><strong>相手の「脅威」が死三である。</strong>両端を止められた三は飾りです。応じるのはテンポの無駄。自分の手を打ち、相手に一手使わせましょう。</li>
+<li><strong>受けの一手が、そのまま自分の攻めの起点になる。</strong>最も滑らかな切り替えです。受けた石が、自分の攻めラインの最初の石になります。</li>
+</ul>
+
+<h2>攻める守り：反撃の脅威</h2>
+<p>上級になると、攻守の区別は曖昧になります。相手の脅威に応じる代わりに、別の場所でより大きな脅威を作り、相手にそちらを処理させます。理屈はやはり手数計算です。<em>相手の計画が二手、自分が一手なら、相手に応じる必要はない。</em></p>
+<p>強い人が明らかな脅威を無視して勝つのはこのためです。無視しているのではなく、数えたうえで速い道を選んでいます。この反撃の脅威を安定して見つけられるようにするのが、<a href="/ja-JP/blog/advanced-gomoku-strategy">五目並べの上級戦略</a>の本質です。攻守の切り替えは「判断」から「局面の読み」へと変わっていきます。</p>
+
+<h2>コンピュータ相手の切り替え</h2>
+<p>エンジン相手では事情が少し異なります。エンジンは人間より安定して脅威を評価するからです。調整すべき点は二つです。</p>
+<ul>
+<li><strong>強制手にはほぼ必ず応じてくる。</strong>この予測可能性は武器になります。四は脅威であると同時に、エンジンをこちらが指定したマスへ「誘導」する手でもあります。強制手で、本当に勝ちたいエリアからエンジンを引き離しましょう。</li>
+<li><strong>飽きも欲張りもない。</strong>人間は緩い準備を無視しますが、よく作られたAIはそうしません。AI相手の攻めは、本当に強制になっている脅威だけに絞ってください。人間なら相手にしないような二は、そのまま無視されて、AIが先に自分の手順を仕上げます。</li>
+</ul>
+<p>切り替えを集中的に練習したいなら、<a href="/ja-JP/blog/beat-gomoku-ai">五目並べAIに勝つ方法</a>で難易度ごとの脅威評価の違いを扱っています。どの手に反応してくるかが、そこから見えてきます。</p>
+
+<h2>勝ちを逃す4つのミス</h2>
+<ol>
+<li><strong>一番速い脅威ではなく、一番目立つ脅威を受ける。</strong>広がった大きな三は目立ちますが、静かに待つ四は目立ちません。見るのではなく、数えてください。</li>
+<li><strong>攻めへの切り替えが一手遅い。</strong>前の手番なら成立していた攻めが、いまは消火活動になっています。</li>
+<li><strong>守りへ戻るのが早すぎる。</strong>無害な二を受けるために生きた攻めを捨てると、主導権をそのまま返します。</li>
+<li><strong>育たない受け。</strong>自分のどのラインにも寄与しない受けは、テンポの寄付です。守りの石も、必ずどこかを向いているべきです。</li>
+</ol>
+
+<h2>切り替えを鍛えるレビュー習慣</h2>
+<p>読んだだけでは身につきません。一局打ってください。AI でも友人でも、<a href="/ja-JP/#game">盤の上</a>で構いません。そして自分のすべての手に、一文字だけ書き添えます。<strong>A</strong> は脅威を作った手、<strong>D</strong> は脅威に応じた手です。そして振り返ります。</p>
+<ul>
+<li>自分があと一手で勝てる場面で <strong>D</strong> を打っていないか。それは逃した勝ちです。</li>
+<li>相手に活三がある場面で <strong>A</strong> を打っていないか。それは落とした一局です。</li>
+<li>どちらの文字も付かない手はないか。それは無駄な石です。</li>
+</ul>
+<p>これを5局続けると、自分の傾向がはっきり見えてきます。あなたは守り型でも攻め型でもなく、ただ切り替える瞬間を間違えているだけだと分かるはずです。そこを直すことは、どんな定石を覚えるより価値があります。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">実際の盤で確かめよう</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">読んだだけでは身につきません。無料対局を開いて、一手ごとに脅威を数えてみてください。</p>
+            <a href="/ja-JP/#game" class="cta-btn">今すぐ五目並べで遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べの攻守の切り替え：攻める時、守る時",
+    "description": "五目並べで攻守を切り替えるタイミングを解説。3つの質問で「攻めるか守るか」を判断し、手数計算で先に決まる脅威を見極め、勝ちを逃す4つのミスを避ける方法。",
+    "datePublished": "2026-09-30",
+    "dateModified": "2026-09-30",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch"}
+  }
+  </script>
+</body>
+</html>

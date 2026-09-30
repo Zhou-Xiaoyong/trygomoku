@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Защита или атака в гомоку: когда переключаться | Блог о гомоку</title>
+  <meta name="description" content="Как решать, когда в гомоку атаковать, а когда защищаться: тест из трёх вопросов, правило подсчёта ходов и четыре ошибки, из-за которых выигранные партии превращаются в проигранные.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch">
+  <meta property="og:title" content="Защита или атака в гомоку: когда переключаться">
+  <meta property="og:description" content="Тест из трёх вопросов и правило подсчёта ходов: как понять, атаковать сейчас или защищаться.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Защита или атака в гомоку: когда переключаться">
+  <meta name="twitter:description" content="Три вопроса и подсчёт ходов, которые подсказывают момент для смены тактики.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Защита или атака в гомоку: когда переключаться</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-09-30">2026-09-30</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Атака и защита — это одно решение, а не два характера</h2>
+<p>Новички часто делят игроков на «атакующих» и «осторожных», будто это вопрос темперамента. На <a href="/ru-RU/#game">доске</a> такое деление только проигрывает партии. В гомоку побеждает тот, кто первым выстроит пять в ряд: здесь нет счёта, который надо удержать, и нет территории, которой можно торговать. Каждый ваш камень либо создаёт угрозу, либо отвечает на неё, и выигрывает обычно тот, кто создаёт их непрерывно. Мастерство — не «быть агрессивным» или «быть надёжным», а читать позицию и вовремя переключаться.</p>
+<p>Дальше — тест из трёх вопросов для такого переключения, правило подсчёта ходов, которое за ним стоит, и ошибки, превращающие выигранную позицию в проигранную.</p>
+
+<h2>Не «атаковать или защищаться», а «кто кого вынуждает»</h2>
+<p>Вопрос предполагает, что это противоположности. Это не так. Блок, который заодно продолжает вашу линию, — атакующий ход в маске защитного. А «осторожный» камень не на том поле — просто потраченный темп.</p>
+<p>На самом деле в партии переходит из рук в руки <strong>темп</strong> — право заставлять соперника реагировать. Ход является <em>форсирующим</em>, только если соперник обязан ответить сразу, иначе проиграет. Открытая тройка форсирует. Открытая четвёрка — тем более. Закрытая тройка обычно нет: соперник спокойно её проигнорирует и построит свою угрозу, пока вы доигрываете эту.</p>
+<p>Поэтому практический вопрос звучит так: <em>чьи угрозы сейчас форсируют и сколько ходов осталось каждой стороне до победы?</em></p>
+
+<h2>Тест из трёх вопросов</h2>
+<p>Прежде чем поставить камень, ответьте по порядку.</p>
+<ol>
+<li><strong>Есть ли у соперника угроза, от которой я не убегу?</strong> Открытая тройка уже подходит. Открытая четвёрка означает, что вы уже проиграли, — её вообще нельзя было допускать. Если форсирующая угроза есть, защита перестаёт быть выбором.</li>
+<li><strong>Могу ли я сделать и то, и другое одним ходом?</strong> Самое ценное поле в гомоку — то, которое снимает угрозу соперника и одновременно продлевает вашу линию. Если такое поле есть, выбирать вообще не нужно.</li>
+<li><strong>Если я закроюсь сейчас, останется ли путь назад?</strong> Защита, после которой все ваши линии мертвы, — медленная капитуляция. Лучше блок, сохраняющий хотя бы одну живую линию к центру.</li>
+</ol>
+<p>Если ответы — «угрозы нет», «защита мне ничего не даст» и «времени достаточно», то атакуйте. Вся логика на этом заканчивается.</p>
+
+<h2>Правило подсчёта: чья угроза завершится первой</h2>
+<p>Когда угрозы есть у обеих сторон, сравнивайте не их размер, а <strong>число ходов</strong>.</p>
+<ul>
+<li>Вашей угрозе нужен один ход, его — два: игнорируйте его и выигрывайте. Это самый частый упущенный выигрыш на любительском уровне: у вас четвёрка в одном ходу от победы, а вы видите открытую тройку соперника и закрываетесь.</li>
+<li>Обоим нужен один ход: вы успеваете первым только если ход ваш и именно этот ход завершает линию. Иначе нужно защищаться.</li>
+<li>Вам нужно два хода, ему — один: вы прочли позицию неверно. Вы не атакуете, вы на ход позади. Защищайтесь и перестраивайтесь.</li>
+</ul>
+<p>Считайте <em>свои ходы</em>, а не камни на доске. Эта дисциплина отделяет тех, кто выигрывает атакой, от тех, кому просто нравится атаковать.</p>
+
+<h2>Когда защита действительно верна</h2>
+<p>Есть три ситуации, где блок однозначно правилен, и ни одна из них не связана со страхом.</p>
+<ul>
+<li><strong>У соперника открытая тройка, а у вас нет форсирующего хода.</strong> Ваш контрудар требует двух ходов, его — одного. Закрывайтесь.</li>
+<li><strong>Вы отстаёте ровно на темп.</strong> Его угрозы приходят быстрее ваших. Защита — это способ купить один ход, чтобы догнать.</li>
+<li><strong>Эндшпиль сузился до вынужденной последовательности.</strong> Когда доска тесна, один вольный камень фатален. Защита становится не терпеливой, а точной.</li>
+</ul>
+<p>Обратите внимание, чего в этом списке нет: «мне спокойнее закрыться». Спокойствие — не стратегия.</p>
+
+<h2>Когда переходить к атаке</h2>
+<p>Сигнал к атаке — не ощущение силы, а то, что ваш ход создаёт угрозу, которую соперник не сможет обработать, продолжая свой план.</p>
+<ul>
+<li><strong>Ваша угроза на ход быстрее его.</strong> Это правило подсчёта выше.</li>
+<li><strong>Вы создаёте две угрозы одним ходом.</strong> Двойная угроза (вилка) обычно сразу выигрывает: одним ответом две клетки не закрыть. Сознательно строить её — это и есть <a href="/ru-RU/blog/gomoku-double-threat-fork-strategy">тактика вилки</a> в одной фразе: не создавайте одну угрозу, если тот же или следующий ход может создать две.</li>
+<li><strong>Его «угроза» — мёртвая тройка.</strong> Тройка, закрытая с обоих концов, — украшение. Ответ на неё — чистый подарок темпа. Делайте свой ход и дайте ему потратить ход впустую.</li>
+<li><strong>Ваш защитный ход одновременно развивает вас.</strong> Это самое мягкое переключение: вы закрываетесь, и закрывающий камень становится первым камнем вашей атакующей линии.</li>
+</ul>
+
+<h2>Защита, которая атакует: контругроза</h2>
+<p>На высоком уровне граница стирается. Вместо ответа на угрозу вы создаёте более крупную в другом месте и заставляете соперника остановиться и заняться вами. Логика — снова подсчёт: <em>если его план требует двух ходов, а мой одного, отвечать ему не нужно вообще.</em></p>
+<p>Именно поэтому сильные игроки будто игнорируют очевидные угрозы и всё равно выигрывают. Они не игнорируют — они посчитали и нашли более быстрый путь. Умение стабильно видеть такие контругрозы и есть суть <a href="/ru-RU/blog/advanced-gomoku-strategy">продвинутой стратегии гомоку</a>: переключение между атакой и защитой перестаёт быть решением и становится единым чтением доски.</p>
+
+<h2>Переключение против компьютера</h2>
+<p>С движком переключение ощущается иначе, потому что движок оценивает угрозы стабильнее человека. Важны две поправки.</p>
+<ul>
+<li><strong>Он почти всегда отвечает на форсирующие ходы.</strong> Эта предсказуемость — инструмент: форсирующая четвёрка не только угрожает, но и «тянет» движок на выбранное вами поле. Форсирующими ходами уводите его из района, где вы на самом деле собираетесь победить.</li>
+<li><strong>Он не скучает и не жадничает.</strong> Человек может проигнорировать вашу медленную подготовку, хорошо сделанный бот — почти никогда. Против машины атакуйте только по-настоящему форсирующими угрозами: «двойка», на которую человек и не посмотрел бы, часто просто игнорируется, пока движок доигрывает свою последовательность.</li>
+</ul>
+<p>Если хотите тренировать именно переключение, в материале <a href="/ru-RU/blog/beat-gomoku-ai">как обыграть гомоку-AI</a> разобрано, как разные уровни сложности оценивают угрозы, — и сразу видно, на какие ходы он вообще станет отвечать.</p>
+
+<h2>Четыре ошибки, которые стоят партий</h2>
+<ol>
+<li><strong>Закрывать самую заметную угрозу вместо самой быстрой.</strong> Большая раскидистая тройка виднее, чем тихая четвёрка в ожидании. Считайте, а не вглядывайтесь.</li>
+<li><strong>Переключаться в атаку на ход позже.</strong> Она была возможна на прошлом ходу, а теперь это уже тушение пожара.</li>
+<li><strong>Слишком рано возвращаться в защиту.</strong> Бросить живую атаку, чтобы закрыть безобидную двойку, — значит отдать инициативу обратно.</li>
+<li><strong>Защита без развития.</strong> Блок, не помогающий ни одной вашей линии, — это подарок темпа. Каждый защитный камень всё равно должен куда-то вести.</li>
+</ol>
+
+<h2>Привычка к разбору, которая тренирует переключение</h2>
+<p>Это не выучивается чтением. Сыграйте партию — с AI или с другом, на <a href="/ru-RU/#game">доске</a>, — и пометьте каждый свой ход одной буквой: <strong>A</strong> — ход, создавший угрозу, <strong>D</strong> — ход, ответивший на угрозу. Потом разберите:</p>
+<ul>
+<li>Был ли <strong>D</strong> там, где ваша угроза была в одном ходу от победы? Это упущенный выигрыш.</li>
+<li>Был ли <strong>A</strong> там, где у соперника стояла открытая тройка? Это проигранная партия.</li>
+<li>Был ли ход, не получивший ни одной буквы? Это выброшенный камень.</li>
+</ul>
+<p>Пяти таких партий достаточно, чтобы увидеть собственный шаблон: вы не «защитный» и не «атакующий» игрок, вы просто переключаетесь не в те моменты. Исправить это полезнее, чем заучить любой новый дебют.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Проверьте это на доске</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Теория работает только в игре. Откройте бесплатную партию и считайте угрозы перед каждым ходом.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Защита или атака в гомоку: когда переключаться",
+    "description": "Как решать, когда в гомоку атаковать, а когда защищаться: тест из трёх вопросов, правило подсчёта ходов и четыре ошибки, из-за которых выигранные партии превращаются в проигранные.",
+    "datePublished": "2026-09-30",
+    "dateModified": "2026-09-30",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch"}
+  }
+  </script>
+</body>
+</html>
