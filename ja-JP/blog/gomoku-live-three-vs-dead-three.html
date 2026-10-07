@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-live-three-vs-dead-three">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べの活三と死三の違い：なぜ活三だけが脅威なのか | 五目並べブログ</title>
+  <meta name="description" content="活三と死三の違いは、両端が空いているか塞がっているか。たった一つの判定基準と、最も誤解されやすい中間形「眠三」を解説します。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-live-three-vs-dead-three">
+  <meta property="og:title" content="五目並べの活三と死三の違い：なぜ活三だけが脅威なのか">
+  <meta property="og:description" content="一つの基準で本物の脅威と飾りを分け、誤解されやすい眠三も整理します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-live-three-vs-dead-three">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べの活三と死三の違い">
+  <meta name="twitter:description" content="一つの基準で、本物の脅威と飾りを見分ける。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">五目並べの活三と死三の違い：なぜ活三だけが脅威なのか</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-07">2026-10-07</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>三連は、それだけでは脅威ではない</h2>
+<p>初心者は石を数え、強い人は「選択肢」を数えます。五目並べで最も役に立つ区別は、<strong>活三</strong>と<strong>死三</strong>の違いです。どちらも三つの石が一列に並んだ形で、見た目はほとんど同じ。しかし片方は相手に「今やっていることを止めて応じろ」と強要し、もう片方はただの飾りです。飾りを脅威だと思い込むことこそ、一手ずつテンポを差し出していく典型的な負け方です。</p>
+<p>違いは、その三が「どう見えるか」ではなく、<em>これから何になれるか</em>にあります。</p>
+
+<h2>唯一の判定基準：あと一手で活四になるか</h2>
+<p>形を覚える必要はありません。問いは一つです。</p>
+<p><em>ここにもう一つ石を置いて、活四になりますか。</em></p>
+<p><strong>活四</strong>とは、四つの石が一列に並び、両端が空いている形です。これは止められません。相手は石一つで二か所を同時に塞ぐことはできず、片方を塞げばもう片方で五連が完成します。つまり活四はその時点で勝ちです。したがって「一手で活四になれるもの」は、無視してはいけない脅威です。</p>
+<p>ここから二つの呼び名が自動的に決まります。</p>
+<ul>
+<li><strong>活三：</strong>あと一手で活四になる。本物の脅威で、「二手で勝つ」という約束です。</li>
+<li><strong>死三：</strong>一手で強制手に変わる石が存在しない。現時点の脅威はゼロです。</li>
+</ul>
+<p>要点はこれだけです。ここから先は、この判定を素早く下す方法と、両極端の間にある広いグレーゾーンの話です。</p>
+
+<h2>活三：相手を縛る形</h2>
+<p>教科書どおりの活三は、三つの石が一列に並び、両端が空き、さらにそれぞれの先に最低一マスの余白がある形です。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 8   . . . . . .
+ 9   . X X X . .
+10   . . . . . .</pre>
+<p>石は d、e、f にあります。空いている二マスはどちらも機能します。c に置けば c&ndash;f で b と g が空き、g に置けば d&ndash;g で c と h が空きます。別々のマスなのに結果は同じ、活四です。相手は両方を同時に塞げません。これが活三が<em>強制</em>である理由です。単に脅すのではなく、応手を一つ回収するのです。</p>
+<p>まずこの形を体に入れてください。五目並べのほぼすべて &mdash; 両にらみ、連続する強制手順、終盤の技術 &mdash; は活三と活四から組み立てられています。</p>
+
+<h2>死三：テンポを捨てる形</h2>
+<p>では、同じ三の両端を塞いでみましょう。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . O X X X O .
+10   . . . . . .</pre>
+<p>石は変わらず三つですが、c と g は相手の石です。五連を探すと、d・e・f を含む五マスの窓は b&ndash;f、c&ndash;g、d&ndash;h の三つだけ。一つ目は c が必要、二つ目は c と g の両方が必要、三つ目は g が必要。すべての道が閉じています。この三は、どれだけ長く打ってもそのラインでは五になれません。弱いのでも眠っているのでもなく、本当に死んでいます。</p>
+<p>そして、これに一手使って受けた瞬間、死三は無害から有害に変わります。テンポと引き換えに得たものがゼロだからです。死三への正しい応手は、自分が打つこと。相手には瀕死の石を蘇らせようと無駄な一手を使わせておきましょう。</p>
+<p>盤の端には注意してください。ここで多くの人が引っかかります。端に沿って並んだ三つの石は、伸びる方向が一つしかありません。片端は永久に壁なので、活四を作ることは不可能です。盤端は、活三に見える形を静かに眠三へと変えてしまいます。</p>
+
+<h2>中間の形：眠三</h2>
+<p>実戦はそんなにきれいではありません。「活か死か」の二分法では、いちばん頻繁に出会う形が抜け落ちます。つまり<strong>片端が塞がれ、もう片端が空いている</strong>三です。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . O X X X . .
+10   . . . . . .</pre>
+<p>g に置けば d&ndash;g、つまり h が空き c が塞がれた四になります。これが<em>四の突き</em>（片側だけの四）です。五になる点が一つだけなので、相手は必ず受けます。ただしその受けで、このラインは完全に終わります。形そのものは勝てません。できるのは、強制手を一手分だけ買ってくることです。</p>
+<p>だから眠三の本質は<strong>蓄えたテンポ</strong>であって、脅威ではありません。本当に自由な一手が回ってきたときにそこへ使えば、相手が応じざるを得ない四を作り出せます。これを「死三と同じ」と呼ぶのは資源を捨てる行為ですし、活三と混同すれば根拠なく慌てることになります。どちらの誤りも、形を二つの箱に雑に仕分ける癖から生まれます。</p>
+<p>実用のルールは二段階ではなく三段階です。<strong>活三 &rarr; すぐ受ける。眠三 &rarr; 覚えて先へ進む。死三 &rarr; 完全に無視する。</strong></p>
+
+<h2>三は、繋がっていなくてもよい</h2>
+<p>もう一つ、眼力のある人とそうでない人を分けるポイントがあります。三は三つの石が隣り合っている必要はありません。間に空きのある跳び三も、その空きを埋めて活四になるなら活三として数えます。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . X X . X .
+10   . . . . . .</pre>
+<p>石は d、e、g にあり、f が空いています。f を埋めれば d&ndash;g、c と h が空いた活四です。どの二つも隣り合っていないのに、これは活三です。</p>
+<p>ここから二つの帰結が出ます。第一に、盤面を走査するときは、繋がった形だけでなく<em>空きマス</em>を探すこと。強い人は明らかな三よりも、跳び三を先に見つけます。第二に、非対称性に注意すること。連続した活三には活四にするマスが二つありますが、跳び三はたいてい一つだけです。強制力はあっても余裕はゼロで、その唯一のマスを埋められれば脅威は消えます。</p>
+
+<h2>活三は「両にらみ」の材料</h2>
+<p>なぜここまで精密に扱うのか。五目並べはほぼ常に「二つの脅威を同時に作る」ことで勝ちますが、その脅威は活三から組み立てられるからです。一手で活三と四を同時に作る、あるいは二つの活三を同じ点で交差させる &mdash; これは一手では解けない問題を相手に押し付けます。その構築が<a href="/ja-JP/blog/gomoku-double-threat-fork-strategy">両にらみ（フォーク）の戦術</a>です。ただし一つ強調しておきます。フォークは偶然現れるものではありません。二手前に活三を植え、盤上に残しておいた結果として現れます。</p>
+<p>逆に、眠三と死三はフォークの材料としては質が悪い。脅威を本当に鋭くする「二つ目の成長点」を欠いているからです。ですから活と死を見分けることは、学者ぶった細かい話ではなく、勝ち筋の土台です。</p>
+
+<h2>見分けを反射にする</h2>
+<p>時間に追われているとき、すべてのラインで完全な判定を回すことはできません。必要なのは「一目で分類する」反射で、これは計算力ではなくパターン認識の力です。意図的な反復で身につきます。適当な対局を一つ選び、一手ごとに「盤上にどの三があり、そのうちどれが活三か」を声に出すのです。<a href="/ja-JP/blog/pattern-recognition-gomoku">五目並べのパターン認識</a>にはその訓練法が詳しく書かれています。要は、活三の検出を自動化してしまうこと。そうすれば思考時間を、形を探すことではなく手数を数えることに使えます。</p>
+
+<h2>AI で自分を試す</h2>
+<p>コンピュータは正直な試験官です。あなたの作った形への反応が、読みの正しさをそのまま映し出します。</p>
+<ul>
+<li><strong>活三には必ず応じます。</strong>毎回、即座に。あなたが活三を打ったのにエンジンが別の場所に打ったなら、盤面を読み違えています。</li>
+<li><strong>眠三は平気で無視します。</strong>不注意ではなく、数えたうえでもっと速い手を見つけたからです。無視されたら、喜ぶ前に反撃を探しましょう。</li>
+<li><strong>死三は存在しないものとして扱います。</strong>これは両方向に使えます。自分の死三は、エンジンが本当に読んでいるかを試す安価な探りになり、相手の死三は放っておいてよいマスになります。</li>
+</ul>
+<p>そしてループを閉じましょう。<a href="/ja-JP/#game">盤上</a>で一局打ち、一手ずつ進めるごとに、盤上のすべての三 &mdash; 自分のものも相手のものも &mdash; に<em>活</em>、<em>眠</em>、<em>死</em>のラベルを付けます。これを一週間続けた人は、同じ負け方を繰り返さなくなります。死三を受けに行く自分、活三を流してしまう自分の姿が、リアルタイムで見えるようになるからです。この反射ができて初めて、連続する強制手順、手数計算、孤立した四を勝ちに変える技術といった重い道具が置ける場所を得ます。それが<a href="/ja-JP/blog/advanced-gomoku-strategy">五目並べの上級戦略</a>の土台です。</p>
+
+<h2>60秒チェックリスト</h2>
+<ol>
+<li>盤上のすべての三を見つける &mdash; 自分のものも相手のものも。</li>
+<li>それぞれに一つの問いを立てる。一手で活四を作れるか。</li>
+<li>作れる &mdash; それは活三。相手のものなら、交渉の余地なく今すぐ受ける。</li>
+<li>片端が塞がれている、または盤端に押し付けられている &mdash; それは眠三。蓄えた強制手であって、緊急事態ではない。</li>
+<li>両端が塞がっている &mdash; それは死三。自分の棋を打ち、腐らせておく。</li>
+</ol>
+<p>三つの石は脅威ではありません。三つの石が<em>まだ伸びられる</em>とき、それは脅威です。この二つを一目で分けられるようになれば、自分を傷つけられない形に手を使わなくなります。そして取り戻したそのテンポが、たいてい盤全体の勝敗を決めます。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">実際の盤で判定してみる</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">読むだけでは見えません。無料対局を開いて、応じる前にすべての三を分類してみてください。</p>
+            <a href="/ja-JP/#game" class="cta-btn">今すぐ五目並べで遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べの活三と死三の違い：なぜ活三だけが脅威なのか",
+    "description": "活三と死三の違いは、両端が空いているか塞がっているか。たった一つの判定基準と、最も誤解されやすい中間形「眠三」を解説します。",
+    "datePublished": "2026-10-07",
+    "dateModified": "2026-10-07",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-live-three-vs-dead-three"}
+  }
+  </script>
+</body>
+</html>

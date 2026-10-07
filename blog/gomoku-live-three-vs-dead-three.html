@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-live-three-vs-dead-three">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Live Three vs Dead Three: Which One Forces? | Gomoku Blog</title>
+  <meta name="description" content="Live three or dead three? Learn the one test that separates a real threat from decoration, plus the sleeping three most players misjudge.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-live-three-vs-dead-three">
+  <meta property="og:title" content="Gomoku Live Three vs Dead Three: Which One Forces?">
+  <meta property="og:description" content="The one test that separates a real gomoku threat from decoration — and the sleeping three most players misjudge.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-live-three-vs-dead-three">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Live Three vs Dead Three">
+  <meta name="twitter:description" content="One test separates a real threat from decoration. Here it is.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Live Three vs Dead Three: Which One Forces?</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-07">2026-10-07</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>A Three Is Not Automatically a Threat</h2>
+<p>Beginners count stones; stronger players count options. The most useful single distinction in gomoku is the one between a <strong>live three</strong> and a <strong>dead three</strong>. Both are just three stones in a line. One of them forces your opponent to stop what they are doing and answer, right now. The other is decoration &mdash; and treating decoration as a threat is how players quietly hand away the initiative, one tempo at a time.</p>
+<p>The difference is not in how the three <em>looks</em>. It is in what the three can still become.</p>
+
+<h2>The Only Test That Matters: One Move to an Open Four</h2>
+<p>Forget memorising shapes. Ask one question:</p>
+<p><em>If I add one more stone here, do I get an open four?</em></p>
+<p>An <strong>open four</strong> is four in a row with both ends free. It cannot be stopped: your opponent has one stone and two places to block, so they plug one end and you win at the other. An open four is therefore already a won game &mdash; which means anything that turns into an open four in a single move is a threat you are not allowed to ignore.</p>
+<p>The two labels fall straight out of that test:</p>
+<ul>
+<li><strong>Live three (open three):</strong> one more stone turns it into an open four. It is a real threat, because it promises to win in two moves.</li>
+<li><strong>Dead three:</strong> no single stone turns it into anything forcing. It threatens nothing today.</li>
+</ul>
+<p>That is the whole idea. The rest of this article is about applying the test quickly, and about the large grey area between the two extremes.</p>
+
+<h2>Live Three: The Shape That Forces</h2>
+<p>The textbook live three is three stones in a row with both ends empty and at least one square of breathing room beyond each end.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 8   . . . . . .
+ 9   . X X X . .
+10   . . . . . .</pre>
+<p>The stones sit on d, e and f. Both empty squares work: play c and you hold c&ndash;f with b and g free; play g and you hold d&ndash;g with c and h free. Two different squares produce the same result &mdash; an open four. Your opponent cannot cover both, and that is precisely why a live three is <em>forcing</em>: it does not merely threaten, it collects a response.</p>
+<p>This is the shape to internalise first. Nearly everything else in gomoku &mdash; forks, forcing sequences, endgame technique &mdash; is assembled out of live threes and live fours.</p>
+
+<h2>Dead Three: The Shape That Costs You Tempo</h2>
+<p>Now block both ends of that same three.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . O X X X O .
+10   . . . . . .</pre>
+<p>Three stones still, but c and g belong to your opponent. Hunt for a five: the only five-stone windows that contain d, e and f are b&ndash;f, c&ndash;g and d&ndash;h. The first needs c, the second needs both c and g, the third needs g. Every route is shut. This three can never become five along that line, no matter how long the game runs. It is genuinely dead &mdash; not "weak", not "sleeping", dead.</p>
+<p>A dead three becomes actively harmful the moment you spend a move answering it: you have traded a tempo for nothing at all. The correct reply to a dead three is to play your own move and let your opponent waste theirs trying to revive a corpse.</p>
+<p>Watch the board edge, because it catches people out. Three stones lined up <em>along</em> the edge have only one direction to grow in. One end is permanently the wall, so you can never build an open four off them &mdash; the edge quietly converts a shape that looks live into one that is merely sleeping.</p>
+
+<h2>The Middle Case: the Sleeping Three</h2>
+<p>Real games are rarely that tidy, and the binary "live or dead" hides the shape you will actually meet most often: a three with <strong>one end blocked and the other open</strong>.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . O X X X . .
+10   . . . . . .</pre>
+<p>Play g and you get d&ndash;g: a four with h open and c blocked. That is a <em>rush four</em>. It threatens five in exactly one square, so your opponent must answer it &mdash; but the block kills the line for good. The shape cannot win on its own. What it can do is buy you one forced move.</p>
+<p>So a sleeping three is a <strong>stored tempo</strong>, not a threat. Whenever you happen to have a genuinely free move, spending it there manufactures a forcing four that costs your opponent a response. Calling that shape "just a dead three" throws away a resource; calling it a live three makes you panic for no reason. Both errors come from the same sloppy habit of sorting shapes into two boxes.</p>
+<p>The practical rule has three tiers, not two: <strong>live three &rarr; answer it now. Sleeping three &rarr; note it and move on. Dead three &rarr; ignore it completely.</strong></p>
+
+<h2>The Three Does Not Have to Be Solid</h2>
+<p>One more wrinkle, and it is the one that separates sharp readers from average ones: a three does not need three adjacent stones. A gapped three still counts as live if filling the hole makes an open four.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . X X . X .
+10   . . . . . .</pre>
+<p>Here the stones sit on d, e and g with a hole at f. Fill f and you hold d&ndash;g &mdash; an open four with c and h free. That is a live three, even though no two of its stones were ever touching.</p>
+<p>Two consequences follow. When you scan the board for threats, scan for <em>holes</em>, not just solid runs; strong players spot the gapped live three long before the obvious one. And note the asymmetry: a contiguous live three gives you two squares to complete it, while a gapped one usually gives you exactly one. It still forces, but there is no slack &mdash; occupy that single square and the threat evaporates.</p>
+
+<h2>Live Threes Are the Raw Material of Forks</h2>
+<p>Why bother being precise about any of this? Because gomoku is almost always won by creating two threats at once, and live threes are what those threats are built from. A stone that makes a live three <em>and</em> a four, or two live threes crossing on a single point, creates a problem that no one move can solve. That construction is <a href="gomoku-double-threat-fork-strategy">the double-threat fork</a>, and it deserves one important caveat: the fork almost never appears by luck. It appears because you planted a live three two moves earlier and left it sitting on the board.</p>
+<p>Conversely, sleeping and dead threes make poor fork material &mdash; they lack the second growth square that gives a threat its teeth. So the discipline of telling live from dead is not pedantry. It is the groundwork for the actual winning tactic.</p>
+
+<h2>Reading the Difference at Speed</h2>
+<p>Under time pressure you will not run the full test on every line. What you need is the reflex to classify a three on sight, which is a pattern-recognition skill rather than a calculation skill. Deliberate repetition builds it: take any game and, after every move, say out loud which threes exist and which of them are live. <a href="pattern-recognition-gomoku">Pattern recognition in gomoku</a> covers the drills in detail; the short version is that live-three detection should become automatic, so that your thinking time goes into counting moves instead of hunting for shapes.</p>
+
+<h2>Checking Yourself Against the AI</h2>
+<p>The computer is an honest examiner, because how it reacts to your shapes tells you whether you read them correctly:</p>
+<ul>
+<li><strong>It answers a live three.</strong> Immediately, every time. If you play one and the engine replies somewhere else, you misread the board.</li>
+<li><strong>It is happy to ignore a sleeping three.</strong> Not from carelessness, but because it has counted and found something faster. If it ignores yours, hunt for the counter-threat before you celebrate.</li>
+<li><strong>It treats a dead three as nothing at all.</strong> Use that both ways: a dead three of your own is a cheap probe of whether the engine is genuinely reading, and a dead three of its own is a square you can safely leave alone.</li>
+</ul>
+<p>Then close the loop. Play a game on <a href="../#game">the board</a> and, after each pair of moves, label every three &mdash; yours and your opponent's &mdash; as <em>live</em>, <em>sleeping</em> or <em>dead</em>. Players who keep that habit for a week stop repeating the same loss, because they finally see it happening in real time: answering a dead three, or letting a live one slide past unanswered. And with that reflex in place, the heavier machinery &mdash; forcing sequences, tempo counting, converting a lone four into a win &mdash; has something solid to stand on, which is exactly what <a href="advanced-gomoku-strategy">advanced gomoku strategy</a> is built on.</p>
+
+<h2>The 60-Second Checklist</h2>
+<ol>
+<li>Find every three on the board &mdash; yours and theirs.</li>
+<li>For each one, ask the single question: can one stone make an open four?</li>
+<li>Yes &mdash; it is live, and if it belongs to your opponent you answer it now, no negotiating.</li>
+<li>One end blocked, or pinned against the edge &mdash; it is sleeping: a stored forcing move, not an emergency.</li>
+<li>Both ends blocked &mdash; it is dead: play your own game and let it rot.</li>
+</ol>
+<p>Three stones is not a threat. Three stones <em>that can still grow</em> is a threat. Once you can tell those apart at a glance, you stop spending moves on shapes that cannot hurt you &mdash; and that recovered tempo is usually the whole game.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Try the Test on a Real Board</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Reading this is not the same as seeing it. Open a free game and classify every three before you answer it.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Live Three vs Dead Three: Which One Forces?",
+    "description": "Live three or dead three? Learn the one test that separates a real threat from decoration, plus the sleeping three most players misjudge.",
+    "datePublished": "2026-10-07",
+    "dateModified": "2026-10-07",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-live-three-vs-dead-three"}
+  }
+  </script>
+</body>
+</html>

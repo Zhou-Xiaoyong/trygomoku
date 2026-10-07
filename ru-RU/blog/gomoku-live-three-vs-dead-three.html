@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-live-three-vs-dead-three">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Живая и мёртвая тройка в гомоку: какая из них угроза | Блог о гомоку</title>
+  <meta name="description" content="Разница между открытой и мёртвой тройкой решает, обязаны ли вы отвечать. Разбираем единственный критерий и промежуточную форму, которую путают чаще всего.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-live-three-vs-dead-three">
+  <meta property="og:title" content="Живая и мёртвая тройка в гомоку: какая из них угроза">
+  <meta property="og:description" content="Один критерий отделяет настоящую угрозу от украшения — и объясняет спящую тройку.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-live-three-vs-dead-three">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Живая и мёртвая тройка в гомоку">
+  <meta name="twitter:description" content="Один критерий отделяет настоящую угрозу от украшения.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Живая и мёртвая тройка в гомоку: какая из них угроза</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-07">2026-10-07</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Три камня — это ещё не угроза</h2>
+<p>Новичок считает камни, сильный игрок считает варианты. Самое полезное различие в гомоку — между <strong>открытой тройкой</strong> и <strong>мёртвой тройкой</strong>. Обе выглядят почти одинаково: три камня в ряд. Но одна заставляет соперника бросить свои планы и ответить прямо сейчас, а вторая — просто украшение. Именно путая украшение с угрозой, игроки тихо, ход за ходом, отдают инициативу.</p>
+<p>Разница не в том, как тройка <em>выглядит</em>, а в том, чем она ещё может <em>стать</em>.</p>
+
+<h2>Единственный критерий: один ход до открытой четвёрки</h2>
+<p>Забудьте о заучивании форм. Есть один вопрос:</p>
+<p><em>Если я добавлю сюда ещё один камень, получится открытая четвёрка?</em></p>
+<p><strong>Открытая четвёрка</strong> — это четыре камня в ряд, у которых свободны оба конца. Её невозможно остановить: у соперника один камень и два места для блокировки, он закрывает одно, а вы завершаете пять на другом. Значит, открытая четвёрка — это уже выигранная партия. А то, что превращается в открытую четвёрку одним ходом, — угроза, которую нельзя игнорировать.</p>
+<p>Отсюда сразу следуют два названия:</p>
+<ul>
+<li><strong>Открытая тройка:</strong> один камень — и она становится открытой четвёркой. Это настоящая угроза, обещание победы за два хода.</li>
+<li><strong>Мёртвая тройка:</strong> никакой одиночный камень не превращает её в форсирующую форму. Сегодня она не угрожает ничем.</li>
+</ul>
+<p>Вот и вся идея. Дальше речь о том, как применять этот тест быстро, и о широкой серой зоне между двумя крайностями.</p>
+
+<h2>Открытая тройка: форма, которая форсирует</h2>
+<p>Классическая открытая тройка — три камня в ряд, оба конца свободны, и за каждым концом есть хотя бы одна клетка запаса.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 8   . . . . . .
+ 9   . X X X . .
+10   . . . . . .</pre>
+<p>Камни стоят на d, e и f. Подходят обе пустые клетки: поставите на c — получите c&ndash;f при свободных b и g; поставите на g — получите d&ndash;g при свободных c и h. Две разные клетки дают один и тот же результат: открытую четвёрку. Соперник не может закрыть обе. Именно поэтому открытая тройка <em>форсирует</em>: она не просто угрожает, она забирает у соперника ответный ход.</p>
+<p>Освойте эту форму первой. Почти всё остальное в гомоку — вилки, форсирующие серии, техника эндшпиля — собирается из открытых троек и открытых четвёрок.</p>
+
+<h2>Мёртвая тройка: форма, которая отдаёт темп</h2>
+<p>А теперь закройте у той же тройки оба конца.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . O X X X O .
+10   . . . . . .</pre>
+<p>Камней по-прежнему три, но c и g принадлежат сопернику. Поищем пятёрку: единственные пятиклеточные окна, содержащие d, e и f, — это b&ndash;f, c&ndash;g и d&ndash;h. Первому нужна c, второму нужны и c, и g, третьему нужна g. Все пути перекрыты. Эта тройка никогда не станет пятёркой на этой линии, сколько бы партия ни длилась. Она действительно мёртвая — не «слабая», не «спящая», а мёртвая.</p>
+<p>И как только вы тратите ход на то, чтобы её закрыть, она из бесполезной становится вредной: вы обменяли темп на ноль. Правильный ответ на мёртвую тройку — сделать свой ход и дать сопернику потратить камень на оживление трупа.</p>
+<p>Следите за краем доски — здесь ошибаются чаще всего. Три камня, выстроенные <em>вдоль</em> края, могут расти только в одну сторону: один конец навсегда упирается в стену, и открытую четвёрку из них не собрать. Край тихо превращает форму, которая выглядит открытой, в спящую.</p>
+
+<h2>Промежуточный случай: спящая тройка</h2>
+<p>В реальных партиях так аккуратно не выходит, и жёсткое «открытая или мёртвая» прячет форму, которая встречается чаще всего: тройку, у которой <strong>один конец закрыт, а другой свободен</strong>.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . O X X X . .
+10   . . . . . .</pre>
+<p>Поставите на g — получите d&ndash;g: четвёрку, у которой h свободна, а c закрыта. Это <em>четвёрка в один конец</em>. Она угрожает пятёркой ровно в одной клетке, поэтому соперник обязан ответить — но этот ответ навсегда убивает линию. Сама форма выиграть не может. Зато она может купить вам один форсирующий ход.</p>
+<p>Поэтому суть спящей тройки — <strong>отложенный темп</strong>, а не угроза. Когда у вас выдался по-настоящему свободный ход, потратьте его здесь — и вы изготовите форсирующую четвёрку, которая заставит соперника отвечать. Назвать эту форму «просто мёртвой тройкой» — значит выбросить ресурс. Спутать её с открытой — значит паниковать без причины. Обе ошибки растут из одной привычки: раскладывать формы по двум ящикам.</p>
+<p>Практическое правило трёхуровневое, а не двухуровневое: <strong>открытая тройка &rarr; отвечаем немедленно. Спящая тройка &rarr; берём на заметку и идём дальше. Мёртвая тройка &rarr; игнорируем полностью.</strong></p>
+
+<h2>Тройка не обязана быть сплошной</h2>
+<p>Ещё одна деталь, и именно она отличает внимательного читателя доски от среднего: тройке не нужны три камня, стоящие вплотную. Разорванная тройка тоже считается открытой, если, заполнив разрыв, вы получаете открытую четвёрку.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . X X . X .
+10   . . . . . .</pre>
+<p>Здесь камни на d, e и g, а на f разрыв. Заполните f — и у вас d&ndash;g: открытая четвёрка со свободными c и h. Это открытая тройка, хотя ни одна пара её камней не соприкасалась.</p>
+<p>Отсюда два следствия. Первое: осматривая доску, ищите <em>разрывы</em>, а не только сплошные отрезки. Сильные игроки замечают разорванную открытую тройку гораздо раньше очевидной. Второе: помните об асимметрии. Сплошная открытая тройка даёт две клетки для превращения в открытую четвёрку, а разорванная — обычно только одну. Она всё ещё форсирует, но запаса прочности нет: займите эту единственную клетку, и угроза исчезнет.</p>
+
+<h2>Открытые тройки — материал для вилки</h2>
+<p>Зачем вся эта точность? Потому что в гомоку почти всегда побеждают, создавая две угрозы одновременно, а строятся эти угрозы из открытых троек. Ход, создающий открытую тройку <em>и</em> четвёрку, или две открытые тройки, пересекающиеся в одной клетке, ставит соперника перед задачей, которую одним ходом не решить. Эта конструкция — <a href="/ru-RU/blog/gomoku-double-threat-fork-strategy">вилка, или двойная угроза</a>, и здесь важно оговориться: вилка почти никогда не возникает случайно. Она появляется потому, что двумя ходами раньше вы посадили открытую тройку и оставили её на доске.</p>
+<p>Наоборот, спящие и мёртвые тройки — плохой материал для вилки: им не хватает второй клетки роста, которая и придаёт угрозе остроту. Так что умение отличать открытую тройку от мёртвой — не педантизм, а фундамент реальной выигрывающей тактики.</p>
+
+<h2>Довести распознавание до автоматизма</h2>
+<p>Когда время поджимает, вы не станете прогонять полный тест для каждой линии. Нужен рефлекс: классифицировать тройку с первого взгляда. Это навык распознавания образов, а не расчёта, и он развивается намеренным повторением. Возьмите любую партию и после каждого хода вслух называйте, какие тройки есть на доске и какие из них открытые. В статье о <a href="/ru-RU/blog/pattern-recognition-gomoku">распознавании шаблонов в гомоку</a> упражнения описаны подробно; коротко говоря, поиск открытой тройки должен стать автоматическим, чтобы думать не о поиске форм, а о подсчёте ходов.</p>
+
+<h2>Проверка на движке</h2>
+<p>Компьютер — честный экзаменатор: его реакция на ваши формы прямо показывает, правильно ли вы их читаете.</p>
+<ul>
+<li><strong>На открытую тройку он отвечает.</strong> Немедленно, всегда. Если вы поставили открытую тройку, а движок сыграл в другом месте, значит вы неверно прочли позицию.</li>
+<li><strong>Спящую тройку он спокойно игнорирует.</strong> Не по небрежности, а потому что посчитал и нашёл маршрут быстрее. Проигнорировал вашу — ищите контругрозу, прежде чем радоваться.</li>
+<li><strong>Мёртвую тройку он не замечает вовсе.</strong> Это работает в обе стороны: своя мёртвая тройка — дешёвый способ проверить, действительно ли движок считает, а его мёртвая тройка — клетка, которую можно смело оставить в покое.</li>
+</ul>
+<p>А теперь замкните цикл. Сыграйте партию <a href="/ru-RU/#game">на доске</a> и после каждой пары ходов помечайте все тройки — свои и чужие — как <em>открытая</em>, <em>спящая</em> или <em>мёртвая</em>. Тот, кто продержит эту привычку неделю, перестанет проигрывать одним и тем же способом: он наконец увидит это в реальном времени — как идёт закрывать мёртвую тройку или как пропускает открытую. А когда рефлекс встанет на место, тяжёлые инструменты — форсирующие серии, подсчёт темпов, превращение одинокой четвёрки в победу — получат надёжную опору. Именно на ней и строится <a href="/ru-RU/blog/advanced-gomoku-strategy">продвинутая стратегия гомоку</a>.</p>
+
+<h2>Чек-лист на 60 секунд</h2>
+<ol>
+<li>Найдите все тройки на доске — свои и соперника.</li>
+<li>Для каждой задайте единственный вопрос: может ли один камень дать открытую четвёрку?</li>
+<li>Да — значит открытая; если она у соперника, отвечайте сейчас, без переговоров.</li>
+<li>Один конец закрыт или прижат к краю — спящая: отложенный форсирующий ход, а не пожар.</li>
+<li>Оба конца закрыты — мёртвая: играйте своё и дайте ей сгнить.</li>
+</ol>
+<p>Три камня — это не угроза. Угроза — это три камня, <em>которые ещё могут вырасти</em>. Как только вы начнёте различать их с первого взгляда, вы перестанете тратить ходы на формы, которые не могут вам навредить. И этот возвращённый темп, как правило, и решает всю партию.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Проверьте критерий на доске</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Прочитать — не то же самое, что увидеть. Откройте бесплатную партию и классифицируйте каждую тройку до ответа.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Живая и мёртвая тройка в гомоку: какая из них угроза",
+    "description": "Разница между открытой и мёртвой тройкой решает, обязаны ли вы отвечать. Разбираем единственный критерий и промежуточную форму, которую путают чаще всего.",
+    "datePublished": "2026-10-07",
+    "dateModified": "2026-10-07",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-live-three-vs-dead-three"}
+  }
+  </script>
+</body>
+</html>

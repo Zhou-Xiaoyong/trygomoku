@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-live-three-vs-dead-three">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-live-three-vs-dead-three">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋活三与死三的区别：为什么活三才是真威胁 | 五子棋博客</title>
+  <meta name="description" content="活三与死三只差两端的空与堵，却是「必须应对」和「完全无视」的区别。一个判据分开两者，并讲清最常被误判的眠三。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-live-three-vs-dead-three">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-live-three-vs-dead-three">
+  <meta property="og:title" content="五子棋活三与死三的区别：为什么活三才是真威胁">
+  <meta property="og:description" content="一个判据分开真威胁与摆设，并说清最常被误判的眠三。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-live-three-vs-dead-three">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋活三与死三的区别">
+  <meta name="twitter:description" content="一个判据，分开真威胁与摆设。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">五子棋活三与死三的区别：为什么活三才是真威胁</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-07">2026-10-07</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>三连不等于威胁</h2>
+<p>新手数棋子，高手数「选择」。五子棋里最有用的一个区分，就是<strong>活三</strong>与<strong>死三</strong>。两者都是三颗子连成一条线，看起来几乎一样；但只有其中一种会逼着对手立刻放下自己的计划来应对，另一种纯粹是摆设——而把摆设当成威胁，正是一手一手把先手白送出去的典型方式。</p>
+<p>区别不在于这个三「长什么样」，而在于它<em>还能长成什么</em>。</p>
+
+<h2>唯一有效的判据：再落一子，能否成活四</h2>
+<p>不用背棋形，只问一句话：</p>
+<p><em>我在这里再落一子，能不能做出活四？</em></p>
+<p><strong>活四</strong>是四颗子连成一线、两端都空。它挡不住：对手只有一颗子，却要同时封两个点，堵住一头，你就在另一头连成五子。所以活四本身就已经是胜势——那么「一手就能变成活四」的东西，就是你不能不理的威胁。</p>
+<p>两个标签由此自然得出：</p>
+<ul>
+<li><strong>活三：</strong>再落一子即成活四。这是真威胁，因为它等于承诺「两手之内取胜」。</li>
+<li><strong>死三：</strong>没有任何一子能让它变成逼着的手段。它当下的威胁为零。</li>
+</ul>
+<p>核心就这一句。后面的内容，讲的是怎么快速做这个判断，以及两个极端之间那一大片灰色地带。</p>
+
+<h2>活三：真正逼着对方的那一手</h2>
+<p>教科书式的活三，是三颗子连成一线、两端都空，并且每端之外还至少留有一格的活动空间。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 8   . . . . . .
+ 9   . X X X . .
+10   . . . . . .</pre>
+<p>子落在 d、e、f。两端的空格都成立：落在 c，你握有 c&ndash;f，b、g 皆空；落在 g，你握有 d&ndash;g，c、h 皆空。两个不同的点，同一个结果——活四。对手没法两头都堵，这正是活三「逼着」的原因：它不只是威胁，它直接换来对手的一手回应。</p>
+<p>先把这个棋形刻进脑子里。五子棋里几乎所有东西——双威胁、连续逼着的手顺、残局技巧——都是用活三和活四搭起来的。</p>
+
+<h2>死三：白白送掉先手</h2>
+<p>现在把这条三的两端都堵上。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . O X X X O .
+10   . . . . . .</pre>
+<p>还是那三颗子，但 c 和 g 属于对手。去找五连：包含 d、e、f 的五格窗口只有三个——b&ndash;f、c&ndash;g、d&ndash;h。第一个需要 c，第二个需要 c 和 g 同时空着，第三个需要 g。三条路全被堵死。无论这盘棋下多久，这个三在这条线上永远成不了五。它是真的死了——不是「弱」，不是「睡着」，是死。</p>
+<p>而一旦你花一手去挡它，它就从不值钱变成了有害：你用一手棋换回了零。对死三的正确回应，是走自己的棋，让对手去花力气抢救一具尸体。</p>
+<p>另外要盯住棋盘边缘，这里最容易翻车。沿着边线排开的三颗子，只有一个方向能长——其中一端永远是一堵墙，所以永远做不出活四。边缘会悄悄地把你以为的活三，变成只是眠三。</p>
+
+<h2>中间地带：眠三</h2>
+<p>实战很少这么干净，「活或死」这种二分法会掩盖掉你最常遇到的那一类：<strong>一端被堵、另一端还空着</strong>的三。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . O X X X . .
+10   . . . . . .</pre>
+<p>落在 g，你得到 d&ndash;g：一个 h 端空、c 端被堵的四，也就是<em>冲四</em>。它只在一个点上威胁成五，对手必须挡——但这一挡，这条线就彻底结束了。它自己赢不了棋，它能做的是替你买回一手逼着。</p>
+<p>所以眠三的本质是<strong>存起来的先手</strong>，不是威胁。什么时候你真有一手完全自由的棋，把它花在这里，就能凭空造出一个逼着对手回应的冲四。把这种棋形叫作「就是死三」等于丢掉资源；把它当活三又等于白白紧张。两种错，来自同一个坏习惯：把棋形往两个筐里硬塞。</p>
+<p>实用规则是分三档，不是两档：<strong>活三 &rarr; 立刻应对。眠三 &rarr; 记下就好，继续走自己的。死三 &rarr; 完全无视。</strong></p>
+
+<h2>三，不必是连着的</h2>
+<p>还有一个细节，也是「眼力好」和「一般」的分水岭：三颗子并不需要紧紧挨在一起。中间带空格的跳三，只要补上那个空就能成活四，它照样算活三。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . X X . X .
+10   . . . . . .</pre>
+<p>这里子落在 d、e、g，f 是空。补上 f，你就握有 d&ndash;g——一个 c、h 两端皆空的活四。这是活三，尽管它任意两颗子从来都没有挨在一起。</p>
+<p>由此有两个结论。第一，扫盘找威胁时要找<em>空点</em>，而不只是找连着的棋形；高手总是先看到跳三，后看到那个明显的三。第二，注意两者的不对称：连三有两个点可以补成活四，跳三往往只有一个。它照样逼着对方，但余量是零——那个唯一的点一旦被占，威胁就消失了。</p>
+
+<h2>活三，是「双威胁」的原料</h2>
+<p>为什么要在这上面较真？因为五子棋的取胜方式几乎永远是「同时制造两个威胁」，而这些威胁都是用活三搭出来的。一手棋同时做出活三和四，或者两个活三交在同一个点上，就会制造出对手一步无法解决的问题。这个构造就是<a href="/zh-CN/blog/gomoku-double-threat-fork-strategy">双威胁（叉）战术</a>；而这里有个必须说清的前提：叉几乎从来不靠运气出现。它出现，是因为你在两手之前种下了一个活三，并让它留在盘上。</p>
+<p>反过来，眠三和死三是很差的叉料——它们缺少让威胁真正致命的第二个生长点。所以区分活与死不是书呆子的讲究，它是真正取胜战术的地基。</p>
+
+<h2>把判断练成直觉</h2>
+<p>在时间压力下，你不可能对每条线都跑一遍完整判断。你需要的是「一眼分类」的反射，而这属于棋形识别的能力，而不是计算能力。刻意重复就能练出来：随便找一盘棋，每走完一手，出声说出盘上有哪些三、其中哪些是活三。<a href="/zh-CN/blog/pattern-recognition-gomoku">五子棋的棋形识别</a>里有完整的训练方法；简单说，你要把「活三识别」练到自动化，这样你思考的时间才能用在数手上，而不是用在找棋形上。</p>
+
+<h2>对着 AI 检验自己</h2>
+<p>电脑是个诚实的考官，因为它对你的棋形的反应，会直接暴露你有没有读对：</p>
+<ul>
+<li><strong>它一定会应对活三。</strong>每次都立刻应。如果你走了活三而引擎在别处落子，那就是你读错了盘面。</li>
+<li><strong>它很乐意无视眠三。</strong>不是疏忽，而是它算过，并找到了更快的路。如果它无视了你的眠三，先别高兴，去找它的反击。</li>
+<li><strong>它把死三当成不存在。</strong>这一点可以两用：自己做一个死三，是检验引擎到底有没有在算的廉价探针；而对手的死三，则是一块你可以放心不管的地方。</li>
+</ul>
+<p>然后把闭环补上。在<a href="/zh-CN/#game">棋盘上</a>开一局，每走完一来一回，就把盘上所有的三——你的和对手的——标上<em>活</em>、<em>眠</em>或<em>死</em>。保持这个习惯一周，你就不会再重复同一种败法，因为你终于能实时看到它发生：去挡了一个死三，或者放过了一个活三。等这个反射建立起来，那些更重的东西——连续逼着的手顺、手数计算、把一个孤立的四转化成胜势——才有地方落脚，这也正是<a href="/zh-CN/blog/advanced-gomoku-strategy">五子棋高级策略</a>所依赖的地基。</p>
+
+<h2>60 秒检查清单</h2>
+<ol>
+<li>找出盘上所有的三——你的和对手的。</li>
+<li>对每一个，只问一句：有没有一手能做出活四？</li>
+<li>有 &mdash; 那是活三；如果它属于对手，现在就应，没有商量的余地。</li>
+<li>一端被堵，或被边缘夹住 &mdash; 那是眠三：存起来的一手逼着，不是急事。</li>
+<li>两端都被堵 &mdash; 那是死三：走自己的棋，让它烂在那里。</li>
+</ol>
+<p>三颗子不是威胁。三颗<em>还能继续长</em>的子才是威胁。当你能一眼分开这两者，你就不再为伤不到你的棋形花棋——而那省下来的先手，通常就是整盘棋的胜负。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">到棋盘上做一次判断</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">看懂不等于会看。开一局自由对局，落子回应之前先给每个三分类。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋活三与死三的区别：为什么活三才是真威胁",
+    "description": "活三与死三只差两端的空与堵，却是「必须应对」和「完全无视」的区别。一个判据分开两者，并讲清最常被误判的眠三。",
+    "datePublished": "2026-10-07",
+    "dateModified": "2026-10-07",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-live-three-vs-dead-three"}
+  }
+  </script>
+</body>
+</html>
