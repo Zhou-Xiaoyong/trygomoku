@@ -1,0 +1,203 @@
+{
+  "_readme": [
+    "Amazon Associates product config for trygomoku.com — ENGLISH PAGES ONLY.",
+    "1) Replace 'tag' with your real Associates ID (looks like xxxxxxxx-20). Nothing earns commission until you do.",
+    "2) 'asin' is optional. Leave it empty and the link falls back to an Amazon SEARCH url with your tag —",
+    "   it still tracks and converts, so nothing is ever a dead link. Fill in an ASIN later to link a specific product.",
+    "3) NEVER put product images or hard-coded prices in these blocks. Amazon only permits images/prices via the",
+    "   Creators API (needs 10 qualifying sales in 30 days) with a timestamp + disclaimer. Text-only until then.",
+    "4) Run:  python tools/gen_amz_blocks.py          (dry-run, shows what would change)",
+    "         python tools/gen_amz_blocks.py --write  (apply changes, idempotent)",
+    "5) IMPORTANT: gen_amz_blocks.py skips blocks that already carry data-amz, so it will NOT refresh",
+    "   an existing module after you edit a label/note/query here. Either edit the page by hand or strip",
+    "   the block first. Articles published through content_pipeline.py always render the current config.",
+    "6) The EN-only commerce articles (best-gomoku-board-sets, gomoku-set-buying-guide,",
+    "   renju-board-vs-go-board, board-games-like-gomoku, gomoku-board-game-gifts) are published with:",
+    "     python tools/content_pipeline.py --en-only --content tools/commerce_content/<slug>.json"
+  ],
+
+  "tag": "calchive-20",
+  "marketplace": "https://www.amazon.com",
+  "rel": "sponsored nofollow noopener",
+  "target": "_blank",
+  "disclosure": "As an Amazon Associate I earn from qualifying purchases.",
+
+  "articles": {
+    "gomoku-board-setup-and-basic-rules": {
+      "kind": "card",
+      "after_heading": "The Stones",
+      "eyebrow": "Playing offline",
+      "title": "What a physical board and stones actually look like",
+      "note": "A standard set is a 15×15 grid of 225 points with two colours of stones — exactly the layout the game on the home page uses. If you want to feel how the grid behaves under your hand, a wooden board is the cheapest way to find out.",
+      "items": [
+        { "label": "Wooden 15×15 board sets", "query": "gomoku board game wooden 15x15", "primary": true },
+        { "label": "Go stones (play both games)", "query": "go game stones set", "ghost": true }
+      ]
+    },
+
+    "gomoku-family-game-night": {
+      "kind": "card",
+      "after_heading": "The game nobody expects",
+      "eyebrow": "For the game shelf",
+      "title": "Gomoku sets that survive family game night",
+      "note": "The rule of thumb from the article above: a folding wooden board for the table, a magnetic one for the car. Stones beat plastic pegs — they never rattle loose and they feel better in the hand.",
+      "items": [
+        { "label": "Folding wooden board + stones", "query": "wooden folding go board with stones", "primary": true },
+        { "label": "Magnetic travel set", "query": "magnetic travel go gomoku set", "ghost": true }
+      ]
+    },
+
+    "how-to-play-gomoku-for-absolute-beginners": {
+      "kind": "card",
+      "after_heading": "What you need to play",
+      "eyebrow": "Recommended",
+      "title": "A board and stones of your own",
+      "note": "Everything in this guide works on a screen, but the rules stick faster on a real board — a full game takes about ten minutes and nothing needs charging.",
+      "items": [
+        { "label": "Beginner 15×15 board set", "query": "gomoku five in a row board game set", "primary": true },
+        { "label": "Beginner strategy books", "query": "gomoku strategy book five in a row", "ghost": true }
+      ]
+    },
+
+    "gomoku-vs-connect-four": {
+      "kind": "table",
+      "after_heading": "Which one should you play",
+      "eyebrow": "If you want to play either offline",
+      "title": "Three sets that cover both games",
+      "note": "Both games play the same way on a table as on a screen — one is gravity-fed, the other is free placement. A 19×19 Go board also plays Gomoku, which makes it the flexible pick.",
+      "items": [
+        { "label": "Wooden Gomoku set", "sub": "15×15, free placement", "query": "gomoku board game wooden 15x15" },
+        { "label": "Connect Four", "sub": "gravity grid, easiest for children", "query": "connect four game" },
+        { "label": "Go board (plays both)", "sub": "19×19, also handles Renju", "query": "go game board 19x19 with stones" }
+      ]
+    },
+
+    "gomoku-history-journey": {
+      "kind": "card",
+      "after_heading": "Korea and the spread across Asia",
+      "eyebrow": "Go deeper",
+      "title": "Books worth owning if the history hooked you",
+      "note": "This story runs through Chinese, Japanese and Korean game traditions at once — and the recorded history is surprisingly thin in English. These are the readable entry points.",
+      "items": [
+        { "label": "History of Go and board games", "query": "history of go board game book", "primary": true },
+        { "label": "Renju and Gomoku theory", "query": "renju gomoku theory book", "ghost": true }
+      ]
+    },
+
+    "top-10-gomoku-openings": {
+      "kind": "card",
+      "after_heading": "How to counter these openings",
+      "eyebrow": "Recommended",
+      "title": "Learn the openings from a book, not from memory",
+      "note": "Printed opening theory beats a video you keep rewinding — and it sits open next to the board while you play.",
+      "items": [
+        { "label": "Renju opening theory books", "query": "renju opening theory book", "primary": true },
+        { "label": "Five-in-a-row puzzle books", "query": "gomoku puzzle book five in a row", "ghost": true }
+      ]
+    },
+
+    "advanced-gomoku-strategy": {
+      "kind": "card",
+      "after_heading": "How to practice this without memorizing theory",
+      "eyebrow": "Recommended",
+      "title": "Theory to take you past intermediate",
+      "note": "VCF chains and double threats are where free guides stop and books start paying for themselves — these go considerably deeper.",
+      "items": [
+        { "label": "Advanced Renju theory", "query": "renju advanced theory book", "primary": true },
+        { "label": "Tactics workbooks", "query": "board game tactics puzzle workbook", "ghost": true }
+      ]
+    },
+
+    "best-gomoku-board-sets": {
+      "kind": "table",
+      "after_heading": "The four kinds of set worth considering",
+      "eyebrow": "Our picks",
+      "title": "Four sets that cover almost every player",
+      "note": "Every one of these plays the same 15\u00d715 game you can try on the home page. Pick by where you will actually play, not by how the board looks in a photo.",
+      "items": [
+        { "label": "Wooden 15\u00d715 board + stones", "sub": "best all-round pick for a table", "query": "gomoku five in a row wooden board game with stones" },
+        { "label": "Folding wooden board + stones", "sub": "stores flat, travels in a bag", "query": "folding wooden go board with stones" },
+        { "label": "Magnetic travel set", "sub": "car, plane, classroom desk", "query": "magnetic travel go gomoku set" },
+        { "label": "19\u00d719 Go board", "sub": "plays gomoku, renju and Go", "query": "go game board 19x19 with stones" }
+      ]
+    },
+
+    "gomoku-set-buying-guide": {
+      "kind": "card",
+      "after_heading": "The short checklist",
+      "eyebrow": "What to buy first",
+      "title": "A safe first purchase",
+      "note": "If you only read one line of this guide: a 15\u00d715 wooden board with two full sets of stones is the only thing most households ever need. Add a magnetic set later if you travel.",
+      "items": [
+        { "label": "15\u00d715 wooden board + stones", "query": "gomoku five in a row wooden board game with stones", "primary": true },
+        { "label": "19\u00d719 Go board (also plays gomoku)", "query": "go game board 19x19 with stones", "ghost": true },
+        { "label": "Spare stone sets", "query": "go stones set spare", "ghost": true }
+      ]
+    },
+
+    "renju-board-vs-go-board": {
+      "kind": "table",
+      "after_heading": "What to actually buy",
+      "eyebrow": "Boards compared",
+      "title": "Three boards, one stone set",
+      "note": "The stones are interchangeable. The board is the only real decision, and a 19\u00d719 board is the one that plays everything.",
+      "items": [
+        { "label": "15\u00d715 renju board", "sub": "the standard grid for gomoku and renju", "query": "renju board 15x15 with stones" },
+        { "label": "19\u00d719 Go board", "sub": "roomier, also plays gomoku", "query": "go game board 19x19 with stones" },
+        { "label": "Go stone set (181 + 180)", "sub": "works on either board", "query": "go stones set 181 180" }
+      ]
+    },
+
+    "board-games-like-gomoku": {
+      "kind": "table",
+      "after_heading": "Which to buy first",
+      "eyebrow": "If gomoku hooked you",
+      "title": "Four games that scratch the same itch",
+      "note": "Each of these is a two-player line-up game with a different source of tension. If you already own a gomoku set, the cheapest upgrade is simply more stones and a bigger board.",
+      "items": [
+        { "label": "Pente", "sub": "five in a row, plus captures", "query": "pente board game" },
+        { "label": "Connect Four", "sub": "gravity grid, easiest to teach", "query": "connect four game" },
+        { "label": "Othello / Reversi", "sub": "flipping replaces placing", "query": "othello reversi board game" },
+        { "label": "Go (Weiqi)", "sub": "the deepest of the group", "query": "go game board 19x19 with stones" }
+      ]
+    },
+
+    "gomoku-board-game-gifts": {
+      "kind": "card",
+      "after_heading": "Gift ideas by type of player",
+      "eyebrow": "Gift picks",
+      "title": "Three gifts that keep on being used",
+      "note": "A board game gift fails when it needs a second person who wants to learn. These three all work solo, in pairs, or with a group, which is why they survive the shelf.",
+      "items": [
+        { "label": "Wooden board and stone set", "query": "gomoku five in a row wooden board game with stones", "primary": true },
+        { "label": "Magnetic travel set", "query": "magnetic travel go gomoku set", "ghost": true },
+        { "label": "Gomoku and renju strategy books", "query": "renju gomoku strategy book", "ghost": true }
+      ]
+    }
+  },
+
+  "pages": [
+    {
+      "file": "index.html",
+      "kind": "sidebar",
+      "anchor": "</aside>",
+      "eyebrow": "Play it offline",
+      "items": [
+        { "label": "Wooden 15×15 board set", "sub": "the standard layout", "query": "gomoku board game wooden 15x15" },
+        { "label": "Magnetic travel set", "sub": "fits in a bag", "query": "magnetic travel go gomoku set" },
+        { "label": "Go stones upgrade", "sub": "works for both games", "query": "go game stones set" }
+      ]
+    },
+    {
+      "file": "index.html",
+      "kind": "strip",
+      "anchor": "<!-- Strategy Section -->",
+      "title": "Want to play on a real board too?",
+      "note": "Same rules, same 15×15 grid — a physical set is the fastest way to feel the difference.",
+      "items": [
+        { "label": "Wooden 15×15 board sets", "query": "gomoku board game wooden 15x15", "primary": true },
+        { "label": "Magnetic travel set", "query": "magnetic travel go gomoku set", "ghost": true }
+      ]
+    }
+  ]
+}
