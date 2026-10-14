@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Техника победы в гомоку: как превратить четвёрки в выигрыш | Блог о гомоку</title>
+  <meta name="description" content="Четыре камня в ряд сами по себе ничего не выигрывают — они покупают темп. Разбираем порядок четвёрок, «четыре-три» и цепочку VCF, которая превращает одну четвёрку в победу.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:title" content="Техника победы в гомоку: как превратить четвёрки в выигрыш">
+  <meta property="og:description" content="Порядок четвёрок, «четыре-три» и цепочка VCF — как сделать из четвёрки победу.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Техника победы: четвёрки в гомоку">
+  <meta name="twitter:description" content="Не просто ставьте четвёрки — связывайте их.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Техника победы в гомоку: как превратить четвёрки в выигрыш</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-14">2026-10-14</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Четвёрка &mdash; это не трофей, а валюта</h2>
+<p>Когда новичок выстраивает четыре камня в ряд, он расслабляется. Когда это делает сильный игрок, он начинает считать. В этой разнице &mdash; вся техника.</p>
+<p><strong>Четыре в ряд &mdash; не цель гомоку, а его валюта.</strong> Каждая четвёрка покупает ровно одно: вынужденный ответ соперника, который возвращает ход вам. Поэтому правильный вопрос &mdash; не &laquo;могу ли я сделать четвёрку&raquo;, а &laquo;что эта четвёрка покупает мне дальше&raquo;. Игрок, который ставит четвёрки, не зная продолжения, просто дарит ход. Игрок, который связывает их в цепь, выигрывает. Эта статья &mdash; про вторую половину партии: не про то, как узнавать формы, а про то, как превращать их в результат.</p>
+<p>Если названия форм пока путаются, начните с материала <a href="/ru-RU/blog/gomoku-winning-combinations-explained">выигрышные комбинации в гомоку</a>, а потом возвращайтесь.</p>
+
+<h2>Три вида четвёрки &mdash; и три разных ценности</h2>
+<p>Сортируйте четвёрки по тому, что они форсируют, а не по тому, как солидно выглядят.</p>
+<ul>
+<li><strong>Открытая четвёрка</strong> &mdash; четыре в ряд, оба конца свободны. Партия выиграна: у соперника один камень на два выигрышных пункта, закрыть он может только один.</li>
+<li><strong>Закрытая четвёрка</strong> &mdash; четыре в ряд, один конец заблокирован. Остаётся ровно один выигрышный пункт. Сразу она не выигрывает, но форсирует: не ответишь &mdash; и вы завершаете на следующем ходу. Этот вынужденный ответ и есть купленный темп.</li>
+<li><strong>Мёртвая четвёрка</strong> &mdash; четыре в ряд, оба конца закрыты. Ценность нулевая. Это стена, а не угроза. Прежде чем радоваться, посчитайте свободные концы.</li>
+</ul>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . X X X X . .    открытая   два пункта   &rarr; уже победа
+10   . X X X X O .    закрытая   один пункт   &rarr; форсирует блок
+11   O X X X X O .    мёртвая    нет пунктов  &rarr; ценность ноль</pre>
+<p>Почти вся техника победы в гомоку &mdash; это движение вверх по этой лестнице: превратить закрытую четвёрку в открытую или сразу построить четвёрку, которая рождается открытой. Одно замечание по правилам: в рэндзю линия из шести и более камней (<em>перебор</em>) не считается победой и является запрещённым ходом для чёрных. Не стройте пятёрку &laquo;с запасом&raquo;.</p>
+
+<h2>Приём 1: играйте ту четвёрку, которая создаёт следующую</h2>
+<p>Самая частая причина проигранной выигрышной позиции &mdash; неверный порядок четвёрок. Допустим, у вас есть две отдельные закрытые четвёрки. Обе форсируют, обе дают темп. Но только одна оставляет после блока живую угрозу &mdash; её и играют первой.</p>
+<p>Правило простое: <strong>четвёрка стоит ровно столько, сколько стоит позиция, которую она оставляет.</strong> Прежде чем поставить камень, представьте блок соперника и спросите: &laquo;какой у меня следующий форсирующий ход?&raquo; Если честный ответ &mdash; &laquo;никакого&raquo;, вы не выиграли темп, а потратили его.</p>
+<p>Две ошибки, которые это правило ловит сразу:</p>
+<ul>
+<li><strong>Ловушка ответной четвёрки.</strong> На вашу четвёрку отвечают не блоком, а <em>своей</em> четвёркой &mdash; и она сильнее. Вы отдали инициативу и проиграли гонку на один ход. Перед каждой четвёркой проверяйте, не может ли ответ быть четвёркой соперника.</li>
+<li><strong>Напрасная четвёрка.</strong> Вы ставите четвёрку по привычке в уже выигранной позиции, и вызванный блок садится ровно туда, где нужна была ваша следующая атака. Клетка мертва. Если позиция уже выиграна, играйте тихий выигрывающий ход, а не громкий.</li>
+</ul>
+
+<h2>Приём 2: &laquo;четыре-три&raquo; &mdash; две угрозы одним ходом</h2>
+<p>Один камень может одновременно завершить четвёрку и создать тройку. Это классическое &laquo;четыре-три&raquo;, самый чистый способ превратить четвёрку в победу: четвёрка &mdash; форсирующая половина, тройка &mdash; сам план.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 6   . . . . . .
+ 7   . . . . X .
+ 8   . . . . X .
+ 9   O X X X X .
+10   . . . . . .</pre>
+<p>Прочитайте диаграмму до того, как лёг последний камень. У вас три камня на d9&ndash;f9, причём c9 занят белыми, и вертикальная пара на g7&ndash;g8. Играем <strong>g9</strong>. Один камень делает две работы:</p>
+<ul>
+<li>По горизонтали завершается d9&ndash;g9 &mdash; <strong>закрытая четвёрка</strong>; c9 закрыт, значит единственный выигрышный пункт &mdash; h9. Белые обязаны ответить туда или проигрывают сразу.</li>
+<li>По вертикали g7&ndash;g9 превращается в <strong>открытую тройку</strong>, где и g6, и g10 свободны.</li>
+</ul>
+<p>Белые закрывают h9, как и должны. Вы играете g6 (или g10), и g6&ndash;g9 становится открытой четвёркой. Остановить её нельзя. Обратите внимание на форму приёма: четвёрка не выиграла партию напрямую &mdash; она купила один свободный ход, который выиграл.</p>
+<p>Соседние названия стоит знать, потому что в турнирных правилах они ведут себя иначе. <strong>Двойная четвёрка</strong> завершает две четвёрки одним ходом, <strong>двойная тройка</strong> создаёт две открытые тройки. В свободном гомоку обе выигрывают мгновенно, а в рэндзю обе запрещены для чёрных. &laquo;Четыре-три&raquo; &mdash; безопасный вариант: он разрешён обоим цветам в любом варианте.</p>
+
+<h2>Приём 3: цепочка VCF &mdash; каждая четвёрка покупает следующую</h2>
+<p>&laquo;Четыре-три&raquo; выигрывает за два хода. VCF &mdash; та же идея, растянутая в цепь. VCF расшифровывается как &laquo;победа непрерывными четвёрками&raquo;: цепочка форсирующих ходов, в которой у соперника нет ни одного свободного хода, потому что каждый раз он обязан отвечать на четвёрку, а каждый ответ возвращает вам темп на следующую. Цепь заканчивается в тот момент, когда очередная ваша четвёрка появляется <em>открытой</em> &mdash; и тогда варианта &laquo;закрыть&raquo; уже не существует.</p>
+<p>Дисциплина формулируется легко, а держится трудно: <strong>каждая четвёрка обязана создавать следующую.</strong> Одна ленивая четвёрка, которая ничем не угрожает, разрывает цепь, и соперник получает тот самый свободный ход, которого ждал &mdash; обычно тот, что создаёт <em>его</em> четвёрку.</p>
+<p>Всё это держится на чтении нескольких ходов вперёд под давлением времени, поэтому это первая техника, где практика против компьютера реально окупается. Как форсирующие последовательности встраиваются в общий план, разбирает <a href="/ru-RU/blog/advanced-gomoku-strategy">стратегия гомоку 201</a>.</p>
+
+<h2>Как создать четвёрку из ничего</h2>
+<p>Всё вышесказанное предполагает, что вы умеете достать четвёрку по требованию. В миттельшпиле это часто невозможно, и мастерство как раз в том, чтобы строить позиции, которые выдадут четвёрку позже.</p>
+<p>Сырьё &mdash; почти всегда <strong>разорванная тройка</strong>: три камня с промежутком, которые растут в четвёрку в двух разных направлениях. Разорванная тройка тише открытой, и именно поэтому выживает: соперник тратит блоки на громкие угрозы и оставляет гибкую в покое. Полезная привычка &mdash; держать такую тройку живой на той половине доски, куда соперник не смотрит, и обналичить её, когда его внимание уйдёт. Чтобы натренировать глаз, пройдите материал <a href="/ru-RU/blog/pattern-recognition-gomoku">освоение распознавания образцов в гомоку</a>, пока двусторонние продолжения не начнут бросаться в глаза без подсчёта.</p>
+
+<h2>Чек-лист перед обналичиванием</h2>
+<p>Перед каждой четвёркой прогоните эти пять пунктов. Когда это войдёт в привычку, хватит секунды.</p>
+<ol>
+<li><strong>Посчитайте свободные концы.</strong> Два &mdash; вы выиграли, просто играйте. Один &mdash; вы покупаете темп. Ноль &mdash; это стена, не играйте вообще.</li>
+<li><strong>Назовите следующий форсирующий ход.</strong> Не можете назвать &mdash; это не форсирующая четвёрка.</li>
+<li><strong>Проверьте ответную четвёрку.</strong> Может ли ответ соперника стать его четвёркой? Если да &mdash; ищите другой порядок.</li>
+<li><strong>Проверьте клетку, которую вы засыпаете.</strong> Вызванный блок становится постоянным препятствием. Это точно не то место, куда вам нужно играть дальше?</li>
+<li><strong>Предпочитайте четвёрку со второй угрозой.</strong> &laquo;Четыре-три&raquo; бьёт голую четвёрку всегда.</li>
+</ol>
+<p>Ничего экзотического. Это те же несколько форм, которые все учат в первый месяц; разница лишь в том, что сильные игроки относятся к четвёрке как к ходу, который что-то покупает, а остальные &mdash; как к достижению. Как только вы начнёте считать, что оставляет каждая четвёрка, вы заметите, как часто партия решалась за несколько ходов до того, как кто-то наконец составил пятёрку. <a href="/ru-RU/#game">Доска бесплатна и не требует регистрации</a> &mdash; сыграйте несколько партий, считая четвёрки, а не камни.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Свяжите четвёрки прямо сейчас</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Знать и уметь — не одно и то же. Откройте бесплатную партию и попробуйте победить через «четыре-три», а не случайной пятёркой.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Техника победы в гомоку: как превратить четвёрки в выигрыш",
+    "description": "Четыре камня в ряд сами по себе ничего не выигрывают — они покупают темп. Разбираем порядок четвёрок, «четыре-три» и цепочку VCF, которая превращает одну четвёрку в победу.",
+    "datePublished": "2026-10-14",
+    "dateModified": "2026-10-14",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-four-in-a-row-winning-technique"}
+  }
+  </script>
+</body>
+</html>

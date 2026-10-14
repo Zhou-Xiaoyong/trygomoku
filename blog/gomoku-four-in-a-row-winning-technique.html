@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Four in a Row Winning Technique: Convert Fours Into Wins | Gomoku Blog</title>
+  <meta name="description" content="Making four in a row wins nothing by itself. Learn the forcing order, the four-three kill, and the VCF chain that turns a single four into a finished game.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:title" content="Gomoku Four in a Row Winning Technique: Convert Fours Into Wins">
+  <meta property="og:description" content="The forcing order, the four-three kill, and the VCF chain — how to turn fours into wins in gomoku.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Four in a Row Winning Technique">
+  <meta name="twitter:description" content="Stop making fours. Start chaining them.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Four in a Row Winning Technique: Convert Fours Into Wins</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-14">2026-10-14</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>A Four Is a Resource, Not a Trophy</h2>
+<p>Watch a beginner complete four in a row and you will see them relax. Watch a strong player complete four in a row and you will see them count. That difference is the whole technique.</p>
+<p><strong>Four in a row is not the goal of gomoku &mdash; it is the currency.</strong> Every four you place buys exactly one thing: a forced reply from your opponent, which hands the turn straight back to you. So the useful question is never &ldquo;can I make a four?&rdquo; It is &ldquo;what does this four buy me next?&rdquo; A player who makes fours without knowing the follow-up has donated a turn. A player who chains them wins.</p>
+<p>This article is about the second half of the game: not spotting shapes, but converting them. If the names still blur together, start with <a href="gomoku-winning-combinations-explained">gomoku winning combinations explained</a> and come back.</p>
+
+<h2>Three Kinds of Four, Three Very Different Values</h2>
+<p>Sort your fours by what they force, not by how impressive they look.</p>
+<ul>
+<li><strong>Open four</strong> &mdash; four in a row, both ends free. The game is over: your opponent has one stone and two winning points to cover, so they can only plug one.</li>
+<li><strong>Closed four</strong> &mdash; four in a row with one end blocked. Exactly one winning point remains. It does not win on the spot, but it does force &mdash; ignore it and you convert next move. That forced reply is the tempo you are buying.</li>
+<li><strong>Dead four</strong> &mdash; four in a row with both ends blocked. Worth nothing. It is a wall, not a threat. Count the free ends before you celebrate.</li>
+</ul>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . X X X X . .    open four     two winning points  -> already won
+10   . X X X X O .    closed four   one winning point   -> forces a block
+11   O X X X X O .    dead four     no winning point    -> worth nothing</pre>
+<p>Nearly every winning technique in gomoku is about moving up that ladder: turning a closed four into an open one, or building a four that arrives already open. One rules caution while you learn it &mdash; in renju a line of six or more (an <em>overline</em>) does not count as a win and is a forbidden move for Black, so never build a five that overshoots.</p>
+
+<h2>Technique 1: Play the Four That Creates the Next One</h2>
+<p>The most common way to throw away a won position is to play your fours in the wrong order. Suppose you have two separate closed fours available. Both force. Both gain a tempo. But only one of them leaves a live threat standing after the block &mdash; so that is the one you play first.</p>
+<p>The rule is blunt: <strong>a four is only as good as the position it leaves behind.</strong> Before you place it, picture the block and ask, &ldquo;what is my next forcing move?&rdquo; If the honest answer is &ldquo;nothing&rdquo;, you have not gained a tempo; you have spent one.</p>
+<p>Two mistakes this rule catches immediately:</p>
+<ul>
+<li><strong>The counter-four trap.</strong> Your four is answered not by a block but by <em>their</em> four, which is stronger. You have handed over the tempo and lost the race by a single move. Before every four, check whether the reply can be a four of their own.</li>
+<li><strong>The wasteful four.</strong> You play a four out of habit in a position you were already winning, and the block it invites lands exactly where your next attack needed to be. That square is now dead. If the position is already won, play the quiet winning move, not the loud one.</li>
+</ul>
+
+<h2>Technique 2: Four-Three &mdash; Two Threats in One Move</h2>
+<p>A single stone can complete a four <em>and</em> start a three at the same time. That is the classic four-three, and it is the cleanest way to convert a four into a win: the four is the forcing half, the three is the plan.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 6   . . . . . .
+ 7   . . . . X .
+ 8   . . . . X .
+ 9   O X X X X .
+10   . . . . . .</pre>
+<p>Read the diagram as it stood before the last stone went down. You hold three in a row at d9&ndash;f9 with c9 blocked by White, plus a vertical pair at g7&ndash;g8. Now play <strong>g9</strong>. One stone does two jobs:</p>
+<ul>
+<li>Horizontally it completes d9&ndash;g9, a <strong>closed four</strong> &mdash; c9 is blocked, so h9 is the only winning point. White must answer there or lose on the spot.</li>
+<li>Vertically it turns g7&ndash;g9 into an <strong>open three</strong>, with both g6 and g10 free.</li>
+</ul>
+<p>White blocks at h9, as they must. You play g6 (or g10), and g6&ndash;g9 is now an open four. Nothing can stop it. Notice the shape of the trick: the four did not win the game, it bought the single free move that did.</p>
+<p>The family of moves around it is worth knowing by name, because they behave differently under tournament rules. A <strong>double four</strong> completes two fours at once and a <strong>double three</strong> creates two open threes at once; in free-style gomoku both win instantly, but in renju both are forbidden moves for Black. Four-three is the safe version &mdash; legal for both colours in every variant.</p>
+
+<h2>Technique 3: The VCF Chain &mdash; Every Four Buys the Next</h2>
+<p>Four-three wins in two moves. A VCF sequence wins in six, and it is the same idea stretched out. VCF stands for <em>victory by continuous fours</em>: a chain of forced fours in which your opponent never gets a free move, because every single turn they must answer a four, and every answer hands you the tempo to build the next one.</p>
+<p>The chain ends the moment one of your fours arrives <em>open</em>, at which point the option to block no longer exists. The discipline is simple to state and hard to keep: <strong>each four must create the next four.</strong> Break the chain with one lazy four that threatens nothing, and your opponent gets the free move they have been waiting for &mdash; usually the one that makes <em>their</em> four.</p>
+<p>Because the whole thing rests on reading several moves ahead under time pressure, it is the first technique that genuinely rewards practice against a computer. For the wider picture of how forced sequences fit into an overall plan, <a href="advanced-gomoku-strategy">advanced gomoku strategy</a> picks up where this leaves off.</p>
+
+<h2>How to Manufacture a Four From Nothing</h2>
+<p>Everything above assumes you can produce a four on demand. In the middlegame you often cannot, and the skill lies in building positions that will produce one later.</p>
+<p>The raw material is almost always a broken three &mdash; three stones with a gap, which can extend into a four in two different directions. A broken three is quieter than a live three, which is exactly why it survives: opponents spend their blocks on the loud threats and leave the flexible one alone. The practical habit is to keep a broken three alive on the side of the board your opponent is not watching, then cash it in when their attention moves. To train your eye for these shapes, work through <a href="pattern-recognition-gomoku">pattern recognition in gomoku</a> until the two-way extensions jump out at you without counting.</p>
+
+<h2>The Conversion Checklist</h2>
+<p>Before you place any four, run these five checks. It takes a second once it is habit.</p>
+<ol>
+<li><strong>Count the free ends.</strong> Two means you have won &mdash; just play it. One means you are buying a tempo. Zero means it is a wall; do not play it at all.</li>
+<li><strong>Name the next forcing move.</strong> If you cannot, this is not a forcing four.</li>
+<li><strong>Check their counter-four.</strong> Can their reply be a four of their own? If yes, find a better order.</li>
+<li><strong>Check the square you are about to bury.</strong> The block you invite becomes a permanent obstacle. Is that where you needed to play next?</li>
+<li><strong>Prefer the four that comes with a second threat.</strong> Four-three beats a bare four every time.</li>
+</ol>
+<p>None of this is exotic. It is the same handful of shapes everyone learns in their first month &mdash; the difference is that strong players treat a four as a move that buys something, while everyone else treats it as an achievement. Once you start counting what each four leaves behind, you will notice how often the game was decided several moves before somebody finally made five. <a href="../#game">The board is free and needs no sign-up</a> &mdash; go and play a few games counting your fours instead of your stones.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Chain a Four Right Now</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Reading about forcing moves is not the same as playing them. Open a free game and try to win with a four-three instead of a lucky five.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Four in a Row Winning Technique: Convert Fours Into Wins",
+    "description": "Making four in a row wins nothing by itself. Learn the forcing order, the four-three kill, and the VCF chain that turns a single four into a finished game.",
+    "datePublished": "2026-10-14",
+    "dateModified": "2026-10-14",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique"}
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 4목 승리 기술: 4를 승리로 바꾸는 법 | 오목 블로그</title>
+  <meta name="description" content="4를 만드는 것만으로는 이기지 못합니다. 4가 만들어 내는 선수, 올바른 수순, 사삼, 그리고 한 수의 4를 승리로 잇는 VCF를 정리했습니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:title" content="오목 4목 승리 기술: 4를 승리로 바꾸는 법">
+  <meta property="og:description" content="4를 두는 순서, 사삼, VCF 연쇄 — 4를 진짜 승리로 바꾸는 방법.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 4목 승리 기술">
+  <meta name="twitter:description" content="4를 만드는 데 만족하지 말고 연결하세요.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">오목 4목 승리 기술: 4를 승리로 바꾸는 법</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-14">2026-10-14</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>4는 성과가 아니라 화폐입니다</h2>
+<p>초보자가 4를 만들면 안심하고, 강한 사람이 4를 만들면 숫자를 세기 시작합니다. 이 차이가 기술의 전부입니다.</p>
+<p><strong>4목은 오목의 목적이 아니라 화폐입니다.</strong> 4를 하나 놓을 때마다 살 수 있는 것은 단 하나, 상대가 반드시 응수해야 하는 한 수 &mdash; 즉 선수가 다시 내게 돌아오는 것입니다. 그래서 물어야 할 것은 &ldquo;4를 만들 수 있나&rdquo;가 아니라 &ldquo;이 4로 다음에 무엇을 사는가&rdquo;입니다. 다음 수를 모른 채 4를 놓는 것은 한 수를 그냥 바치는 것과 같습니다. 4를 연결할 줄 아는 사람이 이깁니다. 이 글은 승부의 후반부, 형태를 알아보는 것이 아니라 형태를 현금화하는 이야기입니다.</p>
+<p>형태 이름이 아직 헷갈린다면 <a href="/ko-KR/blog/gomoku-winning-combinations-explained">오목 승리 조합 완전 정리</a>를 먼저 읽고 오세요.</p>
+
+<h2>4에는 세 종류가 있고 가치는 전혀 다릅니다</h2>
+<p>보기 좋은지가 아니라 &ldquo;무엇을 강제하는가&rdquo;로 4를 분류합니다.</p>
+<ul>
+<li><strong>열린 4</strong> &mdash; 네 개가 이어지고 양 끝이 빈 형태. 이미 이긴 국면입니다. 상대는 돌 하나로 두 승점을 동시에 막을 수 없습니다.</li>
+<li><strong>닫힌 4</strong> &mdash; 네 개가 이어졌지만 한쪽 끝이 막힌 형태. 승점은 하나뿐. 즉시 이기지는 못하지만 강제력은 있습니다. 무시하면 다음 수에 오목. 상대의 이 응수가 내가 사는 선수입니다.</li>
+<li><strong>죽은 4</strong> &mdash; 네 개가 이어졌지만 양 끝이 모두 막힌 형태. 가치 0. 위협이 아니라 벽입니다. 좋아하기 전에 빈 끝을 세세요.</li>
+</ul>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . X X X X . .    열린 4   승점 2개  &rarr; 이미 승리
+10   . X X X X O .    닫힌 4   승점 1개  &rarr; 응수 강제
+11   O X X X X O .    죽은 4   승점 없음 &rarr; 가치 0</pre>
+<p>오목의 거의 모든 승리 기술은 이 표의 아래 칸을 위 칸으로 밀어 올리는 작업입니다. 닫힌 4를 열린 4로 바꾸거나, 처음부터 열린 채로 태어나는 4를 만들거나. 규칙 주의도 하나. 렌주에서는 여섯 개 이상 잇는 &lsquo;장련&rsquo;은 승리가 아니며 흑의 금수입니다. 넘쳐 버리는 다섯은 만들지 마세요.</p>
+
+<h2>기술 1: 다음 4를 만드는 4부터 놓는다</h2>
+<p>이긴 국면을 날리는 가장 흔한 이유는 4를 놓는 순서를 틀리는 것입니다. 닫힌 4가 두 개 보인다고 합시다. 둘 다 강제할 수 있고 둘 다 선수를 법니다. 하지만 상대가 막은 뒤에도 살아 있는 위협이 남는 것은 한쪽뿐입니다. 그쪽을 먼저 놓습니다.</p>
+<p>원칙은 단순합니다. <strong>4의 가치는 그 4가 떠난 뒤 남는 국면이 결정합니다.</strong> 놓기 전에 상대의 응수를 그려 보고 &ldquo;다음 강제수는 무엇인가&rdquo;를 물으세요. 답이 &ldquo;없다&rdquo;라면 선수를 번 것이 아니라 쓴 것입니다.</p>
+<p>이 원칙이 곧바로 잡아내는 두 가지 실수:</p>
+<ul>
+<li><strong>반격 4의 함정.</strong> 내 4에 상대가 막는 대신 <em>자기 4</em>로 응수합니다. 그 4가 더 강합니다. 주도권을 넘기고 한 수 늦게 경쟁에서 집니다. 4를 놓기 전에 응수가 상대의 4가 되지 않는지 확인하세요.</li>
+<li><strong>낭비하는 4.</strong> 이미 이기고 있는 국면에서 습관적으로 4를 놓으면, 유도한 막는 돌이 하필 다음 공격에 쓰려던 지점에 앉습니다. 그 점은 죽었습니다. 이긴 국면에서는 조용한 결정타를 두고, 요란한 수를 두지 마세요.</li>
+</ul>
+
+<h2>기술 2: 사삼(4-3) &mdash; 한 수에 두 위협</h2>
+<p>돌 하나가 4를 완성하면서 동시에 3을 만들 수 있습니다. 이것이 고전적인 사삼이고, 4를 승리로 바꾸는 가장 깔끔한 방법입니다. 4는 강제하는 절반, 3이 본체입니다.</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 6   . . . . . .
+ 7   . . . . X .
+ 8   . . . . X .
+ 9   O X X X X .
+10   . . . . . .</pre>
+<p>마지막 돌을 놓기 전의 국면을 보세요. d9&ndash;f9에 세 개가 있고 c9는 백에게 막혀 있습니다. 동시에 g7&ndash;g8에 세로로 두 개가 있습니다. 여기에 <strong>g9</strong>를 놓습니다. 돌 하나가 두 가지 일을 합니다.</p>
+<ul>
+<li>가로로 d9&ndash;g9가 완성되어 <strong>닫힌 4</strong>가 됩니다. c9가 막혀 있으니 승점은 h9 하나뿐. 백이 여기 오지 않으면 즉시 집니다.</li>
+<li>세로로 g7&ndash;g9가 <strong>열린 3</strong>이 됩니다. g6과 g10이 모두 비어 있습니다.</li>
+</ul>
+<p>백은 어쩔 수 없이 h9에 옵니다. 나는 g6(또는 g10)을 놓고 g6&ndash;g9는 열린 4가 됩니다. 이제 막을 수 없습니다. 이 수법의 모양을 보세요. 4가 직접 이긴 것이 아니라, 이길 수 있는 자유로운 한 수를 산 것입니다.</p>
+<p>주변 이름들도 알아 두면 좋습니다. 규칙에 따라 다르게 작동하기 때문입니다. <strong>사사(4-4)</strong>는 한 수로 4를 둘 만들고, <strong>삼삼(3-3)</strong>은 한 수로 열린 3을 둘 만듭니다. 프리스타일 오목에서는 둘 다 즉시 승리지만, 렌주에서는 둘 다 흑의 금수입니다. 사삼은 안전한 쪽으로, 모든 규칙에서 흑백 모두 둘 수 있습니다.</p>
+
+<h2>기술 3: VCF 연쇄 &mdash; 4가 다음 4를 산다</h2>
+<p>사삼은 두 수 만에 이깁니다. VCF는 같은 생각을 길게 늘인 것입니다. VCF는 &lsquo;연속된 4로 이기기&rsquo;라는 뜻으로, 강제수의 연쇄입니다. 상대에게는 자유로운 수가 전혀 없습니다. 매 수마다 4에 응수해야 하고, 그 응수마다 선수가 돌아와 다음 4를 만들 시간이 생깁니다. 연쇄의 끝은 내 4가 <strong>열린 4</strong>로 등장하는 순간입니다. 거기서는 &lsquo;막는다&rsquo;는 선택지가 사라집니다.</p>
+<p>규율은 말로는 간단하고 지키기는 어렵습니다. <strong>각각의 4가 다음 4를 만들어야 합니다.</strong> 중간에 아무것도 위협하지 않는 성의 없는 4를 하나 놓으면, 상대는 기다리던 자유수를 &mdash; 보통 자기 4를 만드는 그 수를 &mdash; 얻습니다.</p>
+<p>전체가 시간 압박 속에서 몇 수 앞을 읽는 데 기대고 있으므로, 컴퓨터 상대로 연습이 실제로 효과를 내는 첫 기술입니다. 강제 수순이 전체 계획에 어떻게 들어가는지는 <a href="/ko-KR/blog/advanced-gomoku-strategy">오목 전략 201</a>에서 이어집니다.</p>
+
+<h2>4가 없을 때, 4를 만드는 법</h2>
+<p>지금까지는 필요할 때 4를 낼 수 있다는 전제 위에 있습니다. 중반에는 낼 수 없는 경우가 많고, 실력은 &lsquo;나중에 4가 나오는 모양으로 짜는 힘&rsquo;에서 갈립니다.</p>
+<p>재료는 거의 항상 <strong>끊어진 3</strong>입니다. 세 개가 한 칸 비어 있고 두 방향으로 4로 자랍니다. 끊어진 3은 열린 3보다 조용하고, 그래서 살아남습니다. 상대는 눈에 띄는 위협에 응수를 쓰고 유연한 쪽은 놔두기 때문입니다. 실전 습관은 상대가 보지 않는 쪽 판에 끊어진 3을 하나 살려 두고, 시선이 옮겨지는 순간 현금화하는 것입니다. 이 형태를 보는 눈을 기르려면 <a href="/ko-KR/blog/pattern-recognition-gomoku">오목의 형태 인식 마스터하기</a>를, 세지 않고도 두 방향 확장이 보일 때까지 반복하세요.</p>
+
+<h2>현금화 점검 목록</h2>
+<p>4를 놓기 전에 다음 다섯 가지를 확인합니다. 습관이 되면 1초입니다.</p>
+<ol>
+<li><strong>빈 끝을 센다.</strong> 둘이면 이긴 것이니 그냥 둔다. 하나면 선수를 사는 것. 0이면 벽이니 두지 않는다.</li>
+<li><strong>다음 강제수를 말해 본다.</strong> 말할 수 없으면 강제수가 아니다.</li>
+<li><strong>상대의 반격 4를 확인한다.</strong> 응수가 상대의 4가 되지 않는가? 된다면 순서를 바꾼다.</li>
+<li><strong>곧 묻을 칸을 확인한다.</strong> 유도한 응수 돌은 영구 장애물이 된다. 다음에 쓰려던 점은 아닌가?</li>
+<li><strong>두 번째 위협이 붙은 4를 고른다.</strong> 사삼은 맨 4를 항상 이긴다.</li>
+</ol>
+<p>낯선 이야기가 아닙니다. 누구나 첫 달에 배우는 몇 가지 형태일 뿐입니다. 차이는 강한 사람이 4를 &lsquo;무언가를 사는 한 수&rsquo;로 다루고, 나머지는 4를 &lsquo;성과&rsquo;로 다룬다는 것뿐입니다. 각 4가 무엇을 남기는지 세기 시작하면, 오목이 완성되기 몇 수 전에 이미 승부가 갈려 있었다는 것을 알게 됩니다. <a href="/ko-KR/#game">판은 무료이고 가입도 필요 없습니다</a> &mdash; 몇 판 두면서 돌이 아니라 4를 세어 보세요.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">지금 바로 4를 연결해 보세요</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">아는 것과 두는 것은 다릅니다. 무료 대국을 열고 우연한 오목이 아니라 사삼으로 이기는 것을 목표로 두어 보세요.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 플레이하기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 4목 승리 기술: 4를 승리로 바꾸는 법",
+    "description": "4를 만드는 것만으로는 이기지 못합니다. 4가 만들어 내는 선수, 올바른 수순, 사삼, 그리고 한 수의 4를 승리로 잇는 VCF를 정리했습니다.",
+    "datePublished": "2026-10-14",
+    "dateModified": "2026-10-14",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-four-in-a-row-winning-technique"}
+  }
+  </script>
+</body>
+</html>

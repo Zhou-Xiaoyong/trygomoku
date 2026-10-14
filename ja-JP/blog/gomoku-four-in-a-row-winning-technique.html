@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べの四連勝ち筋：四を勝ちに変える技術 | 五目並べブログ</title>
+  <meta name="description" content="四を作ること自体は勝ちではありません。四が生む先手、正しい打つ順番、四三、そして一手の四を勝ちにつなげる VCF 連鎖を整理します。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:title" content="五目並べの四連勝ち筋：四を勝ちに変える技術">
+  <meta property="og:description" content="四を打つ順番、四三、VCF 連鎖——四を本当の勝ち筋に変える方法。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べの四連勝ち筋">
+  <meta name="twitter:description" content="四を作るだけで満足せず、つなげる。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">五目並べの四連勝ち筋：四を勝ちに変える技術</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-14">2026-10-14</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>四は、勝ちではなく「通貨」です</h2>
+<p>初心者が四を作るとほっと息をつき、強い人が四を作ると数を数え始めます。この差が、技術のすべてです。</p>
+<p><strong>四連は五目並べの目的ではなく、通貨です。</strong>四を一つ作るたびに買えるものはただ一つ、相手が応じざるを得ない一手 &mdash; つまり手番が自分のもとに戻ってくることです。だから問うべきは「四を作れるか」ではなく「この四で次に何を買うか」。次を決めずに四を打つのは、手番を差し出すのと同じです。四をつないでいける人だけが勝ちます。この記事は勝負の後半、形を見つける話ではなく、形を現金化する話です。</p>
+<p>形の名前がまだ混ざるなら、先に<a href="/ja-JP/blog/gomoku-winning-combinations-explained">五目並べの勝ち形完全解説</a>を読んでから戻ってきてください。</p>
+
+<h2>四には三種類あり、価値はまるで違う</h2>
+<p>見栄えではなく「何を強制できるか」で四を分類します。</p>
+<ul>
+<li><strong>活四</strong> &mdash; 四つ並び、両端が空いた形。すでに勝ちです。相手は石一つで二つの勝ち点を同時には塞げません。</li>
+<li><strong>眠四（沖四）</strong> &mdash; 四つ並び、片端が塞がれた形。勝ち点は一つだけ。その場では勝てませんが、強制力はあります。無視すれば次に五連。相手のこの応手が、あなたが買った先手です。</li>
+<li><strong>死四</strong> &mdash; 四つ並び、両端とも塞がれた形。価値はゼロ。脅威ではなく壁です。喜ぶ前に空き端を数えてください。</li>
+</ul>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . X X X X . .    活四   勝ち点2つ  &rarr; すでに勝ち
+10   . X X X X O .    眠四   勝ち点1つ  &rarr; 受けを強制
+11   O X X X X O .    死四   勝ち点なし &rarr; 価値ゼロ</pre>
+<p>五目並べの勝ち筋のほとんどは、この表の下段を上段へ押し上げる作業です。眠四を活四に変えるか、最初から活四として生まれる四を作るか。規則の注意も一つ。連珠では六つ以上並べた「長連」は勝ちにならず、黒の禁じ手です。行き過ぎる五は作らないように。</p>
+
+<h2>技術1：次を生む四から打つ</h2>
+<p>勝ちを落とす最も多い原因は、四を打つ順番の間違いです。眠四が二つ同時に見えているとします。どちらも強制でき、どちらも先手が取れます。しかし、相手が受けたあとに生きた脅威が残るのは片方だけです。そちらを先に打ちます。</p>
+<p>原則は単純です。<strong>四の価値は、その四が去ったあとに残る局面で決まります。</strong>打つ前に相手の応手を想像し、「次の強制手は何か」と自問してください。答えが「何もない」なら、先手を取ったのではなく使ったのです。</p>
+<ul>
+<li><strong>反撃の四の罠。</strong>あなたの四に、相手は受けではなく<em>相手自身の</em>四で返してきます。その四のほうが強い。主導権を渡し、競争に一手遅れます。四を打つ前に、応手が相手の四にならないか確認を。</li>
+<li><strong>無駄な四。</strong>すでに勝っている局面で習慣的に四を打つと、誘った受けの石が、次に使いたかった点にぴたりと座ります。その点は死にました。勝っている局面では、静かな決め手を選び、派手な手を選ばないこと。</li>
+</ul>
+
+<h2>技術2：四三（4-3）&mdash; 一手で二つの脅威</h2>
+<p>石一つで「四を完成させ」ながら「三を生む」ことができます。これが古典的な四三で、四を勝ちに変える最もきれいな形です。四は強制の半分、三が本命です。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 6   . . . . . .
+ 7   . . . . X .
+ 8   . . . . X .
+ 9   O X X X X .
+10   . . . . . .</pre>
+<p>最後の石を置く前の局面を読んでください。d9&ndash;f9 に三つ並び、c9 は白に塞がれています。同時に g7&ndash;g8 に縦の二つがあります。ここで <strong>g9</strong> に打ちます。石一つで二つの仕事をします。</p>
+<ul>
+<li>横に d9&ndash;g9 が完成し、<strong>眠四</strong>になります。c9 は塞がれているので勝ち点は h9 だけ。白はここに来なければ即負けです。</li>
+<li>縦に g7&ndash;g9 が<strong>活三</strong>になります。g6 も g10 も空いています。</li>
+</ul>
+<p>白は仕方なく h9 に来ます。あなたは g6（または g10）に打ち、g6&ndash;g9 が活四になります。もう止まりません。この手筋の形に注目してください。四は直接勝ったのではなく、勝てる自由な一手を買ったのです。</p>
+<p>周辺の名前も覚えておくと役立ちます。規則によって振る舞いが変わるからです。<strong>四四</strong>は一手で二つの四を、<strong>三三</strong>は一手で二つの活三を作ります。自由五目ではどちらも即勝ちですが、連珠ではどちらも黒の禁じ手です。四三は安全な側で、どの規則でも、黒でも白でも打てます。</p>
+
+<h2>技術3：VCF連鎖 &mdash; 四が次の四を買う</h2>
+<p>四三は二手で勝ちます。VCF は同じ考えを長く伸ばしたものです。VCF は「連続する四による勝利」。強制の連鎖で、相手には自由な手が一切ありません。毎手、四に応じなければならず、その応手のたびに手番が戻り、次の四を作る時間が生まれます。連鎖の終点は、あなたの四が<strong>活四</strong>として現れる瞬間です。そこではもう「受ける」という選択肢がありません。</p>
+<p>規律は言葉にすると簡単で、守るのは難しいものです。<strong>それぞれの四が次の四を生まなければならない。</strong>途中で何も脅かさない気の抜けた四を一つ打てば、相手は待っていた自由な手 &mdash; たいていは相手自身の四を作る手 &mdash; を得ます。</p>
+<p>全体が時間に追われながらの数手先の読みに乗っているので、これこそコンピュータ相手の練習が効く最初の技術です。強制手順が全体の組み立てにどう収まるかは<a href="/ja-JP/blog/advanced-gomoku-strategy">五目並べ戦略201</a>で続きを扱っています。</p>
+
+<h2>四が無いとき、四をどう作るか</h2>
+<p>ここまでは「必要なときに四を出せる」ことが前提です。中盤では出せないことが多く、力が問われるのは「あとで四が出る形に組み立てる」力です。</p>
+<p>素材になるのはほとんど<strong>跳び三</strong>です。三つが一つ空いて並び、二方向に四へ伸びます。跳び三は活三より静かで、だからこそ生き残ります。相手は目立つ脅威に受けを使い、柔軟なほうを放っておくからです。実践的な習慣は、相手が見ていない側の盤に跳び三を一つ生かしておき、注意が移った瞬間に現金化すること。この形を見る目を鍛えるには、<a href="/ja-JP/blog/pattern-recognition-gomoku">五目並べの形認識を極める</a>を、数えずに二方向の伸びが見えるまで繰り返してください。</p>
+
+<h2>現金化のチェックリスト</h2>
+<p>四を打つ前に、この五つを確認します。習慣になれば一秒です。</p>
+<ol>
+<li><strong>空き端を数える。</strong>二つなら勝ち、そのまま打つ。一つなら先手を買っている。ゼロなら壁で、打ってはいけません。</li>
+<li><strong>次の強制手を言葉にする。</strong>言えないなら、強制の四ではありません。</li>
+<li><strong>相手の反撃の四を確認する。</strong>応手が相手の四になりませんか。なるなら順番を変える。</li>
+<li><strong>これから埋めるマスを確認する。</strong>誘った受けの石は恒久的な障害になります。次に使いたい点ではありませんか。</li>
+<li><strong>二つ目の脅威を伴う四を選ぶ。</strong>四三は裸の四に常に勝ります。</li>
+</ol>
+<p>どれも珍しい話ではありません。誰もが最初の一か月で覚えるいくつかの形です。違いは、強い人が四を「何かを買う一手」として扱い、それ以外の人が四を「成果」として扱うことだけ。それぞれの四が何を残すかを数え始めると、五連が完成する何手も前に勝負が決まっていたことに気づくはずです。<a href="/ja-JP/#game">盤は無料、登録も不要です</a> &mdash; 何局か打って、石ではなく四を数えてみてください。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">いますぐ四を連鎖させてみる</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">読むことと打てることは別です。無料対局を開いて、偶然の五連ではなく四三で勝つつもりで打ってみてください。</p>
+            <a href="/ja-JP/#game" class="cta-btn">今すぐ五目並べで遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べの四連勝ち筋：四を勝ちに変える技術",
+    "description": "四を作ること自体は勝ちではありません。四が生む先手、正しい打つ順番、四三、そして一手の四を勝ちにつなげる VCF 連鎖を整理します。",
+    "datePublished": "2026-10-14",
+    "dateModified": "2026-10-14",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-four-in-a-row-winning-technique"}
+  }
+  </script>
+</body>
+</html>

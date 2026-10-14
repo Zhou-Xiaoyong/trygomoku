@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋四子连线取胜技巧：把冲四变成胜势 | 五子棋博客</title>
+  <meta name="description" content="连成四颗本身不赢棋，它换来的是先手。讲清冲四的正确顺序、最经典的四三杀，以及能把一个四变成胜利的 VCF 连锁。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-four-in-a-row-winning-technique">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:title" content="五子棋四子连线取胜技巧：把冲四变成胜势">
+  <meta property="og:description" content="冲四的顺序、四三杀与 VCF 连锁——把一个四真正变成胜势。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-four-in-a-row-winning-technique">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋四子连线取胜技巧">
+  <meta name="twitter:description" content="别只顾着冲四，要学会把四串起来。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">五子棋四子连线取胜技巧：把冲四变成胜势</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-14">2026-10-14</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>冲四本身不赢棋，它换来的是先手</h2>
+<p>新手连成四颗，会松一口气；高手连成四颗，会开始数数。这个差别，就是全部技术。</p>
+<p><strong>四子连线不是五子棋的目的，它是通货。</strong>每冲一次四，只买到一样东西：对手被迫应一手，先手于是又回到你手上。所以该问的从来不是「我能不能连成四」，而是「这个四给我买来了什么」。冲了四却不知道下一步走哪里，等于白送一手；能把四一颗颗串下去的人，才赢棋。这一篇讲的是后半段——不是认出棋形，而是把棋形兑现。</p>
+<p>如果棋形的名字你还会混，建议先读<a href="/zh-CN/blog/gomoku-winning-combinations-explained">五子棋获胜组合全解析</a>，再回来看这篇。</p>
+
+<h2>三种四，价值差得很远</h2>
+<p>按「能逼出什么」给四分类，而不是按好不好看。</p>
+<ul>
+<li><strong>活四</strong>——四颗连成一线，两端都空。棋已经结束了：对手只有一颗子，却要同时封两个成五点，只能堵一个。</li>
+<li><strong>冲四（眠四）</strong>——四颗连成一线，一端被堵。只剩一个成五点，不会当场取胜，但会逼人：不理它，你下一步就连五。对手那一手应手，就是你买到的先手。</li>
+<li><strong>死四</strong>——四颗连成一线，两端都被堵。一文不值。它是一堵墙，不是威胁。先数空端，再高兴。</li>
+</ul>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 9   . X X X X . .    活四   两个成五点  &rarr; 已经是胜势
+10   . X X X X O .    冲四   一个成五点  &rarr; 逼对手应一手
+11   O X X X X O .    死四   没有成五点  &rarr; 一文不值</pre>
+<p>五子棋里几乎所有胜法，都是把下面那一行往上面推：把冲四变成活四，或者干脆一步就做出活四。顺便记一条规则提醒——连珠里六颗以上的「长连」不算胜，而且是黑棋的禁手，所以别做出会「过冲」的五。</p>
+
+<h2>技术一：先走那个能生出下一个四的四</h2>
+<p>把胜势走丢，最常见的原因就是冲四的顺序错了。假设你手上同时有两个冲四，两个都能逼人，都能抢到先手；但只有其中一个，在对手应完之后还留着活的威胁——先冲它。</p>
+<p>规则很直白：<strong>一个四的价值，等于它留下来什么局面。</strong>落子之前，先把对手的应手画出来，然后问自己：「我下一个逼着的手在哪？」如果答案是「没有」，那你就不是抢到先手，而是花掉了一手。</p>
+<p>这条规则能立刻拦住两类失误：</p>
+<ul>
+<li><strong>被反冲四的陷阱。</strong>你冲四，对手却不是堵，而是用<em>他自己的</em>冲四回应，而且比你的更凶。先手没了，还在赛跑里慢了一步。每冲一次四之前，先检查对手的应手会不会变成他自己的四。</li>
+<li><strong>多余的冲四。</strong>局面已经赢定了，你却习惯性地冲一手，结果对手被迫落下的那颗子，正好堵在你下一步要用的点上。那个点废了。赢定的局面，走安静的那一手，别走热闹的那一手。</li>
+</ul>
+
+<h2>技术二：四三——一子两威胁</h2>
+<p>一颗子可以同时「做成一个四」并「生出一个三」，这就是最经典的四三，也是把四兑现成胜利最干净的方式：四负责逼，三才是计划。</p>
+<pre style="background:#0f0f23;color:#e0e0ff;padding:14px 16px;border-radius:10px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:0.9rem;line-height:1.7;">     c d e f g h
+ 6   . . . . . .
+ 7   . . . . X .
+ 8   . . . . X .
+ 9   O X X X X .
+10   . . . . . .</pre>
+<p>先看落最后一子之前的局面：你在 d9&ndash;f9 有三颗子，c9 被白棋占住；同时 g7&ndash;g8 有一对竖子。现在落 <strong>g9</strong>，一子干两件事：</p>
+<ul>
+<li>横向做成 d9&ndash;g9，一个<strong>冲四</strong>——c9 已堵，成五点只剩 h9。白棋不去 h9 就当场输。</li>
+<li>纵向把 g7&ndash;g9 变成<strong>活三</strong>，g6 和 g10 都空着。</li>
+</ul>
+<p>白棋只能去 h9 挡。你落 g6（或 g10），g6&ndash;g9 就成了活四，挡不住了。注意这个手法的形状：这个四并没有直接赢棋，它买到的是那一步能赢棋的自由手。</p>
+<p>这一族手法的名字值得记住，因为它们在规则下表现不同。<strong>双四</strong>是一子同时做成两个四，<strong>双三</strong>是一子同时生出两个活三；在无禁手五子棋里两者都直接取胜，但在连珠里都是黑棋禁手。四三是安全的版本——所有规则下、黑白双方都可以下。</p>
+
+<h2>技术三：VCF 连锁——每个四都买出下一个四</h2>
+<p>四三两手取胜；VCF 是同样的思路拉长成一条链。VCF 意为「连续冲四取胜」：一连串逼着的手，对手全程没有任何自由手，因为每一步都必须去应你的四，而每一次应手都把先手交回你手里，让你接着做下一个四。链条的终点，是你的某个四终于以<strong>活四</strong>的姿态出现——那时「挡」这个选项已经不存在了。</p>
+<p>纪律说起来简单，做起来很难：<strong>每一个四都必须生出下一个四。</strong>中间只要有一个漫不经心的四、什么也不威胁，对手就拿到了他等的那个自由手——通常就是做出他自己的四的那一手。</p>
+<p>整件事依赖在时间压力下往前读数步，所以它是最值得用电脑练的技术。如果你想看逼着手顺如何嵌入整体计划，可以接着读<a href="/zh-CN/blog/advanced-gomoku-strategy">五子棋进阶策略 201</a>。</p>
+
+<h2>手里没有四的时候，怎么造一个出来</h2>
+<p>上面所有内容都建立在一个前提上：你需要的时候拿得出四。中盘往往拿不出，于是功力就体现在「把局面搭成以后能出四的样子」。</p>
+<p>原料几乎总是<strong>跳三</strong>——三颗子中间留一个空，可以朝两个方向长成四。跳三比活三安静，正因如此它活得下来：对手会把应手花在吵闹的威胁上，把灵活的那一个放着不管。实用的习惯是，在对手没看的那半张棋盘上养一个跳三，等他注意力一移就兑现。想练出这种眼力，把<a href="/zh-CN/blog/pattern-recognition-gomoku">五子棋的棋形识别</a>过一遍，直到两个方向的延伸点不用数就能看出来。</p>
+
+<h2>兑现前的检查清单</h2>
+<p>每次冲四之前，过一遍这五条。养成习惯以后只要一秒。</p>
+<ol>
+<li><strong>数空端。</strong>两个，你已经赢了，直接下。一个，你在买先手。零个，那是一堵墙，根本别下。</li>
+<li><strong>说出下一个逼着的手。</strong>说不出来，它就不是逼着的手。</li>
+<li><strong>查对手的反冲四。</strong>他的应手会不会变成他自己的四？会，就换个顺序。</li>
+<li><strong>查你正要埋掉的那个点。</strong>你请来的那颗封子会变成永久障碍。那是不是你下一步要用的点？</li>
+<li><strong>优先选带第二个威胁的四。</strong>四三永远强于光秃秃的四。</li>
+</ol>
+<p>这些都不冷门，就是每个人第一个月都会学到的那几个棋形——差别在于，高手把四当成「能买到东西的一手」，其他人把四当成「一个成果」。等你开始数每个四留下了什么，就会发现很多棋其实在有人连成五之前好几手就已经定了。<a href="/zh-CN/#game">棋盘免费，也不用注册</a>——去打几局，数你的四，别数你的子。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">现在就去串一次冲四</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">看懂和会用是两回事。开一局免费对局，试着用四三取胜，而不是等一个运气好的五连。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋四子连线取胜技巧：把冲四变成胜势",
+    "description": "连成四颗本身不赢棋，它换来的是先手。讲清冲四的正确顺序、最经典的四三杀，以及能把一个四变成胜利的 VCF 连锁。",
+    "datePublished": "2026-10-14",
+    "dateModified": "2026-10-14",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-four-in-a-row-winning-technique"}
+  }
+  </script>
+</body>
+</html>
