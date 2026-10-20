@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-ladder-attack-tactic">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Ladder Attack: Winning One Square at a Time | Gomoku Blog</title>
+  <meta name="description" content="A gomoku ladder is a chain of forced fours that walks diagonally across the board. How to count the rungs, defend the head, and avoid renju fouls.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-ladder-attack-tactic">
+  <meta property="og:title" content="Gomoku Ladder Attack: Winning One Square at a Time">
+  <meta property="og:description" content="Forced fours, one square at a time: building, defending, and breaking a gomoku ladder.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-ladder-attack-tactic">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Ladder Attack, Rung by Rung">
+  <meta name="twitter:description" content="Why the block you force becomes your next four.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Ladder Attack: Winning One Square at a Time</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-20">2026-10-20</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>The Block Is the First Rung</h2>
+<p>You play g7 to make four. White answers h7 and your attack stops on the exact point you wanted to continue from. Nearly everyone leaves that corner of the board here. The ladder player does not, because h7 is now a stone, and a stone is a wall you can build the next step against.</p>
+<p>A gomoku ladder is a chain of forced fours in which each new attacking stone lands one intersection diagonally off the last one. That single offset is the whole trick. The new stone closes a four on the line you were already working, and at the same time it joins a second line that sits one step closer to the rim. Your opponent has to answer the four. Their answer is a stone you did not pay for, placed where it seals one end of your next four.</p>
+<p>Call the front of the chain the head. The head is the empty point your stones are walking into, and every rung moves it one square. A ladder is not a shape to admire. It is a countdown. Start it when you can name the head and the number of rungs left, and only when that number is three or more.</p>
+
+<h2>An Open Four in the Middle Wastes the Chain</h2>
+<p>This is where a ladder separates itself from a lucky attack. An open four ends the game on the spot, which sounds perfect and is useless inside a chain. The chain stops, you take one game, and you learn nothing about the position.</p>
+<p>A closed four with a single win point is the rung that does the work. It forces one reply, keeps the turn with you, and leaves the rest of your structure intact. Every rung should be exactly that strong and no stronger. If a rung arrives open, take the win and stop counting. If a rung arrives dead, with both ends blocked, you have not built a step at all; you have built a wall across your own path. <a href="gomoku-four-in-a-row-winning-technique">Counting free ends before you play a four</a> is the habit that keeps a chain from stalling on a stone that threatens nothing.</p>
+
+<h2>Three Checks Before the First Stone</h2>
+<ol>
+<li><strong>Distance to the rim.</strong> The board is 15x15, so the edge is a dead stop rather than a soft boundary. A head four intersections from the edge gives you three rungs and then no board. A ladder that needs five and has three left is not a ladder. It is a series of fours that ends with your opponent finally free to attack.</li>
+<li><strong>Their counter-four.</strong> Every rung hands your opponent one reply. If any of those replies can be a four of their own, they will play it, and the tempo you spent three moves collecting vanishes in one. Read their reply before you read your own next rung.</li>
+<li><strong>Forbidden points, if you are Black in renju.</strong> A rung is structurally a multi-threat: the stone completes one line and extends another, which is exactly what the double-three and double-four rules watch for. Black must check each rung against the foul list of double three, double four, and overline of six or more. White has no forbidden moves at all, which is why ladders show up as a White weapon far more often than a Black one. A Black ladder that finishes with six in a row is not a win. It is a loss.</li>
+</ol>
+
+<h2>Defend the Head, Not the Rung</h2>
+<p>Against a ladder, blocking each four as it arrives is the habit of a player who loses slowly. You survive one rung, fall on the next, and spend four stones learning nothing.</p>
+<p>Block the head instead. That is the square the chain is walking into; take it and the whole structure has nowhere to go, two or three moves before it would have finished you. The price is that you have to see the ladder while it is still two rungs long, which is the actual skill being tested.</p>
+<p>If you cannot reach the head in time, look for the counter-four. A four of your own that arrives open wins the race outright, because your opponent must answer it and cannot. This is the one real hole in a forcing chain: it assumes every reply you face is a block. Break that assumption and the ladder collapses.</p>
+
+<h2>Where Ladders Quietly Fail</h2>
+<p>Three failures show up in club games more than any others.</p>
+<ul>
+<li><strong>The silent rung.</strong> A four with no win point is not a four. It looks like pressure, forces nothing, and hands over the free move your opponent has been waiting for.</li>
+<li><strong>The turn at the rim.</strong> Ladders bend. When the head reaches the edge the chain has to swing ninety degrees, and the swing costs a rung. Count it as a move you pay for, not a free continuation.</li>
+<li><strong>The early start.</strong> Beginning a ladder while your opponent already holds a live three on the far side is a race you lose, because their three finishes in two moves and your chain needs four.</li>
+</ul>
+<p>Ladders also occupy a specific slot among forcing sequences. A chain built only from fours is a VCF, and it is cheap to calculate because the defender has exactly one legal reply at every step. Add a live three into the chain and it becomes a VCT, where the defender has choices and the search tree widens fast. Humans miss VCTs constantly. Shallow engines do too. The Master level here does not. <a href="advanced-gomoku-strategy">The four ideas behind advanced gomoku strategy</a> explain why search depth matters more than the raw number of threats.</p>
+
+<h2>A Drill That Builds the Skill</h2>
+<p>Set one rule for five games: no ladder shorter than four rungs. Then count out loud. Rung one, the four. Rung two, their reply. Rung three, the next four. If you reach three and the head is still blocked, you miscounted and the position was never a ladder.</p>
+<p>Play those five games against the Hard AI, not the easy one. Easy hands out free moves that do not exist against a defence that blocks correctly, and a ladder trained on free moves is a habit rather than a skill. Once four rungs feel routine, the material in <a href="gomoku-double-threat-fork-strategy">gomoku double threat fork strategy</a> is the natural next step, because a ladder is simply a fork that repeats.</p>
+<p>One last thing worth keeping. A ladder is not a stronger attack than a fork, it is a cheaper one. A fork needs one perfect stone; a ladder needs four ordinary stones, and your opponent is forced to help you place them. That is how it wins games that already looked lost. <a href="../#game">Open a board</a> and spend the next game counting rungs instead of stones.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Run a Ladder of Your Own</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Reading about forced fours is not the same as counting them under pressure. Open a free board and start with the four, not the five.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Ladder Attack: Winning One Square at a Time",
+    "description": "A gomoku ladder is a chain of forced fours that walks diagonally across the board. How to count the rungs, defend the head, and avoid renju fouls.",
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-10-20",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-ladder-attack-tactic"}
+  }
+  </script>
+</body>
+</html>

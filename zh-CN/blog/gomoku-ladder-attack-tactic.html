@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-ladder-attack-tactic">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋阶梯进攻：一格一格把对手逼到无路 | 五子棋博客</title>
+  <meta name="description" content="梯子是一串逼着走的四，每一步都斜着错开一格。教你数台阶、堵头，以及黑棋在哪一节会踩到连珠禁手。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-ladder-attack-tactic">
+  <meta property="og:title" content="五子棋阶梯进攻：一格一格把对手逼到无路">
+  <meta property="og:description" content="逼着走的四，一步一格：梯子怎么搭、怎么堵、什么时候会散。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-ladder-attack-tactic">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋阶梯进攻，一节一节数">
+  <meta name="twitter:description" content="你逼出来的那颗封子，就是下一个四的一端。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">五子棋阶梯进攻：一格一格把对手逼到无路</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-20">2026-10-20</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>对手堵的那一格，就是第一节台阶</h2>
+<p>你在 g7 冲四，白棋 h7 一堵，攻势正断在你最想接着走的那个点上。多数人到这儿就换半个棋盘重新开始了。会走梯子的人不会，因为 h7 现在是一颗子，而一颗子就是一堵墙，可以用来当下一步的挡板。</p>
+<p>五子棋里的梯子（阶梯进攻）是一串逼着走的四：每一颗新的进攻子，都比上一颗斜着错开一格。错开的这一格就是全部诀窍。新子既在原来那条线上做成一个四，又顺手接上了旁边一条离边线更近的新线。对手必须应这个四。他应下的那颗子，你没花一手去下，却正好封住了你下一个四的一端。</p>
+<p>链条的最前端叫「头」。头就是你的子正要走进去的那个空点，每上一节台阶，它前进一格。所以梯子不是拿来欣赏的棋形，它是个倒计时。能说出头在哪、还剩几节，而且这个数不少于三，才值得起手。</p>
+
+<h2>中盘做成活四，等于把链子掐断</h2>
+<p>这一点把梯子和碰巧的攻势分开了。活四当场就赢，听着完美，放在链子中间却毫无用处：链子断了，你只赢下这一局，对这个局面什么都没学到。</p>
+<p>真正干活的是只有一个成五点的冲四。它把对手的应手压到一个点，把先手留给你，还不碰你其余的架子。每一节台阶就该这么强，一点都不能更强。哪一节要是以活四的姿态出现，直接赢，别数了；哪一节要是两头都被堵死，那你根本没搭出台阶，你是在自己路上砌了一堵墙。冲四之前先数空端，这个习惯能防止整条链子停在一颗什么也不威胁的子上（<a href="/zh-CN/blog/gomoku-four-in-a-row-winning-technique">四子连线取胜技巧：把冲四变成胜势</a>）。</p>
+
+<h2>落第一颗子之前的三个检查</h2>
+<ol>
+<li><strong>离边线还有多远。</strong>棋盘是 15×15，边线不是软限制，是终点。头离边线四格，你只剩三节，再往前没地方了。需要五节却只剩三节的，不叫梯子，那叫一串冲四，最后把自由手还给对手。</li>
+<li><strong>对手的反冲四。</strong>每一节台阶都给对手一次应手。这些应手里只要有一个能变成他自己的四，他一定会走，你三手攒下的先手一手就没了。先看他的应手，再看你自己的下一节。</li>
+<li><strong>黑棋的禁手（连珠规则）。</strong>一节台阶天生就是多重威胁：一颗子做成一条线，又长出另一条线，这正好是三三、四四禁手盯着的东西。黑棋每一节都要核对：三三、四四、六子以上的长连。白棋没有禁手，所以梯子更多是白棋的武器，不是黑棋的。黑棋的梯子如果以六连收尾，那不是赢，是输。</li>
+</ol>
+
+<h2>防守要堵头，不要堵四</h2>
+<p>对付梯子，来一个四堵一个，是慢性输棋的习惯。你扛过一节，倒在下一节，中间白花四颗子。</p>
+<p>去堵头。头是整条链子要走进的那个点，占住它，整套结构在还要两三手才成型的时候就没了去处。代价是你必须在这条梯子只有两节的时候看见它——被考的就是这个。</p>
+<p>来不及堵头，就去找反冲四。你自己的四要是以活四的姿态出现，这场赛跑直接赢：对手必须应，而他应不了。逼着的链子只有一个真漏洞——它假定你面对的每一手都是挡。把这个假定打破，梯子就散了。</p>
+
+<h2>梯子会在这三个地方悄悄断掉</h2>
+<p>棋友对局里最常见的失误就这三种。</p>
+<ul>
+<li><strong>哑四。</strong>没有成五点的四不是四。它看着像压力，其实什么也没逼，还把对手等了半天的那手自由棋送了过去。</li>
+<li><strong>到边线要拐弯。</strong>梯子会拐。头撞到边线，链子得转九十度，这一转要花掉一节。把它当成要付钱的一手，别当成白送的延续。</li>
+<li><strong>起手太早。</strong>对手在棋盘另一头已经有活三了，你还起梯子，这场赛跑你输：他的三两手就结，你的链子要四节。</li>
+</ul>
+<p>梯子在逼着走的棋里位置也很明确。只用四串起来的叫 VCF，算起来便宜，因为对手每一步只有一种合法应手。链子里掺进活三就变成 VCT，对手有了选择，搜索树一下就宽了。人经常看漏 VCT，读得浅的引擎也漏，本站的 Master 不漏。<a href="/zh-CN/blog/advanced-gomoku-strategy">五子棋进阶策略</a>那篇讲的就是为什么「读多深」比「威胁有几个」更要紧。</p>
+
+<h2>一个真能练出东西的练法</h2>
+<p>连着五局，只加一条规矩：短于四节的梯子不许起。然后出声数。第一节，四；第二节，他的应手；第三节，下一个四。数到第三节头还被堵着，说明你数错了，那局面根本不是梯子。</p>
+<p>这五局找 Hard 打，别找简单档。简单档会白送你一些自由手，而这些手在会正确防守的对手身上根本不存在；拿白送的手练出来的梯子只是习惯，不是本事。四节能走顺了，下一步去读<a href="/zh-CN/blog/gomoku-double-threat-fork-strategy">双威胁与捉双（fork）怎么造</a>。梯子本来就是一个重复出现的 fork。</p>
+<p>最后一句值得记住：梯子不比 fork 强，它比 fork 便宜。fork 要一颗恰到好处的子，梯子只要四颗普通的子，而且这四颗是对手替你摆的。所以它能在看起来已经输掉的局里赢下来。<a href="/zh-CN/#game">开一盘</a>，下一局别数子，数台阶。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">自己也走一条梯子</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">看懂逼着走和在有时间压力下数得出台阶，是两件事。开一局免费对局，先从四开始，别急着等五。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋阶梯进攻：一格一格把对手逼到无路",
+    "description": "梯子是一串逼着走的四，每一步都斜着错开一格。教你数台阶、堵头，以及黑棋在哪一节会踩到连珠禁手。",
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-10-20",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-ladder-attack-tactic"}
+  }
+  </script>
+</body>
+</html>

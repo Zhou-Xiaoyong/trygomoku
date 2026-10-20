@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-ladder-attack-tactic">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Атака «лестницей» в гомоку: выигрывать по одной клетке | Блог о гомоку</title>
+  <meta name="description" content="Лестница — это цепь форсированных четвёрок, идущая по диагонали на клетку за ход. Как считать ступени, закрывать голову и не попасть под запрет.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-ladder-attack-tactic">
+  <meta property="og:title" content="Атака «лестницей» в гомоку: выигрывать по одной клетке">
+  <meta property="og:description" content="Форсированные четвёрки, шаг за шагом: построить, защитить, сломать.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-ladder-attack-tactic">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Лестница в гомоку, ступень за ступенью">
+  <meta name="twitter:description" content="Блок, который вы вынудили, становится концом вашей следующей четвёрки.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Атака «лестницей» в гомоку: выигрывать по одной клетке</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-20">2026-10-20</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Первая ступень — та клетка, которую занял соперник</h2>
+<p>Вы ставите четвёрку на g7, белые отвечают h7, и атака обрывается ровно там, откуда вы хотели её продолжить. Обычно на этом месте игрок уходит на другой край доски. Тот, кто строит лестницу, смотрит на h7. Камень соперника стал стеной, а стену можно использовать как упор для следующей ступени.</p>
+<p>Лестница в гомоку — цепь форсированных четвёрок, в которой каждый новый атакующий камень ставится на одно пересечение по диагонали от предыдущего. Весь приём в этом смещении на одну клетку. Новый камень замыкает четвёрку на вашей линии и одновременно входит в соседнюю линию, которая на шаг ближе к краю. Соперник обязан ответить на четвёрку. Его ответ — камень, за который вы не платили, и стоит он как раз там, где закрывает один конец вашей следующей четвёрки.</p>
+<p>Передний край цепи назовём головой. Голова — пустой пункт, в который шагают ваши камни, и каждая ступень двигает её на одну клетку. Лестница не форма для любования, а обратный отсчёт. Начинать её стоит, когда вы можете назвать голову и число оставшихся ступеней, и только если это число не меньше трёх.</p>
+
+<h2>Открытая четвёрка в середине обесценивает цепь</h2>
+<p>Здесь лестница и отличается от удачной атаки. Открытая четвёрка выигрывает партию сразу. Звучит идеально и бесполезно внутри цепи: цепь заканчивается, вы берёте одну партию и ничего не узнаёте о позиции.</p>
+<p>Работает ступень, у которой ровно один выигрышный пункт. Она сужает ответ до одного хода, оставляет темп вам и не трогает остальную конструкцию. Каждая ступень должна быть ровно такой силы, не сильнее. Если ступень пришла открытой — берите победу и прекращайте счёт. Если ступень пришла мёртвой, с двумя закрытыми концами, вы построили не ступень, а стену поперёк собственного пути. Привычка считать свободные концы до хода не даёт цепи встать на камне, который ничем не угрожает (<a href="/ru-RU/blog/gomoku-four-in-a-row-winning-technique">как превращать четвёрки в победу</a>).</p>
+
+<h2>Три проверки до первого камня</h2>
+<ol>
+<li><strong>Расстояние до края.</strong> Доска 15×15, и край здесь не мягкое ограничение, а тупик. Голова в четырёх пересечениях от края даёт три ступени, а дальше доски нет. Лестница, которой нужно пять ступеней, а осталось три, — не лестница, а серия четвёрок, после которой соперник наконец получает свободу.</li>
+<li><strong>Ответная четвёрка соперника.</strong> Каждая ступень даёт сопернику один ответ. Если хоть один из этих ответов может быть его собственной четвёркой, он так и сыграет, и темп, собранный за три хода, исчезнет за один. Сначала читайте его ответ, потом свою следующую ступень.</li>
+<li><strong>Запрещённые пункты, если вы чёрные в рэндзю.</strong> Ступень по своей структуре создаёт несколько угроз: камень завершает одну линию и продолжает другую. Именно за этим следят правила тройка-тройка и четвёрка-четвёрка. Чёрные обязаны проверять каждую ступень: тройка-тройка, четвёрка-четвёрка, перебор в шесть и более камней. У белых запрещённых ходов нет вообще, поэтому лестница куда чаще оружие белых, чем чёрных. Лестница чёрных, которая заканчивается шестью в ряд, — не победа, а поражение.</li>
+</ol>
+
+<h2>Защита: закрывайте голову, а не ступень</h2>
+<p>Против лестницы отвечать на каждую четвёрку по очереди — привычка того, кто проигрывает медленно. Вы держитесь одну ступень, падаете на следующей и тратите на это четыре камня.</p>
+<p>Закрывайте голову. Это пункт, в который идёт цепь. Займите его, и вся конструкция теряет направление за два-три хода до того, как вас доиграют. Плата за это — умение увидеть лестницу, пока в ней две ступени. Именно это умение и проверяется.</p>
+<p>Если не успеваете, ищите ответную четвёрку. Своя четвёрка, пришедшая открытой, выигрывает гонку сразу: соперник должен ответить и не может. Здесь у форсированной цепи единственная настоящая дыра — допущение, что любой ваш ответ будет блоком. Сломайте это допущение, и лестница рассыплется.</p>
+
+<h2>Где лестницы тихо ломаются</h2>
+<p>В клубных партиях чаще всего встречаются три ошибки.</p>
+<ul>
+<li><strong>Немая ступень.</strong> Четвёрка без выигрышного пункта — не четвёрка. Она выглядит давлением, ничего не форсирует и отдаёт тот свободный ход, которого соперник ждал.</li>
+<li><strong>Поворот у края.</strong> Лестница гнётся. Когда голова упирается в край, цепь разворачивается на девяносто градусов, и поворот стоит одной ступени. Считайте его платным ходом, а не бесплатным продолжением.</li>
+<li><strong>Ранний старт.</strong> Начинать, когда у соперника уже есть открытая тройка на другой стороне, — проигранная гонка: его тройка решает за два хода, вашей цепи нужно четыре.</li>
+</ul>
+<p>Место лестницы в классификации форсированной игры тоже определённое. Цепь только из четвёрок — это VCF, и считать её дёшево: у защиты на каждом шаге ровно один ответ. Добавьте в цепь открытую тройку, и получится VCT, где у соперника появляется выбор, а дерево перебора растёт стремительно. Люди пропускают VCT постоянно, неглубокие движки тоже. Master на этом сайте не пропускает. <a href="/ru-RU/blog/advanced-gomoku-strategy">Продвинутая стратегия в гомоку</a> объясняет, почему глубина перебора важнее числа угроз.</p>
+
+<h2>Упражнение, которое действительно ставит навык</h2>
+<p>На пять партий одно правило: не начинать лестницу короче четырёх ступеней. И считать вслух. Первая ступень — четвёрка. Вторая — ответ. Третья — следующая четвёрка. Если вы дошли до третьей, а голова всё ещё закрыта, вы ошиблись в счёте и лестницы там не было.</p>
+<p>Играйте эти пять партий против Hard, а не против Easy. Easy дарит свободные ходы, которых не бывает у защиты, отвечающей правильно, и лестница, выученная на подарках, остаётся привычкой. Когда четыре ступени станут обычным делом, переходите к материалу <a href="/ru-RU/blog/gomoku-double-threat-fork-strategy">двойная угроза и вилка в гомоку</a>: лестница — это вилка, повторённая несколько раз.</p>
+<p>И последнее. Лестница не сильнее вилки, она дешевле. Вилке нужен один идеальный камень, лестнице хватает четырёх обычных, и эти четыре ставит за вас соперник. Поэтому она выигрывает партии, которые уже выглядели проигранными. <a href="/ru-RU/#game">Откройте доску</a> и следующую партию считайте ступени, а не камни.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Проведите лестницу сами</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Читать про форсированные четвёрки и считать их под давлением — разные вещи. Откройте бесплатную доску и начните с четвёрки, а не с пятёрки.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Атака «лестницей» в гомоку: выигрывать по одной клетке",
+    "description": "Лестница — это цепь форсированных четвёрок, идущая по диагонали на клетку за ход. Как считать ступени, закрывать голову и не попасть под запрет.",
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-10-20",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-ladder-attack-tactic"}
+  }
+  </script>
+</body>
+</html>

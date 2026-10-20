@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-ladder-attack-tactic">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-ladder-attack-tactic">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 사다리 공격: 한 칸씩 몰아붙이는 강제수 연쇄 | 오목 블로그</title>
+  <meta name="description" content="사다리는 강제 4를 이어 대각선으로 한 칸씩 나아가는 연쇄입니다. 단을 세는 법, 머리를 막는 법, 렌주 금수까지 정리합니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-ladder-attack-tactic">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-ladder-attack-tactic">
+  <meta property="og:title" content="오목 사다리 공격: 한 칸씩 몰아붙이는 강제수 연쇄">
+  <meta property="og:description" content="강제 4를 한 칸씩. 사다리를 놓고, 막고, 무너뜨리는 법.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-ladder-attack-tactic">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 사다리 공격, 한 단씩">
+  <meta name="twitter:description" content="상대가 막은 돌이 다음 4의 한쪽 끝이 됩니다.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">오목 사다리 공격: 한 칸씩 몰아붙이는 강제수 연쇄</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-20">2026-10-20</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>상대가 막은 그 자리가 첫 단입니다</h2>
+<p>g7에 4를 만들었더니 백이 h7로 받아 왔습니다. 공격은 하필 이어 가고 싶던 지점에서 끊깁니다. 대부분은 여기서 판의 다른 쪽으로 눈을 돌립니다. 사다리를 놓는 사람은 h7을 봅니다. 돌이 하나 늘었다는 것은, 다음 4의 한쪽 끝을 막아 줄 벽이 하나 생겼다는 뜻이기 때문입니다.</p>
+<p>사다리 공격은 강제 4를 이어 붙인 연쇄입니다. 새로 놓는 공격 돌은 바로 앞 돌에서 대각선으로 한 칸 비껴 놓습니다. 비껴 놓는 이 한 칸이 전부입니다. 새 돌은 방금 만든 4의 일부가 되고, 동시에 변 쪽으로 한 줄 더 가까운 새 선에 합류합니다. 상대는 4에 응수할 수밖에 없고, 그 응수는 내가 값을 치르지 않은 돌로서 다음 4의 한쪽 끝을 틀어막는 자리에 앉습니다.</p>
+<p>연쇄의 앞머리를 머리라고 부르겠습니다. 머리는 돌이 걸어 들어갈 빈 점이고, 한 단마다 한 칸씩 움직입니다. 사다리는 감상하는 형태가 아니라 카운트다운입니다. 머리의 위치와 남은 단 수를 말할 수 있고, 그 수가 세 단 이상일 때만 시작합니다.</p>
+
+<h2>중간에 열린 4를 만들면 연쇄가 끊깁니다</h2>
+<p>사다리와 요행의 공격을 가르는 지점입니다. 열린 4는 그 자리에서 이깁니다. 완벽해 보이지만 연쇄 중간에서는 쓸모가 없습니다. 연쇄가 거기서 끝나고, 한 판을 이기고, 그 국면에 대해서는 아무것도 남지 않습니다.</p>
+<p>일하는 단은 승점이 하나뿐인 닫힌 4입니다. 응수를 하나로 좁히고, 선수를 내게 남기고, 나머지 구조는 건드리지 않습니다. 모든 단은 그 정도면 충분하고 그보다 강하면 안 됩니다. 어느 단이 열린 채로 도착하면 이기를 받고 세는 것을 멈춥니다. 반대로 양 끝이 막힌 죽은 4라면 단이 아니라 내 길에 쌓은 벽입니다. 4를 놓기 전에 빈 끝을 세는 습관이, 아무것도 위협하지 않는 돌 위에서 연쇄가 멈추는 것을 막습니다(<a href="/ko-KR/blog/gomoku-four-in-a-row-winning-technique">4를 승리로 바꾸는 기술</a>).</p>
+
+<h2>첫 돌을 놓기 전 세 가지 확인</h2>
+<ol>
+<li><strong>변까지의 거리.</strong> 판은 15×15이고 변은 물러설 수 있는 경계가 아니라 종점입니다. 머리가 변에서 네 칸이면 쓸 수 있는 단은 세 개이고, 그다음은 판이 없습니다. 다섯 단이 필요한데 세 단만 남았다면 사다리가 아니라, 마지막에 상대에게 자유수를 넘기고 끝나는 4의 연타입니다.</li>
+<li><strong>상대의 반격 4.</strong> 어느 단에서든 상대의 응수는 하나입니다. 그 응수가 상대 자신의 4가 될 수 있다면 상대는 반드시 그렇게 둡니다. 세 단에 걸쳐 모은 선수가 한 수에 사라집니다. 내 다음 단보다 상대의 응수를 먼저 읽습니다.</li>
+<li><strong>렌주 흑의 금수.</strong> 사다리의 단은 구조적으로 여러 위협이 됩니다. 한 줄을 완성하면서 다른 줄을 늘리기 때문입니다. 삼삼과 사사 금수가 정확히 노리는 형태입니다. 흑은 각 단이 삼삼, 사사, 여섯 이상의 장련에 걸리지 않는지 확인해야 합니다. 백에게는 금수가 없습니다. 그래서 사다리는 흑의 무기보다 백의 무기가 됩니다. 흑의 사다리가 여섯으로 끝나면 승리가 아니라 패배입니다.</li>
+</ol>
+
+<h2>막을 때는 단이 아니라 머리를 막습니다</h2>
+<p>사다리를 상대로 4가 나올 때마다 받아 주는 것은 천천히 지는 습관입니다. 한 단을 버티고 다음 단에서 무너지며, 그동안 돌을 네 개 씁니다.</p>
+<p>머리를 막으십시오. 머리는 연쇄가 걸어 들어갈 점입니다. 그곳을 차지하면 이기기 두세 수 전에 구조 전체가 갈 곳을 잃습니다. 대가는 사다리가 아직 두 단짜리일 때 그것을 봐야 한다는 것입니다. 시험받는 것은 그 부분입니다.</p>
+<p>시간 안에 닿을 수 없다면 반격 4를 찾습니다. 내 4가 열린 채로 도착하면 그 경쟁은 그대로 이깁니다. 상대는 응수해야 하고, 응수할 수 없습니다. 강제 연쇄에 있는 유일한 구멍이 여기입니다. 상대의 응수는 언제나 막기라는 전제입니다. 그 전제를 깨면 사다리는 무너집니다.</p>
+
+<h2>사다리가 조용히 실패하는 세 곳</h2>
+<p>동호회 대국에서 가장 자주 보는 실수는 이 셋입니다.</p>
+<ul>
+<li><strong>말 없는 단.</strong> 승점이 없는 4는 4가 아닙니다. 압박처럼 보이지만 아무것도 강제하지 않고, 상대가 기다리던 자유수를 건넵니다.</li>
+<li><strong>변에서의 회전.</strong> 사다리는 꺾입니다. 머리가 변에 닿으면 구십 도로 돌아야 하고, 그 회전에 한 단이 듭니다. 회전은 공짜 이어짐이 아니라 값을 치러야 하는 한 수로 셉니다.</li>
+<li><strong>너무 이른 시작.</strong> 상대가 반대편에서 열린 3을 이미 가진 상태에서 시작하면 경쟁에서 집니다. 상대의 3은 두 수로 끝나고, 내 연쇄는 네 단이 필요합니다.</li>
+</ul>
+<p>사다리는 강제수 가운데서도 자리가 정해져 있습니다. 4로만 짠 연쇄는 VCF이고 계산이 쌉니다. 단마다 상대의 응수가 하나뿐이기 때문입니다. 연쇄에 열린 3을 섞으면 VCT가 되고, 상대에게 선택지가 생기며 탐색 나무가 순식간에 넓어집니다. 사람은 VCT를 자주 놓치고, 얕게 읽는 엔진도 놓칩니다. 이 사이트의 Master는 놓치지 않습니다(<a href="/ko-KR/blog/advanced-gomoku-strategy">오목 상급 전략</a>).</p>
+
+<h2>실력이 붙는 연습</h2>
+<p>다섯 판 동안 규칙 하나만 겁니다. 네 단보다 짧은 사다리는 놓지 않기. 그리고 소리 내어 셉니다. 한 단, 4. 두 단, 상대의 응수. 세 단, 다음 4. 세 단까지 왔는데 머리가 아직 막혀 있다면 셈이 틀린 것이고, 그 국면은 사다리가 아니었습니다.</p>
+<p>상대는 Easy가 아니라 Hard로 둡니다. Easy는 제대로 막는 상대에게는 없는 자유수를 주기 때문에, 그렇게 익힌 사다리는 기술이 아니라 버릇이 됩니다. 네 단이 익숙해지면 <a href="/ko-KR/blog/gomoku-double-threat-fork-strategy">양갈래(포크) 만들기</a>로 넘어갑니다. 사다리는 반복되는 포크이기 때문입니다.</p>
+<p>마지막으로 하나. 사다리는 포크보다 강한 공격이 아니라 값싼 공격입니다. 포크는 완벽한 돌 하나가 필요하고, 사다리는 평범한 돌 네 개면 됩니다. 게다가 그 네 개는 상대가 놓아 주는 돌입니다. 그래서 진 것처럼 보이는 판에서 이깁니다. <a href="/ko-KR/#game">판을 열고</a> 다음 판은 돌이 아니라 단을 세면서 두십시오.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">직접 사다리를 놓아 보세요</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">읽고 아는 것과 시간에 쫓기며 세는 것은 다릅니다. 무료 판을 열고 5가 아니라 4부터 시작하십시오.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 플레이하기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 사다리 공격: 한 칸씩 몰아붙이는 강제수 연쇄",
+    "description": "사다리는 강제 4를 이어 대각선으로 한 칸씩 나아가는 연쇄입니다. 단을 세는 법, 머리를 막는 법, 렌주 금수까지 정리합니다.",
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-10-20",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-ladder-attack-tactic"}
+  }
+  </script>
+</body>
+</html>
