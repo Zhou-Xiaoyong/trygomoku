@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-center-control-why-it-matters">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-center-control-why-it-matters">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-center-control-why-it-matters">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-center-control-why-it-matters">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контроль центра в гомоку: почему середина решает | Блог о гомоку</title>
+  <meta name="description" content="Камень на h8 лежит на 20 из 572 отрезков по пять клеток, угловой — на трёх. Что даёт центр, почему тройка на четвёртой линии не растёт и когда уходить.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-center-control-why-it-matters">
+  <meta property="og:title" content="Контроль центра в гомоку: почему середина решает">
+  <meta property="og:description" content="Двадцать линий через центр и три через угол. Что это даёт на самом деле и какие два числа проверить перед ходом.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-center-control-why-it-matters">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Контроль центра в гомоку: почему середина решает">
+  <meta name="twitter:description" content="Камень на h8 лежит на 20 линиях, угловой — на трёх. Эта разница и есть смысл борьбы за центр.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Контроль центра в гомоку: почему один камень в тэнгэне стоит трёх у края</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-21">2026-10-21</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Один камень делает четыре работы</h2>
+<p>Поставьте камень на h8 и посчитайте линии, которые ему ещё доступны. На доске 15x15 эта точка лежит на двадцати отрезках по пять клеток: пять по горизонтали, пять по вертикали, по пять на каждой диагонали. Тот же камень на a1 оставляет три. Камни одинаковые, разница только в месте, но у одного двадцать путей к пятёрке, а у другого три.</p>
+<p>Это соотношение и есть весь смысл борьбы за центр. Не стиль и не традиция. Центральный камень просто попадает в большее число готовых пятёрок, поэтому следующим ходам есть к чему примкнуть.</p>
+<p>На доске 225 пересечений и 572 отрезка по пять клеток: 165 по горизонтали, 165 по вертикали и по 121 на каждую диагональ. Через h8 проходит двадцать из них. Как устроена сетка, разобрано в материале <a href="/ru-RU/blog/gomoku-board-setup-and-basic-rules">про расстановку доски и базовые правила</a>, здесь важен только итог: это число решает, куда идут первые четыре камня.</p>
+
+<h2>Плато 7x7</h2>
+<p>Двадцать не привилегия одного тэнгэна. Любая точка в центральном квадрате 7x7, от вертикали e до вертикали k и с 5-й по 11-ю горизонталь, сохраняет все двадцать. Шаг за пределы квадрата, и счёт сразу падает. Камень на краю, h1, держит восемь: пять вдоль края, одну по вертикали, по одной на каждой диагонали. Угол держит три.</p>
+<p>Значит, «играть на центр» имеет точный смысл: держать камни внутри квадрата из 49 точек. Большинство тех, кто думает, что борется за центр, стоит на две-три клетки снаружи, на четвёртой линии. Форма выглядит здоровой, а будущее уже наполовину израсходовано.</p>
+
+<h2>Взлётная полоса: число, которое никто не считает</h2>
+<p>Количество линий это половина дела. Вторая половина: сколько пустой доски осталось перед формой, и счёт за это приходит именно на четвёртой линии.</p>
+<p>Камень на вертикали k ещё может начать пятёрку вправо: l, m, n и o дают ровно четыре клетки. На вертикали l уже нет. Три клетки и край, и никакая хорошая форма этого не исправит. Назовём это правилом четырёх: начать пятёрку может только точка, у которой в этом направлении четыре пустых пересечения.</p>
+<p>С открытой четвёркой строже. Открытая четвёрка требует пустоты с обоих концов. У края один конец исчезает, поэтому ваши четвёрки приходят закрытыми, а закрытая четвёрка покупает ровно один ответный ход и заканчивается. Вот почему тройка на четвёртой линии обманывает новичков: выглядит открытой, а растёт только в одну сторону.</p>
+
+<h2>Центр это спор о темпе, а не о территории</h2>
+<p>Занять центр нельзя. Занять можно количество форсирующих ходов, которое даёт каждый камень. Камень в тэнгэне обычно стоит сразу на двух развивающихся линиях, поэтому один и тот же камень отвечает на две атаки, не сдвигаясь с места.</p>
+<p>Чёрные ставят h8, белые отвечают h10. Чёрные играют i9. Теперь два камня чёрных касаются трёх линий: вертикали h, диагонали, которая их соединяет, и 9-й горизонтали, где стоит i9. Одинокий камень белых лежит на одной линии, и на ней уже стоит камень чёрных. Развилка дебюта решается этой асимметрией, а не количеством камней. Четыре признака, о которых говорит материал <a href="/ru-RU/blog/advanced-gomoku-strategy">про продвинутую стратегию гомоку</a>, сводятся к тому же счёту, прочитанному заранее.</p>
+
+<h2>Когда из центра надо уходить</h2>
+<p>Есть жёсткая граница. Два камня, разнесённые по одной линии на пять клеток и больше, никогда не попадут в одну пятёрку. Если белые накопили камни на вертикали h, переносите борьбу на вертикаль m: от h до m ровно пять клеток, и те камни становятся зрителями.</p>
+<p>Поэтому уходить надо на пять клеток, а не на две. Воевать в двух клетках от сильной центральной группы хуже всего: близко настолько, что чужие камни входят в вашу линию, и далеко настолько, что ваши не входят в чужую.</p>
+
+<h2>Рэндзю загоняет всех в один квадрат</h2>
+<p>Правила рэндзю сами подводят итог. Первый ход чёрных обязан быть в тэнгэне, второй ход белых должен стоять внутри квадрата 3x3 вокруг него. Из одного этого пункта выросли 26 названных дебютов, а самые изученные, кагэцу и угэцу, отличаются только местом третьего хода чёрных.</p>
+<p>Центр ещё и место, где чёрные ломаются. Тройка-тройка, четвёрка-четвёрка и оверлайн это формы, которые возникают там, где две линии пересекаются и по обе стороны есть пространство. Это и есть определение центра. У белых запрещённых ходов нет вовсе. Поэтому белые затаскивают борьбу в тесную середину, а чёрные тратят камни там, где фол не рождается. В подборке <a href="/ru-RU/blog/top-10-gomoku-openings">десяти известных дебютов гомоку</a> видно, какие из них берут этот квадрат, а какие уходят наружу.</p>
+
+<h2>Пять первых ходов, пять проверок</h2>
+<ol>
+<li><strong>Ход первый: тэнгэн.</strong> На 15x15 исключений нет. На маленькой доске тоже центр.</li>
+<li><strong>Ход второй: внутри 7x7, по диагонали на клетку.</strong> По диагонали оба камня сохраняют свои четыре линии. В линию они делят одну и выбрасывают остальные.</li>
+<li><strong>Ход третий: поперёк чужой двойки.</strong> Если белые строят горизонталь, открывайте вертикаль или диагональ. Спорить на одной линии меньшим числом камней это проигранная арифметика.</li>
+<li><strong>Ход четвёртый: сначала полоса, потом форма.</strong> Четыре пустых пересечения впереди, или линия остаётся украшением.</li>
+<li><strong>Ход пятый: сравнивайте линии, а не камни.</strong> Два камня по двадцать линий бьют три камня, сбитые в одну линию, и с большим запасом.</li>
+</ol>
+
+<h2>Упражнение на один вечер</h2>
+<p>Пять партий, где первые шесть камней обязаны стоять внутри центрального 7x7. Потом пять партий, где вы намеренно начинаете с четвёртой линии, скажем d4 или l12, и играете дальше как обычно. Вторая серия покажет цену: тройки перестают расти, четвёрки приходят закрытыми, а к двенадцатому ходу вы защищаете три линии и не атакуете ни одной.</p>
+<p>Обе серии играйте на одном уровне. Easy не годится: он дарит свободные ходы, которые прикрывают ошибку.</p>
+<p>Перед ходом ответьте на два числа. На скольких линиях по пять клеток стоит эта точка и сколько пустых клеток осталось у моей формы в ту сторону, куда я толкаю. Если любой из ответов три или меньше, камень принадлежит другому месту на доске. <a href="/ru-RU/">Откройте доску</a> и следующую партию первые десять ходов считайте эти два числа вслух.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Играйте в центр, а не у края</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Десять ходов со счётом полезнее десяти статей о счёте. Откройте бесплатную доску и держите первые шесть камней внутри центрального квадрата.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Контроль центра в гомоку: почему один камень в тэнгэне стоит трёх у края",
+    "description": "Камень на h8 лежит на 20 из 572 отрезков по пять клеток, угловой — на трёх. Что даёт центр, почему тройка на четвёртой линии не растёт и когда уходить.",
+    "datePublished": "2026-10-21",
+    "dateModified": "2026-10-21",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-center-control-why-it-matters"}
+  }
+  </script>
+</body>
+</html>

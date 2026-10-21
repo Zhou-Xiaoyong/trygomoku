@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-center-control-why-it-matters">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-center-control-why-it-matters">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-center-control-why-it-matters">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-center-control-why-it-matters">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 중앙 장악: 천원의 돌 하나가 20개 라인을 쓰는 이유 | 오목 블로그</title>
+  <meta name="description" content="천원의 돌은 572개 오목 세그먼트 중 20개에 속하고, 귀퉁이 돌은 3개입니다. 중앙 7x7, 4선의 3이 자라지 못하는 이유, 중앙을 떠나야 할 때를 정리합니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-center-control-why-it-matters">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-center-control-why-it-matters">
+  <meta property="og:title" content="오목 중앙 장악: 천원의 돌 하나가 20개 라인을 쓰는 이유">
+  <meta property="og:description" content="중앙은 스무 줄, 귀퉁이는 세 줄. 중앙을 둔다는 것의 정확한 의미와, 돌을 놓기 전에 세어야 할 두 숫자.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-center-control-why-it-matters">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 중앙 장악: 천원의 돌 하나가 20개 라인을 쓰는 이유">
+  <meta name="twitter:description" content="천원의 돌은 20개 오목 라인 위에 있고, 귀퉁이 돌은 3개입니다. 이 차이가 중앙을 두고 싸우는 이유입니다.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">오목 중앙 장악이 중요한 이유: 천원의 돌 하나는 20개 오목 라인 위에 있습니다</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-21">2026-10-21</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>돌 하나가 네 가지 일을 합니다</h2>
+<p>h8에 돌을 놓고 그 돌이 아직 쓸 수 있는 줄을 세어 보십시오. 15x15 판에서 이 점은 스무 개의 오목 세그먼트에 속합니다. 가로 다섯, 세로 다섯, 두 대각선에 각각 다섯입니다. 같은 돌을 a1에 놓으면 세 개만 남습니다. 돌은 같고 위치만 다른데, 하나는 다섯이 될 길이 스무 개, 다른 하나는 세 개입니다.</p>
+<p>이 비율이 중앙을 두고 싸우는 이유의 전부입니다. 취향도 전통도 아닙니다. 중앙의 돌은 그만큼 많은 완성형에 등장하므로, 이후의 수가 이어 붙을 곳을 더 많이 갖습니다.</p>
+<p>판에는 225개의 교점, 오목 세그먼트는 572개가 있습니다. 가로 165, 세로 165, 대각선이 각각 121개입니다. h8을 지나는 것은 그중 20개입니다. <a href="/ko-KR/blog/gomoku-board-setup-and-basic-rules">판 놓는 법과 기본 규칙</a>에서 격자를 세는 방법을 다뤘으니, 여기서는 결론만 씁니다. 첫 네 수를 어디에 둘지는 이 숫자가 정합니다.</p>
+
+<h2>중앙의 7x7</h2>
+<p>20개는 천원만의 특권이 아닙니다. 중앙의 7x7, e열부터 k열, 5행부터 11행의 49개 점은 모두 20개를 유지합니다. 이 사각형에서 한 칸 벗어나면 숫자가 곧 떨어집니다. 변의 h1은 여덟 개입니다. 변을 따라 다섯, 세로로 하나, 대각선이 각각 하나입니다. 귀퉁이는 세 개입니다.</p>
+<p>그래서 "중앙을 둔다"에는 정확한 뜻이 있습니다. 돌을 49개 점의 사각형 안에 두는 것입니다. 중앙을 두고 있다고 생각하는 사람의 대부분은 그 사각형 밖, 4선 위에 있습니다. 모양은 아직 멀쩡해 보이지만 미래는 이미 절반입니다.</p>
+
+<h2>활주로, 아무도 세지 않는 숫자</h2>
+<p>줄의 개수는 절반입니다. 나머지 절반은 모양 앞에 빈 판이 얼마나 남았는가입니다. 4선을 두는 사람의 청구서는 여기서 날아옵니다.</p>
+<p>k열의 돌은 아직 오른쪽으로 다섯을 시작할 수 있습니다. l, m, n, o가 정확히 네 칸 있기 때문입니다. l열에서는 시작할 수 없습니다. 세 칸에서 판이 끝납니다. 모양이 좋아도 메울 수 없습니다. "네 칸 법칙"이라고 부르십시오. 다섯의 출발점이 될 수 있는 것은 그 방향에 빈 점이 네 개 있는 점뿐입니다.</p>
+<p>열린 4는 더 엄격합니다. 열린 4는 양 끝이 비어 있어야 성립합니다. 변이 가까우면 한쪽 끝이 사라지므로 당신의 4는 늘 닫힌 4로 도착합니다. 닫힌 4는 상대의 방어 한 수를 사고 끝납니다. 4선의 3이 초보를 속이는 이유입니다. 열린 3처럼 보이지만 한 방향으로만 자랍니다.</p>
+
+<h2>중앙은 영토가 아니라 선수 싸움</h2>
+<p>중앙을 소유할 수는 없습니다. 소유할 수 있는 것은 돌 하나가 몇 수의 강제력을 만드는가입니다. 천원의 돌은 대개 두 개의 자라나는 줄에 동시에 올라 있습니다. 그래서 같은 돌이 움직이지 않고 두 가지 공격에 답합니다.</p>
+<p>흑이 h8, 백이 h10으로 받았다고 하십시오. 흑은 i9. 이때 흑의 두 돌은 세 개의 줄에 닿아 있습니다. h열, 두 돌을 잇는 대각선, 그리고 i9의 9행입니다. 백의 외로운 돌은 한 줄 위에 있고, 그 줄에는 이미 흑의 돌이 앉아 있습니다. 초반의 갈림길은 이 비대칭이 정하고, 돌 개수의 차이가 정하지 않습니다. <a href="/ko-KR/blog/advanced-gomoku-strategy">오목 상급 전략</a>에서 말하는 네 가지 판단도 결국 이 숫자를 먼저 읽는 일입니다.</p>
+
+<h2>중앙을 떠나야 할 때</h2>
+<p>단단한 경계가 하나 있습니다. 같은 줄에서 다섯 칸 이상 떨어진 두 돌은 같은 오목에 들어갈 수 없습니다. 백이 h열에 쌓아 두었다면 전장을 m열로 옮기십시오. h에서 m은 다섯 칸 떨어져 있으므로 그 돌들은 관중입니다.</p>
+<p>그래서 떠날 때의 거리는 다섯 칸이고, 두 칸이 아닙니다. 강한 중앙 집단에서 두 칸 옆에서 싸우는 것은 최악입니다. 상대 돌은 내 줄에 들어오고, 내 돌은 상대 줄에 들어가지 못합니다.</p>
+
+<h2>렌주는 모두를 같은 사각형으로 밀어 넣습니다</h2>
+<p>렌주 규칙이 이 논의를 먼저 결론냅니다. 흑의 첫 수는 천원이어야 하고, 백의 두 번째 수는 그 주위 3x3 안입니다. 이 한 조항이 26가지 정석을 만들었고, 가장 많이 연구된 화월과 포월의 차이는 흑 세 번째 수의 위치뿐입니다.</p>
+<p>중앙은 흑이 무너지는 자리이기도 합니다. 삼삼, 사사, 장련은 두 줄이 교차하고 양쪽에 공간이 있는 형태입니다. 그것이 중앙의 정의입니다. 백에게는 금수가 없습니다. 그래서 백의 계획은 싸움을 빽빽한 중앙으로 끌어들이는 것이고, 흑의 계획은 금수가 생길 수 없는 곳에 돌을 쓰는 것입니다. <a href="/ko-KR/blog/top-10-gomoku-openings">대표적인 오목 정석 열 가지</a>를 보면 어느 정석이 중앙을 차지하려는지, 어느 것이 밖으로 빠지는지 보입니다.</p>
+
+<h2>처음 다섯 수, 다섯 가지 확인</h2>
+<ol>
+<li><strong>첫 수는 천원.</strong> 15x15에 예외는 없습니다. 작은 판에서도 중앙입니다.</li>
+<li><strong>두 번째 수는 7x7 안, 대각선으로 한 칸.</strong> 대각선이면 두 돌 모두 자기 네 줄을 유지합니다. 가로세로로 붙이면 한 줄만 나눠 갖고 나머지는 버립니다.</li>
+<li><strong>세 번째 수는 상대의 2에 직각으로.</strong> 백이 행을 만들고 있다면 열이나 대각선을 여십시오. 같은 줄을 더 적은 돌로 다투는 것은 수에서 지는 싸움입니다.</li>
+<li><strong>네 번째 수는 모양보다 활주로.</strong> 앞에 빈 점이 네 개인지 보십시오. 없으면 그 줄은 장식입니다.</li>
+<li><strong>다섯 번째 수는 돌 개수가 아니라 줄 개수를 비교합니다.</strong> 20개씩 가진 두 돌은 한 줄에 몰린 세 돌을 이깁니다. 근소한 차이가 아닙니다.</li>
+</ol>
+
+<h2>하룻밤이면 끝나는 연습</h2>
+<p>다섯 판은 처음 여섯 수를 중앙 7x7 안으로 제한합니다. 다음 다섯 판은 일부러 4선에서 시작합니다. d4나 l12입니다. 두 번째 묶음이 대가를 보여 줍니다. 3은 4로 승격하지 않고, 4는 늘 닫힌 채로 오고, 열두 수째에는 세 줄을 지키느라 공격이 하나도 남지 않습니다.</p>
+<p>두 묶음 모두 같은 난이도로 두십시오. Easy는 쓸 수 없습니다. 실수를 무료로 넘겨 주기 때문에 아무것도 배우지 못합니다.</p>
+<p>돌을 놓기 전에 두 숫자에 답하십시오. 이 점은 몇 개의 오목 라인 위에 있는가. 밀어붙일 방향에 빈 점이 몇 개 남았는가. 둘 중 하나라도 3 이하라면 그 돌은 판의 다른 곳에 속합니다. <a href="/ko-KR/">판을 열고</a> 다음 한 판은 처음 열 수 동안 이 두 가지를 소리 내어 세십시오.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">중앙에 두고, 변에 두지 마십시오</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">세는 법을 읽는 것보다 열 수를 세는 편이 낫습니다. 무료 판을 열고 처음 여섯 수를 중앙 사각형 안에 두십시오.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 두기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 중앙 장악이 중요한 이유: 천원의 돌 하나는 20개 오목 라인 위에 있습니다",
+    "description": "천원의 돌은 572개 오목 세그먼트 중 20개에 속하고, 귀퉁이 돌은 3개입니다. 중앙 7x7, 4선의 3이 자라지 못하는 이유, 중앙을 떠나야 할 때를 정리합니다.",
+    "datePublished": "2026-10-21",
+    "dateModified": "2026-10-21",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-center-control-why-it-matters"}
+  }
+  </script>
+</body>
+</html>

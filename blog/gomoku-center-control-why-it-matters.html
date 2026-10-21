@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-center-control-why-it-matters">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-center-control-why-it-matters">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-center-control-why-it-matters">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-center-control-why-it-matters">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Center Control: Why the Middle Wins | Gomoku Blog</title>
+  <meta name="description" content="A stone on h8 sits on 20 of the board's 572 five-cell lines. A corner stone sits on 3. What center control buys you, and when to leave it.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-center-control-why-it-matters">
+  <meta property="og:title" content="Gomoku Center Control: Why the Middle Wins">
+  <meta property="og:description" content="Twenty lines through the center, three through the corner. The arithmetic behind center play in gomoku, and the two numbers to check before every stone.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-center-control-why-it-matters">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Center Control: Why the Middle Wins">
+  <meta name="twitter:description" content="A stone on h8 sits on 20 five-cell lines. A corner stone sits on 3. Here is what that gap actually buys you.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Center Control: Why One Central Stone Beats Three on the Edge</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-21">2026-10-21</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>One Stone, Four Jobs</h2>
+<p>Put a stone on h8 and count the lines it can still use. On a 15x15 board that point lies on twenty different five-cell segments: five horizontal windows, five vertical, five on each diagonal. Put the same stone on a1 and it lies on three. Nothing about the two stones differs except position, yet one has twenty ways to become a five and the other has three.</p>
+<p>That ratio is the whole argument for center play. It has nothing to do with style or tradition. A central stone turns up in more finished fives, so your later moves have more to connect to.</p>
+<p>The board holds 225 intersections and 572 five-cell segments: 165 horizontal, 165 vertical, 121 in each diagonal direction. Twenty of them cross h8. <a href="gomoku-board-setup-and-basic-rules">The board setup and basic rules</a> cover how the grid is counted. Here the number matters for one reason only: it decides where your first four stones go.</p>
+
+<h2>The 7x7 Plateau</h2>
+<p>Twenty is not exclusive to h8. Every point in the central 7x7 block, e-file through k-file and row 5 through row 11, keeps all twenty lines. Step one intersection outside that square and the count drops at once. A stone on the edge at h1 keeps eight: five along the edge, one down the file, one on each diagonal. A corner keeps three.</p>
+<p>So "playing for the center" has a precise meaning. It means keeping your stones inside a square of 49 points. Most players who believe they are fighting for the center are actually two or three points outside it, on the fourth line, where their shapes still look healthy and have already spent half their future.</p>
+
+<h2>Runway: The Number Nobody Counts</h2>
+<p>Line count is half of it. The other half is how much empty board sits in front of your shape, and the fourth line is where that bill arrives.</p>
+<p>A stone on the k-file can still start a five to the right, because l, m, n and o give it the four cells it needs. A stone on the l-file cannot. It has three cells and then the rim, and no amount of good shape repairs that. Call it the rule of four: a point can begin a five only if four empty intersections lie in that direction.</p>
+<p>Open fours are stricter. An open four needs both ends empty. Near the rim one end disappears, so your fours arrive closed, and a closed four buys exactly one block and then nothing. That is the trick a three on the fourth line plays on beginners: it looks open, and it only grows one way.</p>
+
+<h2>Center Control Is a Tempo Argument</h2>
+<p>Nobody owns the middle. What you own is how many forcing moves each stone can produce. A stone on h8 usually sits on two developing lines at once, which is why the same stone answers two different attacks without moving.</p>
+<p>Black opens h8, White answers h10. Black plays i9. Now Black's two stones touch three lines: the h-file, the diagonal that joins them, and row 9 where i9 sits. White's lone stone rests on one line, and Black already stands on it. The fork in the opening gets decided by that asymmetry, not by who has more stones. The four checks behind <a href="advanced-gomoku-strategy">advanced gomoku strategy</a> come down to reading this count early.</p>
+
+<h2>When to Leave the Middle</h2>
+<p>There is a hard boundary. Two stones five or more intersections apart on one line can never share a five. If White has piled stones onto the h-file, move the fight to the m-file: h to m is exactly five apart, so those stones become spectators.</p>
+<p>Which sets the escape distance at five, not two. Starting a fight two points from a strong central group is the worst of both worlds. Close enough for their stones to slide into your line, far enough that yours cannot slide into theirs.</p>
+
+<h2>Renju Pushes Everyone Into One Square</h2>
+<p>Renju settles the argument by rule. Black's first stone must be the center point, and White's answer must land inside the 3x3 around it. That single clause produced the 26 named openings, and the two most studied, kagetsu and ugetsu, differ only in where Black's third stone goes.</p>
+<p>The middle is also where Black breaks. Double three, double four and overline are shapes that appear where two lines cross with space on both sides, which is the definition of the center. White has no forbidden moves at all. So White's plan against a Black player is to keep the fight crowded, and Black's plan is to spend stones where a foul cannot form. <a href="top-10-gomoku-openings">The ten openings worth knowing</a> split cleanly into the ones that claim this square and the ones that step outside it.</p>
+
+<h2>Five Moves, Five Checks</h2>
+<ol>
+<li><strong>Move one: the center.</strong> No exceptions on 15x15, and no exceptions on smaller boards either.</li>
+<li><strong>Move two: inside the 7x7, one step diagonal.</strong> Diagonal keeps both stones on all four of their lines. Straight puts them on one shared line and wastes the rest.</li>
+<li><strong>Move three: perpendicular to their two.</strong> If White is building a row, open a file or a diagonal. Contesting the same line with fewer stones is arithmetic you lose.</li>
+<li><strong>Move four: count runway before shape.</strong> Four empty cells ahead of the stone, or the line is decoration.</li>
+<li><strong>Move five: compare line counts, not stone counts.</strong> Two stones holding twenty lines each beat three stones crowded onto one line, and it is not close.</li>
+</ol>
+
+<h2>A Drill for One Evening</h2>
+<p>Play five games where your first six stones must land inside the central 7x7. Then play five where you deliberately open on the fourth line, at d4 or l12, and keep going. The second set shows the price directly: threes stop converting, fours arrive closed, and by move twelve you are defending three lines and attacking none.</p>
+<p>Play both sets at the same level. Easy is useless here because it hands you the free moves that hide the mistake.</p>
+<p>Before each stone, answer two numbers. How many five-cell lines does this point hold, and how many empty cells does my shape have in the direction I intend to push? If either answer is three or less, the stone belongs somewhere else. <a href="../">Open the board</a> and play the next game counting those two things out loud for the first ten moves.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Play the Center, Not the Edge</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Counting ten moves teaches more than ten articles about counting. Open a free board and keep your first six stones inside the middle square.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Center Control: Why One Central Stone Beats Three on the Edge",
+    "description": "A stone on h8 sits on 20 of the board's 572 five-cell lines. A corner stone sits on 3. What center control buys you, and when to leave it.",
+    "datePublished": "2026-10-21",
+    "dateModified": "2026-10-21",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-center-control-why-it-matters"}
+  }
+  </script>
+</body>
+</html>

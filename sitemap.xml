@@ -14,13 +14,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -56,7 +56,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/blog/gomoku-center-control-why-it-matters</loc>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -182,7 +188,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-06-17</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -212,13 +218,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -236,7 +242,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ja-JP/blog/gomoku-center-control-why-it-matters</loc>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -350,7 +362,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-06-17</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -392,13 +404,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -416,7 +428,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ko-KR/blog/gomoku-center-control-why-it-matters</loc>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -530,7 +548,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-06-17</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -572,13 +590,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -596,7 +614,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ru-RU/blog/gomoku-center-control-why-it-matters</loc>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -710,7 +734,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-06-17</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -806,13 +830,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -830,7 +854,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-board-setup-and-basic-rules</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/blog/gomoku-center-control-why-it-matters</loc>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -944,7 +974,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-06-17</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
