@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-second-player-white-strategy">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-second-player-white-strategy">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-second-player-white-strategy">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-second-player-white-strategy">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Second-Player Strategy: Winning as White | Gomoku Blog</title>
+  <meta name="description" content="Black's first stone sits on 20 five-cell lines. How White answers it: the diagonal reply, why mirroring fails, and the foul list that binds only Black.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-second-player-white-strategy">
+  <meta property="og:title" content="Gomoku Second-Player Strategy: Winning as White">
+  <meta property="og:description" content="Black opens on twenty lines. White gets four legal diagonals, one asymmetric rule, and every crowded shape Black cannot copy.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-second-player-white-strategy">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Second-Player Strategy: Winning as White">
+  <meta name="twitter:description" content="Why mirroring collapses, and what to play instead when you are the second stone on the board.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Second-Player Strategy: Winning as White Without the First Move</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-22">2026-10-22</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Black's First Stone Is Worth More Than One Stone</h2>
+<p>Black opens h8 and gets a stone sitting on twenty five-cell lines. On a 15x15 board that is twenty out of 572: 165 horizontal, 165 vertical, 121 on each diagonal. White has nothing on the board at all.</p>
+<p>That is the whole of Black's advantage, and it is not a psychological one. It is arithmetic. You will not out-tempo it by playing faster or by finding a cleverer first answer, and the players who spend the opening trying to do exactly that are the ones who lose by move fifteen.</p>
+<p>So the question for White is narrower than "how do I attack." It is: which part of Black's edge can I make irrelevant, and which part do I have to live with?</p>
+
+<h2>Answer Diagonally, Never Straight</h2>
+<p>White's first stone belongs on one of the four diagonal neighbours of h8: g7, g9, i7, i9. Not h9, and not g8.</p>
+<p>A straight answer at h9 puts your stone on the h-file, the same line Black's center stone already occupies. Black now has two stones on a line for the price of one move, and every future threat on that file starts from a pair he did not have to build. The diagonal answer shares no line with h8 at all. It gives Black nothing to lean on, and it leaves your stone sitting on four lines of its own.</p>
+<p>Renju turns this from advice into law. Black's first stone must be tengen, and White's reply must land inside the 3x3 around it. That is eight legal points, and the twenty-six named openings are classified by how Black's third stone answers whichever one you pick.</p>
+
+<h2>Mirroring Is a Delay, Not a Defense</h2>
+<p>Every White player finds the mirror eventually. Whatever Black plays, you play the point rotated 180 degrees about h8. It looks unbeatable for about ten moves.</p>
+<p>The mirror assumes the position is symmetric. It is not. h8 is Black's stone, and h8 is its own reflection, so there is no White stone to balance it and there never can be. Every Black five that runs through the center therefore has no White counterpart, and Black only needs to build one of those. The mirror holds exactly as long as Black avoids the center lines.</p>
+<p>Use it as a stalling device when you are already worse and want the position closed. Do not build a plan on it. Against anyone who has seen it twice, mirroring is a slower way to lose.</p>
+
+<h2>The Rule That Binds Only One Player</h2>
+<p>Here is the asymmetry that actually belongs to White. In renju, Black may not play a double three, a double four, or an overline of six or more. White may play all three.</p>
+<p>The same shape has opposite value depending on who places it. Two crossing threes is a fork when White plays it and an immediate loss when Black does. Six in a row wins the game for White and loses it for Black.</p>
+<p>You do not have to be the stronger player to use this. You only have to notice that the crowded, multi-line positions you were told to avoid are exactly the ones where Black has to stop and count.</p>
+
+<h2>Crowd the Board on Purpose</h2>
+<p>White's practical plan follows from that rule: put stones where two lines cross with empty space on both sides, and do it early, while Black is still stretching a single line and has not yet started checking the foul list.</p>
+<p>Before each White stone, count one thing. How many three-lines does this point complete? One is normal. Two means you have created a shape Black cannot copy, and he now has to answer it without committing a foul of his own. Three is usually a mistake, because three crossing threes is harder to convert than it looks and easy to block.</p>
+<p>The cost is real. Crowded play puts your own stones close together, and stones sitting close on one line cannot become separate threats later. Two stones five or more intersections apart on the same line can never share a five. Keep that limit in view and the crowding stays useful.</p>
+
+<h2>Answer With a Four, Not a Block</h2>
+<p>Black builds a live three on row 6: f6, g6, h6, open at both ends. The reflex is to block e6. Do it, and Black plays i6, you block j6, and his attack is spent. That sounds fine until you notice you have put two stones into defense while he put two into attack and still holds the initiative.</p>
+<p>Better: make a four of your own somewhere else. A four is a harder threat than a three because it wins next move rather than in two, so Black has to answer it. Block a three only when it has already become a four, or when Black's follow-up would be a double threat you cannot survive. Otherwise, take the tempo back.</p>
+<p>This is where the game turns, and it happens around move eight to twelve, not move thirty. <a href="gomoku-defense-vs-offense-when-to-switch">Defense versus offense</a> is mostly the question of who owns that tempo. As White you own it less often, so you have to take it on purpose.</p>
+
+<h2>Count Black's Forcing Moves</h2>
+<p>A clean way to know when to attack: count the forcing moves Black has left. A forcing move is one where your reply is compulsory, meaning a four, or a live three with a four behind it.</p>
+<p>Two or more, you defend. One, you defend and build. Zero is the window, and it is short, because Black's next quiet stone can rebuild a threat from nothing.</p>
+<p>In that window, do not look for a five. Look for a stone that creates two separate threats at once, because that is the only kind of move Black cannot answer without a foul or a loss. The habit is the core of <a href="advanced-gomoku-strategy">advanced gomoku strategy</a>, and it matters more for White than for Black, since you are working one stone short.</p>
+
+<h2>Six Moves to Start With</h2>
+<ol>
+<li><strong>Move two, diagonal.</strong> g7, g9, i7 or i9. Never the h-file, never the 8th row.</li>
+<li><strong>Move four, on a different line from their pair.</strong> If Black holds two stones on the h-file, open a diagonal or row 9. Contesting their line with fewer stones is the one piece of arithmetic you cannot win.</li>
+<li><strong>Move six, inside the central 7x7.</strong> E-file to k-file, rows 5 to 11. All 49 points there keep twenty lines.</li>
+<li><strong>Check the foul list before every Black stone, and never for your own.</strong> Once you know which shapes he cannot play, half his threats are already dead.</li>
+<li><strong>Trade a block for a four at least once in the first fifteen moves.</strong> If you have not, you are playing Black's script.</li>
+</ol>
+
+<h2>What to Practise</h2>
+<p>Play ten games as White against the Hard AI and set one rule: no mirroring, ever. Count Black's forcing moves out loud for the first fifteen moves. When the count hits zero, play the two-threat move even if it looks slow.</p>
+<p>Expect to lose the first four. What you are building is not a sequence but a number you check before every stone, and numbers take a few games to become automatic.</p>
+<p>Ten games of that will do more for your White play than twenty more openings memorized from a list. If you want the opening names anyway, <a href="top-10-gomoku-openings">the ten openings worth knowing</a> is the shortest route, and each entry says whether it is Black claiming the center or stepping outside it.</p>
+<p>Then <a href="../#game">open a board</a>, take White on purpose, and see how long you can keep Black's count at zero.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Take White on Purpose</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Playing the second stone teaches more about tempo than ten games as Black. Open a board, pick White, and count Black's forcing moves out loud.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Second-Player Strategy: Winning as White Without the First Move",
+    "description": "Black's first stone sits on 20 five-cell lines. How White answers it: the diagonal reply, why mirroring fails, and the foul list that binds only Black.",
+    "datePublished": "2026-10-22",
+    "dateModified": "2026-10-22",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-second-player-white-strategy"}
+  }
+  </script>
+</body>
+</html>

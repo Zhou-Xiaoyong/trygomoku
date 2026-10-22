@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-second-player-white-strategy">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-second-player-white-strategy">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-second-player-white-strategy">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-second-player-white-strategy">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 후수(백) 전략: 천원을 내주고 이기는 법 | 오목 블로그</title>
+  <meta name="description" content="흑의 첫 수는 20개 오목선 위에 놓입니다. 백에게 남은 것은 대각 네 점, 흑만 묶는 금수, 판을 빽빽하게 만드는 배짱입니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-second-player-white-strategy">
+  <meta property="og:title" content="오목 후수 전략: 천원을 내주고 이기는 법">
+  <meta property="og:description" content="흑은 20개 선을 가져갑니다. 백이 가진 것은 대각 네 점과 흑만 묶는 금수라는 비대칭입니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-second-player-white-strategy">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 후수 전략: 천원을 내주고 이기는 법">
+  <meta name="twitter:description" content="거울이 무너지는 이유, 그리고 그다음에 무엇을 둘지.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">오목 후수 전략: 천원을 내준 백이 주도권을 되찾는 방법</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-22">2026-10-22</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>흑의 첫 수는 돌 하나 값이 아니다</h2>
+<p>흑이 h8에 두면 그 돌은 20개의 오목선 위에 놓입니다. 15x15 판 전체로는 572개, 가로 165, 세로 165, 두 대각선이 각각 121개입니다. 백은 아직 판 위에 돌이 하나도 없습니다.</p>
+<p>흑의 이점은 이것뿐이고, 심리적인 것이 아니라 계산되는 것입니다. 빨리 두든 첫 응수를 영리하게 하든 이 20개는 줄지 않습니다. 초반에 흑과 속도 경쟁을 하는 백이 보통 15수 안에 무너지는 이유입니다.</p>
+<p>그래서 백이 물어야 할 것은 "어떻게 공격할까"가 아니라 "흑의 이점 중 무엇을 무력화할 수 있고, 무엇은 받아들여야 하는가"입니다.</p>
+
+<h2>두 번째 수는 대각, 직선은 두지 않는다</h2>
+<p>백의 첫 돌은 천원의 대각 네 점, g7, g9, i7, i9 중 하나입니다. h9와 g8은 피합니다.</p>
+<p>h9는 h열, 즉 흑 천원 돌과 같은 선입니다. 한 수로 흑에게 같은 선의 두 돌을 선물하는 셈이고, 이후 그 열의 위협은 흑이 직접 만들 필요가 없습니다. 대각 점은 h8과 어떤 선도 공유하지 않습니다. 흑에게 아무것도 주지 않고, 내 돌은 네 개의 선을 확보합니다.</p>
+<p>렌주에서는 권장이 아니라 규정입니다. 흑의 첫 수는 천원, 백의 두 번째 수는 그 주변 3x3 안, 여덟 점 중 하나입니다. 26가지 정석은 흑의 세 번째 수가 그중 어디에 응했는지로 갈립니다.</p>
+
+<h2>거울은 수비가 아니라 시간 벌기</h2>
+<p>백을 두다 보면 거울을 발견합니다. 흑이 둔 점을 천원 기준으로 180도 돌린 자리에 놓는 것입니다. 열 수 정도는 무적처럼 보입니다.</p>
+<p>전제는 국면의 대칭인데, 첫 수부터 대칭이 아닙니다. h8은 흑의 돌이고 h8의 거울은 h8 자신입니다. 균형을 맞출 백의 돌은 존재하지 않고 앞으로도 둘 수 없습니다. 그래서 천원을 지나는 오목에는 백 쪽 대응물이 없고, 흑은 그중 하나만 만들면 됩니다. 거울이 버티는 시간은 흑이 언제까지 중앙 선을 피하느냐로 정해집니다.</p>
+<p>이미 불리하고 국면을 닫고 싶을 때 쓰는 시간 벌기로는 쓸 만합니다. 계획으로 삼지는 마십시오. 두 번 본 상대에게 거울은 더 느린 패배일 뿐입니다.</p>
+
+<h2>한쪽만 묶는 규칙</h2>
+<p>백의 진짜 무기는 여기 있습니다. 렌주에서 흑은 삼삼, 사사, 6목 이상의 장련을 둘 수 없습니다. 백은 셋 다 둘 수 있습니다.</p>
+<p>같은 모양도 누가 놓느냐에 따라 값이 뒤집힙니다. 삼이 두 줄 교차하는 모양은 백이 놓으면 이중 활삼 공격이고, 흑이 놓으면 즉시 패배입니다. 육목은 백의 승리, 흑의 패배입니다.</p>
+<p>이걸 쓰는 데 기력이 필요하지는 않습니다. "너무 빽빽하게 두지 마라"는 말을 들었던 그 자리가, 실은 흑이 매 수 금수를 세어야 하는 곳이라는 걸 알아차리면 됩니다.</p>
+
+<h2>일부러 판을 빽빽하게</h2>
+<p>백의 실전 계획은 이 규칙에서 나옵니다. 두 선이 교차하고 양쪽에 빈 자리가 있는 점에, 이른 시점에 돌을 놓는 것입니다. 흑이 아직 한 줄을 늘리고 있고 금수표를 보기 시작하지 않았을 때입니다.</p>
+<p>돌을 놓기 전에 하나만 셉니다. 이 점이 완성하는 삼의 줄이 몇 개인가. 하나면 평범합니다. 둘이면 흑이 따라 할 수 없는 모양을 만든 것이고, 흑은 금수를 만들지 않으면서 응해야 합니다. 셋은 대개 실수입니다. 삼이 세 줄 교차하는 모양은 보기보다 잘 끝나지 않고 막기도 쉽습니다.</p>
+<p>대가는 있습니다. 빽빽하게 두면 내 돌이 가까워지고, 같은 선의 가까운 돌은 나중에 서로 다른 위협이 되지 못합니다. 같은 선에서 다섯 칸 이상 떨어진 두 돌은 같은 오목에 들어갈 수 없습니다. 이 경계를 기억하면 빽빽한 운영이 살아납니다.</p>
+
+<h2>막지 말고 사로 응수한다</h2>
+<p>흑이 6행에 활삼을 만들었다고 합시다. f6, g6, h6, 양 끝이 비어 있습니다. 반사적으로 e6을 막고 싶습니다. 막으면 흑은 i6, 나는 j6, 흑의 공격은 거기서 끝납니다. 나쁘지 않아 보이지만, 내 두 돌을 수비에 다 쓰고 상대 두 돌은 공격에 쓰였으며 수는 여전히 흑에게 있다는 걸 나중에 알게 됩니다.</p>
+<p>다른 곳에서 사를 만드는 편이 낫습니다. 사는 삼보다 단단한 위협이고, 두 수 뒤가 아니라 다음 수에 이깁니다. 그래서 흑은 응할 수밖에 없습니다. 삼을 막는 것은 그것이 이미 사가 되었거나, 흑의 후속이 감당 못 할 이중 위협일 때뿐입니다. 나머지 경우에는 수를 되찾으십시오.</p>
+<p>승부가 갈리는 지점은 여기이고, 대개 8수에서 12수 사이에 옵니다. 30수가 아닙니다. <a href="/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch">수비와 공격의 전환</a>은 결국 수가 누구에게 있느냐의 문제입니다. 백이 수를 잡는 횟수는 적으니 일부러 잡아야 합니다.</p>
+
+<h2>흑의 강제수를 세라</h2>
+<p>언제 공격할지 아는 방법은 단순합니다. 흑에게 남은 강제수를 셉니다. 응하지 않으면 지는 수, 즉 사, 또는 사를 품은 활삼입니다.</p>
+<p>둘 이상이면 수비합니다. 하나면 수비하면서 모양을 만듭니다. 0이 창이고, 짧습니다. 흑이 조용한 돌 하나를 놓으면 위협이 되살아나기 때문입니다.</p>
+<p>창 안에서 오목을 찾지 마십시오. 한 수로 두 개의 위협을 만드는 점을 찾습니다. 흑이 응하면 손해, 응하지 않으면 금수인 그 수입니다. 이 습관이 <a href="/ko-KR/blog/advanced-gomoku-strategy">오목 고급 전략</a>의 핵심이고, 백에게는 흑보다 더 중요합니다. 가진 돌이 하나 적기 때문입니다.</p>
+
+<h2>첫 여섯 수</h2>
+<ol>
+<li><strong>두 번째 수는 대각.</strong> g7, g9, i7, i9. h열과 8행은 피합니다.</li>
+<li><strong>네 번째 수는 선을 바꿉니다.</strong> 흑이 h열에 두 돌이면 대각이나 9행을 엽니다. 더 적은 돌로 같은 선을 다투는 것은 유일하게 이길 수 없는 계산입니다.</li>
+<li><strong>여섯 번째 수는 중앙 7x7.</strong> e열부터 k열, 5행부터 11행의 49점은 모두 20개 선을 유지합니다.</li>
+<li><strong>흑의 수마다 금수표를 훑고, 내 수는 훑지 않습니다.</strong> 어떤 모양을 둘 수 없는지 알면 흑의 위협 절반은 이미 죽습니다.</li>
+<li><strong>15수 안에 최소 한 번은 막는 대신 사로 응수합니다.</strong> 한 번도 없었다면 흑의 대본대로 두고 있는 것입니다.</li>
+</ol>
+
+<h2>연습 방법</h2>
+<p>백으로 Hard와 열 판. 규칙은 하나, 거울 금지. 15수까지 흑의 강제수를 소리 내어 셉니다. 0이 되면 느려 보여도 이중 위협 수를 둡니다.</p>
+<p>처음 네 판은 질 각오를 하십시오. 기르는 것은 수순이 아니라 돌을 놓기 전에 확인하는 숫자 하나이고, 숫자가 습관이 되려면 몇 판이 걸립니다.</p>
+<p>이 열 판이 정석 스무 개를 외우는 것보다 백의 실력을 더 바꿉니다. 그래도 정석이 궁금하면 <a href="/ko-KR/blog/top-10-gomoku-openings">알아둘 만한 오목 정석 10가지</a>가 가장 짧은 길이고, 각 항목에 중앙을 차지하는 정석인지 밖으로 빠지는 정석인지 적혀 있습니다.</p>
+<p>그다음 <a href="/ko-KR/#game">판을 열고</a> 스스로 백을 골라, 흑의 강제수를 얼마나 오래 0으로 묶어둘 수 있는지 보십시오.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">스스로 백을 골라 보십시오</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">백으로 열 판이 흑으로 열 판보다 수의 감각을 더 남깁니다. 판을 열고 백을 골라 15수까지 흑의 강제수를 세어 보십시오.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 두기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 후수 전략: 천원을 내준 백이 주도권을 되찾는 방법",
+    "description": "흑의 첫 수는 20개 오목선 위에 놓입니다. 백에게 남은 것은 대각 네 점, 흑만 묶는 금수, 판을 빽빽하게 만드는 배짱입니다.",
+    "datePublished": "2026-10-22",
+    "dateModified": "2026-10-22",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-second-player-white-strategy"}
+  }
+  </script>
+</body>
+</html>

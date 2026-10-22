@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-second-player-white-strategy">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-second-player-white-strategy">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-second-player-white-strategy">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-second-player-white-strategy">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Стратегия белых в гомоку: как выигрывать вторым | Блог о гомоку</title>
+  <meta name="description" content="Первый камень чёрных стоит на двадцати пятиклеточных линиях. Что остаётся белым: четыре диагонали, фолы только для чёрных и готовность скучивать доску.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-second-player-white-strategy">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-second-player-white-strategy">
+  <meta property="og:title" content="Стратегия белых в гомоку: как выигрывать вторым">
+  <meta property="og:description" content="Чёрные забирают двадцать линий. У белых остаются четыре диагонали и правило, которое связывает только соперника.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-second-player-white-strategy">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Стратегия белых в гомоку: как выигрывать вторым">
+  <meta name="twitter:description" content="Почему зеркало разваливается и что ставить вместо него.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Стратегия белых в гомоку: как второму игроку забрать инициативу</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-22">2026-10-22</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Первый камень чёрных стоит больше камня</h2>
+<p>Чёрные ставят h8, и камень оказывается на двадцати отрезках по пять клеток. Всего на доске 572: 165 по горизонтали, 165 по вертикали и по 121 на каждую диагональ. У белых на доске пока ничего.</p>
+<p>В этом весь перевес чёрных, и он не психологический. Он арифметический. Быстрее играть или придумывать хитрый первый ответ бесполезно, эти двадцать линий никуда не денутся. Именно поэтому белые, которые в дебюте пытаются тягаться с чёрными в темпе, обычно разваливаются к пятнадцатому ходу.</p>
+<p>Значит, вопрос для белых звучит не «как атаковать», а «какую часть этого перевеса я могу обнулить, а какую придётся терпеть».</p>
+
+<h2>Второй камень по диагонали, не по прямой</h2>
+<p>Первый камень белых идёт на одну из четырёх диагональных соседних точек тэнгэна: g7, g9, i7, i9. Не h9 и не g8.</p>
+<p>h9 стоит на вертикали h, то есть на той же линии, где уже стоит центральный камень чёрных. Одним ходом вы дарите чёрным пару на линии, и дальше любая угроза по этой вертикали начинается с камня, который им не пришлось строить. Диагональная точка не делит с h8 ни одной линии. Чёрные не получают ничего, а ваш камень стоит на четырёх своих.</p>
+<p>В рэндзю это не совет, а правило: первый камень чёрных обязан быть в тэнгэне, а ответ белых должен лежать внутри квадрата 3x3 вокруг него. Восемь допустимых точек. Двадцать шесть именованных дебютов разделены именно по тому, как третий камень чёрных отвечает на выбранную вами.</p>
+
+<h2>Зеркало это отсрочка, а не защита</h2>
+<p>Рано или поздно белые находят зеркало: что бы чёрные ни поставили, вы ставите точку, повёрнутую на 180 градусов вокруг тэнгэна. Ходов десять это выглядит непробиваемо.</p>
+<p>Посылка зеркала в симметрии позиции, а симметрии нет с первого хода. h8 занят чёрным, и h8 совпадает со своим отражением. Камня белых, который уравновесил бы его, не существует и появиться не может. Поэтому у любой пятёрки, проходящей через центр, нет белого двойника, и чёрным достаточно построить одну. Зеркало держится ровно столько, сколько чёрные не трогают центральные линии.</p>
+<p>Как способ потянуть время в уже худшей позиции оно годится. Как план на игру нет. Против того, кто видел это дважды, зеркало просто более медленный проигрыш.</p>
+
+<h2>Правило, которое связывает только одну сторону</h2>
+<p>Настоящее преимущество белых вот здесь. В рэндзю чёрным запрещены тройка-тройка, четвёрка-четвёрка и оверлайн из шести и более камней. Белым разрешено всё три.</p>
+<p>Одна и та же форма имеет противоположную цену в зависимости от того, кто её ставит. Две пересекающиеся тройки это вилка у белых и немедленное поражение у чёрных. Шесть в ряд приносит победу белым и проигрыш чёрным.</p>
+<p>Чтобы этим пользоваться, не нужно играть сильнее. Достаточно заметить, что те самые скученные позиции, от которых вас отговаривали, и есть места, где чёрные обязаны каждый раз останавливаться и считать.</p>
+
+<h2>Скучивать доску намеренно</h2>
+<p>Практический план белых вытекает прямо из этого правила: ставить камни туда, где две линии пересекаются и с обеих сторон остаётся пустое место. И ставить рано, пока чёрные тянут одну линию и ещё не смотрят в список фолов.</p>
+<p>Перед каждым камнем белых считайте одно. Сколько тройных линий завершает эта точка. Одна это норма. Две означают, что вы создали форму, которую чёрные не могут скопировать, и теперь им надо отвечать, не нарушая своих запретов. Три почти всегда ошибка: три пересекающиеся тройки труднее довести до победы, чем кажется, и легче закрыть.</p>
+<p>Цена реальна. В скученной игре ваши камни стоят близко, а близкие камни на одной линии потом не станут отдельными угрозами. Два камня на одной линии, разнесённые на пять клеток и больше, никогда не попадут в одну пятёрку. Помните эту границу, и скучивание остаётся полезным.</p>
+
+<h2>Отвечать четвёркой, а не блоком</h2>
+<p>Чёрные построили открытую тройку по 6-й горизонтали: f6, g6, h6, оба конца свободны. Рефлекс закрыть e6. Закрываете, чёрные играют i6, вы закрываете j6, атака кончилась. Звучит неплохо, пока не заметишь, что два твоих камня ушли в защиту, два его в атаку, а темп всё ещё у чёрных.</p>
+<p>Лучше поставить свою четвёрку в другом месте. Четвёрка жёстче тройки: она выигрывает следующим ходом, а не через два, поэтому чёрные обязаны ответить. Закрывать тройку стоит только когда она уже стала четвёркой или когда продолжение чёрных даёт двойную угрозу, которую вам не пережить. В остальных случаях забирайте темп.</p>
+<p>Перелом происходит здесь, и обычно между восьмым и двенадцатым ходом, а не на тридцатом. <a href="/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">Переключение между защитой и атакой</a> сводится к вопросу, у кого темп. Белые получают его реже, поэтому брать его надо осознанно.</p>
+
+<h2>Считайте форсирующие ходы чёрных</h2>
+<p>Понять, когда атаковать, можно простым счётом: сколько форсирующих ходов осталось у чёрных. Форсирующий это тот, на который нельзя не ответить: четвёрка или открытая тройка с четвёркой за ней.</p>
+<p>Два и больше, защищаетесь. Один, защищаетесь и строите. Ноль это окно, и оно короткое: следующий тихий камень чёрных снова создаёт угрозу.</p>
+<p>В окне не ищите пятёрку. Ищите точку, которая создаёт две угрозы сразу, потому что только на такое чёрные не могут ответить без фола или потери. Этот навык и составляет суть <a href="/ru-RU/blog/advanced-gomoku-strategy">продвинутой стратегии гомоку</a>, и белым он нужнее, чем чёрным: у вас на один камень меньше.</p>
+
+<h2>Первые шесть ходов</h2>
+<ol>
+<li><strong>Второй ход по диагонали.</strong> g7, g9, i7, i9. Не на вертикаль h и не на 8-ю горизонталь.</li>
+<li><strong>Четвёртый ход на другую линию.</strong> Если у чёрных два камня на вертикали h, откройте диагональ или 9-ю горизонталь. Спорить на их линии меньшим числом камней это единственный счёт, который не выиграть.</li>
+<li><strong>Шестой ход внутри центрального 7x7.</strong> От вертикали e до k, с 5-й по 11-ю горизонталь. Все 49 точек сохраняют двадцать линий.</li>
+<li><strong>Перед каждым камнем чёрных сверяйтесь со списком фолов, перед своим никогда.</strong> Когда знаешь, какие формы ему нельзя, половина его угроз уже мертва.</li>
+<li><strong>Хотя бы раз за первые пятнадцать ходов ответьте четвёркой вместо блока.</strong> Если ни разу, вы играете по сценарию чёрных.</li>
+</ol>
+
+<h2>Как это тренировать</h2>
+<p>Десять партий белыми против Hard с одним правилом: зеркала нет. Первые пятнадцать ходов считайте форсирующие ходы чёрных вслух. Когда счёт доходит до нуля, ставьте двойную угрозу, даже если ход кажется медленным.</p>
+<p>Первые четыре партии вы, скорее всего, проиграете. Вырабатывается не последовательность ходов, а одно число, которое проверяешь перед каждым камнем. Числу нужно несколько партий, чтобы стать привычкой.</p>
+<p>Эти десять партий дадут белым больше, чем ещё двадцать заученных дебютов. Если дебюты всё-таки нужны, <a href="/ru-RU/blog/top-10-gomoku-openings">десять дебютов, которые стоит знать</a> это самый короткий путь: про каждый сказано, забирает он центр или уходит наружу.</p>
+<p>Потом <a href="/ru-RU/#game">откройте доску</a>, выберите белых сами и посмотрите, как долго удержите счёт чёрных на нуле.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Сыграйте белыми намеренно</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Десять партий белыми дают больше, чем десять чёрными. Откройте доску, выберите белых и считайте форсирующие ходы соперника вслух.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Стратегия белых в гомоку: как второму игроку забрать инициативу",
+    "description": "Первый камень чёрных стоит на двадцати пятиклеточных линиях. Что остаётся белым: четыре диагонали, фолы только для чёрных и готовность скучивать доску.",
+    "datePublished": "2026-10-22",
+    "dateModified": "2026-10-22",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-second-player-white-strategy"}
+  }
+  </script>
+</body>
+</html>
