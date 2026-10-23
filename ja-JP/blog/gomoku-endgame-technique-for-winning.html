@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-endgame-technique-for-winning">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-endgame-technique-for-winning">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-endgame-technique-for-winning">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-endgame-technique-for-winning">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べの終盤技術：勝勢を五連に変える手順 | 五目並べブログ</title>
+  <meta name="description" content="五石のうち三石は、空きが二つある線の上にもういない。四にできる線を数え、四の順番を決めれば、渡す石が減ります。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-endgame-technique-for-winning">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-endgame-technique-for-winning">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-endgame-technique-for-winning">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-endgame-technique-for-winning">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-endgame-technique-for-winning">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-endgame-technique-for-winning">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-endgame-technique-for-winning">
+  <meta property="og:title" content="五目並べの終盤技術：勝勢を五連に変える">
+  <meta property="og:description" content="終盤は帳簿です。活三は端で止める。狭い四から打ち、広い四は決着に取っておきます。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-endgame-technique-for-winning">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べの終盤技術：勝勢を五連へ">
+  <meta name="twitter:description" content="四つまでが楽な連鎖です。六つを超えると、相手の止め石が自分の逃げ道を塞ぎ始めます。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">五目並べの終盤技術：勝勢を五連に変える六つの手順</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-23">2026-10-23</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>五石対二石なのに、気づけば受けに回っている</h2>
+<p>十四手目で盤を数えます。自分が五石、相手が二石。八手後に数え直すと、脅威を作っているのは相手で、応じているのは自分です。石は取られていません。活三を差し出したわけでもありません。</p>
+<p>変わったのは石の中身です。五石のうち三石は、空きが二つ残った線の上にもういません。遠目には攻めに見えますが、四を作れません。</p>
+<p>終盤は中盤の加速ではありません。帳簿です。持っている石は、まだ行き先があるか、すでに使い切っているかのどちらかで、相手の脅威が尽きたときに前者が何本残っているかで勝負が決まります。</p>
+
+<h2>石ではなく、四にできる線を数える</h2>
+<p>線を一本ずつ見て、問いは一つです。ここに置いて、応じなければならない四になるか。条件ははっきりしています。その線に自分の石が三つあり、盤内に空きが二つ以上残っていること。</p>
+<p>空きが二つなら四を打てて、線は生きたままです。空きが一つで、その先が盤端か自分の石なら、その四は一度きりで線ごと死にます。空きがゼロなら、その三石は飾りです。</p>
+<p>この数は気分ではなく判断を返します。四にできる線が二本以上なら攻めます。四の順番が勝敗を決めます。一本なら、静かな手を一手使って二本目を作ります。ゼロなら、石の数がどうであれリードはもうありません。</p>
+
+<h2>最初の四を打つ前に、反撃の源を潰す</h2>
+<p>勝ちが見えている局の多くは、最後の静かな一手と最初の四の間の二手で落ちます。四を三つ続けて打ち、相手は毎回ただ一つの点に収まります。そこで相手が活三を一つ置けば、手番は相手に移ります。</p>
+<p>だから最初の四の前に、相手の活三を探します。あれば、静かな手をまだ使えるうちに処理します。</p>
+<p>処理は中央を止めることではありません。f6、g6、h6 で e6 と i6 が空いた活三は、e6 を止めても生きています。相手は i6 に伸ばし、自分は j6 を止め、相手の攻めに二石を使ったのに相手は一石しか使っていません。三を本当に殺すのは、相手が伸ばしたときに逃げ道が片方しか残らない止め方です。c6 か d6 にすでに石がある、あるいは盤端なら、e6 は本物の止めになります。両端の外側にまだ二マス空いているなら、その一手は時間を買うだけです。</p>
+<p>1行目、15行目、a列、o列に活三が存在しないのも同じ理由です。伸びる方向が一つしかない形は活三ではなく、一度止められる四です。</p>
+
+<h2>逃げ道が最も少ない四から打つ</h2>
+<p>三石で両端の外が空いていれば活四です。打てば次の一手で勝ち、応手はありません。それ以外の四は応手を一つ強制し、その応手は相手に無料の石を一つ渡します。位置は、自分を止めるその一点です。</p>
+<p>この無料の石が連続四の本当の値段で、だから形より順番が効きます。逃げ道が最も少ない四から打ちます。盤端に挟まれた四、自分の石に挟まれた四です。強制された相手の石は、相手にとって一番役に立たない場所に落ちます。一番広い四は、決着をつける一手まで取っておきます。</p>
+<p>四つまでが楽な連鎖です。一つ増えるごとに、使いたい区域に相手の石が一つ増え、六つを超えたあたりから自分の逃げ道が塞がり始めます。静かな局面から四を作る方法は<a href="/ja-JP/blog/gomoku-four-in-a-row-winning-technique">四の作り方</a>に、ここではその使い切る順番を扱っています。</p>
+
+<h2>連珠では、その止めが負けになる</h2>
+<p>連珠で黒が終盤に落とす最も多い形は、攻め切られることではありません。禁手を作る止め方です。</p>
+<p>白が三を交点に向けます。黒の唯一自然な応手が、同時に四を二本完成させます。四四の禁手で黒の負けです。白は五を一本も作っていません。</p>
+<p>つまり白には終盤、五連とは無関係な目標ができます。黒が止めざるを得ない点で、黒の二本目の四か二本目の三まで完成するような三を作るのです。三を押し出す前に、その止め点の交差線を数えてください。押し出してからでは遅い。</p>
+<p>黒の側の対策は地味ですが効きます。最後の十五手、止める前にその点を三三、四四、長連の三点で確認します。一点あたり二秒です。禁手で落ちる局は、それまでの<a href="/ja-JP/blog/advanced-gomoku-strategy">上位戦略</a>がどれだけ良くても残りません。</p>
+
+<h2>相手が自分の攻めで止めざるを得ない三を選ぶ</h2>
+<p>終盤に入ると、良い三の基準が変わります。序盤は最も遠くへ伸びる三です。終盤は、止め点がもともと相手のものだった三です。</p>
+<p>自分の三が6行目、止め点は h6、相手の活三は h列を走っている。相手が止めれば、攻めに使うはずだった石が自分の線を塞いでいます。手を渡さずに手を渡したのと同じです。</p>
+<p>石を置く前に一つだけ確認します。相手はどこで止めるか。その答えが相手の欲しかった点なら、この一手は見た目の形より価値があります。</p>
+
+<h2>最後の十五手、六つの手順</h2>
+<ol>
+<li><strong>四にできる線を数える。</strong>三石と空き二つで一本。石の総数は数えません。</li>
+<li><strong>相手の活三は端で止める。</strong>中央を止めるのは半分の守りです。伸ばして逃げ道が一つになる止め方だけが守りです。</li>
+<li><strong>狭い四から打つ。</strong>盤端や自分の石に挟まれた四は、相手に一番使えない石を渡します。</li>
+<li><strong>連鎖は四手で止める。</strong>五つ目の四で勝てないなら、その連鎖は最初から間違っています。</li>
+<li><strong>白は禁手の止め点を探す。</strong>黒に四四を強制できれば、五を作らずに勝てます。</li>
+<li><strong>黒は止める前に禁手を確認する。</strong>自分の石は確認しません。</li>
+</ol>
+
+<h2>終盤だけを練習する</h2>
+<p>Hard を相手に、中央付近へ自分で三石のハンデを置きます。十五手目から、ルールを一つだけ。石を置く前に、四にできる線の数を声に出して数えます。</p>
+<p>一局ごとに最後の十手を囲み、打った四の横に、その四が相手に渡した石を書き込みます。三局で傾向が出ます。負けた局に五手の連続四があり、三手で足りていた、というのがよくある形です。</p>
+<p>これは読みを深くしません。取り返せない石を使わなくするだけです。<a href="/ja-JP/blog/gomoku-ladder-attack-tactic">階段攻め</a>も同じ計算で、連鎖が長いだけです。一段増やすたびに石を一つ渡す、という規則も同じです。</p>
+<p>そのうえで<a href="/ja-JP/#game">盤を開いて</a>一局、二十手目から新しい形を作るのをやめて、数えるだけにしてください。四にできる線が二本と言えないなら、盤がどれだけ厚く見えても攻めはまだありません。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">持っている石を使い切る</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">二十手を過ぎても新しい形を作っていませんか。盤を開いて、四にできる線を数えてください。</p>
+            <a href="/ja-JP/#game" class="cta-btn">今すぐ五目並べを遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べの終盤技術：勝勢を五連に変える六つの手順",
+    "description": "五石のうち三石は、空きが二つある線の上にもういない。四にできる線を数え、四の順番を決めれば、渡す石が減ります。",
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-endgame-technique-for-winning"}
+  }
+  </script>
+</body>
+</html>

@@ -14,13 +14,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -79,6 +79,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/blog/gomoku-endgame-technique-for-winning</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/blog/gomoku-family-game-night</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -86,7 +92,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-four-in-a-row-winning-technique</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -98,7 +104,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-ladder-attack-tactic</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -224,13 +230,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -271,6 +277,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ja-JP/blog/gomoku-endgame-technique-for-winning</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-family-game-night</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -278,7 +290,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-four-in-a-row-winning-technique</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -290,7 +302,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-ladder-attack-tactic</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -416,13 +428,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -463,6 +475,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ko-KR/blog/gomoku-endgame-technique-for-winning</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-family-game-night</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -470,7 +488,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-four-in-a-row-winning-technique</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -482,7 +500,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-ladder-attack-tactic</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -608,13 +626,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -655,6 +673,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ru-RU/blog/gomoku-endgame-technique-for-winning</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-family-game-night</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -662,7 +686,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-four-in-a-row-winning-technique</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -674,7 +698,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-ladder-attack-tactic</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -854,13 +878,13 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/advanced-gomoku-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -901,6 +925,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/zh-CN/blog/gomoku-endgame-technique-for-winning</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-family-game-night</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -908,7 +938,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-four-in-a-row-winning-technique</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -920,7 +950,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-ladder-attack-tactic</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

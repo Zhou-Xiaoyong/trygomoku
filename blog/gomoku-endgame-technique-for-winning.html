@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-endgame-technique-for-winning">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-endgame-technique-for-winning">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-endgame-technique-for-winning">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-endgame-technique-for-winning">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Endgame Technique: Turning an Advantage Into Five | Gomoku Blog</title>
+  <meta name="description" content="Three of your five stones no longer sit on a line with two empty cells. Count convertible lines, order the fours, and stop gifting blocks.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-endgame-technique-for-winning">
+  <meta property="og:title" content="Gomoku Endgame Technique: Turning a Won Position Into Five in a Row">
+  <meta property="og:description" content="The endgame is bookkeeping. Count convertible lines, close his live three at the end, and fire the narrow fours first.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-endgame-technique-for-winning">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Endgame Technique: Converting an Advantage">
+  <meta name="twitter:description" content="Four fours is a comfortable chain. Past six, his forced blocks start closing your own exits.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku Endgame Technique: Turning a Won Position Into Five in a Row</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-23">2026-10-23</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Five Stones to Two, and Then You Are the One Blocking</h2>
+<p>Count the board on move fourteen: five of your stones, two of theirs. Count again eight moves later and you are answering threats instead of making them. Nobody captured anything. Nobody dropped a live three.</p>
+<p>What changed is the material. Three of your five stones no longer sit on a line that still has two empty cells. From a distance they look like an attack. They cannot produce another four.</p>
+<p>The endgame here is bookkeeping, not speed. Every stone you own either still has somewhere to go or it is spent, and the position turns on how many of the first kind you have left when your opponent's threats run out.</p>
+
+<h2>Count Convertible Lines, Not Stones</h2>
+<p>Go line by line and ask one thing: does a stone here make a four that has to be answered? A line is convertible when you hold three stones on it and at least two empty cells remain inside the board.</p>
+<p>Two empties, you can play the four and keep the line. One empty with the edge or one of your own stones behind it, the four works once and the line dies with it. Zero, and those three stones are decoration.</p>
+<p>That count gives you a decision instead of a mood. Two or more convertible lines, attack, and the order of the fours decides the game. One, spend a quiet move building a second. Zero, you are not ahead any more, whatever the stone count says.</p>
+
+<h2>Kill the Counter-Source Before the First Four</h2>
+<p>Won positions usually die in the two moves between your last quiet stone and your first four. You push three fours, every reply lands where it had to, and then he plays one live three and owns the tempo.</p>
+<p>So before the first four, find his live three. If there is one, deal with it while you still have a quiet move to spend on it.</p>
+<p>Dealing with it rarely means blocking the middle. A live three like f6, g6, h6 with e6 and i6 open stays alive after you take e6: he extends at i6, you block j6, and you have spent two stones on his attack while he spent one. What kills a three is a block that leaves his extension with a single open end. Take e6 when c6 or d6 is already occupied or off the board, and the shape is dead. If both ends still have two empty cells outside, that block buys time and nothing else.</p>
+<p>This is also why an open three cannot exist on row 1, row 15, column a or column o. One direction to extend is not a live three. It is a four that gets blocked once.</p>
+
+<h2>Play the Four With the Fewest Exits First</h2>
+<p>A three-stone line with both outer cells empty is a live four. Play it and you win next move, no reply possible. Every other four forces exactly one answer, and that answer is a free stone for your opponent on the only point that stops you.</p>
+<p>That free stone is the real price of a forcing chain, which is why order matters more than shape. Start with the fours that have the fewest exits, pinched against the edge or against your own stones. His forced block lands where it helps him least. Save the widest four for the move that finishes the game.</p>
+<p>Four fours is a comfortable chain. Each extra one drops another of his stones inside the region you need, and somewhere past the sixth your own exit squares start closing. <a href="gomoku-four-in-a-row-winning-technique">The work on building fours</a> covers how to get these shapes out of a quiet position; this page is about spending them in the right order.</p>
+
+<h2>The Block That Ends the Game Outright</h2>
+<p>Black's most common endgame loss in renju is not getting overrun. It is blocking into a forbidden shape.</p>
+<p>White aims a three at a crossing point. Black's only natural answer completes two fours at once. Double four, forbidden for Black, game over, and White never made five.</p>
+<p>That gives White a target in the last fifteen moves that has nothing to do with five in a row: build a three whose forced block also completes a second four or a second three for Black. Count the crossing lines at his block point before you push the three, not after.</p>
+<p>Black's answer is unglamorous and it works. Before every block, check that point for double three, double four and overline. Two seconds each. The rest of your <a href="advanced-gomoku-strategy">advanced strategy</a> is worth nothing if you lose to a foul you could have counted.</p>
+
+<h2>Pick the Three He Has to Block With His Own Attack</h2>
+<p>Late in the game the test for a good three changes. In the opening you want the three that extends furthest. In the endgame you want the three whose block point already belongs to him.</p>
+<p>Your three sits on row 6, the block point is h6, and his own live three runs along column h. He blocks, and the stone he needed for his attack is now holding your line shut. He has passed without passing.</p>
+<p>One question before the stone goes down. Where does he block? If the answer is a point he wanted for himself, the move is worth more than its shape suggests.</p>
+
+<h2>Six Steps for the Last Fifteen Moves</h2>
+<ol>
+<li><strong>Count convertible lines.</strong> Three stones with two empties left. Ignore the totals.</li>
+<li><strong>Close his live three at the end, not the middle.</strong> A block that leaves him one exit is a block. A block in the middle is half of one.</li>
+<li><strong>Fire the narrow fours first.</strong> Edge-pinched and stone-pinched fours cost him the least useful stone.</li>
+<li><strong>Stop at four in the chain.</strong> If the fifth four does not win, the chain was wrong from the start.</li>
+<li><strong>As White, look for the forbidden-shape block.</strong> A forced double four on Black is a win without a five.</li>
+<li><strong>As Black, two seconds on the foul list before every block.</strong> None on your own stones.</li>
+</ol>
+
+<h2>Practising the Endgame on Purpose</h2>
+<p>Play Hard with a handicap you set yourself: three extra stones near the centre, then start from move fifteen with one rule. Say the number of convertible lines out loud before every move.</p>
+<p>After each game, mark the last ten moves and write next to each four the stone it gifted. The pattern shows up within three games. Most players find a five-move chain in a lost game where three moves were already enough.</p>
+<p>None of this makes you read deeper. It stops you spending stones you cannot get back. <a href="gomoku-ladder-attack-tactic">Ladder attacks</a> run on the same arithmetic with a longer chain, and the rule holds there too: every rung you add is a stone you hand over.</p>
+<p>Then <a href="../#game">open a board</a> and play one game where you stop building at move twenty and count instead. If you cannot name two convertible lines, you do not have an attack yet, no matter how thick the position looks.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Spend the Stones You Already Have</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Twenty moves in and still building new shapes? Open a board and count convertible lines instead.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Endgame Technique: Turning a Won Position Into Five in a Row",
+    "description": "Three of your five stones no longer sit on a line with two empty cells. Count convertible lines, order the fours, and stop gifting blocks.",
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-endgame-technique-for-winning"}
+  }
+  </script>
+</body>
+</html>
