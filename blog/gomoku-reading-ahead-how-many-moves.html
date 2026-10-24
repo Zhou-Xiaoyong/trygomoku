@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Many Moves Ahead Should You Read in Gomoku? | Gomoku Blog</title>
+  <meta name="description" content="Four moves ahead is two of your turns. Count threat layers rather than moves, and stop reading the moment his reply stops being forced.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-reading-ahead-how-many-moves">
+  <meta property="og:title" content="Reading Ahead in Gomoku: How Many Moves Is Enough">
+  <meta property="og:description" content="A forced chain of five layers costs less to read than a quiet position three stones deep. Here is the arithmetic.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-reading-ahead-how-many-moves">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku: How Far Ahead to Read">
+  <meta name="twitter:description" content="If his reply is not forced, extra depth is just guessing with more steps.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Reading Ahead in Gomoku: How Many Moves Is Actually Enough</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-24">2026-10-24</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Move Eleven, Forty Seconds, and Five Moves Pointing the Wrong Way</h2>
+<p>You have stones on e7, f7 and g7. d7 and h7 are both empty. His live three runs down column h and ends at h7. You spend forty seconds reading your own attack five moves deep, find a four he cannot block twice, and play d7.</p>
+<p>He plays h7. One stone, and it is the only point that stops your open four.</p>
+<p>Your read was correct. It was also useless, because five moves of your own attack never asked what his reply would do for him. h7 was the square his live three wanted to extend into. You forced him to play the move he wanted, and the tempo went with it.</p>
+<p>That is the trouble with the question "how many moves ahead." The number is easy to say and it almost never decided the game.</p>
+
+<h2>"Four Moves" Is Two of Your Turns</h2>
+<p>The difficulty buttons are Easy, Medium, Hard and Master. Underneath, the labels describe search depth, and depth is counted in single stones, not in turns. Your move and his answer are two stones.</p>
+<p>Medium looks two moves ahead. Hard looks four. Read those numbers as stones: four stones is you, him, you, him. Two of your turns. Master deepens while the position stays sharp and stops early once it goes quiet.</p>
+<p>That last behavior is the one worth copying. A search that quits when the position settles does by machine what a strong player does by hand. Count while the forcing lasts, then judge.</p>
+
+<h2>Count Layers, Not Moves</h2>
+<p>One layer is a forcing move plus the single reply it permits. Two stones. The number of layers is how far you actually traveled across the board.</p>
+<p>Three layers is the minimum for any candidate worth considering. That is six stones: yours, his forced answer, yours, his forced answer, yours, and only then the position you are judging.</p>
+<p>Why not one? A threat is not a property of your shape. It is a property of the shape after his best stone lands on it. Take e7–g7 with d7 and h7 empty: play d7 and you have an open four with c7 and h7 both free, nothing he does stops it. Now put one of his stones on h7 first. The same d7 gives you d7–g7 with only c7 open. He blocks c7 and those three stones are a dead four. Same move, same shape, opposite result, and the difference appears only after his reply.</p>
+<p>So the unit is the layer, not the move, and the first layer you must always finish is his. Every plan in <a href="advanced-gomoku-strategy">the advanced material</a> is built on top of that one.</p>
+
+<h2>Forced Chains Are Cheap, Quiet Positions Are Not</h2>
+<p>Count positions, not moves. In a quiet position where he has six reasonable replies, three stones deep is one move, six answers and thirty-six answers to those: forty-three positions to hold at once, before you have judged anything.</p>
+<p>In a forcing chain every node has exactly one legal reply. Five layers is five positions. A ten-stone four chain costs less to read than a quiet position misread two stones deep.</p>
+<p>That is the whole answer, and it is not a number. In a sharp position ten moves ahead is cheap and you should do it. In a quiet one, four moves ahead is expensive and you should not.</p>
+
+<h2>Stop When the Branch Opens</h2>
+<p>One rule replaces every fixed depth target: keep going while exactly one reply exists, stop the moment three or more are reasonable.</p>
+<p>Two replies is the awkward case. It usually means the threat is decorative, or that one reply is forced and the other is a counter-threat you have to price. Read the forced one to the end, then check whether his counter-threat makes a four before yours does.</p>
+<p>In renju, add one check at the end of every line. Black's win has to be exactly five: six in a row is an overline and a loss, so a line that ends "five or more" is not finished. The block point is the same trap. If the square you force him onto completes a second four or a second three for him, you have just read a win for the wrong side.</p>
+
+<h2>The Three-Layer Check, Fifteen Seconds</h2>
+<ol>
+<li><strong>First layer, your stone.</strong> Does it make a four or a live three that must be answered? If not, stop reading. It is a quiet move and shape is all you have to judge.</li>
+<li><strong>Second layer, his single reply.</strong> Name the square out loud. If you cannot narrow it to one, you are holding a quiet position, not a threat.</li>
+<li><strong>Third layer, your second threat.</strong> His stone has landed. Count your fours and live threes again. One means the chain died and you spent a stone on nothing. Two means read two more stones.</li>
+</ol>
+<p>Six stones, about fifteen seconds. On the turns that actually decide the game, that is deeper than Hard's four.</p>
+
+<h2>What This Looks Like Against Each Level</h2>
+<p>Against Medium one full layer is usually enough. It answers the threat in front of it and stops, so a second threat two stones behind the first goes unseen. Build the second one quietly, then commit.</p>
+<p>Against Hard, three layers. It sees your stone and the answer to it, so any plan that only works if it cooperates will fail. The plan has to be alive after its best reply, and that is exactly what the third layer tests. <a href="beat-gomoku-ai">The level-by-level breakdown</a> covers what each tier values. This page is only about how far to look before you trust a line.</p>
+<p>Two failures show up in most lost games. The first is reading your attack to move seven and never reading his reply once. The second is the opposite: reading his attack three layers deep every turn, burning the clock, and blocking when a two-layer counter was sitting there. <a href="gomoku-defense-vs-offense-when-to-switch">Switching between defense and offense</a> is a tempo question, and tempo is what a correct read buys you.</p>
+
+<h2>A Drill That Teaches Depth in One Sitting</h2>
+<p>Play Hard with a fifteen-second cap. Before every stone, say two things out loud: the square you expect him to answer on, and the threat you will still have after that stone lands.</p>
+<p>Then count. Games where you named the square and were right are games where your read was long enough. Games where he played elsewhere are the interesting ones, because that is the branch opening, and an opening branch means your previous move was already quiet.</p>
+<p>Ten games like this will do more than ten games of "think harder." After each one, find the move where your read stopped and ask whether two more stones would have changed it. Most of the time they would not. Twice a game they would.</p>
+<p>Then <a href="../#game">open a board</a> and play one game at Medium with a rule: no stone until you can name his reply. The habit is the whole point.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Three Layers, Then Move</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Fifteen seconds per turn at Hard. Name his single reply before the stone lands.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Reading Ahead in Gomoku: How Many Moves Is Actually Enough",
+    "description": "Four moves ahead is two of your turns. Count threat layers rather than moves, and stop reading the moment his reply stops being forced.",
+    "datePublished": "2026-10-24",
+    "dateModified": "2026-10-24",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-reading-ahead-how-many-moves"}
+  }
+  </script>
+</body>
+</html>

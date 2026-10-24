@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>На сколько ходов вперёд считать в гомоку | Блог о гомоку</title>
+  <meta name="description" content="«Четыре хода» это два ваших хода. Считайте слои, а не ходы, и останавливайтесь, как только ответ перестал быть вынужденным.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-reading-ahead-how-many-moves">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-reading-ahead-how-many-moves">
+  <meta property="og:title" content="Расчёт в гомоку: на сколько ходов вперёд смотреть">
+  <meta property="og:description" content="Форсированная цепочка из пяти слоёв дешевле, чем тихая позиция на три камня вглубь. Вот арифметика.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-reading-ahead-how-many-moves">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Гомоку: как далеко считать">
+  <meta name="twitter:description" content="Если ответ не вынужден, лишняя глубина это просто догадка в несколько шагов.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Расчёт в гомоку: на сколько ходов вперёд смотреть</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-24">2026-10-24</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Одиннадцатый ход, сорок секунд и пять ходов не в ту сторону</h2>
+<p>У вас камни на e7, f7 и g7. d7 и h7 пусты. Его открытая тройка идёт по вертикали h и упирается в h7. Вы тратите сорок секунд, считаете свою атаку на пять ходов вперёд, находите цепочку четвёрок, которую дважды не закрыть, и ставите d7.</p>
+<p>Он отвечает h7. Один камень, и это единственная точка, которая останавливает вашу открытую четвёрку.</p>
+<p>Расчёт был верным. И бесполезным. Пять ходов считали только вашу атаку, и ни разу не спросили, что его ответ даёт ему. h7 это точка, куда его открытая тройка и хотела вытянуться. Вы заставили его сыграть нужный ему ход, и темп ушёл вместе с ним.</p>
+<p>В этом вся сложность вопроса «на сколько ходов вперёд». Число произнести легко, а исход партии оно решает редко.</p>
+
+<h2>«Четыре хода» это два ваших хода</h2>
+<p>Кнопки сложности называются Easy, Medium, Hard и Master. Внутри это глубина поиска, и считается она не ходами, а камнями. Ваш ход и его ответ это два камня.</p>
+<p>Medium смотрит на два хода вперёд, Hard на четыре. Читайте эти числа как камни. Четыре камня это вы, он, вы, он. То есть два ваших хода. Master углубляется, пока позиция остаётся острой, и рано останавливается, когда она успокоилась.</p>
+<p>Копировать стоит именно последнее поведение. Поиск, который прекращается, когда позиция устоялась, делает машинно то же, что сильный игрок делает руками: считает, пока есть форсирование, и решает, когда оно кончилось.</p>
+
+<h2>Считайте слои, а не ходы</h2>
+<p>Один слой это форсирующий ход и единственный ответ, который он разрешает. Два камня. Число слоёв и есть то расстояние, на которое вы реально продвинулись по доске.</p>
+<p>Для любого серьёзного кандидата минимум три слоя. Это шесть камней: ваш, его вынужденный, ваш, его вынужденный, ваш, и только теперь позиция, которую вы оцениваете.</p>
+<p>Почему не один? Угроза это свойство не формы, а формы после того, как на неё лёг его камень. Смотрите: e7–g7, d7 и h7 пусты. Ставите d7, и у вас открытая четвёрка с c7 и h7, ответа нет. Теперь поставьте его камень на h7 заранее. Тот же d7 даёт d7–g7 с единственным выходом c7. Он закрывает c7, и ваши три камня это мёртвая четвёрка. Тот же ход, та же форма, обратный результат, и разница видна только после его ответа.</p>
+<p>Поэтому единица расчёта это слой, а не ход, и первый слой, который нужно закрыть, всегда его. Любой план из <a href="/ru-RU/blog/advanced-gomoku-strategy">продвинутой стратегии</a> надстраивается над этим слоем.</p>
+
+<h2>Форсированные цепочки дешевы, тихие позиции нет</h2>
+<p>Считайте позиции, а не ходы. В тихой позиции, где у него шесть разумных ответов, три камня вглубь это ход, шесть ответов и тридцать шесть ответов на них: сорок три позиции в голове, и это до того, как вы что-то оценили.</p>
+<p>В форсированной цепочке в каждом узле ровно один законный ответ. Пять слоёв это пять позиций. Цепочку из десяти камней вы прочитаете быстрее, чем ошибётесь на два камня в тихой позиции.</p>
+<p>Вот и весь ответ. В острой позиции десять ходов вперёд дёшевы, и их надо считать. В тихой четыре хода вперёд дороги, и считать их не надо.</p>
+
+<h2>Останавливайтесь, когда открывается ветвление</h2>
+<p>Одно правило заменяет любую заданную глубину: продолжайте, пока ответ единственный, и останавливайтесь, как только разумных ответов стало три и больше.</p>
+<p>Два ответа это тяжёлый случай. Обычно он значит, что угроза декоративная, либо один ответ вынужденный, а второй контр-угроза, которой нужна цена. Вынужденный дочитайте до конца, потом проверьте, успевает ли его контр-угроза сделать четвёрку раньше вашей.</p>
+<p>В рэндзю добавьте одну проверку в конце линии. Победа чёрных должна быть ровно пятёркой: шесть в ряд это оверлайн и поражение, поэтому расчёт, который кончается на «пять или больше», не закончен. С точкой блока то же самое: если точка, куда вы его загоняете, одновременно завершает ему вторую четвёрку или вторую тройку, вы посчитали победу не той стороны.</p>
+
+<h2>Проверка на три слоя, пятнадцать секунд</h2>
+<ol>
+<li><strong>Первый слой, ваш камень.</strong> Получается четвёрка или открытая тройка, на которую обязаны ответить? Если нет, расчёт прекращается. Ход тихий, и оценивать нужно только форму.</li>
+<li><strong>Второй слой, его единственный ответ.</strong> Назовите точку вслух. Если единственной нет, у вас тихая позиция, а не угроза.</li>
+<li><strong>Третий слой, ваша вторая угроза.</strong> Его камень уже лёг, пересчитайте свои четвёрки и открытые тройки. Одна значит, что цепочка кончилась и камень потрачен зря. Две значат, что нужно читать ещё два камня.</li>
+</ol>
+<p>Шесть камней, около пятнадцати секунд. На тех ходах, которые действительно решают, это глубже четырёх камней у Hard.</p>
+
+<h2>Как это выглядит против каждого уровня</h2>
+<p>Против Medium одного полного слоя часто достаточно: он отвечает на угрозу перед собой и останавливается, поэтому вторая угроза в двух камнях позади первой остаётся незамеченной. Вторую стройте тихо, и только потом идите.</p>
+<p>Против Hard нужны три слоя. Он видит ваш камень и ответ на него, поэтому любой план, который работает только при его содействии, провалится. План должен оставаться живым после его лучшего ответа, и это ровно то, что проверяет третий слой. <a href="/ru-RU/blog/beat-gomoku-ai">Разбор уровней по одному</a> про то, что каждый ценит; здесь только о том, как далеко смотреть, прежде чем верить линии.</p>
+<p>В проигранных партиях видны две ошибки. Первая: считать свою атаку на семь ходов и ни разу не посчитать его ответ. Вторая обратная: каждый ход читать его атаку на три слоя, сжигать время и ставить защитный блок там, где был двухслойный контр-ход. <a href="/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">Когда переключаться между защитой и атакой</a> это вопрос темпа, а темп и есть то, что даёт правильный расчёт.</p>
+
+<h2>Упражнение, которое ставит глубину за одну сессию</h2>
+<p>Играйте с Hard с лимитом пятнадцать секунд на ход. Перед каждым камнем говорите вслух две вещи: точку, на которой, по-вашему, он ответит, и угрозу, которая останется у вас после этого камня.</p>
+<p>Потом считайте. Партии, где вы назвали точку и угадали, это партии, где расчёта хватило. Партии, где он сыграл в другом месте, интереснее: там открылось ветвление, а открывшееся ветвление значит, что ваш предыдущий ход уже был тихим.</p>
+<p>Десять таких партий дадут больше, чем десять партий с установкой «думай глубже». После каждой находите ход, на котором расчёт остановился, и спрашивайте, изменили бы лишние два камня сам ход. Обычно нет. Дважды за партию да.</p>
+<p>Потом <a href="/ru-RU/#game">откройте доску</a> и проведите партию на Medium с правилом: не ставить камень, пока не можете назвать его ответ. Нужен именно этот навык.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Три слоя, и камень на доску</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">На Hard дайте себе пятнадцать секунд на ход. Назовите его единственный ответ до того, как камень ляжет.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Расчёт в гомоку: на сколько ходов вперёд смотреть",
+    "description": "«Четыре хода» это два ваших хода. Считайте слои, а не ходы, и останавливайтесь, как только ответ перестал быть вынужденным.",
+    "datePublished": "2026-10-24",
+    "dateModified": "2026-10-24",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-reading-ahead-how-many-moves"}
+  }
+  </script>
+</body>
+</html>
