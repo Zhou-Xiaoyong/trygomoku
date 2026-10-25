@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋弃子战术：送一颗子到底换回了什么 | 五子棋博客</title>
+  <meta name="description" content="弃子不是送礼，是买东西。按手数定价，把他留下的那颗挡子也算进成本，并且只在第二个威胁已经成型时才兑现。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-sacrifice-tactic-explained">
+  <meta property="og:title" content="五子棋弃子：把一颗子花出去，换一手先手">
+  <meta property="og:description" content="一条死三就是一个没兑现的四。兑现的时机是第二个威胁成形的那一手，不是你发现它的那一手。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-sacrifice-tactic-explained">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋弃子：死子换先手">
+  <meta name="twitter:description" content="按手数给弃子定价，还要数他留下的那颗挡子，否则就是白送。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">五子棋弃子：把一颗子花出去，换一手先手</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-25">2026-10-25</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>第九手，一条已经死了的三</h2>
+<p>你在 e5、f5、g5 有三颗子。d5 空着，h5 从第六手起就是他的。</p>
+<p>这个形状还能冲一次四。落 d5，d5 到 g5 成四，能把它变成五的只剩 c5 一个点。他挡 c5，四死了，堆在这条线上的四颗子也一起废掉。</p>
+<p>多数人一看见这个四就打。会下的人压到第十八手，等它换回来的那一手正好是收官的那一手。</p>
+<p>五子棋里的弃子就是这个：落下一颗明知永远不会算进五连的子。要不要送从来不是问题，换回来什么才是。</p>
+
+<h2>弃子是买，不是送</h2>
+<p>棋盘上只有一样东西能买：他不得不应的那一手。</p>
+<p>其他都是噪音。形状存在的意义就是造出这一手；地盘在这游戏里根本不算数；子多子少是没人看的比分牌。你落一颗准备死的子，买的是先手，而先手是有价目表的。</p>
+<ul>
+<li><strong>冲四</strong>：换一手强制应手，代价是一颗子加整条线。</li>
+<li><strong>活三</strong>：也只换一手，但挡哪一头由他挑。你要是需要某个点空着，那个点其实没买到。</li>
+<li><strong>活四</strong>：什么都换不到。它直接结束对局，那是另一笔生意。</li>
+</ul>
+<p>这张表能解释一个现象：高手一直在冲四，新手一直在造三。四的应点是固定的，三的应点是一份菜单。</p>
+
+<h2>按手数定价，还要数他留下什么</h2>
+<p>最常被跳过的一步：强制应手对你并不免费。他落一颗子，那颗子会一直待在那儿。</p>
+<p>你冲 d5 那个四，他挡 c5。八手之后你想在 c 线上做双威胁，需要的交点正好是 c5。现在是他的。这一手先手，你付了落下去的子，也付了亲手递过去的那个格子。</p>
+<p>所以价格是一手，加上他一颗子落在你接下来要用的区域里。如果你的收官需要 5&times;5 的框里留三个空交点，他白得的两颗子足够把这块地封死。你就是在这个预算里下棋。</p>
+
+<h2>第一种：一条本来就活不了的三</h2>
+<p>每一条死三都是一个还没兑现的四。花一颗子去兑现没问题，兑现错了时机才是问题。</p>
+<p>该兑现的那一手，是你的第二个形状刚变成双威胁的那一手，不是你发现这个四的那一手。十二手就打，他的挡子落下来时你的双威胁还没成形，这颗挡子正好落在你要用的框里。十八手才打，挡在哪里都无所谓，因为下一手就赢了。</p>
+<p>落子前多看一眼：数这个四有几个出口。两个出口是活四，棋已经结束，别再规划，直接打。一个出口，这条线会跟着他的挡子一起死，换回来的就是那一手。</p>
+
+<h2>第二种：既是挡点，又是四</h2>
+<p>他的三在 e9、f9、g9，d9 和 h9 都空。你必须挡。可两头不是同一手棋。</p>
+<p>如果你 d 列上已经有 d6、d7、d8，而 d5 是他的，就走 d9。这一挡让 d6 到 d9 成四，出口只剩 d10，他必须应，你欠他的那一挡变成了你要的那一手。额外代价是零，反正这手棋你本来就要下。</p>
+<p>这是五子棋里最便宜的棋，也最常被漏掉，因为「挡」感觉像在还债。挡之前先扫一眼：两头有没有哪一头能把你的哪条线接成四。两头都不是，这一挡就是纯亏，问题也随之换掉，变成你哪个四能赶在他的五之前。</p>
+
+<h2>第三种：把禁手甩给黑棋的三</h2>
+<p>连珠里，黑棋双三、双四、长连都直接判负。白棋最便宜的赢法，是做一个三，让它的挡点正好落在黑棋的交点上。</p>
+<p>把三摆在 11 线，挡点设在 g11，同时让黑棋两条线都穿过 g11。他唯一自然的应手会同时凑出两个四。那手棋他不许下，于是挡不了；你这个三下一手就是活四。</p>
+<p>这个三是字面意义上的弃子。冲着交点去的三，本身不指向你的任何一个五，那颗子永远不会进你的五连。你花的是一颗没有未来的子，换他一手不许下的挡。</p>
+<p>落之前先数交点：他的挡点上是两个四、两个活三，还是一个四一个三。只有一个四不算禁手，数错一次整套打法就废了。</p>
+
+<h2>没人能跳过的前提</h2>
+<p>弃子是付款，付款得有人收。</p>
+<p>盘上只有一个形状，这一手先手就没地方花。你花在一手闲棋上，他那颗白得的挡子花在对他有用的地方，这笔交换是净亏。它亏得很安静，所以很多人一直重复。</p>
+<p>所以落子前把那手棋说出来，说不出口就念出来：他挡 c5，我下 h7，h7 做四三。这句话接不上，这就不是弃子，是白送一颗。</p>
+<p>而且收款的威胁必须是真的，不能是「希望」。需要他配合才成立的四三不算收款方。<a href="/zh-CN/blog/gomoku-double-threat-fork-strategy">双威胁的造法</a>那篇讲的就是怎么验这一条：买来的先手，只有在第二个威胁扛得住他最好的应手时才值钱。</p>
+
+<h2>连续四从哪里开始不划算</h2>
+<p>每冲一个四，你花一颗子，他留下一颗。四个四是正常预算。过六之后，他那些被迫的挡子已经把你最后一个四要用的区域填满，链不是被防死的，是挤死的。<a href="/zh-CN/blog/gomoku-ladder-attack-tactic">连续四的走法</a>最容易看到这个上限。</p>
+<p>两条规则能让预算保持诚实。第一，挡点落在你收官框里的四，不要打。第二，别用两手先手去造一个需要三手的形状。</p>
+<p>第二条听着像废话，其实不是。输掉的局大多不是输在计划差，是输在一个好计划差一手，而那一手是用一颗还活着的子付的。</p>
+
+<h2>一个能把价格练出来的练法</h2>
+<p>打十局 Medium，加一条限制：每冲一个四，必须在落子前说出他被挡之后你要下哪一手。</p>
+<p>记下来。数一数轮到你的那一手还在不在。一开始大概一半还在。这个差值就是之前一直被你忽略的价格。</p>
+<p>然后反过来翻一遍输掉的局。找出一手你条件反射挡下去、而他那条三的另一头本来能接成你的四的棋。一局里通常有一手。<a href="/zh-CN/blog/advanced-gomoku-strategy">进阶策略</a>把连续冲四当成进攻主干，这里讲的是主干要花多少钱。</p>
+
+<h2>找一条死线，晚点兑现</h2>
+<p><a href="/zh-CN/#game">打开棋盘</a>，先安静下十手。找出你自己一条只能冲成单口四的三。</p>
+<p>别动它。先造第二个形状。等第二个形状只差一手就是双威胁，再把这个死四打出去，吃掉他那手挡，然后下你早就说出口的那一手。</p>
+<p>慢是慢。会不会一手棋是一回事，有没有把它变成习惯是另一回事。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">死四要晚点打</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">先说出他被挡之后你要下哪一手，再把四打出去。打十局 Medium 就摸得到这个价。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋弃子：把一颗子花出去，换一手先手",
+    "description": "弃子不是送礼，是买东西。按手数定价，把他留下的那颗挡子也算进成本，并且只在第二个威胁已经成型时才兑现。",
+    "datePublished": "2026-10-25",
+    "dateModified": "2026-10-25",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-sacrifice-tactic-explained"}
+  }
+  </script>
+</body>
+</html>

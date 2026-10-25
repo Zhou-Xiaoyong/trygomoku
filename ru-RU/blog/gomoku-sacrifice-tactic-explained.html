@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Жертва камня в гомоку: что она на самом деле покупает | Блог о гомоку</title>
+  <meta name="description" content="Жертва в гомоку это покупка, а не подарок. Считайте цену в темпах, включайте в неё камень блока, который он оставляет, и бейте только при готовой второй угрозе.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-sacrifice-tactic-explained">
+  <meta property="og:title" content="Жертва в гомоку: отдать камень и купить ход">
+  <meta property="og:description" content="Мёртвая тройка это необналиченная четвёрка. Обналичивайте её на ходу, когда вторая угроза созрела.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-sacrifice-tactic-explained">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Жертва в гомоку: отдать камень и купить ход">
+  <meta name="twitter:description" content="Считайте цену в темпах и не забывайте про камень блока, который остаётся у него.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Жертва в гомоку: отдать камень и купить темп</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-25">2026-10-25</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Девятый ход, и тройка, которая уже мертва</h2>
+<p>У вас камни на e5, f5 и g5. d5 пуст. h5 принадлежит ему с шестого хода.</p>
+<p>Эта форма всё ещё даёт четвёрку. Ставите d5, получаете d5–g5, и единственная клетка, которая превращает это в пять, это c5. Он закрывает c5. Четвёрки нет, и четырёх камней, потраченных на неё, тоже нет.</p>
+<p>Большинство бьёт эту четвёрку сразу, как только увидит. Сильные держат её до хода, на котором единственный купленный ход и оказывается решающим.</p>
+<p>Вот что такое жертва в гомоку: камень, который вы ставите, зная, что в вашу пятёрку он не войдёт. Отдавать или нет никогда не было вопросом. Вопрос в том, что возвращается.</p>
+
+<h2>Жертва это покупка, а не подарок</h2>
+<p>Доска продаёт одну вещь. Ход, на котором у него нет выбора.</p>
+<p>Остальное шум. Форма существует, чтобы этот ход получить. Территории в этой игре нет вообще. Количество камней это табло, которое никто не читает. Ставя камень, который умрёт, вы покупаете темп, а у темпа есть прайс-лист.</p>
+<ul>
+<li><strong>Четвёрка с одним выходом</strong>: покупает ровно один вынужденный ответ. Цена — камень и вся линия.</li>
+<li><strong>Открытая тройка</strong>: тоже один ответ, но с какого конца закрывать, выбирает он. Если вам нужна была конкретная свободная точка, вы её не купили.</li>
+<li><strong>Открытая четвёрка</strong>: не покупает ничего. Она заканчивает партию, а это другая сделка.</li>
+</ul>
+<p>Этот список объясняет, почему сильные всё время бьют четвёрки, а слабые всё время строят тройки. Ответ на четвёрку фиксирован. Ответ на тройку это меню.</p>
+
+<h2>Считайте цену в ходах и то, что он оставляет себе</h2>
+<p>Шаг, который пропускают. Вынужденный ответ бесплатен не для вас. Он ставит камень, и камень остаётся.</p>
+<p>Бьёте четвёрку на d5, он отвечает c5. Восемь ходов спустя вам нужен форк по вертикали c, и нужная точка пересечения это c5. Она его. Темп стоил вам камня, который вы поставили, и клетки, которую вы отдали.</p>
+<p>Настоящая цена это один ход плюс один его камень внутри района, который вы собираетесь использовать дальше. Если для финиша нужны три свободные точки пересечения в квадрате пять на пять, двух его бесплатных камней хватит, чтобы этот квадрат закрыть. Вот против какого бюджета вы играете.</p>
+
+<h2>Первая жертва: линия, которой не суждено было жить</h2>
+<p>Каждая мёртвая тройка это необналиченная четвёрка. Заплатить за неё камень нормально. Сделать это не на том ходу нет.</p>
+<p>Обналичивайте на том ходу, когда вторая форма становится двойной угрозой, а не на том, когда вы заметили четвёрку. Ударите на двенадцатом, и его блок ляжет, пока форк ещё строится, ровно в тот квадрат, который вам нужен. Ударите на восемнадцатом, и блок уже не важен: следующий ход выигрывает.</p>
+<p>Одна проверка перед тем, как камень ляжет. Сосчитайте выходы у четвёрки, которую собираетесь сделать. Два выхода значит открытая четвёрка и партия уже кончена, бросайте планы и играйте. Один выход значит линия умрёт вместе с блоком, и весь возврат это темп.</p>
+
+<h2>Вторая жертва: блок, который сам является четвёркой</h2>
+<p>Его тройка стоит на e9, f9, g9, d9 и h9 пусты. Закрывать надо. Но два конца это не один и тот же ход.</p>
+<p>Берите d9, если по вертикали d у вас уже стоят d6, d7 и d8, а d5 его. Этот блок делает d6–d9 четвёркой с единственным выходом на d10, он обязан ответить, и блок, который вы были должны, стал темпом, который вам был нужен. Доплата ноль. Вы и так собирались там играть.</p>
+<p>Это самый дешёвый ход в гомоку, и его постоянно упускают, потому что блок ощущается как возврат долга. Перед тем как закрывать на рефлексе, посмотрите, не продолжает ли один из концов вашу линию до четвёрки. Если ни один не продолжает, блок это чистый убыток, и вопрос меняется: успевает ли ваша четвёрка раньше его пятёрки.</p>
+
+<h2>Третья жертва: тройка, которая вручает чёрным запрещённый ход</h2>
+<p>В рэндзю чёрные сразу проигрывают на двойной тройке, двойной четвёрке и на шести в ряд. Самый дешёвый выигрыш белых это тройка, нацеленная в точку пересечения.</p>
+<p>Поставьте тройку по одиннадцатой горизонтали, а точку блока на g11, и пусть у чёрных через g11 проходят две линии. Их единственный естественный ответ завершает сразу две четвёрки. Этот ход им запрещён, значит закрыть они не могут, и ваша тройка на следующем ходу становится открытой четвёркой.</p>
+<p>Такая тройка это жертва в буквальном смысле. Нацеленная в пересечение, она не ведёт ни к какой вашей пятёрке, и камень в вашу линию не войдёт. Вы платите камнем без будущего за блок, который ему запрещено ставить.</p>
+<p>Считайте пересекающиеся линии до хода, а не после. Две четвёрки в его точке блока, или две открытые тройки, или одна четвёрка и одна тройка. Одна четвёрка это не фол, и если посчитать неправильно, вся тактика рассыпается.</p>
+
+<h2>Условие, которое не обойти</h2>
+<p>Жертва это платёж. У платежа должен быть получатель.</p>
+<p>Если на доске одна форма, темпу некуда идти. Вы тратите его на тихий ход, он тратит бесплатный камень блока на что-то полезное себе, и размен прямой убыток. Проигрывается это тихо, поэтому люди повторяют.</p>
+<p>Поэтому назовите ход до удара. Вслух, если иначе не выходит. Он закрывает c5, я играю h7, h7 даёт четыре-три. Если фраза не достраивается, это не жертва. Это подаренный камень.</p>
+<p>И угроза-получатель должна быть настоящей, а не желаемой. Четыре-три, которому нужно его содействие, получателем не является. <a href="/ru-RU/blog/gomoku-double-threat-fork-strategy">Как строятся форки</a> проверяет именно это: купленный темп окупается только тогда, когда вторая угроза выживает после его лучшего ответа.</p>
+
+<h2>Где цепочка перестаёт окупаться</h2>
+<p>Каждая четвёрка в цепочке стоит вам камня и оставляет ему камень. Четыре четвёрки это обычный бюджет. Где-то после шестой его вынужденные блоки заполнили район, нужный последней четвёрке, и цепочка умирает от тесноты, а не от защиты. <a href="/ru-RU/blog/gomoku-ladder-attack-tactic">Лестничные цепочки</a> показывают этот предел первыми.</p>
+<p>Два правила держат бюджет честным. Не бейте четвёрку, блок которой падает внутрь квадрата, где живёт ваш финиш. И не тратьте два темпа на форму, которой нужно три.</p>
+<p>Второе звучит очевидно и не является. Проигранные партии чаще не от плохого плана. Они от хорошего плана, которому не хватило одного хода, и этот ход оплачен камнем, который был ещё жив.</p>
+
+<h2>Упражнение, которое ставит цену</h2>
+<p>Десять партий против Medium с одним ограничением: бить четвёрку можно только если до того, как камень ляжет, вы называете ход, который сыграете после его блока.</p>
+<p>Записывайте. Считайте, сколько раз названный ход ещё был доступен, когда до него дошло. Поначалу примерно половина. Этот разрыв и есть цена, которую вы игнорировали.</p>
+<p>Потом пройдите проигранные партии в обратную сторону. Найдите блок, который вы поставили на рефлексе, хотя другой конец его тройки был вашей четвёркой. Обычно такой находится один за партию. <a href="/ru-RU/blog/advanced-gomoku-strategy">Продвинутый материал</a> считает форсированные цепочки основой атаки; здесь речь только о том, сколько эта основа стоит.</p>
+
+<h2>Найдите одну мёртвую линию и обналичьте её поздно</h2>
+<p><a href="/ru-RU/#game">Откройте доску</a> и сделайте десять тихих ходов. Найдите свою тройку, которая может стать только четвёркой с одним выходом.</p>
+<p>Не трогайте её. Сначала постройте вторую форму. Когда второй форме останется один ход до двойной угрозы, бейте мёртвую четвёрку, забирайте блок и играйте тот ход, который назвали.</p>
+<p>Это кажется медленным. В этом и разница между знанием тактики и владением ею.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Мёртвую четвёрку бейте поздно</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Сначала назовите ход после его блока, потом бейте. Десяти партий против Medium хватает, чтобы почувствовать цену.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Жертва в гомоку: отдать камень и купить темп",
+    "description": "Жертва в гомоку это покупка, а не подарок. Считайте цену в темпах, включайте в неё камень блока, который он оставляет, и бейте только при готовой второй угрозе.",
+    "datePublished": "2026-10-25",
+    "dateModified": "2026-10-25",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-sacrifice-tactic-explained"}
+  }
+  </script>
+</body>
+</html>

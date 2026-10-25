@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べの捨て石｜石一つで手番を買う考え方 | 五目並べブログ</title>
+  <meta name="description" content="捨て石は贈り物ではなく買い物です。手数で値段をつけ、相手に残る止め石もコストに入れ、二つ目の脅威ができてから換金します。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-sacrifice-tactic-explained">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-sacrifice-tactic-explained">
+  <meta property="og:title" content="五目並べの捨て石：死ぬ石で一手を買う">
+  <meta property="og:description" content="死んだ三はまだ換金していない四です。換金するのは、二つ目の脅威が形になった手です。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-sacrifice-tactic-explained">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べの捨て石：死ぬ石で一手を買う">
+  <meta name="twitter:description" content="手数で値段をつけ、相手に残る止め石を数えてから打ってください。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">五目並べの捨て石：死ぬ石で一手を買う</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-25">2026-10-25</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>九手目、すでに死んでいる三</h2>
+<p>e5、f5、g5 に石が三つ。d5 は空いていて、h5 は六手目から相手のものです。</p>
+<p>この形はまだ四を作れます。d5 に置けば d5 から g5 の四になり、五に変えられるのは c5 だけです。相手が c5 を止めれば四は消え、そのために積んだ四石も一緒に消えます。</p>
+<p>多くの人はその四が見えた瞬間に打ちます。強い人は十八手目まで持っておきます。その一手が決着の一手になる時まで。</p>
+<p>五目並べの捨て石とはこれです。自分の五連に入らないと分かっていて置く石。捨てるかどうかは問題ではありません。何が返ってくるかが問題です。</p>
+
+<h2>捨て石は買い物で、贈り物ではない</h2>
+<p>盤が売るものは一つだけです。相手に選択肢がない一手。</p>
+<p>それ以外は雑音です。形はその一手を作るためにあり、地の概念はこのゲームにありません。石の数は誰も読まないスコアです。死ぬ石を置くとき、あなたは手番を買っています。手番には値段表があります。</p>
+<ul>
+<li><strong>片端だけ空いた四</strong>：強制の応手を一手だけ買います。代価は石一つと、その列すべて。</li>
+<li><strong>活三</strong>：これも一手ですが、どちらで止めるかは相手が選びます。特定の点を空けておきたいなら、その点は買えていません。</li>
+<li><strong>活四</strong>：何も買えません。勝負が終わるだけで、これは別の取引です。</li>
+</ul>
+<p>この表が説明するのは、強い人が四を打ち続け、弱い人が三を作り続ける理由です。四の応手は固定で、三の応手はメニューです。</p>
+
+<h2>手数で値段をつけ、相手に残る石を数える</h2>
+<p>飛ばされがちな手順です。強制の応手はあなたにとっても無料ではありません。相手は石を置き、その石は盤に残ります。</p>
+<p>d5 の四を打てば相手は c5。八手後、c列でフォークを作りたくなり、必要な交点は c5 です。それは相手のものです。手番の代価は、打った石と、手渡したマスでした。</p>
+<p>つまり本当の値段は一手プラス、次に使う領域に残る相手の石一つです。仕上げに 5&times;5 の枠の中で空の交点が三つ要るなら、相手がタダで得た石二つでその枠は閉じます。あなたはその予算で打っています。</p>
+
+<h2>一つ目：もともと生きられない三</h2>
+<p>死んだ三は、まだ換金していない四です。石一つで換金するのは構いません。時期を間違えるのが問題です。</p>
+<p>換金するのは、二つ目の形が両狙いになった手です。四に気づいた手ではありません。十二手目に打てば、フォークがまだ形になる前に相手の止め石が枠の内側に落ちます。十八手目ならどこで止めても同じです。次の一手で終わるからです。</p>
+<p>置く前に確認を一つ。これから作る四の出口を数えます。出口が二つなら活四で、勝負はもう終わっています。考えるのをやめて打ってください。出口が一つなら、その列は止めと一緒に死に、返ってくるのは手番だけです。</p>
+
+<h2>二つ目：止め手が同時に四になる形</h2>
+<p>相手の三が e9、f9、g9 にあり、d9 と h9 が空いています。止めるしかありません。ただし両端は同じ手ではありません。</p>
+<p>自分の d列に d6、d7、d8 がすでにあり、d5 が相手のものなら d9 です。この止めで d6 から d9 が四になり、出口は d10 だけ。相手は応じるしかなく、借りていた止めが、欲しかった手番に変わります。追加の代価はゼロです。もともとそこに打つ手でした。</p>
+<p>五目並べで一番安い手であり、一番見落とされます。止めるのは借金返しに見えるからです。反射で止める前に、両端のどちらかが自分の列を四に伸ばさないかを見てください。どちらでもないなら、その止めは純粋な損です。問いは「自分の四が相手の五より先に来るか」に変わります。</p>
+
+<h2>三つ目：黒に禁手を渡す三</h2>
+<p>連珠では、黒は三三、四四、長連で即座に負けます。白の一番安い勝ち方は、止め点が交点になる三を作ることです。</p>
+<p>十一列に三を置き、止め点を g11 にします。黒の二本の線がどちらも g11 を通っている状態です。黒の自然な応手は四を二本同時に完成させます。その手は打てないので、止められません。あなたの三は次の手で活四になります。</p>
+<p>この三は文字どおりの捨て石です。交点に向けた三は自分の五にはつながらず、その石が自分の五連に入ることはありません。未来のない石一つで、打てない止めを買っています。</p>
+<p>打つ前に交点を数えます。相手の止め点に四が二本か、活三が二本か、四と三が一本ずつか。四が一本だけでは禁手になりません。ここを数え違えると戦術ごと崩れます。</p>
+
+<h2>飛ばせない前提</h2>
+<p>捨て石は支払いです。支払いには受け取り手が要ります。</p>
+<p>盤に形が一つしかないなら、手番の行き先がありません。静かな一手に使い、相手はタダで得た止め石を自分のために使います。差し引きで負けです。しかも静かに負けるので、同じことを繰り返す人が絶えません。</p>
+<p>だから打つ前に、次に打つ手を言葉にします。声に出して構いません。相手が c5 を止める、自分は h7、h7 で四三。この文が完成しないなら、それは捨て石ではなく、ただの寄付です。</p>
+<p>受け取る側の脅威は本物でなければなりません。相手の協力が前提の四三は受け取り手になりません。<a href="/ja-JP/blog/gomoku-double-threat-fork-strategy">フォークの作り方</a>で試されるのはそこです。買った手番は、二つ目の脅威が相手の最善手のあとも生きているときだけ価値になります。</p>
+
+<h2>連続四が割に合わなくなる地点</h2>
+<p>連続四の一本ごとに、自分の石が一つ減り、相手の石が一つ増えます。四本が普通の予算です。六本を超えたあたりで、強制された止め石が最後の四の必要な領域を埋め、連鎖は守りではなく混雑で死にます。<a href="/ja-JP/blog/gomoku-ladder-attack-tactic">連続四の組み立て</a>でこの上限が最初に見えます。</p>
+<p>予算を正直に保つ規則は二つです。止め石が仕上げの枠の内側に落ちる四は打たない。三手かかる形を二手の手番で作らない。</p>
+<p>二つ目は当たり前に聞こえて、そうではありません。負ける局の多くは計画が悪いのではなく、良い計画が一手足りず、しかもその一手をまだ生きている石で払っています。</p>
+
+<h2>値段が身につく練習</h2>
+<p>Medium を相手に十局、制約を一つ付けます。四を打つのは、相手の止めのあとに打つ手を、石を置く前に言えたときだけです。</p>
+<p>記録します。自分の番が来たとき、言った手がまだ残っていた回数を数えます。最初は半分ほどです。その差が、これまで無視していた値段です。</p>
+<p>次に負けた局を逆方向から見ます。反射で止めた手のうち、相手の三の反対側が自分の四になっていたものを探します。たいてい一局に一つあります。<a href="/ja-JP/blog/advanced-gomoku-strategy">上位戦略</a>は連続四を攻めの背骨として扱います。ここで扱うのは、その背骨の値段だけです。</p>
+
+<h2>死んだ線を一つ見つけ、遅れて換金する</h2>
+<p><a href="/ja-JP/#game">盤を開いて</a>、静かに十手進めます。自分の三のうち、片端しか空かない四にしかなれないものを一つ見つけてください。</p>
+<p>そのままにします。先に二つ目の形を作ります。二つ目が両狙いまであと一手になったら、死んだ四を打ち、止めを受け取り、言っていた手を打ちます。</p>
+<p>遅く感じます。戦術を知っていることと、戦術を自分のものにしていることの差はそこです。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">死んだ四は遅れて打つ</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">相手が止めたあとに打つ手を先に言葉にしてから、四を打ってください。Medium で十局も打てば値段が分かります。</p>
+            <a href="/ja-JP/#game" class="cta-btn">今すぐ五目並べを遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べの捨て石：死ぬ石で一手を買う",
+    "description": "捨て石は贈り物ではなく買い物です。手数で値段をつけ、相手に残る止め石もコストに入れ、二つ目の脅威ができてから換金します。",
+    "datePublished": "2026-10-25",
+    "dateModified": "2026-10-25",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-sacrifice-tactic-explained"}
+  }
+  </script>
+</body>
+</html>
