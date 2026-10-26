@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VCF в гомоку: цепочка четвёрок, которую можно проверить | Блог о гомоку</title>
+  <meta name="description" content="VCF — это график, а не атака. Читайте финиш назад, проверяйте, что каждое перекрытие падает в отработанную зону, и не верьте цепочке после пятой ступени.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vcf-victory-by-continuous-fours">
+  <meta property="og:title" content="VCF в гомоку: собирать от последнего камня">
+  <meta property="og:description" content="Каждая ступень — вынужденное перекрытие, поэтому цепочка считается. Посчитайте ступени до первой четвёрки.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VCF в гомоку: от последнего камня назад">
+  <meta name="twitter:description" content="Три четвёрки, один финиш и два перекрытия, которые обязаны лечь в уже брошенную зону.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">VCF в гомоку: цепочка четвёрок, которую можно проверить</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-26">2026-10-26</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>До пятёрки три камня, а партия уже решена</h2>
+<p>Ваши камни стоят на f8, g8, h8, на i6 и i9, и ещё на k7 и l7. У соперника j8 и i10. Пятёрки на доске нет, открытой четвёрки тоже нет, а партия заканчивается за три хода.</p>
+<p>Не вилкой. Тремя четвёрками, каждая из которых покупает ровно одно перекрытие, и каждый поставленный камень всё равно был нужен.</p>
+
+<h2>VCF — это график, а не атака</h2>
+<p>VCF расшифровывается как победа непрерывными четвёрками: каждый ваш ход — четвёрка, поэтому у соперника каждый раз ровно один законный ответ. Отсюда и вычислимость. Гадать, что он сыграет, не нужно: гадать не о чем.</p>
+<p>В определении теряется другое — почему такая цепочка вообще возможна. Четвёрка сильный ход, но поставить четыре четвёрки подряд нельзя, если только каждый новый камень не ложится на линию, где у вас уже стоят три.</p>
+<p>Значит, VCF — это цепочка постановок, где каждый ход вынужден, а вместе они дают нужную конструкцию. Вы не давите, пока у него кончатся перекрытия. Вы выкладываете камни, нужные для финиша, по одному за ход, а он тратит свои ходы на то, что ему велели.</p>
+<p>Поэтому цепочка всегда проектируется от последнего камня назад. Всегда. <a href="/ru-RU/blog/advanced-gomoku-strategy">Раздел о форсирующих последовательностях в продвинутом руководстве</a> считает VCF основой атаки. Здесь речь о том, как собрать цепочку так, чтобы её можно было проверить до первого хода.</p>
+
+<h2>Сначала финиш, потом камень перед ним</h2>
+<p>Финиш — j7. Этот камень ставит на седьмую горизонталь i7, j7, k7 и l7, а h7 и m7 остаются пустыми. Открытая четвёрка, то есть победа: закрыть он успеет только один конец.</p>
+<p>Теперь назад. Для j7 нужен i7, а i7 на доске нет.</p>
+<p>i7 стоит на вертикали i, где у вас i6 и i9, а у него i10. Одного i7 для четвёрки на этой вертикали мало: i8 пустой. Недостающий камень — i8, и он же закрывает восьмую горизонталь: f8, g8, h8, i8, при j8 у соперника и пустом e8. Один выход, одно вынужденное перекрытие на e8.</p>
+<p>Порядок получается сам: i8 заставляет закрыть e8, i7 заставляет закрыть i5, j7 выигрывает. Каждый камень делает две работы, только поэтому цепочка держится. i8 — четвёрка на восьмой горизонтали и заполнитель, без которого нет четвёрки на вертикали i. i7 — четвёрка на вертикали i и первая половина финиша на седьмой горизонтали.</p>
+
+<h2>Каждое перекрытие должно падать в уже отработанную зону</h2>
+<p>Камни, которыми он закрывается, остаются на доске до конца. В этой цепочке e8 ложится на восьмую горизонталь, которая мертва после первого хода. i5 ложится на вертикаль i, мёртвую после второго. Ни один не касается седьмой горизонтали.</p>
+<p>Это и есть проверка, и именно на ней сыпятся цепочки, собранные на глаз. Переверните её: если бы для финиша требовался камень на i5, его перекрытие стояло бы на вашей победной точке ещё до того, как вы до неё дошли. Цепочка была мертва на первом ходу, а вы узнали об этом на третьем.</p>
+<p>До первой четвёрки выпишите пустые точки, нужные для финиша. Потом точки, которые займут его перекрытия. Если списки пересекаются, цепочки нет.</p>
+<p><a href="/ru-RU/blog/pattern-recognition-gomoku">Читать точки пересечения линий</a> важнее, чем считать четвёрки, ровно поэтому: пятёрка живёт на одной линии, цепочка — на пересечении двух ваших.</p>
+
+<h2>Считайте ступени, а не угрозы</h2>
+<p>Три ступени — обычная длина. Четыре нормальны на спокойной доске. На пятой пора перестать себе верить.</p>
+<p>Арифметика простая. Каждая ступень кладёт ваш камень и его камень в один и тот же небольшой прямоугольник. В примере выше семь стартовых камней и два перекрытия целиком умещаются в прямоугольник 6×5 у правого края. Добавьте четвёртую ступень и четвёртое перекрытие — прямоугольник заполнен наполовину, и у пятой четвёрки не находится выхода, который не был бы уже его.</p>
+<p>Поэтому когда вы дошли до пятой четвёрки, а пятёрки всё нет, ответ не в шестой. Ошибка в финише: последний камень не делал двух работ, либо на финишной линии не стояли заранее два камня. Вернитесь к этой линии и перечитайте её. <a href="/ru-RU/blog/gomoku-four-in-a-row-winning-technique">Привычка считать свободные концы до хода</a> ловит это на первой ступени, а не на пятой.</p>
+
+<h2>Единственный ход, которым он может наказать</h2>
+<p>Пока цепочка идёт, он ничего не реализует. Все его ответы — вынужденные перекрытия, поэтому четвёрка, собранная им по пути, просто стоит на доске.</p>
+<p>Всё меняется на ходу, где цепочка обрывается. Если какое-то из его перекрытий заодно достроило ему четвёрку, свободный ход, который он получает после обрыва, — это пятёрка.</p>
+<p>Значит, на каждой ступени нужна ещё одна проверка: не лежит ли точка перекрытия на линии, где у него уже три камня. В нашем примере на обеих ступенях нет, поэтому провал стоит только одной партии. Если да, эта ступень может быть только последней, прямо перед победой, или её не играют вовсе.</p>
+<p>Настоящая защита белых начинается раньше. Один камень внутри финишного прямоугольника, на i7 или на m7, и цепочки просто не существует. Закрывать четвёрки по мере поступления — способ проиграть за три хода вместо одного.</p>
+
+<h2>Пять, а не шесть</h2>
+<p>В рэндзю добавляется ограничение, которого нет в свободном гомоку. Ступень VCF — это камень, который достраивает одну линию и продлевает другую, а это ровно та форма, за которой следит правило фолов.</p>
+<p>Чёрные не могут закончить цепочку двойной четвёркой: для чёрных это фол. Финал — открытая четвёрка или чистая пятёрка. У белых фолов нет вообще, поэтому VCF белых может завершаться двойной четвёркой, а та же цепочка в исполнении чёрных — поражение. Сборники задач по рэндзю часто строятся на дебютах кагэцу и угэцу именно потому, что ранние камни чёрных естественно ложатся на пересечения двух линий: это и материал для цепочки, и материал для фола.</p>
+<p>Второе: пятёрка должна быть ровно пятёркой. Чёрные проигрывают на линии из шести и более. Перелёт случается, когда в линии, которую вы считали четвёркой, уже стояло пять ваших камней. Считайте стоящие камни, а не пустые клетки, которые собираетесь заполнить.</p>
+
+<h2>Упражнение на десять минут</h2>
+<p>Поставьте позицию выше и прогоните три раза. В первый раз сыграйте только i8 и остановитесь, записав предполагаемый ответ. Во второй пройдите все три хода. В третий уберите i7 с доски и посмотрите, сколько ступеней найдётся.</p>
+<p>Потом сделайте то же со своими партиями. Возьмите позицию, где у вас есть открытая тройка и одна закрытая четвёрка, и до первого касания доски напишите на бумаге последний камень.</p>
+<p>Привычка, которая остаётся, узкая и полезная: вы перестаёте видеть в четвёрках атаку и начинаете видеть расстановку. <a href="/ru-RU/#game">Откройте доску</a> и попробуйте на Hard. Перед первой четвёркой назовите последний ход цепочки вслух. Если назвать нечего, это не VCF. Это потраченный камень.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Сначала назовите последний ход</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Откройте доску на Hard. До первой четвёрки произнесите последний ход цепочки вслух. Если назвать нечего, вы просто тратите камень.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "VCF в гомоку: цепочка четвёрок, которую можно проверить",
+    "description": "VCF — это график, а не атака. Читайте финиш назад, проверяйте, что каждое перекрытие падает в отработанную зону, и не верьте цепочке после пятой ступени.",
+    "datePublished": "2026-10-26",
+    "dateModified": "2026-10-26",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours"}
+  }
+  </script>
+</body>
+</html>

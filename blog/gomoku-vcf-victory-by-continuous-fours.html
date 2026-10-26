@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku VCF: Building a Four-Chain You Can Actually Verify | Gomoku Blog</title>
+  <meta name="description" content="VCF is a schedule, not an attack. Read the finish backwards, check that every block lands in dead space, and stop trusting a chain at the fifth rung.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours">
+  <meta property="og:title" content="Gomoku VCF: The Four-Chain You Can Verify">
+  <meta property="og:description" content="Every rung is a forced block. Build the chain from the last stone backwards, and count the rungs before you play the first four.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku VCF: Build From the Last Stone">
+  <meta name="twitter:description" content="Three fours, one finish, and two block stones that must land in space you have already abandoned.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku VCF: Building a Four-Chain You Can Actually Verify</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-26">2026-10-26</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Three Stones Short of a Five, and the Game Is Already Over</h2>
+<p>Your stones sit on f8, g8, h8, on i6 and i9, and on k7 and l7. White holds j8 and i10. There is no five anywhere, no open four anywhere, and the game ends in three moves.</p>
+<p>No fork. Three fours, each buying exactly one block, and every stone you place being one you needed anyway.</p>
+
+<h2>A VCF Is a Schedule, Not an Attack</h2>
+<p>VCF means victory by continuous fours: every move you make is a four, so every reply White makes is the only legal one. That is what makes it calculable. You never have to guess what he will do, because there is nothing to guess.</p>
+<p>The part the definition loses is why the chain can exist at all. Four in a row is a strong move. You cannot play four of them in sequence unless each new stone happens to sit on a line that already holds three of yours.</p>
+<p>So a VCF is a run of placements that are individually forced and collectively necessary. You are not pressuring him until he runs out of blocks. You are laying down the stones your finish needs, one per turn, while he spends his turns doing what you told him to.</p>
+<p>Which means the chain is designed from the last stone backwards. Always. <a href="advanced-gomoku-strategy">The forcing-sequence section of the advanced guide</a> treats VCF as the backbone of attacking play. This page is about building one you can actually verify before you commit to it.</p>
+
+<h2>The Finish, Then the Stone Before It</h2>
+<p>Your finish is j7. That stone completes i7, j7, k7 and l7 on row 7, with h7 and m7 both empty. An open four, which is a win, because he can only reach one end of it.</p>
+<p>Now work backwards. j7 needs i7, and i7 is not on the board.</p>
+<p>i7 sits on column i, where you hold i6 and i9 and he holds i10. i7 alone does not make a four there, because i8 is empty. i8 is the missing stone, and i8 also completes row 8: f8, g8, h8, i8, with j8 his and e8 empty. One exit, so one forced block at e8.</p>
+<p>The order writes itself. i8 forces e8, i7 forces i5, j7 wins. Each stone is doing two jobs, and that is the only reason the chain holds. i8 is a four on row 8 and the filler that turns column i into a four. i7 is a four on column i and the first half of the finish on row 7.</p>
+
+<h2>Every Block Must Land in a Region You Have Finished With</h2>
+<p>His block stones stay on the board for the rest of the game. In this chain, e8 lands on row 8, which is dead after move one. i5 lands on column i, which is dead after move two. Neither one touches row 7.</p>
+<p>That is the check, and it is where most chains built by feel fall apart. Reverse it. If your finish needed a stone at i5, his block would be standing on your winning point before you ever got there, and the chain would have been dead at rung one. You would have spent three moves finding out.</p>
+<p>Before the first four, list the empty points your finish needs. Then list the points his blocks will occupy. If the two lists overlap, the chain is not there.</p>
+<p>It is also why <a href="pattern-recognition-gomoku">reading the points where two lines cross</a> beats counting fours. A five lives on one line. A chain lives on the intersections.</p>
+
+<h2>Count the Rungs, Not the Threats</h2>
+<p>Three rungs is a normal chain. Four is fine on a quiet board. Five is where you should stop trusting yourself.</p>
+<p>The arithmetic is simple. Each rung puts one of your stones and one of his into the same small box. In the example above, all seven starting stones and both blocks fit inside a 6x5 rectangle at the right-hand side of the board. Add a fourth rung and a fourth block and the box is half full, which is when the fifth four turns out to have no exit that is not already his.</p>
+<p>So when you reach a fifth four and there is still no five, the answer is not a sixth four. The chain was wrong at the finish: the last stone did not do two jobs, or the finish line never had its two stones pre-placed. Go back and reread that line. <a href="gomoku-four-in-a-row-winning-technique">Counting free ends before you commit to a four</a> catches this at rung one instead of rung five.</p>
+
+<h2>The One Turn White Can Punish</h2>
+<p>While the chain runs, White cannot cash anything. Every reply of his is a forced block, so a four he builds along the way just sits there.</p>
+<p>That changes on the turn the chain stops. If one of his blocks completing your four also completed a four of his, the free move he gets when you run dry is a five.</p>
+<p>So each rung needs one more check: does his block point sit on a line where he already holds three? In this chain the answer is no on both rungs, which is why a miss here costs you nothing but the game. If the answer is yes, that rung can only be played last, immediately before the win, or not at all.</p>
+<p>White's better defence happens earlier. One stone inside the finish box, on i7 or on m7, and there is no chain to defend against. Blocking fours as they arrive is how you lose in three moves instead of one.</p>
+
+<h2>Five, Not Six</h2>
+<p>Renju adds a constraint that freestyle players never feel. A VCF rung is a stone that completes one line and extends another, and that is exactly the shape the foul rules watch for.</p>
+<p>Black's chain cannot end on a double four, because a double four is a forbidden move for Black. It has to end on an open four or a clean five. White has no forbidden moves at all, so a White VCF can close on a double four, and the same chain played by Black is a loss. VCF exercises in renju collections are often set in the kagetsu and ugetsu openings for this reason: Black's early stones there sit naturally on two crossing lines, which is the material a chain needs and the material that fouls him.</p>
+<p>The second constraint is that the five must be exactly five. Black loses on six in a row. Chains overshoot when the line you were counting as a four already held five of your stones, so count the stones standing, not the empty cells you plan to fill.</p>
+
+<h2>A Drill Worth Ten Minutes</h2>
+<p>Set up the position above and play it out three times. First time, play i8 and stop, and write down the answer you expect. Second time, run all three moves. Third time, take i7 off the board and see how many rungs you can still find.</p>
+<p>Then do it with your own games. Pull one position where you had a live three and one blocked four, and write the last stone on paper before touching the board.</p>
+<p>The habit that comes out of it is narrow and useful: you stop seeing fours as attacks and start seeing them as placements. <a href="../#game">Open a board</a> and try it on Hard. Before your first four, say the last move of the chain out loud. If you cannot name it, you are not running a VCF. You are spending a stone.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Name the Last Move First</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Open a board on Hard. Before your first four, say the final move of the chain out loud. If you cannot name it, you are just spending a stone.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku VCF: Building a Four-Chain You Can Actually Verify",
+    "description": "VCF is a schedule, not an attack. Read the finish backwards, check that every block lands in dead space, and stop trusting a chain at the fifth rung.",
+    "datePublished": "2026-10-26",
+    "dateModified": "2026-10-26",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours"}
+  }
+  </script>
+</body>
+</html>

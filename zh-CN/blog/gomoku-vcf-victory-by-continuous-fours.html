@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋 VCF 连续冲四：一条能被验证的冲四链 | 五子棋博客</title>
+  <meta name="description" content="VCF 不是进攻，是一张排期表。从收官往回读，确认每个挡点都落在你用不到的区域，第五个四还不赢就说明链从一开始就错了。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vcf-victory-by-continuous-fours">
+  <meta property="og:title" content="五子棋 VCF：从最后一颗子往回搭">
+  <meta property="og:description" content="每一手都是强制挡，所以整条链能算。从最后那颗子往回推，落第一颗四之前先把台阶数清。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋 VCF：从最后一颗子往回搭">
+  <meta name="twitter:description" content="三个四、一个收官、两个必须落在废区里的挡点。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">五子棋 VCF：搭一条能被验证的冲四链</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-26">2026-10-26</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>差三步成五，棋其实已经结束</h2>
+<p>你的子在 f8、g8、h8，i6、i9，还有 k7、l7。他的子在 j8 和 i10。盘上没有五连，也没有活四，但棋三步就结束了。</p>
+<p>不是双威胁。是三个四，每个四只换一手挡，而你落下的每颗子本来就是你要用的子。</p>
+
+<h2>VCF 是排期表，不是进攻</h2>
+<p>VCF 指「连续冲四胜」：你每一手都是四，他的每一手应手都只有一个合法点。所以它能算。不用猜他要走哪儿，因为没什么可猜。</p>
+<p>定义里被漏掉的是它为什么成立。四是强手，但你不可能连着打四个四，除非每一颗新子刚好落在一条已有三颗己方子的线上。</p>
+<p>所以 VCF 是一串「单看每手都被强制、合起来恰好凑出你要的形状」的落子。他不是被你逼到没地方挡，而是你借他每手只能挡一次的工夫，把收官要用的子一颗一颗放上去。</p>
+<p>这意味着链是从最后一颗子往回设计的，没有例外。<a href="/zh-CN/blog/advanced-gomoku-strategy">进阶策略里讲强制序列的那一节</a>把 VCF 当成进攻骨架；这一页只讲怎么把它搭成能被验证的样子，再决定要不要打。</p>
+
+<h2>先定收官，再定它前面那颗</h2>
+<p>收官点是 j7。这颗子让第七行出现 i7、j7、k7、l7，h7 和 m7 都空——活四，赢了，因为他只来得及堵一头。</p>
+<p>现在往回推。j7 要 i7，而 i7 不在盘上。</p>
+<p>i7 在 i 列上：你有 i6 和 i9，他有 i10。光下 i7 在 i 列成不了四，因为 i8 空着。缺的那颗是 i8，而 i8 同时让第八行成四：f8、g8、h8、i8，j8 是他的，e8 空着，一个出口，一手挡。</p>
+<p>顺序自己就出来了：i8 逼 e8，i7 逼 i5，j7 结束。每颗子干两份活，链才立得住。i8 是第八行的四，也是让 i 列成四的填空；i7 是 i 列的四，也是第七行收官的前一半。</p>
+
+<h2>每个挡点都必须落在你已经用完的区域</h2>
+<p>他的挡子是永久留在盘上的。这条链里，e8 落在第八行，第八行第一手之后就没用了；i5 落在 i 列，i 列第二手之后也没用了。两个挡点都没碰到第七行。</p>
+<p>这就是那道检查，也是靠感觉搭出来的链最常死的地方。反过来想：如果你的收官需要 i5 这个点，那他这一挡正好站在你的胜点上，链在第一步就已经死了，你只是花了三步才发现。</p>
+<p>落第一颗四之前，先把你收官要用的空点列出来，再把他每一挡会占的点列出来。两张表有交集，这条链就不存在。</p>
+<p><a href="/zh-CN/blog/pattern-recognition-gomoku">看懂两条线的交点</a>比数四更有用，原因也在这里：五连活在一根线上，链活在交点上。</p>
+
+<h2>数台阶，不要数威胁</h2>
+<p>三步是正常长度。盘面安静的时候四步也行。到第五步，就该开始不信自己了。</p>
+<p>算一下：每一步往同一个小方框里塞一颗你的子、一颗他的子。上面那个例子，七颗起始子加两个挡点，全挤在棋盘右侧一个 6×5 的框里。再加一步、再加一挡，框就满了一半，第五个四通常就找不到一个还空着的出口。</p>
+<p>所以打到第五个四还没赢，答案不是第六个四。错在收官：最后一颗子没有同时干两份活，或者收官那条线上的两颗子本来就没到位。回去重读那一行。<a href="/zh-CN/blog/gomoku-four-in-a-row-winning-technique">冲四之前先数出口</a>这个习惯，能在第一步看出来，而不是第五步。</p>
+
+<h2>他唯一能反打的那一手</h2>
+<p>链在跑的时候他什么都兑现不了。每一手都是强制挡，中途顺手做出来的四只能干放着。</p>
+<p>链一断就不一样了。如果中途某一挡也顺手让他成了四，你断掉之后他拿到的那一手空棋就是五。</p>
+<p>所以每一步多查一件事：他这个挡点，是不是落在他自己已有三颗子的线上。上面那条链两步都不是，所以打不成也只是没赢。如果答案是是，那一步只能放在最后、紧挨着收官打，或者干脆不打。</p>
+<p>白棋更好的防守在更早的地方：收官框里留一颗子，i7 或者 m7，这条链根本长不出来。跟着四一路挡，只是把「一步输」拖成「三步输」。</p>
+
+<h2>要五，不要六</h2>
+<p>连珠多一条限制。VCF 的每一步本来就是「一根线成四、同时延长另一根线」的子，而这正好是禁手规则盯的形状。</p>
+<p>黑棋的链不能以双四收官，双四是黑棋禁手，只能以活四或者干净的五收尾。白棋没有禁手，所以白棋的 VCF 可以拿双四结束；同一套链换成黑棋走就是输。连珠习题集里花月、浦月开局特别多，原因也在这儿：黑棋开局那几颗子天然坐在两条线的交点上，既是链要的材料，也是让他犯规的材料。</p>
+<p>还有一条：五必须正好五颗。黑棋长连判负。链会走过头，通常是因为你当四在数的那条线上已经站了五颗子——数站着的子，别数你打算填的空格。</p>
+
+<h2>十分钟能练出来的东西</h2>
+<p>把上面那个局面摆出来，走三遍。第一遍只下 i8 就停，写下你猜他会挡哪里。第二遍走完三步。第三遍把 i7 拿掉，看还能找出几步。</p>
+<p>然后用自己的棋练。找一局里有活三、有一个被堵死的四的局面，先别碰棋盘，在纸上写最后一颗子。</p>
+<p>练出来的习惯很窄，但有用：你不再把四当进攻，而是当落子。<a href="/zh-CN/#game">开一盘</a>，难度选困难。打第一个四之前，把链的最后一手说出来。说不出来，你跑的不是 VCF，是在花子。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">先说最后一手</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">开一盘，难度选困难。打第一个四之前，把链的最后一手说出来。说不出来，你就是在花子。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋 VCF：搭一条能被验证的冲四链",
+    "description": "VCF 不是进攻，是一张排期表。从收官往回读，确认每个挡点都落在你用不到的区域，第五个四还不赢就说明链从一开始就错了。",
+    "datePublished": "2026-10-26",
+    "dateModified": "2026-10-26",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours"}
+  }
+  </script>
+</body>
+</html>

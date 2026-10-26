@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べのVCF｜検証できる四の連鎖の組み方 | 五目並べブログ</title>
+  <meta name="description" content="VCFは攻めではなく日程表です。仕上げから逆に読み、止め石が使い終わった領域に落ちることを確かめ、五段目で勝てないなら連鎖の設計が最初から違います。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vcf-victory-by-continuous-fours">
+  <meta property="og:title" content="五目並べのVCF：最後の石から逆に組む">
+  <meta property="og:description" content="どの手も強制の止め手なので、連鎖は計算できます。最初の四を打つ前に段数を数えてください。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べVCF：最後の石から逆に組む">
+  <meta name="twitter:description" content="四が三つ、仕上げが一つ、そして捨てた領域に落ちるべき止め石が二つ。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">五目並べのVCF：検証できる四の連鎖の組み方</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-26">2026-10-26</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>五まで三手、なのに決着はついている</h2>
+<p>自分の石は f8、g8、h8、i6、i9、そして k7、l7。相手は j8 と i10 にいます。盤上に五連はなく、活四もないのに、勝負は三手で終わります。</p>
+<p>両狙いではありません。四を三つ打つだけです。どの四も止め手を一手だけ買い、置く石はどれも元から必要な石です。</p>
+
+<h2>VCF は攻めではなく日程表</h2>
+<p>VCF は連続四による勝ちです。自分の手がすべて四なので、相手の応手は毎回一つしかありません。だから計算できます。相手がどこに打つかを読む必要はありません。読むものがありません。</p>
+<p>定義で抜け落ちるのは、なぜそんな連鎖が成立するのかという点です。四は強い手ですが、四だけを続けて打つことはできません。置く石がすべて、すでに自分の石が三つ並んでいる線の上にある場合に限ります。</p>
+<p>つまり VCF は、一手ずつは強制で、全体としては必要な石を並べていく手順です。相手が止め切れなくなるまで迫るのではありません。相手が毎手こちらに従っている間に、仕上げに要る石を一つずつ置いていくのです。</p>
+<p>だから連鎖は最後の石から逆に設計します。例外はありません。<a href="/ja-JP/blog/advanced-gomoku-strategy">上級戦略の強制手の節</a>は VCF を攻めの骨格として扱っています。このページで扱うのは、打つ前に検証できる形に組み上げる手順です。</p>
+
+<h2>仕上げを決めてから、その前の石を決める</h2>
+<p>仕上げは j7 です。この石で七段目に i7、j7、k7、l7 が並び、h7 と m7 が空きます。活四なので勝ちです。相手は片端しか止められません。</p>
+<p>ここから逆にたどります。j7 には i7 が要ります。i7 はまだ盤上にありません。</p>
+<p>i7 は i 列の石です。i6 と i9 が自分、i10 が相手。ただし i7 を置いても i 列は四になりません。i8 が空いているからです。足りない石は i8 で、その i8 は同時に八段目を四にします。f8、g8、h8、i8、j8 は相手、e8 は空き。出口は一つ、止め手も一つ。</p>
+<p>順番はこう決まります。i8 で e8 を打たせ、i7 で i5 を打たせ、j7 で終わる。石が二役を兼ねているから連鎖が保ちます。i8 は八段目の四であり、i 列を四にする埋め石でもあります。i7 は i 列の四であり、七段目の仕上げの前半でもあります。</p>
+
+<h2>止め石は使い終わった領域に落ちなければならない</h2>
+<p>相手の止め石は盤に残ります。この連鎖では e8 が八段目に落ち、八段目は一手目で用済みです。i5 は i 列に落ち、i 列は二手目で用済みです。どちらも七段目に触れていません。</p>
+<p>ここが検査点で、勘で組んだ連鎖が最もよく死ぬ場所です。逆に考えてください。もし仕上げに i5 が必要なら、相手の止め石は自分の勝ち点に先に座っていることになります。その連鎖は一手目で死んでいて、三手かけて気づいただけです。</p>
+<p>最初の四を打つ前に、仕上げに要る空点を書き出します。次に、相手の止め石が占める点を書き出します。二つの表が重なったら、その連鎖は存在しません。</p>
+<p><a href="/ja-JP/blog/pattern-recognition-gomoku">二本の線が交わる点を読むこと</a>が四を数えるより効く理由もここにあります。五連は一本の線に住み、連鎖は交点に住みます。</p>
+
+<h2>段数を数える。脅威の数を数えない</h2>
+<p>三段が普通です。盤が静かなら四段でも構いません。五段目に入ったら、自分を信じるのをやめるべきです。</p>
+<p>計算してみます。一段ごとに、自分の石と相手の石が同じ小さな枠に一つずつ増えます。上の例では、開始時の七石と止め石二つが、盤の右側 6×5 の枠に全部入ります。もう一段、もう一止め加わると枠は半分埋まり、五つ目の四は空いた出口を見つけられなくなります。</p>
+<p>五つ目の四を打っても五にならないとき、答えは六つ目の四ではありません。間違いは仕上げにあります。最後の石が二役を兼ねていなかったか、仕上げの線に二石が先に置かれていなかったか。その行に戻って読み直してください。<a href="/ja-JP/blog/gomoku-four-in-a-row-winning-technique">四を打つ前に空き端を数える</a>習慣があれば、五段目ではなく一段目で気づけます。</p>
+
+<h2>相手に反撃される唯一の手</h2>
+<p>連鎖が動いている間、相手は何も換金できません。応手はすべて強制の止め手なので、途中で作った四は置かれたままになります。</p>
+<p>連鎖が切れた手で変わります。途中の止め石が相手の四も同時に完成させていたら、切れた瞬間にもらう空き手が五になります。</p>
+<p>だから各段でもう一つ確認します。その止め点は、相手がすでに三つ持っている線の上ではないか。上の連鎖は二段とも該当しないので、失敗しても失うのは一局だけです。該当するなら、その段は最後、仕上げの直前にしか打てません。打たないという選択もあります。</p>
+<p>白の本当の防ぎはもっと前にあります。仕上げの枠に石を一つ、i7 か m7 に置いておけば、その連鎖は生まれません。四が来るたびに止めるのは、一手負けを三手負けに延ばしているだけです。</p>
+
+<h2>五であって、六ではない</h2>
+<p>連珠には余分な制約があります。VCF の一段は、一本の線を四にして別の線を伸ばす石です。これは禁手規則がまさに見ている形です。</p>
+<p>黒の連鎖は四四で終われません。四四は黒の禁手だからです。活四か、きれいな五で終わるしかありません。白に禁手はないので、白の VCF は四四で締められます。同じ連鎖を黒が打てば負けです。連珠の詰め問題に花月や浦月が多いのは、黒の序盤の石が二本の線の交点に自然に座るからで、それは連鎖の材料であり、同時に黒を禁手に落とす材料でもあります。</p>
+<p>もう一つ。五はちょうど五石でなければなりません。黒は長連で負けます。連鎖が六まで伸びるのは、四として数えていた線にすでに五石並んでいた場合です。空きマスではなく、並んでいる石を数えてください。</p>
+
+<h2>十分で身につく練習</h2>
+<p>上の局面を並べて三回打ちます。一回目は i8 だけ打って止め、相手の応手を紙に書きます。二回目は三手を通します。三回目は i7 を盤から外して、何段まで見つかるか試します。</p>
+<p>次は自分の対局で。活三と止められた四が一つある局面を拾い、盤に触る前に、最後の石を紙に書きます。</p>
+<p>残る習慣は狭いですが効きます。四を攻めではなく配置として見るようになります。<a href="/ja-JP/#game">盤を開いて</a>、難易度は Hard で試してください。最初の四を打つ前に、連鎖の最後の一手を声に出して言う。言えないなら VCF ではありません。石を捨てているだけです。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">最後の一手を先に言う</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">盤を開いて難易度はHardで。最初の四を打つ前に、連鎖の最後の一手を声に出してください。言えないなら、それは石を捨てているだけです。</p>
+            <a href="/ja-JP/#game" class="cta-btn">五目並べをプレイ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べのVCF：検証できる四の連鎖の組み方",
+    "description": "VCFは攻めではなく日程表です。仕上げから逆に読み、止め石が使い終わった領域に落ちることを確かめ、五段目で勝てないなら連鎖の設計が最初から違います。",
+    "datePublished": "2026-10-26",
+    "dateModified": "2026-10-26",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours"}
+  }
+  </script>
+</body>
+</html>
