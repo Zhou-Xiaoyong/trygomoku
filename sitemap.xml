@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -61,6 +61,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/blog/gomoku-breaking-mirror-opening-as-white</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/blog/gomoku-center-control-why-it-matters</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -68,7 +74,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-defense-vs-offense-when-to-switch</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -134,7 +140,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-second-player-white-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -218,7 +224,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -248,7 +254,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -277,6 +283,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ja-JP/blog/gomoku-breaking-mirror-opening-as-white</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-center-control-why-it-matters</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -284,7 +296,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -350,7 +362,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-second-player-white-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -422,7 +434,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -464,7 +476,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -493,6 +505,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ko-KR/blog/gomoku-breaking-mirror-opening-as-white</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-center-control-why-it-matters</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -500,7 +518,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-defense-vs-offense-when-to-switch</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -566,7 +584,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-second-player-white-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -638,7 +656,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -680,7 +698,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -709,6 +727,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ru-RU/blog/gomoku-breaking-mirror-opening-as-white</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-center-control-why-it-matters</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -716,7 +740,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -782,7 +806,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-second-player-white-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -854,7 +878,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -950,7 +974,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -979,6 +1003,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/zh-CN/blog/gomoku-breaking-mirror-opening-as-white</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-center-control-why-it-matters</loc>
     <lastmod>2026-10-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -986,7 +1016,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1052,7 +1082,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-second-player-white-strategy</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1124,7 +1154,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/top-10-gomoku-openings</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

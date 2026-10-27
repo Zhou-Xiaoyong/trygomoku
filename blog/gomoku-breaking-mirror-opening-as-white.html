@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breaking the Mirror Opening as White in Gomoku | Gomoku Blog</title>
+  <meta name="description" content="Black's center stone has no mirror. That single hole kills the copy by move five: the distance-two rule, the gap point, and where White should build instead.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-breaking-mirror-opening-as-white">
+  <meta property="og:title" content="Breaking the Mirror Opening as White in Gomoku">
+  <meta property="og:description" content="A live three on move five, built by White's own copy. Where the mirror breaks and which stone ends it.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-breaking-mirror-opening-as-white">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Breaking the Mirror as White: When the Copy Dies">
+  <meta name="twitter:description" content="Distance two on a center line is the break point. Take the gap point before Black fills it.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Breaking the Mirror Opening as White: When Copying Stops Working</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-27">2026-10-27</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Five Moves and the Copy Is Already Late</h2>
+<p>Set the stones up in this order: Black h8, White i9, Black h6. Now White mirrors and plays h10. Black answers h7.</p>
+<p>Column h reads h6, h7, h8 with h5 and h9 both empty. A live three, made in two moves, and White's copy blocks neither end. It sits one row above a shape it cannot touch, because the mirror put it there.</p>
+<p>Five moves. That is how fast copying stops paying.</p>
+
+<h2>The Center Stone Has No Reflection</h2>
+<p>Every mirror argument starts here. h8 is Black's stone, and h8 is its own mirror image, so White can never occupy the point that would balance it. Rotate the whole position 180 degrees and Black's center stone maps onto itself. No White stone does.</p>
+<p>That gives Black four lines White cannot copy: row 8, column h, and the two long diagonals through the center. Every five Black builds on those lines uses a stone White has no answer for.</p>
+<p>It also explains why the four diagonal answers beat the four straight ones. In renju, White's second move must land inside the 3x3 around h8. That is eight points, and all eight sit on one of those center lines: g7 and i9 on one diagonal, g9 and i7 on the other, g8 and i8 on row 8, h7 and h9 on column h. You cannot avoid taking a center line, so take the one that costs Black the most. A diagonal answer kills a diagonal. A straight answer at h9 leaves your stone on the same file as Black's, sharing a line with the one stone he already owns.</p>
+
+<h2>Distance Two Is Where the Copy Becomes a Subsidy</h2>
+<p>Work out what the mirror does to a Black stone sitting on a center line. Reflection about h8 sends it to the other side of the center, on the same line, at the same distance.</p>
+<ul>
+<li><strong>Distance one.</strong> Black i8, you copy g8. Row 8 becomes g8, h8, i8 with your stone at one end, so Black's pair has a single exit at j8. A sleeping three at best. The copy is harmless here.</li>
+<li><strong>Distance two.</strong> Black h6, you copy h10. Black plays h7 and holds h6, h7, h8, open at h5 and h9. The copy is now a move behind a live three.</li>
+<li><strong>Distance three.</strong> Black h5, you copy h11. Black needs h6 and h7 for the same shape, and you get a move in between to take one of them.</li>
+</ul>
+<p>Only the middle case is a trap, and it is the one that shows up in real games, because distance two is exactly where direct openings put Black's third stone. In renju a direct opening is one where that stone stays inside the 5x5 box around the center, which means at most two points out. The knight-move openings, the indirect ones, place it further and give the mirror two more moves of life.</p>
+
+<h2>The Copy Is Faithful and Useless</h2>
+<p>There is a second failure with nothing to do with the center. Black plays k6, so you play e10. The geometry is perfect: same relations, same spacing, a true rotation. Your e10 then has no line to anything you own, while his k6 sits exactly where he wanted it.</p>
+<p>Copying preserves distance and destroys intent. Black picks the stone that fits his plan; the mirror picks yours by arithmetic. After eight moves you hold eight stones that a rule chose, scattered across half the board.</p>
+<p>Worse, a copied stone is one you will never move. Two of your stones sitting close on a single line can never become separate threats later. Mirroring produces that shape by default: tidy pairs that cannot be cashed.</p>
+
+<h2>You Cannot Mirror a Four</h2>
+<p>This is the mechanical end of it. If Black makes a four, your reply is forced. You block. Your mirror point would also be a four, but a four arriving after Black's five is worth nothing, so that stone stays unplayed and the position is asymmetric for good.</p>
+<p>Which means the mirror dies at Black's first four. His first four grows out of his first live three, and his first live three can arrive at move five if you keep copying. Three chained events, all of them in his hands.</p>
+
+<h2>The White Stone That Ends It</h2>
+<p>Stop at the right moment, and stop in the right place. The trigger is a Black stone landing at distance two on a center line. The answer is neither the mirror point nor a plain block: h7 sits right against Black's center stone with nothing of yours to join.</p>
+<p>Take the gap point one move early instead. That is the point between Black's new stone and h8, exactly where his live three wants to extend. Claim it and the shape dies before it exists, at the cost of one defensive stone. Pay on move four, not move six.</p>
+<p>Then spend the next two stones where Black is not. If he holds three stones on column h and two on row 8, he owns a cross in the middle of the board and nothing else. A live three on row 12 or on column c cannot be answered by the center stone, because the center stone is not on that line. That is your break: build where his strength does not reach.</p>
+<p>Count before every stone. If the point kills his line and starts a three of yours, play it. If it only kills his line, mirror once more and wait. If it only starts a three of yours while his live three still stands, the order is backwards.</p>
+
+<h2>Where the Foul List Becomes a Weapon</h2>
+<p>In renju, one set of shapes tilts the other way. Black may not play a double three, a double four, or a line of six or more. White may play all three, and White wins on six.</p>
+<p>The best break point is therefore often an intersection. Two Black lines cross at one empty point, and that point is where you want your stone: Black cannot take it without fouling and cannot leave it without losing. You place one stone, he has to route around his own rules, and the tempo you spent defending comes back.</p>
+<p>The overline cuts the same way. If the line you break on already holds four of your stones, your fifth wins and your sixth also wins. Black's sixth is a loss. Copy a shape onto a line like that and the copy is worth more than the original.</p>
+
+<h2>What to Do at the Board</h2>
+<ol>
+<li><strong>Moves two to four: copy if you like.</strong> Nothing is lost yet, and the copy keeps the position compact while you read.</li>
+<li><strong>Watch for distance two.</strong> The moment a Black stone lands two points from h8 on row 8, column h, or a long diagonal, stop copying.</li>
+<li><strong>Take the gap point.</strong> One stone between his new stone and the center kills the whole idea. Pay it early.</li>
+<li><strong>Then build off-axis.</strong> Row 12, column c, the g13 diagonal. Anywhere the center stone does not reach.</li>
+<li><strong>Check the foul before you check the block.</strong> If his answer would be a double three, he cannot play it, and your three is already live.</li>
+</ol>
+<p>Play five games as White with one rule: no mirroring past move four. The first two will feel loose, because copying is genuinely comfortable. By the fourth you will see the distance-two stone a move before Black plays it, and that is the whole skill.</p>
+<p>For the opening names that put Black's third stone at distance two, <a href="top-10-gomoku-openings">the ten openings worth knowing</a> lists them with the reply each one expects. The rest of White's game, the part after the break, belongs to <a href="gomoku-second-player-white-strategy">second-player strategy</a>; the tempo question in the middle is <a href="gomoku-defense-vs-offense-when-to-switch">defense versus offense</a>.</p>
+<p>Then <a href="../#game">open a board</a>, take White, and stop copying at move four on purpose. Notice how much earlier the game becomes yours.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Stop Copying at Move Four</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Take White on purpose and play five games with the mirror switched off after move four. The position gets uncomfortable, then it gets yours.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Breaking the Mirror Opening as White: When Copying Stops Working",
+    "description": "Black's center stone has no mirror. That single hole kills the copy by move five: the distance-two rule, the gap point, and where White should build instead.",
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-10-27",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-breaking-mirror-opening-as-white"}
+  }
+  </script>
+</body>
+</html>

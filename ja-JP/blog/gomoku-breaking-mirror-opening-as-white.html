@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べ、白の鏡戦法を崩す一手 | 五目並べブログ</title>
+  <meta name="description" content="中央の石には鏡像がない。その一つの穴だけで、コピーは五手目に破綻します。距離2のルール、取るべき空点、白が形を作る場所。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-breaking-mirror-opening-as-white">
+  <meta property="og:title" content="白の鏡戦法を崩す：コピーが効かなくなる一手">
+  <meta property="og:description" content="五手目にできる活三は、白自身の複製が作ったもの。鏡が破れる場所と、止める一手。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-breaking-mirror-opening-as-white">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="白の鏡を崩す：コピーが死ぬ瞬間">
+  <meta name="twitter:description" content="中心線の距離2が分岐点。黒が埋める前に、その空点を取る。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">白の鏡戦法を崩す：コピーが通用しなくなる時</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-27">2026-10-27</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>五手目で、コピーはもう遅れている</h2>
+<p>この順に並べてください。黒 h8、白 i9、黒 h6。ここで白が鏡で h10 に置き、黒が h7 と受けます。</p>
+<p>h列は h6、h7、h8 になり、h5 と h9 が空いたままです。二手でできた活三で、白の h10 はどちらの端も止めていません。止めるべき形より一行上にいるのは、鏡がそこに置いたからです。</p>
+<p>五手。コピーが効かなくなる速さはこれだけです。</p>
+
+<h2>中央の石には鏡像がない</h2>
+<p>鏡の話はここから始まります。h8 は黒の石で、h8 の鏡像は h8 自身です。だから白は、釣り合いを取るはずのその点に永遠に入れません。盤を百八十度回すと、黒の中央の石は自分自身に戻ります。同じことができる白の石は一つもありません。</p>
+<p>結果として黒は、白が複製できない四本の線を独占します。8行目、h列、そして中央を通る二本の長い斜めです。黒がこの四本の上で作る五は、白が応じられない石を一つ使っています。</p>
+<p>斜めの応手が一直線の応手より優れる理由もここにあります。連珠では、白の二手目は h8 を中心とする 3×3 の中に置かなければなりません。八点あり、その八点はすべて上の四本のどれかの上です。g7 と i9 が一方の斜め、g9 と i7 がもう一方、g8 と i8 が8行目、h7 と h9 が h列です。中心線を取らずに済ませることはできないので、黒にとって高いほうを取ります。斜めに応じれば黒の斜めを一本潰せます。h9 にまっすぐ応じると、自分の石が黒の中央石と同じ列に並び、黒がすでに持っている石と組ませてしまいます。</p>
+
+<h2>距離2が分岐点</h2>
+<p>中心線上の黒石を鏡がどう扱うか、計算します。h8 を中心とした点対称で、その石は中心の反対側、同じ線の上、同じ距離に移ります。</p>
+<ul>
+<li><strong>距離1。</strong>黒 i8、白は g8 を複製。8行目は g8、h8、i8 となり、白の石が片端を塞ぐので黒の二連は j8 だけが出口です。眠った三が精一杯。ここでのコピーは問題ありません。</li>
+<li><strong>距離2。</strong>黒 h6、白は h10 を複製。黒が h7 と埋めて h6、h7、h8 を作り、両端の h5 と h9 が空きます。コピーはこの時点で活三に一手遅れています。</li>
+<li><strong>距離3。</strong>黒 h5、白は h11 を複製。同じ形には h6 と h7 の二手が要り、その間に白が一手だけ割り込めます。</li>
+</ul>
+<p>罠なのは真ん中だけです。そして実戦で出るのも真ん中だけです。距離2は、直開きの定石が黒の三手目を置く場所だからです。連珠で、黒の三手目が中央の 5×5 に収まる開局を直開きと呼びます。距離にして最大二。桂馬の間接開局はもっと外に置くので、鏡は二手だけ長生きします。</p>
+
+<h2>正確なコピーは使えない</h2>
+<p>中央と関係のない二つ目の失敗があります。黒 k6、白は e10 を複製。幾何学的には完璧です。距離も角度も相対位置も一対一で対応しています。ところが白の e10 は自分のどの石とも線になりません。黒の k6 は、黒が欲しかった場所にちょうど座っています。</p>
+<p>コピーは距離を保ち、意図を捨てます。黒は自分の計画に合う石を選び、鏡は計算で白の石を選ぶ。八手進めば、規則に選ばれた八つの石が盤のあちこちに散らばります。</p>
+<p>さらに悪いことに、複製した石は二度と動かせません。同じ線で近くに並んだ二つの石は、後から別々の脅威にはなれません。鏡がいちばん作りやすいのがこれです。整って見えて、何も換金できない形。</p>
+
+<h2>四は鏡写しにできない</h2>
+<p>仕組みとしてはここで終わりです。黒が四を作れば、白の応手は一つしかありません。止める。鏡の点も四になりますが、相手の五より後に来る四は無価値です。その石は打たれないまま残り、局面は対称でなくなります。</p>
+<p>つまり鏡は黒の最初の四で死にます。黒の最初の四は最初の活三から生まれ、最初の活三は、白が複製を続けていれば五手目に出ます。三つの出来事がつながっていて、全部が黒の手番の中にあります。</p>
+
+<h2>白が打つべき一手</h2>
+<p>止める時期を選び、止める場所も選びます。合図は、黒が中心線の距離2に石を置いたことです。応手は鏡の点でも、素直な止めでもありません。h7 は黒の中央石にぴったり寄るだけで、白には何もつながりません。</p>
+<p>その空点を一手早く取りに行きます。黒の新しい石と h8 の間の一点です。黒の活三がそこへ伸びたがっているのだから、先に取れば形になる前に死にます。代価は守りの石一つ。四手目に払ってください。六手目まで待つと間に合いません。</p>
+<p>次の二手は黒がいない場所に使います。h列に三つ、8行目に二つ置いているなら、黒が持っているのは盤の中央の十字だけで、他は空です。12行目や c列の活三は、中央の石では止められません。その石はその線の上にいないからです。これが破り方です。相手の力が届かない場所で形を作ります。</p>
+<p>打つ前に数えます。その点が相手の線を断ち、同時に自分の三を起こすなら打ちます。相手の線を断つだけなら、もう一度複製して待ちます。自分の三だけができて相手の活三が立っているなら、順序が逆です。</p>
+
+<h2>禁手表を武器にする</h2>
+<p>連珠には、天秤が逆に傾く形があります。黒は三三、四四、そして六連以上を打てません。白は三つとも打てて、六連でも勝ちです。</p>
+<p>だから最良の破点は交点であることが多い。黒の二本の線が一つの空点で交わり、そこが白の欲しい点になっている。黒は打てば禁手、打たなければ負けです。白が石を一つ置けば、黒は自分の規則を避けて回り込むことになり、守りに使った手番が戻ってきます。</p>
+<p>長連も同じ向きに効きます。破点の線にすでに白の石が四つあれば、五つ目は勝ちで、六つ目も勝ちです。黒の六つ目は負けです。そういう線に形を複製すれば、複製のほうが元よりも価値を持ちます。</p>
+
+<h2>盤の前に座ったら</h2>
+<ol>
+<li><strong>二手目から四手目までは、複製してかまいません。</strong>まだ損はなく、読んでいる間は局面が締まります。</li>
+<li><strong>距離2を見張ります。</strong>黒の石が h8 から二点、8行目か h列か長い斜めの上に置かれた瞬間にコピーをやめます。</li>
+<li><strong>その空点を取ります。</strong>相手の新しい石と中央の間の一点。石一つで構想ごと消えます。早く払ってください。</li>
+<li><strong>そこからは軸の外で作ります。</strong>12行目、c列、g13 の斜め。中央の石が届かない場所ならどこでも。</li>
+<li><strong>止め点より先に禁手を見ます。</strong>相手の応手が三三なら、その手は打てません。白の三はすでに活三です。</li>
+</ol>
+<p>白を持って五局、条件を一つだけ足します。四手目以降は鏡を使わない。最初の二局は頼りなく感じます。コピーは実際に楽だからです。四局目には、黒が打つ前に距離2の点が見えるようになります。技術はそれだけです。</p>
+<p>黒の三手目を距離2に置く開局を知りたいなら、<a href="/ja-JP/blog/top-10-gomoku-openings">覚えておくべき十の開局</a>に、それぞれが白に何を求めるかが書いてあります。破った後の白の打ち方は<a href="/ja-JP/blog/gomoku-second-player-white-strategy">後手の戦略</a>、中盤の手番の話は<a href="/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">守りと攻めの切り替え</a>にあります。</p>
+<p>それから<a href="/ja-JP/#game">盤を開いて</a>、自分から白を選び、四手目でわざと止めてください。局面が自分のものになる時刻が、はっきり早くなります。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">四手目でコピーをやめる</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">自分から白を選び、五局、四手目以降は鏡を封印してください。局面は一度苦しくなり、それから自分のものになります。</p>
+            <a href="/ja-JP/#game" class="cta-btn">五目並べをプレイ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "白の鏡戦法を崩す：コピーが通用しなくなる時",
+    "description": "中央の石には鏡像がない。その一つの穴だけで、コピーは五手目に破綻します。距離2のルール、取るべき空点、白が形を作る場所。",
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-10-27",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-breaking-mirror-opening-as-white"}
+  }
+  </script>
+</body>
+</html>

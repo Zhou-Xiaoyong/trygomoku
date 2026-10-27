@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋白棋如何破镜像开局 | 五子棋博客</title>
+  <meta name="description" content="中心那颗子没有镜像，这一个洞就够让复制在第五手失效。距离二规则、该占的那个空点，以及白棋该去哪儿做形。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-breaking-mirror-opening-as-white">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-breaking-mirror-opening-as-white">
+  <meta property="og:title" content="白棋破镜像开局：复制失效的那一手">
+  <meta property="og:description" content="第五手，白棋自己复制出来的活三。镜像在哪儿破，由哪一手收尾。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-breaking-mirror-opening-as-white">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="白棋破镜像：复制从哪一手开始失效">
+  <meta name="twitter:description" content="中心线上的距离二是临界点。黑棋补上之前，先把那个空点拿走。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">白棋破镜像开局：复制失效的那一手</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-27">2026-10-27</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>第五手，复制已经晚了</h2>
+<p>按这个顺序落子：黑 h8，白 i9，黑 h6。白照着镜像打 h10，黑接 h7。</p>
+<p>h 列现在是 h6、h7、h8，h5 和 h9 都空着。一条活三，两个回合做出来的。白的 h10 两头都不挡，它比这条三高出一格，因为镜像把它放在了那儿。</p>
+<p>五手。复制失效的速度就这么快。</p>
+
+<h2>中心那颗子没有镜像</h2>
+<p>所有关于镜像的讨论都从这儿开始。h8 是黑子的，而 h8 的镜像就是它自己，所以白永远占不到那个本该去平衡它的点。把整盘棋转 180 度，黑的中子落回原处，白没有任何一颗子能做到这件事。</p>
+<p>这让黑独占四条白复制不了的线：第 8 行、h 列，以及过中心的两条长斜线。黑在这四条线上做的每一个五，都用到了一颗白无法回应的子。</p>
+<p>这也解释了为什么四个斜向应手比四个直线应手好。连珠规定白的第二手必须落在 h8 周围的 3×3 里。那是八个点，而八个点全在上面这四条中心线上：g7 和 i9 在一条斜线上，g9 和 i7 在另一条，g8 和 i8 在第 8 行，h7 和 h9 在 h 列。你没法不占一条中心线，那就占代价最大的那条。斜着应，废掉黑一条斜线；直着应到 h9，你的子跟黑的中子同处一列，等于帮他把他已经有的一颗子连成对。</p>
+
+<h2>距离二是临界点</h2>
+<p>算一下镜像对中心线上黑子的处理。以 h8 为中心做点对称，那颗子会落到中心另一侧的同一条线上，距离一样。</p>
+<ul>
+<li><strong>距离一。</strong>黑走 i8，你复制 g8。第 8 行成了 g8、h8、i8，你的子卡在一头，黑这对只剩 j8 一个出口。最多算眠三。这里复制没问题。</li>
+<li><strong>距离二。</strong>黑走 h6，你复制 h10。黑补 h7，拿到 h6、h7、h8，h5 和 h9 都开。复制这一步就落后于一条活三了。</li>
+<li><strong>距离三。</strong>黑走 h5，你复制 h11。黑要 h6 和 h7 两颗才成同样的形，中间你还有一手可以抢掉其中一个。</li>
+</ul>
+<p>只有中间这种是坑，而实战里出现的正是这一种，因为距离二恰好是直向开局放黑第三手的位置。连珠里，黑的第三手留在中心 5×5 之内算直向开局，也就是最多两格远。桂马位的间接开局把它放得更外，镜像就能多活两手。</p>
+
+<h2>复制得很准，也用不上</h2>
+<p>还有第二种失效，跟中心无关。黑走 k6，你复制 e10。几何上完全正确：距离、角度、相对位置一一对应。可你的 e10 跟自己任何一颗子都不成线，黑的 k6 正好在他想要的地方。</p>
+<p>复制保住了距离，把意图弄丢了。黑挑的是一颗符合他计划的子，镜像挑给你的是一颗算式算出来的子。八手下来，你有八颗由规则选出来的子，散在棋盘的几个角上。</p>
+<p>更麻烦的是，复制出来的子你永远不会再动它。同一条线上挨得近的两颗子，后面不可能变成两个独立的威胁。镜像最容易造出的就是这种东西：看着整齐，换不出任何东西。</p>
+
+<h2>四没法镜像</h2>
+<p>机制层面到这里就结束了。黑一旦成四，你的应手只有一个：去挡。你的镜像点本来也能成一个四，但一个晚于对方五连的四没有任何价值，于是那颗子留在手里没下，局面从此不再对称。</p>
+<p>所以镜像死于黑的第一个四，而黑的第一个四长在他的第一条活三上，第一条活三在你一直复制的情况下第五手就能出来。三件事连着，全在黑的节奏里。</p>
+
+<h2>该由白棋下出的那一手</h2>
+<p>该停的时候停，还要停在正确的点上。触发条件是黑在中心线上落到距离二。应手既不是镜像点，也不是硬挡：h7 那颗子贴着黑的中子，你自己没有任何东西可以接上去。</p>
+<p>提前一手去占那个空点。就是黑的子跟 h8 之间那一格，黑的活三想长在那儿。你把它拿走，形还没成型就死了，代价只有一颗防守子。第四手下，别拖到第六手。</p>
+<p>接下来两颗子下到黑没去的地方。他要是把三颗子压在 h 列、两颗在第 8 行，那他在棋盘正中有一个十字，别处什么都没有。第 12 行或者 c 列上的一条活三，中心那颗子救不了，因为它不在这条线上。这就是你的破法：在他的力量够不到的地方做形。</p>
+<p>落子前先数。那颗子既断了他的线、又起了你的三，就打。只断他的线，就再镜像一手等一等。只起你的三、他那条活三还立着，顺序就反了。</p>
+
+<h2>禁手表也是武器</h2>
+<p>连珠里有一组形状，天平往另一边倒。黑不能下三三、四四，也不能下六子以上的长连。白这三样都能下，而且白六子就算赢。</p>
+<p>所以最好的破点常常是一个交点。两条黑线在一个空点上交叉，而那个点正好是你想落的：黑占了是禁手，不占就输。你落一颗子，他得绕着自己的规则走，你花在防守上的先手就回来了。</p>
+<p>长连这一条也同样能用。你破点所在的那条线要是已经有四颗你的子，第五颗赢，第六颗也赢。黑的第六颗是负。把形状复制到这样一条线上，复制品比原版值钱。</p>
+
+<h2>坐到棋盘前怎么做</h2>
+<ol>
+<li><strong>第二到第四手，想复制就复制。</strong>这时还没亏，边读边把局面收紧凑。</li>
+<li><strong>盯距离二。</strong>黑子一旦落到离 h8 两格、且在第 8 行、h 列或某条长斜线上，立刻停止复制。</li>
+<li><strong>占那个空点。</strong>他的新子跟中心之间那一格，一颗子废掉整套想法。早点付。</li>
+<li><strong>然后离开中轴做形。</strong>第 12 行、c 列、g13 那条斜线。中心子够不到的地方都行。</li>
+<li><strong>先看禁手，再看挡点。</strong>他那手要是三三，他根本下不出来，你的三已经是活三。</li>
+</ol>
+<p>拿白棋下五盘，只加一条规矩：第四手之后不许镜像。前两盘会觉得虚，因为复制确实舒服。到第四盘，你会在他落子之前就看见那个距离二的点，这门手艺就学到手了。</p>
+<p>想知道哪些开局会把黑的第三手放到距离二，<a href="/zh-CN/blog/top-10-gomoku-openings">十个值得记的开局</a>里每个都写了它期待白怎么应。破局之后白棋怎么下，归<a href="/zh-CN/blog/gomoku-second-player-white-strategy">后手策略</a>；中间那个先手归属的问题，归<a href="/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch">防守与进攻的切换</a>。</p>
+<p>然后<a href="/zh-CN/#game">开一局</a>，主动选白，第四手故意停手。你会发现局面属于你的时间提前了很多。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">第四手就别复制了</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">主动选白，下五盘，第四手之后关掉镜像。局面会先变难受，然后变成你的。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "白棋破镜像开局：复制失效的那一手",
+    "description": "中心那颗子没有镜像，这一个洞就够让复制在第五手失效。距离二规则、该占的那个空点，以及白棋该去哪儿做形。",
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-10-27",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-breaking-mirror-opening-as-white"}
+  }
+  </script>
+</body>
+</html>
