@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="prefetch" href="/zh-CN/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="prefetch" href="/ko-KR/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="prefetch" href="/ru-RU/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コンピュータ相手に五目並べを練習する最良の方法 | 五目並べブログ</title>
+  <meta name="description" content="やさしい相手に八連勝しても何も残りません。練習相手の選び方、一局に一つの問い、待ったを巻き戻しとして使う三十五分の練習法です。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/best-way-to-practice-gomoku-against-computer">
+  <meta property="og:title" content="コンピュータ相手に五目並べを練習する最良の方法">
+  <meta property="og:description" content="自分を止められる一番弱い設定を選ぶ。一局に一つの問い、9路で形を、15路で一局を。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/best-way-to-practice-gomoku-against-computer">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="コンピュータ相手の練習は一局に一つ">
+  <meta name="twitter:description" content="9路で形、15路で一局。ヒントは一局三回まで、十二手前の待ったは禁止。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">コンピュータ相手の五目並べ練習、効くやり方</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-28">2026-10-28</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>やさしい相手に八連勝して、何も身につかなかった</h2>
+<p>昼前に「やさしい」で八局打ちました。七勝一分けで、負けた一局は四を見落としただけ。午後に「難しい」へ座ったら、十九手で終わりました。</p>
+<p>この八局で鍛えたものはありません。「やさしい」は意図的にランダムに打ち、ときどき明らかな悪手を混ぜます。七つの白星が測っているのは相手の悪手で、あなたの実力ではありません。コンピュータとの練習が効くのは、いま直したいミスをちょうど罰してくれる設定に座ったときだけです。</p>
+<p>方法はこれだけで、一回およそ三十五分です。</p>
+
+<h2>自分を止められる一番弱い設定を選ぶ</h2>
+<p>四つの難易度は同じ相手の四段階ではなく、四種類の練習相手です。そして、それぞれ壊れる場所が違います。</p>
+<ul>
+<li><strong>やさしい。</strong>ランダム性の高い選択で、悪手も混ざります。形を作る反復には使えますが、実力の測定には使えません。四三を練習しているとき、この相手は形を作らせてくれますし、その前の三つの静かな石も咎めません。</li>
+<li><strong>ふつう。</strong>すべての合法手を採点し、上位から少しノイズを混ぜて選びます。緩い形が半分ほど生き残るので、返ってくる評価が逆なのです。微妙な一手も大丈夫だと教わってしまいます。</li>
+<li><strong>難しい。</strong>アルファベータ付きの四層ミニマックスです。四層は自分、相手、自分、相手。相手に二回続けて応じてもらう前提の計画はここで死にます。テンポを鍛える相手はこれです。</li>
+<li><strong>達人。</strong>六層まで反復深化し、連続四による攻めを探します。あなたの VCF を見つけて潰せる唯一の設定なので、必勝の連鎖を組んだと思うときだけ相手にする価値があります。</li>
+</ul>
+<p>原則は一つです。いま練習しているミスを罰してくれる設定のうち、一番弱いものを選びます。四三の反復なら「難しい」。連鎖が本当に勝つかの検証なら「達人」。開幕十二手の順序を体に入れるなら「ふつう」で足ります。見ているのが結果ではなく手順だからです。</p>
+<p>各設定が局面の何を評価するかは<a href="/ja-JP/blog/beat-gomoku-ai">難易度ごとの解説</a>にまとめてあります。ここで扱うのは、一時間の使い方だけです。</p>
+
+<h2>一局に一つの問いだけ</h2>
+<p>最初の石を置く前に、問いを書きます。「強くなる」では問いになりません。はい、いいえ、または数字で答えられる形にします。</p>
+<ul>
+<li>相手の三手目は中心線の距離2に来るか。</li>
+<li>石を置く前に相手の応手を言い当てられるか、十手連続で。</li>
+<li>最初の活三を作るまで何個の石が要るか。</li>
+<li>何を狙ったのか説明できない手はどれか。</li>
+</ul>
+<p>一局に一つです。四つなら四局、四局でちょうど三十五分。三つ抱えたまま一局打つと、一つも答えられません。意識が盤面に向いたままで、問いに戻ってこないからです。</p>
+
+<h2>9路で形、15路で一局</h2>
+<p>盤面サイズの切り替えは、この画面で一番使われていない練習道具です。9×9 は点が 81 しかないので、最初の活三は八、九手ではなく五、六手で出ます。同じ時計時間で、練習したい場面の反復がおよそ二倍になります。四三の組み立て、三三の見分け、開幕六手は 9×9 で。中盤が問いになったら 15×15、石がどこまで伸びないと繋がらないかを体で知りたいなら 19×19 のフリースタイルです。</p>
+
+<h2>待ったは巻き戻しで、救命ボタンではない</h2>
+<p>対コンピュータでは、待ったを一度押すと石が二つ戻ります。相手の応手と自分の手です。つまり一手戻しではなく巻き戻しで、手持ちで一番安い検討道具になります。</p>
+<p>雑にしないための規則が二つあります。対局中は十二手まで待った禁止。それより早く押すのは、対局ではなく編集です。もう一つ、相手の五手目が盤に載るとボタンは反応しなくなります。巻き戻しは局面が生きているうちにしかできません。負けてから戻ろうとしても戻れません。</p>
+<p>巻き戻しそのものは二分です。自分の局面が静かになった手、脅しも作らず脅しにも答えていない最後の一手を見つけ、その一つ前まで戻ります。別の手を打ち、同じ設定で最後まで打ち切ります。負けた一局から枝を二本出すほうが、新しい二局より中身があります。その局面は、あなたが実際に壊した局面だからです。</p>
+
+<h2>ヒントは決めてから押す</h2>
+<p>ヒントは手番側の最善候補を返します。考える前に押すと、読みが機械の読みに置き換わって、練習が消えます。考えた後に押せば、答えのある採点表になります。</p>
+<p>自分の手を声に出し、相手の応手も声に出し、それから押します。結果は三つです。同じ点なら判断が探索と一致したので先へ。違う点で理由が分かるなら、見落としていた形が一つあって、それはもう自分のものになっています。違う点で理由が分からないときが一番ためになります。多くの場合、まだ使っていない線を塞ぐ石のような、構造的なものを機械が評価しています。</p>
+<p>一局三回まで。それを超えると一手ずつ手を取られて、ヒントが消えた瞬間に何も残りません。</p>
+
+<h2>週に一局、連珠で白を持つ</h2>
+<p>連珠はルールを一方向にだけ変えます。黒は三三、四四、長連を打てず、白はその全部を打てて、白の六連は勝ちです。週に一局白を持つと、練習の狙いがまるごと変わります。最強の形を探すのをやめ、相手の二本の線が交わる空点を探し始めます。そこへ黒は入れず、空けたままにもできません。</p>
+<p>これはフリースタイルでは練習できません。禁手表がないので、交差する点はただの点です。</p>
+
+<h2>三十五分で五局</h2>
+<ol>
+<li><strong>五分、9×9 フリー、「やさしい」、短い三局。</strong>狙いは一つ、十手以内に四三。この相手は止めてこないので、順序だけを反復できます。</li>
+<li><strong>十五分、15×15、「難しい」、一局。</strong>十二手まで待った禁止。終わったら一行書きます。説明できなかった手。</li>
+<li><strong>十分、同じ一局を二か所巻き戻す。</strong>説明できなかった手とその前の手、それぞれ別の手で最後まで。</li>
+<li><strong>五分、15×15 連珠、「達人」、白で一局。</strong>たぶん負けます。どの形から潰されたかが答えです。</li>
+</ol>
+<p>週四回のほうが、日曜に三時間より効きます。鍛えているのが認識で、認識は二日ほどで薄れるからです。記録は一局一行。二十局たまると二十行になり、そこに出る傾向が本当の弱点です。読みの深さではなく（それは<a href="/ja-JP/blog/gomoku-reading-ahead-how-many-moves">別の記事</a>の話で）、計画を持つ前に置いてしまう二、三個の石です。</p>
+
+<h2>動くべき数字</h2>
+<p>練習が効いていれば三つ動きます。最初の活三までの石数が十前後から六へ落ちる。相手の応手を言い当てる割合が十回中七回を超える。そして負けが特定できるようになります。あの石だ、ここに打つべきだったと言えるようになります。</p>
+<p>「やさしい」「ふつう」相手の勝率はこの三つに入りません。どちらもランダムに選ぶので、五連勝はサイコロを測っています。</p>
+
+<h2>コンピュータが役に立たなくなる場所</h2>
+<p>機械は疲れず、癖がなく、嘘をつきません。急いで打っても咎めませんし、盤の反対側を攻めるふりに二つの石を使うこともありません。そこは人間の技術で、相手が人間でないと鍛えられません。</p>
+<p>機械には機械の長所を。無限の忍耐、ぶれない基準、巻き戻しのボタンです。相手の意図を読む半分は人間に任せてください。<a href="/ja-JP/blog/how-to-improve-gomoku-game">上達の一般的な手順</a>はそちら側の話です。</p>
+<p>今夜は一つだけ。最初の活三まで何個の石が要ったか。9×9 の「やさしい」で三局打って数えてください。八を超えるなら、足りないのは読みではなく、その石が何をするのかを決める前に対局を始めていることです。<a href="/ja-JP/">盤を開いて</a>、数えましょう。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">五局、一局に一つの問い</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">三十五分で、9×9 を三局、難しい相手を一局、連珠で白を一局。最初の石を置く前に問いを書いてください。</p>
+            <a href="/ja-JP/#game" class="cta-btn">五目並べをプレイ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "コンピュータ相手の五目並べ練習、効くやり方",
+    "description": "やさしい相手に八連勝しても何も残りません。練習相手の選び方、一局に一つの問い、待ったを巻き戻しとして使う三十五分の練習法です。",
+    "datePublished": "2026-10-28",
+    "dateModified": "2026-10-28",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/best-way-to-practice-gomoku-against-computer"}
+  }
+  </script>
+</body>
+</html>

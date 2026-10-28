@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="prefetch" href="/ja-JP/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="prefetch" href="/ko-KR/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="prefetch" href="/ru-RU/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Best Way to Practice Gomoku Against a Computer | Gomoku Blog</title>
+  <meta name="description" content="Eight wins on Easy train nothing. Pick the tier that punishes your mistake, ask one question per game, and treat undo as a rewind: 35 minutes that move your play.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/best-way-to-practice-gomoku-against-computer">
+  <meta property="og:title" content="The Best Way to Practice Gomoku Against a Computer">
+  <meta property="og:description" content="Take the weakest tier that still punishes you. One question per game, nine by nine for shapes, and a rewind instead of a restart.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/best-way-to-practice-gomoku-against-computer">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Practice Gomoku Against the Computer: One Question">
+  <meta name="twitter:description" content="9×9 for shapes, 15×15 for the game, three hint presses a session, no undo before move twelve.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">The Best Way to Practice Gomoku Against a Computer</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-28">2026-10-28</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Eight Wins on Easy and Nothing Trained</h2>
+<p>You play eight games before lunch at Easy. Seven wins, one loss to a four you never saw, and you feel quicker than yesterday. After lunch you sit at Hard and lose in nineteen stones.</p>
+<p>Those eight games trained nothing. Easy picks with deliberate randomness and throws in blunders, so seven wins measure its mistakes, not your play. Practice against a machine only works when it is set to punish the exact error you are trying to remove.</p>
+<p>That is the whole method, and it costs about thirty-five minutes.</p>
+
+<h2>Take the Weakest Tier That Still Punishes You</h2>
+<p>The four settings are not four levels of one opponent. They are four different sparring partners, and each one fails in a different place.</p>
+<ul>
+<li><strong>Easy</strong> selects with randomness and hands out blunders. Use it to rehearse a shape, never to test strength. Drilling a four-three, it will let you build the shape and will not punish the three quiet stones that came before it.</li>
+<li><strong>Medium</strong> scores every legal point and picks from the top of the list with a little noise. Loose shapes survive here about half the time, which is the wrong feedback to learn from: it tells you a doubtful stone is fine.</li>
+<li><strong>Hard</strong> runs a four-layer minimax with alpha-beta pruning. Four stones is you, him, you, him. Any plan that needs him to answer twice in a row dies here, which makes this the partner for tempo work.</li>
+<li><strong>Master</strong> deepens iteratively to six layers and hunts forcing attacks. It is the only setting that will find your VCF and refute it, so it is the only one worth sitting at when you believe you have a winning chain.</li>
+</ul>
+<p>The rule: from the tiers that punish your current mistake, take the weakest. A four-three drill needs Hard. A "does this chain actually win" test needs Master. Rehearsing the first twelve stones of an opening can use Medium, because you are practicing the order of stones, not the result.</p>
+<p>What each tier values in a position is broken down in <a href="beat-gomoku-ai">the level-by-level guide</a>. This page is only about how to spend an hour at the board.</p>
+
+<h2>One Game, One Question</h2>
+<p>Write the question before the first stone. Not a goal like "play better" — something that answers yes, no, or a number.</p>
+<ul>
+<li>Does his third stone land at distance two on a center line?</li>
+<li>Can I name his reply before I place my stone, ten turns in a row?</li>
+<li>How many stones does my first live three take?</li>
+<li>Which move could I not explain?</li>
+</ul>
+<p>One per game. Four questions is four games, and four games is the right size for thirty-five minutes. Carry three questions into a single game and you will answer none of them, because your attention stays on the board and never returns to the question.</p>
+
+<h2>9×9 for Shapes, 15×15 for the Game</h2>
+<p>The board size switcher is the most underused tool on the page. A 9×9 board has 81 points instead of 225, so the first live three arrives around move five or six instead of move eight or nine. Same wall-clock time, roughly twice the repetitions of the transition you are drilling. Use 9×9 for four-three construction, for spotting a double three, and for the first six stones of an opening. Move to 15×15 once the question is about the middle game, and to 19×19 freestyle when you want to feel how far a stone has to travel before it joins anything.</p>
+
+<h2>Undo Is a Rewind, Not a Rescue</h2>
+<p>Against the computer, one press of Undo returns two stones: his reply and yours. That makes it a rewind rather than a single-move mulligan, and the cheapest review tool you have.</p>
+<p>Two rules keep it honest. No undo before move twelve during a game; use it earlier and you are not playing a game, you are editing one. And once his fifth stone lands the button stops responding, so the rewind has to happen while the position is still alive. Wait until you have lost and there is nothing to go back to.</p>
+<p>The rewind itself takes two minutes. Find the stone where your position went quiet, the last move that created no threat and answered none. Step back one move, play the alternative, and run the game out against the same tier. Two branches from one lost position teach more than two fresh games, because this is a position you actually got wrong.</p>
+
+<h2>Press Hint After You Decide</h2>
+<p>Hint returns the highest-scored candidate for the side to move. Press it before you think and the machine's reading replaces yours, which removes the exercise. Press it after and you have an answer key.</p>
+<p>Say your move out loud, say his reply, then press. Three outcomes. Same point: your judgment matches the search, move on. Different point with a visible reason: you missed a shape, and now the shape is yours. Different point with no reason you can find: that is the valuable one, and it usually means the machine is scoring something structural, like a stone that shuts a line you were not using yet.</p>
+<p>Cap it at three presses a game. Past that you are being led by the hand, and that does not survive the moment the hint is switched off.</p>
+
+<h2>One Game a Week as White in Renju</h2>
+<p>Renju changes the rules in one direction only. Black may not play a double three, a double four, or a line of six or more; White may play all three, and White wins on six. Take White for one game a week and the training target flips. You stop hunting the strongest shape and start hunting the empty point where two of his lines cross, because he cannot take it without fouling and cannot leave it without losing.</p>
+<p>Freestyle cannot teach that at all. With no foul list, an intersection is just a point.</p>
+
+<h2>Thirty-Five Minutes, Five Games</h2>
+<ol>
+<li><strong>Five minutes, 9×9 freestyle, Easy, three short games.</strong> One target: a four-three inside ten stones. Easy will not stop you, which is the point, since you are drilling the order and not the outcome.</li>
+<li><strong>Fifteen minutes, 15×15, Hard, one game.</strong> No undo before move twelve. Afterwards write one line: the move you could not explain.</li>
+<li><strong>Ten minutes, same game, two rewinds.</strong> Take that stone and the one before it, replay both branches to a finish.</li>
+<li><strong>Five minutes, 15×15 renju, Master, White, one game.</strong> You will probably lose. The question is which of your shapes it refuted first.</li>
+</ol>
+<p>Four sessions a week beat one three-hour Sunday, because what you are training is recognition and recognition fades in about two days. Keep the log to one line per game. Twenty games gives you twenty lines, and the pattern inside them is your real weakness. Usually it is not reading depth, which is <a href="gomoku-reading-ahead-how-many-moves">a separate problem</a>, but the two or three stones you place before you have decided what they are for.</p>
+
+<h2>Which Numbers Should Move</h2>
+<p>Three things shift if the practice is working. The stone count before your first live three falls from nine or ten toward six. Your hit rate on naming his reply climbs past seven in ten. And losses become locatable: you can point at the stone and say what belonged there instead.</p>
+<p>Win rate against Easy and Medium is not on that list. Both tiers choose with randomness, so a five-game streak against them measures the dice.</p>
+
+<h2>Where the Computer Stops Helping</h2>
+<p>A machine does not tire, has no habits, and never bluffs. It will not punish you for playing fast, and it will not spend two stones pretending to attack the far side of the board. Those are human skills and they only grow against a person.</p>
+<p>Use the computer for what it does well: endless patience, an even standard, and a rewind button. Use people for reading intent, which is the half covered by <a href="how-to-improve-gomoku-game">the general improvement checklist</a>.</p>
+<p>Tonight, one question: how many stones did my first live three take. Open 9×9, set Easy, play three games, and count. Above eight, the problem is not your reading. It is that you start the game before deciding what the stones are for. <a href="../">Open a board</a> and count.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Five Games, One Question Each</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Thirty-five minutes: three short games on 9×9, one at Hard, one as White in renju. Write the question down before the first stone.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Best Way to Practice Gomoku Against a Computer",
+    "description": "Eight wins on Easy train nothing. Pick the tier that punishes your mistake, ask one question per game, and treat undo as a rewind: 35 minutes that move your play.",
+    "datePublished": "2026-10-28",
+    "dateModified": "2026-10-28",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/best-way-to-practice-gomoku-against-computer"}
+  }
+  </script>
+</body>
+</html>

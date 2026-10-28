@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="prefetch" href="/zh-CN/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="prefetch" href="/ja-JP/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="prefetch" href="/ru-RU/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컴퓨터와 오목 연습, 가장 효과적인 방법 | 오목 블로그</title>
+  <meta name="description" content="쉬움에서 여덟 판을 이겨도 남는 것이 없습니다. 상대 고르는 법, 한 판에 질문 하나, 무르기를 되감기로 쓰는 삼십오 분 연습법.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/best-way-to-practice-gomoku-against-computer">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/best-way-to-practice-gomoku-against-computer">
+  <meta property="og:title" content="컴퓨터와 오목 연습, 가장 효과적인 방법">
+  <meta property="og:description" content="나를 막아 줄 수 있는 가장 약한 단계를 고르고, 한 판에 질문 하나만 들고 앉으십시오.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/best-way-to-practice-gomoku-against-computer">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="컴퓨터와 오목, 한 판에 질문 하나">
+  <meta name="twitter:description" content="9줄은 모양, 15줄은 한 판. 힌트는 세 번까지, 열두 수 전 무르기는 금지.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">컴퓨터와 오목, 어떻게 연습해야 늘까</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-28">2026-10-28</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>쉬움 난이도에서 여덟 판 이기고 남은 것</h2>
+<p>점심 전에 쉬움으로 여덟 판을 뒀습니다. 일곱 판을 이기고 한 판은 사(四)를 놓쳐서 졌습니다. 오후에 어려움에 앉으니 열아홉 수 만에 끝났습니다.</p>
+<p>그 여덟 판에서 익힌 것은 없습니다. 쉬움은 무작위성이 섞여 있고 가끔 명백한 실수를 둡니다. 일곱 번의 승리는 상대의 실수를 잰 숫자이지 제 실력이 아닙니다. 컴퓨터와의 연습이 효과를 내는 조건은 하나입니다. 지금 고치려는 실수를 정확히 벌해 주는 설정에 앉아 있어야 합니다.</p>
+<p>방법은 이것뿐이고, 한 번에 삼십오 분이면 됩니다.</p>
+
+<h2>나를 막아 줄 수 있는 가장 약한 단계 고르기</h2>
+<p>네 단계는 같은 상대의 네 등급이 아니라 서로 다른 네 명의 연습 상대입니다. 그리고 각자 무너지는 지점이 다릅니다.</p>
+<ul>
+<li><strong>쉬움.</strong> 무작위로 고르고 실수도 섞습니다. 모양을 반복하는 데는 쓸 수 있지만 실력 측정에는 못 씁니다. 사삼을 연습할 때 이 상대는 모양을 만들게 두고, 그 앞의 조용한 돌 세 개도 문제 삼지 않습니다.</li>
+<li><strong>보통.</strong> 모든 합법수를 점수로 매기고 상위권에서 약간의 잡음을 섞어 고릅니다. 느슨한 모양이 절반쯤 살아남기 때문에 돌아오는 피드백이 거꾸로입니다. 애매한 한 수도 괜찮다고 배우게 됩니다.</li>
+<li><strong>어려움.</strong> 알파-베타 가지치기를 붙인 네 겹 미니맥스입니다. 네 겹은 나, 상대, 나, 상대입니다. 상대가 두 번 연속 응해 주기를 전제한 계획은 여기서 죽습니다. 템포를 훈련할 상대는 이쪽입니다.</li>
+<li><strong>마스터.</strong> 여섯 겹까지 반복 심화하고 연속 사 공격을 찾아냅니다. 제 VCF를 찾아서 막아 버리는 유일한 설정이므로, 이기는 수순을 짰다고 생각될 때만 상대할 가치가 있습니다.</li>
+</ul>
+<p>원칙은 하나입니다. 지금 연습하는 실수를 벌해 주는 단계 중에서 가장 약한 것을 고릅니다. 사삼 반복은 어려움, 수순이 정말 이기는지 확인하는 것은 마스터, 개막 열두 수의 순서를 몸에 익히는 것은 보통으로 충분합니다. 보고 있는 것이 결과가 아니라 순서이기 때문입니다.</p>
+<p>단계마다 국면에서 무엇을 보는지는 <a href="/ko-KR/blog/beat-gomoku-ai">난이도별 정리</a>에 있습니다. 이 글은 한 시간을 어떻게 쓰느냐의 문제만 다룹니다.</p>
+
+<h2>한 판에 질문 하나</h2>
+<p>첫 돌을 놓기 전에 질문을 적습니다. 더 잘 두기는 질문이 아닙니다. 예나 아니오, 또는 숫자로 답할 수 있는 형태여야 합니다.</p>
+<ul>
+<li>상대의 세 번째 돌이 중앙선 거리 2에 오는가.</li>
+<li>돌을 놓기 전에 상대의 응수를 열 수 연속으로 맞힐 수 있는가.</li>
+<li>첫 활삼을 만드는 데 돌이 몇 개 필요한가.</li>
+<li>무엇을 노렸는지 말할 수 없는 수는 어느 것인가.</li>
+</ul>
+<p>한 판에 하나입니다. 네 개를 들고 나가면 네 판, 네 판이면 삼십오 분입니다. 세 개를 안고 한 판을 두면 하나도 답하지 못합니다. 시선이 판에 가 있고 질문에는 돌아오지 않기 때문입니다.</p>
+
+<h2>9줄은 모양, 15줄은 한 판</h2>
+<p>판 크기 버튼은 이 화면에서 가장 안 쓰이는 훈련 도구입니다. 9×9는 점이 225개가 아니라 81개라서 첫 활삼이 여덟아홉 수가 아니라 다섯여섯 수에 나옵니다. 같은 시간에 연습하려는 장면을 두 배로 반복할 수 있습니다. 사삼 만들기, 삼삼 알아보기, 개막 여섯 수는 9×9에서 하십시오. 중반이 질문이 되면 15×15로, 돌이 얼마나 멀리 가야 다른 돌과 이어지는지 몸으로 알고 싶으면 19×19 자유 규칙으로 옮기면 됩니다.</p>
+
+<h2>무르기는 되감기이고, 구명 버튼이 아니다</h2>
+<p>컴퓨터 대전에서 무르기를 한 번 누르면 돌이 두 개 되돌아갑니다. 상대의 응수와 제 수입니다. 한 수 취소가 아니라 되감기라는 뜻이고, 가진 도구 중 가장 값싼 복기 수단입니다.</p>
+<p>흐트러지지 않게 하는 규칙 두 가지입니다. 대국 중 열두 수까지는 무르기 금지. 그 전에 누르는 것은 대국이 아니라 편집입니다. 그리고 상대의 다섯 번째 돌이 판에 오르면 버튼이 반응하지 않습니다. 되감기는 국면이 살아 있을 때만 됩니다. 지고 나서 돌아가려 해도 돌아갈 수 없습니다.</p>
+<p>되감기 자체는 이 분입니다. 제 국면이 조용해진 수, 위협을 만들지도 대응하지도 않은 마지막 수를 찾아 그 앞으로 갑니다. 다른 수를 놓고 같은 단계로 끝까지 둡니다. 진 한 판에서 갈래를 두 개 뽑는 편이 새로 두 판 하는 것보다 남습니다. 그 국면은 제가 실제로 망친 국면이기 때문입니다.</p>
+
+<h2>힌트는 정한 다음에</h2>
+<p>힌트는 둘 차례인 쪽의 최고점 후보를 보여 줍니다. 생각하기 전에 누르면 제 읽기가 기계의 읽기로 바뀌고 연습은 사라집니다. 생각한 뒤에 누르면 답이 있는 채점표가 됩니다.</p>
+<p>제 수를 소리 내어 말하고, 상대 응수도 말한 다음 누르십시오. 결과는 셋입니다. 같은 점이면 판단이 탐색과 맞은 것이니 넘어갑니다. 다른 점인데 이유가 보이면 놓친 모양이 하나 있었고 이제 그것은 제 것이 됩니다. 다른 점인데 이유를 모르겠으면 그때가 가장 이득입니다. 대개 아직 쓰지 않은 줄을 막는 돌처럼 구조적인 것을 기계가 계산하고 있습니다.</p>
+<p>한 판에 세 번까지입니다. 그 이상은 한 수씩 받아 먹는 것이고, 힌트가 사라지는 순간 남는 것이 없습니다.</p>
+
+<h2>일주일에 한 판은 렌주에서 백으로</h2>
+<p>렌주는 규칙을 한 방향으로만 바꿉니다. 흑은 삼삼, 사사, 장련을 둘 수 없고 백은 셋 다 둘 수 있으며 백의 육목은 승리입니다. 일주일에 한 판 백을 잡으면 훈련 목표가 통째로 바뀝니다. 가장 강한 모양을 찾는 대신 상대의 두 줄이 만나는 빈 점을 찾게 됩니다. 흑은 거기에 들어가면 금수이고, 비워 두면 집니다.</p>
+<p>이 감각은 자유 규칙에서 연습할 수 없습니다. 금수표가 없으니 교차점은 그냥 점입니다.</p>
+
+<h2>삼십오 분, 다섯 판</h2>
+<ol>
+<li><strong>5분, 9×9 자유, 쉬움, 짧은 세 판.</strong> 목표는 하나, 열 수 안에 사삼. 이 상대는 막지 않으니 순서만 반복합니다.</li>
+<li><strong>15분, 15×15, 어려움, 한 판.</strong> 열두 수까지 무르기 금지. 끝나면 한 줄 적습니다. 설명하지 못한 수.</li>
+<li><strong>10분, 같은 판을 두 번 되감기.</strong> 설명하지 못한 수와 그 앞 수를 각각 다른 수로 끝까지.</li>
+<li><strong>5분, 15×15 렌주, 마스터, 백으로 한 판.</strong> 아마 집니다. 어느 모양부터 무너졌는지가 답입니다.</li>
+</ol>
+<p>일주일에 네 번이 일요일 세 시간보다 낫습니다. 훈련하는 것이 인식이고, 인식은 이틀이면 옅어지기 때문입니다. 기록은 한 판에 한 줄. 스무 판이 쌓이면 스무 줄이 되고, 거기 보이는 경향이 진짜 약점입니다. 읽는 깊이가 아니라(그건 <a href="/ko-KR/blog/gomoku-reading-ahead-how-many-moves">다른 글</a>입니다) 계획을 세우기 전에 놓는 두세 개의 돌입니다.</p>
+
+<h2>움직여야 하는 숫자</h2>
+<p>연습이 먹히면 셋이 움직입니다. 첫 활삼까지 드는 돌 수가 열 근처에서 여섯으로 내려갑니다. 상대 응수를 맞히는 비율이 열 번에 일곱을 넘습니다. 그리고 진 판이 지목됩니다. 저 돌이었다, 여기에 둬야 했다고 말할 수 있게 됩니다.</p>
+<p>쉬움과 보통 상대의 승률은 여기 안 들어갑니다. 둘 다 무작위로 고르므로 다섯 연승은 주사위를 잰 값입니다.</p>
+
+<h2>컴퓨터가 더는 도움이 안 되는 지점</h2>
+<p>기계는 지치지 않고 습관이 없고 거짓말을 하지 않습니다. 빨리 둔다고 벌하지 않고, 반대편을 공격하는 척에 두 개의 돌을 쓰지도 않습니다. 그건 사람의 기술이고 사람 상대로만 길러집니다.</p>
+<p>기계에는 기계의 장점을 쓰십시오. 무한한 인내, 흔들리지 않는 기준, 되감기 버튼입니다. 상대의 의도를 읽는 절반은 사람에게 맡기고, <a href="/ko-KR/blog/how-to-improve-gomoku-game">일반적인 향상 절차</a>가 그쪽 이야기입니다.</p>
+<p>오늘 밤은 하나만. 첫 활삼까지 돌이 몇 개 들었는지. 9×9 쉬움으로 세 판 두고 세어 보십시오. 여덟을 넘는다면 부족한 것은 읽기가 아니라, 그 돌이 무엇을 할지 정하기 전에 판을 시작하고 있는 것입니다. <a href="/ko-KR/">판을 열고</a> 세어 보십시오.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">다섯 판, 질문 하나씩</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">삼십오 분에 9×9 세 판, 어려움 한 판, 렌주 백 한 판. 첫 돌을 놓기 전에 질문을 적으십시오.</p>
+            <a href="/ko-KR/#game" class="cta-btn">오목 플레이하기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "컴퓨터와 오목, 어떻게 연습해야 늘까",
+    "description": "쉬움에서 여덟 판을 이겨도 남는 것이 없습니다. 상대 고르는 법, 한 판에 질문 하나, 무르기를 되감기로 쓰는 삼십오 분 연습법.",
+    "datePublished": "2026-10-28",
+    "dateModified": "2026-10-28",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/best-way-to-practice-gomoku-against-computer"}
+  }
+  </script>
+</body>
+</html>
