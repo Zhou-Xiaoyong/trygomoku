@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋对电脑怎么下才有效：一盘三步的打法 | 五子棋博客</title>
+  <meta name="description" content="它每一手都重新评一遍，也不记计划，所以这是计划的问题而不是算力的问题。数清没干活的子、把挡点选在废点、开链之前先数链。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-computer-strategy-that-works">
+  <meta property="og:title" content="五子棋对电脑，怎么下才有效">
+  <meta property="og:description" content="挡点是你送出去的一手。选废点、下他不应的一挡、开链先数链，一盘三步。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-vs-computer-strategy-that-works">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋对电脑：站得住的打法">
+  <meta name="twitter:description" content="它每一手都重新评一遍。你只需要一份在落子之前写好的计划。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">策略</span>
+          <h1 itemprop="headline">五子棋对电脑怎么下才有效</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-30">2026-10-30</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<h2>第十六手，两个活三，然后什么都没有</h2>
+<p>第三行一个活三，斜线上还有一个。困难档挡掉第三行那个，你把斜线接上去，它也挡了，到第二十二手，你手上剩四颗死子，中间空出一块本来该有棋形的地方。</p>
+<p>第一反应是「它算得比我深」。这个阶段的局面它并没有比你算得深多少，它做的是每一手都把整盘重新评一遍，完全不记得你两手前在搭什么。你有计划，一个回合就用完了。</p>
+
+<h2>先数有几颗子没干活</h2>
+<p>15×15 打困难，胜负通常落在第十八到第二十六手之间。定局之前你大概能下二十颗子，其中两颗可以闲着，三颗就已经超预算。</p>
+<p>数子在第十二手数，别等输了再数。我这十二颗里，有几颗正在威胁、正在挡、或者占着一条我还打算用的线。十二颗中五颗算正常，四颗就是问题，而这个问题最后的表现形式，就是第二十二手那一下崩。</p>
+<p>同一笔账也能解释为什么把子堆在一条线上会输。六颗连成一串、两头都堵死的子，价值低于两条交叉线上的两颗。机器的评估从第三手就知道这件事，下棋的人往往不知道。</p>
+
+<h2>挡点是你送出去的那一手</h2>
+<p>每个逼着走的棋都有一个应手，那个应手就是你递给对手的一颗子。先看它落在哪，再决定要不要下这手威胁。</p>
+<p>第八行上你有个冲四，左边被他一颗子堵住，只剩 L8 一个赢点，而他的子都在第十到十二行。他必须去 L8。这颗子在他那边什么也做不了，你用一手四换了一个先手。</p>
+<p>再找另一手四，赢点正好落在他跳二要走的那条线上。他去挡，这一挡是他两手后本来就要下的那颗子。同样是逼着走，这一手你是在付钱给他。</p>
+<p>所以要点不是「多做威胁」，而是：手上能凑出的两手里，下那一手应手落在废点上的。他的活线、中路、他跳二要去的那个点，这三处挡一下等于送他东西；边线、你已经放弃的线、他够不到的角，这三处才是让他付代价的地方。</p>
+
+<h2>他不会去应的那一挡</h2>
+<p>逼着走之间还夹着另一种棋，也是机器处理得最差的一种：在没有威胁的时候先去挡。</p>
+<p>第九手，他在第十行有两颗子，一个跳二，没有任何威胁。你下在他活三会起来的那个点上，离他的子隔一步。这手棋本身不成威胁，它那边没有东西要应，于是它回去走自己的计划。这颗子留下了。到第二十二手，第十行没有出口，而他整个右翼是建立在「第十行还有出口」这个前提上的。</p>
+<p>两个条件。必须落在他已经投入的那条线上，而且离他的子要够远，远到不像进攻。贴着他的两颗子下，那是挡，他会应；同一条线上隔三个点，那是没有。</p>
+<p>这也是攻守转换问题的防守一半，什么时候值得花一手去补，<a href="/zh-CN/blog/gomoku-defense-vs-offense-when-to-switch">攻与守的切换时机</a>那一篇讲的就是这个判断。</p>
+
+<h2>它是确定性的，那就拿它做实验</h2>
+<p>困难档对同一个局面给出同一手。不是大致相同，是完全相同。全站只有它，能把同一盘棋跑两遍。</p>
+<p>前六手照抄两遍，第二盘只在第五手换一颗子。看应手从哪里开始分叉。如果他第七手就变了，说明你那颗子被直接应了，它是个威胁。如果一路到第十五手都一样、之后才分叉，说明那颗子是悄悄改了评分，分叉的那一手，就是他计划里需要那块空间的时刻。</p>
+<p>这种晚分叉的子才贵，多数人找不到，因为他们只看下一手发生了什么。这个测试在简单和中等档做不了，这两档是故意加随机的，同一个局面给出不同应手，比了也没意义。这也是<a href="/zh-CN/blog/best-way-to-practice-gomoku-against-computer">那套三十五分钟练法</a>只在困难档以上成立的原因。</p>
+
+<h2>链断了就停手</h2>
+<p>连四的链走不通，不是「白走一趟」。每一手四都把他的子拉到你的线旁边。走到第三手四断掉，你花了三颗子，还把他三颗子请进了你正要用的那块地方。</p>
+<p>所以开链之前先数：我手上能连几手四，够不够走到五。数出来三手、而你需要四手，这条链现在不存在，不管它在盘上看起来多像。</p>
+<p>断了之后，正确的一手很闷，就是他最好那条线上的防守点。这时候再甩一个威胁出去，等于再送他一颗子进你的棋形，一手输掉的进攻，就是这么在六手里变成一盘输掉的棋。各档对断链的处理差别，<a href="/zh-CN/blog/beat-gomoku-ai">逐档拆解</a>那篇写得更细。</p>
+
+<h2>一盘棋，三步</h2>
+<ol>
+<li><strong>第一到第六手：两条线，一个交点。</strong> 从 H8 起，然后下两颗将来会碰上的子。第三颗子落之前，把交点坐标说出来。说不出来，你是在摆子，不是在搭棋。</li>
+<li><strong>第七到第十四手：一手应手落在废点上的威胁。</strong> 活三要做在两端都是你不需要的点的那一侧，然后再加第二个威胁，让同一个应手同时管住两个。</li>
+<li><strong>第十五手以后：能收就收，收不了就重搭。</strong> 数过的链够到五，就走完；不够，就先补那一手预防性的挡，从还站得住的局面开第二个计划。</li>
+</ol>
+
+<h2>那个你该说得出口的点</h2>
+<p>第十手停下来，写下你两条线的交点坐标。多数人写不出来，缺的就是这一个点，而它正是第二十二手崩掉的原因，尽管每一手单看都还算合理。</p>
+<p>算得深救不了这个。你可以沿着一条通向虚无的线算十二手。计划只有一句话，而且要在落子之前写。</p>
+<p>今晚就试：<a href="/zh-CN/">打开棋盘</a>，15×15，困难档，一盘。第十手把交点记下来，然后把棋下完，看自己到底有没有在那一点上落过子。</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">一盘棋，三步</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">15×15、困难档，一盘。第十手把交点说出来，看自己有没有在那一点落过子。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋对电脑怎么下才有效",
+    "description": "它每一手都重新评一遍，也不记计划，所以这是计划的问题而不是算力的问题。数清没干活的子、把挡点选在废点、开链之前先数链。",
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-vs-computer-strategy-that-works"}
+  }
+  </script>
+</body>
+</html>

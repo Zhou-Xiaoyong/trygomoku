@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Как играть в гомоку против компьютера | Блог о гомоку</title>
+  <meta name="description" content="У программы нет плана, поэтому победа здесь задача планирования, а не соревнования в расчёте. Считайте лишние камни, выбирайте точку блокировки, считайте цепочку заранее.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-computer-strategy-that-works">
+  <meta property="og:title" content="Гомоку против компьютера: стратегия, которая работает">
+  <meta property="og:description" content="Точку блокировки выбираете вы. Одна угроза с ответом в пустоту, одно закрытие без ответа, и цепочка, посчитанная до начала.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-vs-computer-strategy-that-works">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Гомоку против компьютера: рабочая стратегия">
+  <meta name="twitter:description" content="Программа оценивает всё заново каждый ход. Вам нужен один план, записанный до камней.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Как играть в гомоку против компьютера</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-30">2026-10-30</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<h2>Шестнадцатый ход, две открытые тройки, и всё</h2>
+<p>На третьей линии открытая тройка, ещё одна поднимается по диагонали. Сложный закрывает линию. Вы продолжаете диагональ, он закрывает и её, и к двадцать второму ходу от атаки остаются четыре мёртвых камня и пустое место там, где должна была стоять форма.</p>
+<p>Первый вывод, который приходит в голову: программа считает глубже. На этом отрезке партии она считает ненамного глубже внимательного игрока. Она заново оценивает все допустимые точки каждый ход и не помнит, что вы строили два хода назад. План у вас был, и вы израсходовали его за один размен.</p>
+
+<h2>Посчитайте камни, которые не работают</h2>
+<p>На 15×15 против сложного партия обычно решается между восемнадцатым и двадцать шестым ходом. До того, как позиция определится, вы успеваете поставить около двадцати камней. Два из них могут простоять без дела. Три уже перерасход.</p>
+<p>Считать нужно на двенадцатом ходу, а не после проигрыша. Сколько моих камней угрожают, что-то закрывают или держат линию, которую я ещё собираюсь использовать. Пять из двенадцати считается нормой. Четыре уже проблема, и проявляется она обвалом на двадцать втором ходу.</p>
+<p>Тот же счёт объясняет, почему проигрывает игра в одну линию. Шесть камней подряд с закрытыми концами стоят меньше, чем два камня на пересекающихся линиях, и оценка программы знает это с третьего хода, даже когда игрок ещё нет.</p>
+
+<h2>Точку блокировки выбираете вы</h2>
+<p>У каждого форсирующего хода есть ответ, и этот ответ и есть камень, который вы дарите сопернику. Смотрите, куда он ляжет, до того как ставить угрозу.</p>
+<p>На восьмой линии у вас четвёрка, левый конец которой закрыт его камнем, поэтому победный пункт ровно один, L8, а остальные его камни стоят на десятой и двенадцатой линиях. Он обязан взять L8. Для него этот камень там не делает ничего. Одной четвёркой вы купили темп.</p>
+<p>Теперь найдите другую четвёрку, которую можно было построить, ту, чей единственный победный пункт попадает на линию, куда идёт его прыжок через клетку. Он закрывает там, и это закрытие становится камнем, который ему был нужен через два хода. Ход тот же самый, только теперь платите вы.</p>
+<p>Значит правило звучит не «создавайте угрозы». Из двух форсирующих ходов, которые вы можете себе позволить, играйте тот, ответ на который падает в пустоту. Его открытые линии, центр и точка, к которой идёт его прыжок, это три места, где блокировка работает ему в плюс. Край, линия, которую вы уже бросили, и угол, до которого он не достаёт, это три места, где она стоит ему темпа.</p>
+
+<h2>Блокировка, на которую он не ответит</h2>
+<p>Между форсирующими ходами есть ход другого рода, и именно с ним программа справляется хуже всего: закрытие, поставленное до того, как появилась угроза.</p>
+<p>Девятый ход, у него два камня на десятой линии, прыжок через клетку. Ничего не угрожает. Вы ставите камень в точку, с которой начнётся его открытая тройка, на расстоянии одной клетки от его камней. Своей угрозы у вас нет, отвечать не на что, и он возвращается к своему плану. Камень остаётся. На двадцать втором ходу у десятой линии нет выхода, а весь его правый фланг был построен на том, что выход там будет.</p>
+<p>Два условия. Линия должна быть той, в которую он уже вложился, а расстояние до его камней должно быть таким, чтобы ход не выглядел атакой. Вплотную к двум камням это читается как закрытие, и он ответит. Три точки по той же линии это читается как пустое место.</p>
+<p>Это тот же вопрос о смене роли, только со стороны защиты. Когда стоит потратить ход на укрепление, разбирается в материале <a href="/ru-RU/blog/gomoku-defense-vs-offense-when-to-switch">об атаке и защите</a>.</p>
+
+<h2>Программа детерминирована, используйте это</h2>
+<p>Сложный возвращает один и тот же ход на одну и ту же позицию. Не приблизительно тот же, а тот же самый. На сайте это единственный соперник, с которым можно поставить контрольный опыт.</p>
+<p>Сыграйте первые шесть ходов дважды. Во второй партии замените один камень, на пятом ходу. Смотрите, где разойдутся ответы. Если его седьмой ход изменился, ваш камень получил прямой ответ, то есть был угрозой. Если ответы совпадают до пятнадцатого хода и расходятся позже, ваш камень тихо сдвинул оценку, а точка расхождения это момент, когда его плану понадобилось именно это место.</p>
+<p>Поздние расхождения и есть дорогие камни, и большинство игроков их не находит, потому что судит ход по тому, что случилось на следующем ходу. На лёгком и среднем этот опыт не работает. Оба намеренно добавляют случайность, поэтому одна позиция даёт разные ответы и сравнение ничего не значит. По той же причине <a href="/ru-RU/blog/best-way-to-practice-gomoku-against-computer">тридцатипятиминутная схема занятий</a> имеет смысл только от сложного и выше.</p>
+
+<h2>Если цепочка оборвалась, прекращайте атаку</h2>
+<p>Неудавшаяся цепочка четвёрок не означает, что вы просто сходили зря. Каждая четвёрка подтягивает один его камень к вашей линии. Оборвались на третьей, и вы потратили три камня и пригласили три его камня в ту зону, которую собирались застроить.</p>
+<p>Поэтому считайте до начала: сколько у меня четвёрок и сколько нужно, чтобы дойти до пяти. Если есть три, а нужно четыре, цепочки пока не существует, как бы убедительно она ни выглядела на доске.</p>
+<p>После обрыва правильный ход скучный: защитная точка на его лучшей линии. Каждая лишняя угроза в этот момент добавляет ему камень в вашу форму, и именно так проигранная атака превращается в проигранную партию за шесть ходов вместо двадцати. Разница между уровнями разобрана в <a href="/ru-RU/blog/beat-gomoku-ai">разборе по уровням</a>.</p>
+
+<h2>Одна партия, три шага</h2>
+<ol>
+<li><strong>Ходы с первого по шестой: две линии и одно пересечение.</strong> Начните с H8, затем поставьте два камня, которые встретятся. До третьего камня назовите координату пересечения вслух. Не можете назвать, значит вы расставляете камни, а не строите.</li>
+<li><strong>Ходы с седьмого по четырнадцатый: одна угроза, ответ на которую падает в пустоту.</strong> Открытую тройку стройте в ту сторону, где оба продолжения вам не нужны. Затем добавьте вторую угрозу так, чтобы один ответ закрывал обе.</li>
+<li><strong>С пятнадцатого хода: добивать или перестраивать.</strong> Если посчитанная цепочка доходит до пяти, ведите её. Если нет, поставьте предупредительное закрытие и начинайте второй план из ещё равной позиции.</li>
+</ol>
+
+<h2>Точка, которую вы обязаны назвать</h2>
+<p>На десятом ходу остановитесь и запишите координату пересечения двух своих линий. Большинство не может, и не хватает именно этой точки. Отдельные ходы выглядят разумно, а к двадцать второму атака умирает.</p>
+<p>Глубина расчёта этого не лечит. Можно просчитать двенадцать ходов по линии, которая никуда не ведёт. План занимает одно предложение и пишется до камней.</p>
+<p>Сегодня вечером: <a href="/ru-RU/">откройте доску</a>, 15×15, сложный, одна партия. На десятом ходу запишите пересечение, доведите партию до конца и посмотрите, ставили ли вы туда камень.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Одна партия, три шага</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">15×15, сложный, одна партия. На десятом ходу назовите пересечение и проверьте, ставили ли вы туда камень.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Как играть в гомоку против компьютера",
+    "description": "У программы нет плана, поэтому победа здесь задача планирования, а не соревнования в расчёте. Считайте лишние камни, выбирайте точку блокировки, считайте цепочку заранее.",
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-vs-computer-strategy-that-works"}
+  }
+  </script>
+</body>
+</html>

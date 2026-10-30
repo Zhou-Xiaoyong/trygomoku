@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku vs Computer Strategy That Works | Gomoku Blog</title>
+  <meta name="description" content="It scores every point fresh and keeps no plan, so beating it is a planning problem rather than a reading contest. Count dead stones, aim the block point, count the chain first.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-vs-computer-strategy-that-works">
+  <meta property="og:title" content="Gomoku vs Computer: The Strategy That Actually Works">
+  <meta property="og:description" content="Choose where it blocks, spend a stone it will not answer, and count the chain before you start it. Three steps for one game at Hard.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-vs-computer-strategy-that-works">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku vs Computer: A Strategy That Holds Up">
+  <meta name="twitter:description" content="It scores every point fresh. You only need one plan, written before the stones.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Strategy</span>
+          <h1 itemprop="headline">Gomoku vs Computer Strategy That Works</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-30">2026-10-30</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<h2>Move Sixteen, Two Live Threes, Nothing Left</h2>
+<p>You have a live three along the third row and another one climbing the diagonal. Hard blocks the row. You extend the diagonal, it blocks that as well, and by move twenty-two the attack is four dead stones and a hole where the shape should have been.</p>
+<p>The reflex is to say it reads deeper. On that stretch of the board it does not read much deeper than a careful player does. What it does is score every legal point from scratch, every turn, with no memory of what you were building two moves ago. You had a plan and spent it in one exchange.</p>
+
+<h2>Count the Stones Doing No Work</h2>
+<p>At Hard on 15&times;15 the game usually turns between move eighteen and move twenty-six. You get about twenty stones before the position commits. Two of them can be idle. Three is already a losing budget.</p>
+<p>Do the count at move twelve, not after the loss. How many of my stones are threatening something, blocking something, or holding a line I still plan to use. Five out of twelve is normal. Four is a problem, and it shows up as a collapse at move twenty-two.</p>
+<p>The same arithmetic explains why stacking one line loses. Six stones in a row with both ends shut are worth less than two stones on crossing lines, and the machine's evaluation has known that since move three even when the player has not.</p>
+
+<h2>The Block Point Is the Move You Give Away</h2>
+<p>Every forcing move has an answer, and that answer is a stone you hand to your opponent. Look at where it lands before you play the threat, not after.</p>
+<p>You have four in a row on row eight with his stone closing the left end, so exactly one point wins, L8, and his other stones are up on rows ten to twelve. He has to take L8. That stone does nothing for him there. One four bought you a tempo.</p>
+<p>Now find the other four you could have built, the one whose single winning point falls on the file his jump-two is heading for. He blocks there, and the block is a stone he wanted two moves later anyway. Same forcing move, and this time you paid him.</p>
+<p>So the instruction is not "make threats". It is narrower: of the two forcing moves you can afford, play the one whose answer lands in dead space. His open lines, the centre, and the point his jump-two is heading for are where a block works in his favour. The edge, a line you already abandoned, and a corner he cannot reach are where it costs him a tempo.</p>
+
+<h2>The Stone He Will Not Answer</h2>
+<p>Between the forcing moves there is a second kind of move, and it is the one the machine handles worst: a block placed before there is anything to block.</p>
+<p>Move nine, he has two stones on row ten, a jump-two. Nothing threatens. You play the point where his live three would start, one step off his stones. It creates no threat of yours, so his scoring has nothing to answer and he goes back to his own plan. The stone stays. At move twenty-two row ten has no exit, and his whole right flank was built on the assumption that it would.</p>
+<p>Two conditions. It has to sit on a line he is already committed to, and it has to be far enough from his stones to not look like an attack. Adjacent to his two, it reads as a block and he answers it. Three points away on the same line, it reads as nothing.</p>
+<p>This is the defensive half of the tempo question, and <a href="gomoku-defense-vs-offense-when-to-switch">when to spend a move on repair instead of attack</a> is the page that decides it.</p>
+
+<h2>It Is Deterministic, So Run the Experiment</h2>
+<p>Hard returns the same move for the same position. Not roughly the same, the same. That makes it the only opponent on the site you can use as a control.</p>
+<p>Play the same first six stones twice. In the second game change a single stone, at move five. Watch where the replies split. If his move seven changes, your stone was answered directly, which means it was a threat. If the replies stay identical to move fifteen and then diverge, your stone moved the score quietly, and the split is the moment his plan needed that space.</p>
+<p>Those late divergences are the expensive stones, and most players never find them because they judge a move by what happened on the next turn. Skip this test on Easy and Medium. Both add randomness on purpose, so one position gives different answers and the comparison tells you nothing. It is also why <a href="best-way-to-practice-gomoku-against-computer">the thirty-five minute session</a> only works from Hard upward.</p>
+
+<h2>When the Chain Breaks, Stop Attacking</h2>
+<p>A chain of fours that fails is not a neutral result. Each four pulled one of his stones next to your line. Stop at the third four and you have spent three stones and handed him three, all inside the area you were trying to build in.</p>
+<p>So count before you start: how many fours do I have, and how many does the chain need to reach five. Three when you need four means the chain does not exist yet, whatever it looks like on the board.</p>
+<p>Once it breaks, the correct move is the dull one, the defensive point on his best line. Every extra threat thrown at that moment gives him another stone inside your shape, which is how a lost attack becomes a lost game in six moves instead of twenty. What each tier does with a failed chain is covered in <a href="beat-gomoku-ai">the level-by-level guide</a>.</p>
+
+<h2>One Game, Three Steps</h2>
+<ol>
+<li><strong>Moves one to six: two lines and one intersection.</strong> Start at H8, then place two stones that will meet. Before stone three, say the coordinate where they cross out loud. If you cannot, you are placing stones, not building.</li>
+<li><strong>Moves seven to fourteen: one threat whose answer is dead space.</strong> Build the live three on the side where both extensions are points you do not need. Then add a second threat that a single answer has to cover.</li>
+<li><strong>Moves fifteen and after: convert or rebuild.</strong> If the counted chain reaches five, run it. If not, play the preventive block and start the second plan from a position that is still level.</li>
+</ol>
+
+<h2>The Point You Should Be Able to Name</h2>
+<p>At move ten, stop and write the coordinate where your two lines cross. Most players cannot, and that one missing point is why the attack dies at twenty-two while every individual move looked reasonable.</p>
+<p>Reading depth does not fix it. You can look twelve moves ahead down a line that leads nowhere. The plan is one sentence long, and it gets written before the stones do.</p>
+<p>Tonight: <a href="../">open the board</a>, 15&times;15, Hard, one game. At move ten write the intersection down, then finish the game and see whether you ever played on it.</p>
+
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Three Steps, One Game</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">15x15, Hard, one game. Name the intersection at move ten, then check whether you ever played on it.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku vs Computer Strategy That Works",
+    "description": "It scores every point fresh and keeps no plan, so beating it is a planning problem rather than a reading contest. Count dead stones, aim the block point, count the chain first.",
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-vs-computer-strategy-that-works"}
+  }
+  </script>
+</body>
+</html>

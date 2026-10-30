@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べでコンピュータに勝つ打ち方 | 五目並べブログ</title>
+  <meta name="description" content="相手は計画を持ちません。だから勝負は読み比べではなく計画の問題です。働かない石を数え、止めさせる点を選び、連鎖は始める前に数えます。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-computer-strategy-that-works">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-computer-strategy-that-works">
+  <meta property="og:title" content="五目並べ対コンピュータ、効く打ち方">
+  <meta property="og:description" content="止めさせる点はこちらが選べます。捨て場に落ちる脅しを一本、応じてこない止めを一つ、連鎖は数えてから。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-vs-computer-strategy-that-works">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べ対コンピュータ：通用する打ち方">
+  <meta name="twitter:description" content="相手は毎手すべてを評価し直します。必要なのは石を置く前に書いた計画一つです。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">五目並べでコンピュータに勝つ打ち方</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-30">2026-10-30</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<h2>16手目、活三が二本、それで終わり</h2>
+<p>三列目に活三、斜めにもう一本。むずかしいは三列目を止め、あなたは斜めを伸ばし、それも止められます。22手目には、攻めの形だったはずの場所に死んだ石が四つと穴が一つ残るだけです。</p>
+<p>たいていは「相手のほうが深く読んでいる」と結論します。この局面で、むずかしいがあなたより極端に深く読んでいるわけではありません。やっているのは、毎手すべての合法点を一から評価し直すことです。二手前に何を作ろうとしていたかは覚えていません。あなたに計画があり、それを一往復で使い切った。差はそれだけです。</p>
+
+<h2>働いていない石を数える</h2>
+<p>15×15のむずかしいでは、勝負はたいてい18手目から26手目の間に決まります。形が固まるまでに打てるのは20手ほど。そのうち遊ばせていいのは二つで、三つになればもう予算オーバーです。</p>
+<p>数えるのは12手目の時点です。負けてからでは遅い。自分の石のうち、脅している、止めている、これから使う線を押さえている、どれかに当てはまるのはいくつか。12個中5個なら普通、4個なら問題です。そしてその問題は、22手目に一気に崩れる形で表に出ます。</p>
+<p>同じ計算で、一本の線に石を積む打ち方が負ける理由も説明できます。両端を塞がれた六連は、交差する二本の線上の二石より価値が低い。プログラムの評価は3手目の時点でそれを知っていて、打っている側は知らないままです。</p>
+
+<h2>止めさせる点は、こちらが渡す一手</h2>
+<p>強制手には必ず応手があり、その応手は相手に渡す石そのものです。脅しを打つ前に、その石がどこに落ちるかを見ます。打ったあとでは遅い。</p>
+<p>八列目に、左端を相手の石で塞がれた四連があります。勝ち点はL8の一点だけ。相手の他の石は十列目から十二列目にあります。相手はL8を取るしかない。その石は相手にとって何の働きもしません。四連一本でテンポを一つ買ったことになります。</p>
+<p>次に、もう一本作れたはずの四連を探します。その唯一の勝ち点が、相手の跳び二が向かっている列に落ちるものです。相手はそこを止め、その止めは二手後に欲しかった石そのものになります。同じ強制手なのに、こちらが相手に支払っている。</p>
+<p>だから合図は「脅しを作れ」ではありません。作れる二本のうち、応手が捨て場に落ちるほうを選びます。相手の活線、中央、跳び二が向かう点、この三か所は止めさせるほど相手に得をさせます。端、すでに捨てた線、相手が届かない隅、この三か所なら相手にテンポを払わせられます。</p>
+
+<h2>相手が応じてこない止め</h2>
+<p>強制手と強制手のあいだに、もう一種類の手があります。プログラムがもっとも苦手とする手で、脅しが存在しないうちに置く止めです。</p>
+<p>9手目、相手は十列目に二石、跳び二です。脅しはありません。あなたは相手の活三が始まる点、相手の石から一つ離れた場所に置きます。自分の脅しにはならないので、評価する側に応じる理由がなく、相手は自分の計画に戻ります。石は残ります。22手目、十列目には出口がなく、相手の右側は十列目に出口があるという前提の上に組まれていたことになります。</p>
+<p>条件は二つ。相手がすでに投資している線の上であること、そして相手の石から十分に離れていて攻めに見えないこと。二石に接していれば止めと読まれて応じられます。同じ線で三つ離れていれば、何もないのと同じです。</p>
+<p>これは攻守の切り替えを守備側から見た話でもあります。どこで一手を補修に使うかは<a href="/ja-JP/blog/gomoku-defense-vs-offense-when-to-switch">攻めと守りの切り替え</a>で扱っています。</p>
+
+<h2>決定論的なので、実験に使える</h2>
+<p>むずかしいは同じ局面に同じ手を返します。だいたい同じではなく、完全に同じです。サイトの中で、同じ盤面を二度走らせられる相手はこれだけです。</p>
+<p>最初の六手をそのまま二回打ちます。二局目は5手目だけ別の石に変えます。応手がどこから分かれるかを見ます。7手目で変われば、その石は直接応じられた、つまり脅しだったということです。15手目まで一致して、そこから分かれるなら、その石は評価を静かに動かしていて、分かれた手が相手の計画にとってその空間が必要になった瞬間です。</p>
+<p>分岐が遅い石ほど高価で、たいていの人はそれを見つけられません。次の一手で何が起きたかしか見ていないからです。この比較はやさしいとふつうでは成立しません。どちらも意図的に乱数を含むので、同じ局面でも応手が変わり、比べても意味がありません。<a href="/ja-JP/blog/best-way-to-practice-gomoku-against-computer">35分の練習メニュー</a>がむずかしい以上を前提にしているのも同じ理由です。</p>
+
+<h2>連鎖が切れたら攻めをやめる</h2>
+<p>四連の連鎖が通らないのは、単に空振りで終わる話ではありません。四連を一本打つたびに、相手の石が一つ、あなたの線の隣に引き寄せられます。三本目で切れれば、あなたは三石を使い、相手の三石をこれから使うはずだった場所に招き入れています。</p>
+<p>だから始める前に数えます。自分は四連を何本持っているか、五まで届くには何本必要か。三本しかなくて四本必要なのに、盤の上でどれらしく見えても、その連鎖は存在しません。</p>
+<p>切れたあとの正解は地味な一手、相手の一番いい線への守りの点です。そこでさらに脅しを打つと、相手の石があなたの形にもう一つ増えるだけです。負けた攻めが、20手ではなく6手で負けた一局に変わるのは、この積み重ねからです。段ごとの違いは<a href="/ja-JP/blog/beat-gomoku-ai">段ごとの解説</a>に譲ります。</p>
+
+<h2>一局を三手順で</h2>
+<ol>
+<li><strong>1手目から6手目：線を二本、交点を一つ。</strong> H8から始め、やがて出会う二石を置きます。三石目を置く前に、交わる座標を声に出します。言えないなら、それは構築ではなく配置です。</li>
+<li><strong>7手目から14手目：応手が捨て場に落ちる脅しを一つ。</strong> 活三は、両端とも自分に不要な点になる側に作ります。そのうえで二つ目の脅しを足し、同じ一つの応手で両方を背負わせます。</li>
+<li><strong>15手目以降：決めるか、組み直すか。</strong> 数えた連鎖が五まで届くなら走らせます。届かないなら予防の止めを打ち、まだ互角の局面から第二の計画を始めます。</li>
+</ol>
+
+<h2>口に出せて当然の、あの一点</h2>
+<p>10手目で手を止め、自分の二本の線が交わる座標を書きます。書けない人がほとんどで、足りないのはその一点です。一つ一つの手は悪く見えないのに22手目に攻めが死ぬのは、そのためです。</p>
+<p>読みの深さでは埋まりません。行き止まりへ向かう線を12手先まで読むことはできます。計画は一文で、しかも石を置く前に書くものです。</p>
+<p>今夜：<a href="/ja-JP/">盤を開いて</a>、15×15、むずかしい、一局。10手目に交点を書き留め、そのまま最後まで打って、その点に自分が石を置いたかどうかを確かめます。</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">一局を三手順で</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">15×15、むずかしい、一局。10手目に交点を書き、その点に石を置いたか確かめます。</p>
+            <a href="/ja-JP/#game" class="cta-btn">今すぐ五目並べを遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べでコンピュータに勝つ打ち方",
+    "description": "相手は計画を持ちません。だから勝負は読み比べではなく計画の問題です。働かない石を数え、止めさせる点を選び、連鎖は始める前に数えます。",
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-vs-computer-strategy-that-works"}
+  }
+  </script>
+</body>
+</html>
