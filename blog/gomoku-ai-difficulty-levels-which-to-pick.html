@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku AI Difficulty Levels: Which One Should You Pick? | Gomoku Blog</title>
+  <meta name="description" content="Four AI tiers are four different opponents, not four grades. Choose by the pattern you can already see, then adjust with board size and the renju toggle.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <meta property="og:title" content="Gomoku AI Difficulty Levels: Which One Should You Pick?">
+  <meta property="og:description" content="Choose an AI tier by the shape you can already spot, not by pride. Board size and renju change the opponent more than the label does.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku AI Difficulty Levels: Which One to Pick">
+  <meta name="twitter:description" content="Four tiers, four different opponents. Pick by pattern, adjust by board size, move up only when his reply is predictable.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Site Features</span>
+          <h1 itemprop="headline">Gomoku AI Difficulty Levels: Which One Should You Pick?</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-30">2026-10-30</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<h2>Four Buttons and No Instructions</h2>
+<p>The difficulty selector gives you Easy, Medium, Hard and Master and says nothing else. Most players click Medium because it sits in the middle, lose twice, and then either close the tab or drop to Easy and win nine in a row that taught them nothing about shape.</p>
+<p>Neither reaction is a verdict on your play. It is a verdict on choosing a tier by mood instead of by what you can already see on the board.</p>
+
+<h2>Pick by Pattern, Not by Pride</h2>
+<p>Strength at gomoku is not one number, so "what level am I" is the wrong question. Ask which of these four things you can already do without hesitating. The first one you cannot do reliably tells you where to sit.</p>
+<ul>
+<li><strong>Tell a live three from a dead three on sight.</strong> If you have to count the open ends twice, start on Easy at 9&times;9. Not because Easy plays well, but because you need repetitions of the shape before anyone punishes you for missing it.</li>
+<li><strong>Spot a four-three two moves before it lands.</strong> If you only see it once the four is on the board, Medium is your ceiling for now.</li>
+<li><strong>Hold a plan that needs him to answer twice in a row.</strong> A forcing sequence dies the moment he gets a free move. If your attacks keep stalling after one block, Hard is the tier that exposes why.</li>
+<li><strong>Refute your own VCF.</strong> If you can chain fours but cannot say whether the chain actually wins, Master is the only setting that will answer honestly.</li>
+</ul>
+<p>Four tests, four tiers, in that order. Skipping one is the most common reason people decide the AI is unfair or far too weak and stop playing it.</p>
+
+<h2>A Tier Is Not One Opponent</h2>
+<p>Board size changes the opponent more than the label does. 9&times;9 has 81 points, 15&times;15 has 225. On the small board a fork needs almost no runway, so a stone wasted at move five still drags at move fifteen. On the big board that same stone can be abandoned and you rebuild on the other flank. 15&times;15 forgives a loose opening. 9&times;9 does not.</p>
+<p>Practical version: if Hard keeps finishing you before your twentieth stone on 15&times;15, do not drop to Medium. Play Hard on 9&times;9 first. You lose more games per hour, each one short enough to review, and the habit you are missing, finishing a threat instead of admiring it, sets faster when the board is small.</p>
+
+<h2>The Renju Toggle Makes the Question Harder</h2>
+<p>Switch renju on and the same label becomes two different opponents depending on your colour. Black may not play a double three, a double four, or a line of six or longer. White may play all three, and White wins on six.</p>
+<p>For Black that narrows the winning shape to a four-three and nothing else. The natural instinct, piling stones until two lines cross, is exactly the move that gets called a foul. Medium renju as Black plays about half a tier heavier than Medium freestyle as Black, not because the search got deeper but because half your candidate points stopped being legal.</p>
+<p>As White the ban list works for you. Medium renju as White is the gentlest place on the site to learn what a forbidden point looks like, because you are the one hunting the intersection he cannot take and cannot leave alone.</p>
+
+<h2>Master Runs on a Three-Second Clock</h2>
+<p>Master deepens its search until a fixed budget runs out, roughly three seconds a move. Depth is therefore a function of your hardware, not a constant. On an old phone, or in a browser with a dozen tabs open, the same Master reads shallower and plays a step weaker. Beat it on a laptop and lose to it on a phone and that is the clock, not your form.</p>
+<p>The same clock makes the first eight moves the least informative part of the game. Master's opening is close to routine and offers nothing you can use. Judge it on moves fifteen to thirty, where its reading has to commit to something.</p>
+
+<h2>When to Move Up, and When to Move Back</h2>
+<p>Win rate on its own will lie to you, because Easy and Medium both choose with an element of randomness. Read three signals together.</p>
+<ol>
+<li><strong>Four wins in five games, and every loss explicable.</strong> If you cannot name the stone that lost the game, you have not outgrown the tier, you had a good week.</li>
+<li><strong>You name his reply before he plays it, six turns running.</strong> This is the real gate. It means your reading of his side now matches his own.</li>
+<li><strong>Your first two separate threats arrive before move twelve.</strong> Two, not one. A single live three is not a plan.</li>
+</ol>
+<p>Move back on a different signal. If two of your last three losses ended before your twelfth stone, the tier is too high. Drop one level, not two. Dropping two hides the specific error that caused those losses and replaces it with an opponent who cannot punish anything, which is how a plateau becomes permanent.</p>
+
+<h2>What Each Tier Refuses to Teach</h2>
+<ul>
+<li><strong>Easy</strong> will let a live three sit there. Useful for rehearsing an order of stones, useless for shape discipline, because discipline only forms once the shape gets punished.</li>
+<li><strong>Medium</strong> blocks what threatens it and then returns to its own plan. It teaches you to build a threat. It will not teach you to keep initiative, because it never takes yours.</li>
+<li><strong>Hard</strong> punishes tempo errors and answers forcing moves correctly, which makes it the right partner for reading depth, covered in <a href="gomoku-reading-ahead-how-many-moves">how far ahead you actually need to look</a>. It rarely sacrifices, so sacrifice ideas stay untested here.</li>
+<li><strong>Master</strong> is the only tier that will refute a chain you believe in. It is also the only one that can make you feel stupid six games running, so treat it as a weekly visit rather than a home address.</li>
+</ul>
+<p>If you want the move-by-move weaknesses instead of the choosing logic, <a href="beat-gomoku-ai">the level-by-level guide</a> is the page for that. Board sizes, undo and the renju switch are described in <a href="trygomoku-features">the feature tour</a>, in case you have never opened the menu.</p>
+
+<h2>The Default That Works for Most People</h2>
+<p>Medium on 15&times;15 freestyle, first game of the day. It punishes abandoned threes without demanding a full forcing sequence, so it fits the largest group: players who know the rules, beat their friends, and have never been shown why their attacks stall.</p>
+<p>Then one game a week on Hard renju as Black. You will lose most of them. Each loss names a shape you are not allowed to build, and that list is far shorter than the list of legal shapes, so it is learnable in an evening.</p>
+<p>Tonight, before you pick a tier, do this. Open <a href="../">the board</a>, set 9&times;9 and Easy, and count the stones it takes you to hold two separate threats at once. Ten or fewer and anything below Medium is wasted time. More than fourteen and no tier above Easy will teach you anything yet.</p>
+
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Start at the Right Tier</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">9x9 board, Easy, three games. Count the stones it takes to hold two threats, then decide whether to move up.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku AI Difficulty Levels: Which One Should You Pick?",
+    "description": "Four AI tiers are four different opponents, not four grades. Choose by the pattern you can already see, then adjust with board size and the renju toggle.",
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-ai-difficulty-levels-which-to-pick"}
+  }
+  </script>
+</body>
+</html>

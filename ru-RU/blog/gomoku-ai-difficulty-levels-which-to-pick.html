@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Уровни сложности ИИ в гомоку: какой выбрать | Блог о гомоку</title>
+  <meta name="description" content="Четыре уровня это четыре разных соперника. Выбирайте по форме, которую уже видите, подстраивайте размером доски и рэндзю. Плюс условия для перехода вверх и вниз.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <meta property="og:title" content="Уровни сложности ИИ в гомоку: какой выбрать">
+  <meta property="og:description" content="Уровень выбирают по видимой форме, а не по самолюбию. Размер доски и рэндзю меняют соперника сильнее, чем подпись на кнопке.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Четыре уровня ИИ в гомоку: с какого начинать">
+  <meta name="twitter:description" content="Четыре уровня, четыре соперника. Выбирайте по форме, правьте размером доски, поднимайтесь по предсказуемому ответу.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Возможности сайта</span>
+          <h1 itemprop="headline">Четыре уровня ИИ в гомоку: с какого начинать</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-30">2026-10-30</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<h2>Четыре кнопки и ни одного пояснения</h2>
+<p>В переключателе сложности всего четыре подписи: лёгкий, средний, сложный, мастер. Ни строчки объяснений. Большинство жмёт средний, потому что он посередине, проигрывает две партии, а потом либо закрывает вкладку, либо падает на лёгкий и выигрывает девять раз подряд. Эти девять партий не дают ничего для понимания формы.</p>
+<p>Обе реакции говорят не о силе игрока. Они говорят о том, что уровень выбирали по настроению, а не по тому, что человек уже видит на доске.</p>
+
+<h2>Уровень выбирают по видимому, а не по самооценке</h2>
+<p>Сила в гомоку не сводится к одному числу, поэтому вопрос «какой у меня разряд» здесь бесполезен. Спросите иначе: что из четырёх пунктов ниже вы делаете устойчиво. Первый пункт, на котором сбиваетесь, и есть ваш уровень.</p>
+<ul>
+<li><strong>Отличаете открытую тройку от спящей с первого взгляда.</strong> Если приходится дважды пересчитывать свободные концы, начинайте с лёгкого на 9×9. Не потому что лёгкий играет сильно, а потому что форму нужно увидеть много раз до того, как кто-то начнёт наказывать за пропуск.</li>
+<li><strong>Видите четвёрку с тройкой за два хода до появления.</strong> Если замечаете только готовую четвёрку, средний пока ваш потолок.</li>
+<li><strong>Держите план, в котором соперник обязан ответить дважды подряд.</strong> Форсирование рассыпается в тот момент, когда у него появляется свободный ход. Если атака всегда глохнет после одного ответа, это и есть проблема, которую вскрывает сложный уровень.</li>
+<li><strong>Опровергаете собственный VCF.</strong> Если цепочку четвёрок вы строить умеете, а сказать, выигрывает ли она, не можете, честный ответ даст только мастер.</li>
+</ul>
+<p>Четыре проверки, четыре уровня, порядок жёсткий. Пропуск одного звена и есть главная причина вывода «ИИ нечестный» или «ИИ слишком слабый», после которого игру бросают.</p>
+
+<h2>Один и тот же уровень на 9×9 и на 15×15 это два разных соперника</h2>
+<p>Размер доски меняет соперника сильнее, чем подпись на кнопке. На 9×9 восемьдесят один пункт, на 15×15 двести двадцать пять. На малой доске для двойной угрозы почти не нужен задел, поэтому камень, потраченный зря на пятом ходу, тянет вас и на пятнадцатом. На большой доске тот же камень можно бросить и перестроиться на другом фланге. Поэтому 15×15 прощает рыхлое начало, а 9×9 нет.</p>
+<p>Практический вывод: если сложный уровень стабильно заканчивает партию до вашего двадцатого камня на 15×15, не спускайтесь на средний. Сначала сыграйте сложный на 9×9. Проигрышей в час станет больше, зато каждая партия короткая и её можно разобрать. Вам не хватает привычки доводить угрозу до конца, и на маленькой доске она ставится быстрее.</p>
+
+<h2>Включённое рэндзю меняет сам вопрос</h2>
+<p>С включённым рэндзю одна и та же подпись означает разных соперников в зависимости от вашего цвета. Чёрным запрещены двойная тройка, двойная четвёрка и перебор из шести и более камней. Белым разрешены все три, и побеждает белый на шести.</p>
+<p>Для чёрных выигрышная форма сужается до четвёрки с тройкой, и ничего кроме. Естественная манера наваливать камни, пока две линии не пересекутся, оказывается ровно тем ходом, который объявляют запрещённым. Поэтому средний уровень в рэндзю за чёрных тяжелее среднего в свободной игре примерно на полступени, и дело не в глубине перебора, а в том, что половина кандидатов нелегальна с самого начала.</p>
+<p>За белых всё наоборот. Белым запреты не мешают, поэтому средний уровень в рэндзю за белых это самое спокойное место на сайте, где можно разобраться, как выглядит запрещённый пункт. Ищете пересечение вы, а он не может туда пойти и не может оставить это без внимания.</p>
+
+<h2>Мастер работает по трёхсекундным часам</h2>
+<p>Мастер углубляет перебор до исчерпания фиксированного лимита, примерно три секунды на ход. Значит глубина зависит от вашего устройства, а не является константой. На старом телефоне или в браузере с дюжиной открытых вкладок тот же мастер считает мельче и играет на ступень слабее. Если на ноутбуке вы его обыгрываете, а на телефоне нет, виноваты часы, а не форма.</p>
+<p>По той же причине первые восемь ходов дают меньше всего информации. Дебют мастера близок к накатанному, и ничего полезного вы оттуда не вынесете. Судить о нём стоит по ходам с пятнадцатого по тридцатый, там его счёт обязан определиться.</p>
+
+<h2>Когда поднимать уровень и когда опускать</h2>
+<p>Одного процента побед мало, потому что и лёгкий, и средний выбирают ход с элементом случайности. Смотрите на три сигнала вместе.</p>
+<ol>
+<li><strong>Четыре победы в пяти партиях, и каждое поражение объяснимо.</strong> Если не можете назвать камень, который стоил партии, вы не переросли уровень, вам просто повезло с неделей.</li>
+<li><strong>Вы называете его ответ до его хода, шесть ходов подряд.</strong> Вот настоящий порог. Он означает, что ваше чтение его стороны совпало с его собственным.</li>
+<li><strong>Две независимые угрозы появляются до двенадцатого хода.</strong> Именно две. Одна открытая тройка это не план.</li>
+</ol>
+<p>Опускают уровень по другому сигналу. Если два из трёх последних поражений закончились до вашего двенадцатого камня, уровень слишком высок. Опускайте на одну ступень, не на две. Минус две ступени прячут конкретную ошибку и заменяют её соперником, который вообще ничего не наказывает. Так застой и становится постоянным.</p>
+
+<h2>Чему каждый уровень не научит</h2>
+<ul>
+<li><strong>Лёгкий</strong> спокойно оставляет вашу открытую тройку в покое. Для порядка камней это годится, для дисциплины формы нет: дисциплина растёт только там, где за форму наказывают.</li>
+<li><strong>Средний</strong> закрывает угрозу и возвращается к своему плану. Он научит создавать угрозу, но не научит держать инициативу, потому что вашу инициативу не отбирает.</li>
+<li><strong>Сложный</strong> наказывает за ошибки в темпе и правильно отвечает на форсирование, поэтому он годится для тренировки глубины счёта, об этом отдельно в материале <a href="/ru-RU/blog/gomoku-reading-ahead-how-many-moves">на сколько ходов вперёд смотреть</a>. Жертвы он почти не играет, поэтому идеи с отдачей камня здесь не проверить.</li>
+<li><strong>Мастер</strong> единственный, кто опровергнет цепочку, в которую вы верите. Он же единственный, кто может шесть партий подряд заставить вас чувствовать себя глупо. Держите его как визит раз в неделю, а не как постоянный адрес.</li>
+</ul>
+<p>Если нужны слабости по каждому уровню, а не логика выбора, откройте <a href="/ru-RU/blog/beat-gomoku-ai">разбор четырёх уровней ИИ</a>. Размеры доски, отмена хода и переключатель рэндзю описаны в <a href="/ru-RU/blog/trygomoku-features">обзоре возможностей</a>, если вы ещё не открывали меню.</p>
+
+<h2>Что подходит большинству</h2>
+<p>Первая партия дня: 15×15, свободная игра, средний. Этот уровень наказывает за брошенную тройку и не требует полного форсирования, поэтому подходит самой большой группе: правила знают, друзей обыгрывают, а почему атака глохнет, им никто не объяснял.</p>
+<p>Одна партия в неделю: рэндзю, чёрные, сложный. Почти все они будут проиграны. Каждое поражение называет форму, которую строить нельзя, а список запретов короче списка разрешённых форм, так что запоминается за один вечер.</p>
+<p>Сегодня, прежде чем выбирать уровень, сделайте вот что. Откройте <a href="/ru-RU/">доску</a>, поставьте 9×9 и лёгкий, и посчитайте, сколько камней уходит у вас на две независимые угрозы одновременно. Десять и меньше: всё, что ниже среднего, это потеря времени. Больше четырнадцати: ни один уровень выше лёгкого пока вас ничему не научит.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Начните с верного уровня</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Доска 9×9, лёгкий, три партии. Посчитайте камни до двух угроз и только потом поднимайтесь.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Четыре уровня ИИ в гомоку: с какого начинать",
+    "description": "Четыре уровня это четыре разных соперника. Выбирайте по форме, которую уже видите, подстраивайте размером доски и рэндзю. Плюс условия для перехода вверх и вниз.",
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-ai-difficulty-levels-which-to-pick"}
+  }
+  </script>
+</body>
+</html>

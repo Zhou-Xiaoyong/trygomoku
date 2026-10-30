@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 AI 난이도, 어느 단계를 골라야 할까 | 오목 블로그</title>
+  <meta name="description" content="네 단계는 네 명의 다른 상대입니다. 이미 보이는 형태로 단계를 고르고, 판 크기와 렌주로 미세 조정합니다. 올릴 때와 내릴 때의 기준도 정리했습니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <meta property="og:title" content="오목 AI 난이도, 어느 단계를 골라야 할까">
+  <meta property="og:description" content="단계는 형태로 고르고 자존심으로 고르지 않습니다. 판 크기와 렌주가 라벨보다 상대를 더 많이 바꿉니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-ai-difficulty-levels-which-to-pick">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 AI 네 단계, 무엇을 고를까">
+  <meta name="twitter:description" content="네 단계는 네 명의 상대. 형태로 고르고 판 크기로 조정하며, 응수를 미리 맞힐 때 올리십시오.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">사이트 기능</span>
+          <h1 itemprop="headline">오목 AI 네 단계, 결국 어디서 시작해야 할까</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-10-30">2026-10-30</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<h2>버튼은 네 개, 설명은 하나도 없습니다</h2>
+<p>난이도 선택지는 쉬움, 보통, 어려움, 마스터 네 개뿐이고 그 이상의 안내는 없습니다. 대부분은 가운데라는 이유로 보통을 누르고, 두 판 지고 나서 탭을 닫거나 쉬움으로 내려가 아홉 판을 연달아 이깁니다. 그 아홉 판은 형태 감각에 아무것도 남기지 않습니다.</p>
+<p>어느 쪽 반응도 실력 이야기가 아닙니다. 기분으로 단계를 고르고 있었다는 이야기입니다.</p>
+
+<h2>단계는 보이는 것으로 고릅니다</h2>
+<p>오목 실력은 숫자 하나로 표현되지 않습니다. "내 실력이 몇 급인가"는 잘못된 질문입니다. 대신 다음 네 가지 중 무엇이 이미 안정적으로 되는지를 봅니다. 처음 막히는 지점이 당신의 단계입니다.</p>
+<ul>
+<li><strong>활삼과 잠든 삼을 한눈에 구분합니다.</strong> 양 끝이 비었는지 두 번 세어봐야 한다면 9×9 쉬움에서 시작합니다. 쉬움 상대가 강해서가 아니라, 놓친 것을 지적받기 전에 형태를 충분히 반복해서 봐야 하기 때문입니다.</li>
+<li><strong>사삼이 완성되기 두 수 전에 보입니다.</strong> 사가 판에 나타난 뒤에야 알아챈다면 지금은 보통이 상한입니다.</li>
+<li><strong>상대가 두 번 연속 응수해야 하는 계획을 유지합니다.</strong> 몰이 공격은 상대에게 자유수가 한 번 돌아가는 순간 끊깁니다. 공격이 늘 한 수 막히고 끝난다면 그것은 어려움이 드러내야 할 문제입니다.</li>
+<li><strong>내 VCF를 내가 반박합니다.</strong> 사를 이어 붙일 수는 있는데 그 연쇄가 이기는지 말할 수 없다면, 솔직하게 답해 주는 곳은 마스터뿐입니다.</li>
+</ul>
+<p>네 가지 시험, 네 단계, 순서는 고정입니다. 한 단계를 건너뛰는 것이 AI가 "너무 불공평하다" 혹은 "너무 약하다"는 결론으로 이어지는 가장 흔한 이유입니다.</p>
+
+<h2>같은 단계라도 9×9와 15×15는 다른 상대입니다</h2>
+<p>판 크기는 라벨보다 상대를 더 많이 바꿉니다. 9×9는 81점, 15×15는 225점입니다. 좁은 판에서는 두 갈래 위협을 만드는 데 깔개가 거의 필요 없습니다. 그래서 다섯 수째 버린 한 수가 열다섯 수째에도 발목을 잡습니다. 넓은 판에서는 같은 한 수를 버려두고 반대쪽에서 다시 짤 수 있습니다. 15×15가 느슨한 초반을 봐주고 9×9가 못 봐주는 이유입니다.</p>
+<p>실전적으로 말하면, 15×15 어려움에서 스무 수 전에 계속 끝난다면 보통으로 내리지 마십시오. 먼저 9×9에서 어려움을 둡니다. 시간당 지는 판은 늘지만 한 판이 짧아 되짚을 수 있습니다. 지금 빠진 것은 위협을 끝까지 완성하는 습관이고, 이 습관은 판이 좁을수록 빨리 붙습니다.</p>
+
+<h2>렌주를 켜면 질문이 달라집니다</h2>
+<p>렌주를 켜면 같은 라벨이 흑과 백에서 다른 상대가 됩니다. 흑은 삼삼, 사사, 육목 이상의 장련을 둘 수 없습니다. 백은 셋 다 둘 수 있고 육목에서 이깁니다.</p>
+<p>흑에게 이기는 형태는 사삼 하나로 좁혀집니다. 돌을 쌓아 두 줄을 교차시키는 자연스러운 방식이 그대로 금수가 됩니다. 그래서 흑으로 두는 보통 렌주는 흑으로 두는 보통 자유형보다 반 단계 무겁습니다. 탐색이 깊어져서가 아니라 후보점의 절반이 처음부터 불법이기 때문입니다.</p>
+<p>백이면 반대입니다. 백에는 금지가 없으니 보통 렌주 백은 금수 점이 무엇인지 배우기에 가장 온화한 자리입니다. 교차점을 찾는 쪽이 나이고, 상대는 거기에 둘 수도, 내버려둘 수도 없습니다.</p>
+
+<h2>마스터는 3초 시계로 움직입니다</h2>
+<p>마스터는 정해진 시간을 다 쓸 때까지 탐색을 깊게 합니다. 한 수에 약 3초입니다. 따라서 깊이는 기기 성능의 함수이고 상수가 아닙니다. 오래된 휴대폰이나 탭을 열두 개 띄운 브라우저에서는 같은 마스터가 더 얕게 읽고 한 단계 약하게 둡니다. 노트북에서는 이기는데 휴대폰에서는 진다면 그건 시계 때문이지 컨디션 문제가 아닙니다.</p>
+<p>같은 이유로 처음 여덟 수는 정보량이 가장 적은 구간입니다. 마스터의 초반은 정석에 가깝고 쓸 만한 재료가 나오지 않습니다. 판단하려면 열다섯 수에서 서른 수 사이, 계산을 확정해야 하는 구간을 보십시오.</p>
+
+<h2>올릴 때와 내릴 때</h2>
+<p>승률만 보면 속습니다. 쉬움과 보통 모두 무작위로 고르기 때문입니다. 신호 세 개를 함께 봅니다.</p>
+<ol>
+<li><strong>다섯 판에 네 번 이기고, 진 판은 모두 설명됩니다.</strong> 어느 돌에서 졌는지 말할 수 없다면 단계를 넘어선 것이 아니라 그 주가 좋았던 것입니다.</li>
+<li><strong>상대가 두기 전에 응수를 여섯 수 연속으로 맞힙니다.</strong> 진짜 관문입니다. 상대 쪽 읽기가 상대 자신의 읽기와 같아졌다는 뜻입니다.</li>
+<li><strong>서로 독립된 두 위협이 열두 수 전에 나옵니다.</strong> 하나가 아니라 둘입니다. 활삼 하나는 계획이 아닙니다.</li>
+</ol>
+<p>내릴 때는 다른 신호를 봅니다. 최근 세 판 중 두 판이 열두 수 전에 끝났다면 그 단계는 너무 높습니다. 내릴 때는 한 단계만 내립니다. 두 단계를 내리면 진 이유가 가려지고, 아무것도 벌하지 않는 상대로 바뀝니다. 정체가 고정되는 경로가 대개 이렇습니다.</p>
+
+<h2>각 단계가 가르치지 않는 것</h2>
+<ul>
+<li><strong>쉬움</strong>은 활삼을 그냥 둡니다. 돌 순서를 익히는 데는 쓸모가 있고 형태 규율을 배우는 데는 쓸모가 없습니다. 규율은 벌을 받은 뒤에 자랍니다.</li>
+<li><strong>보통</strong>은 위협을 막고 나서 자기 계획으로 돌아갑니다. 위협 만드는 법은 가르치지만 주도권을 쥐는 법은 가르치지 않습니다. 내 선수를 빼앗지 않기 때문입니다.</li>
+<li><strong>어려움</strong>은 손서 실수를 벌하고 몰이 공격에 정확히 응수합니다. 읽기 깊이를 단련하는 상대로 적합하며, 그 이야기는 <a href="/ko-KR/blog/gomoku-reading-ahead-how-many-moves">몇 수 앞까지 읽어야 충분한가</a>에 정리해 두었습니다. 다만 버리는 돌을 거의 두지 않으므로 희생의 아이디어는 여기서 검증되지 않습니다.</li>
+<li><strong>마스터</strong>는 "이기겠다"고 믿는 연쇄를 부정할 수 있는 유일한 단계입니다. 동시에 여섯 판 내리 자신이 멍청해 보이게 만드는 유일한 단계이기도 합니다. 상주할 곳이 아니라 주에 한 번 찾아갈 곳으로 두십시오.</li>
+</ul>
+<p>고르는 법이 아니라 단계별로 깨는 법을 원한다면 <a href="/ko-KR/blog/beat-gomoku-ai">네 단계 AI의 약점 분석</a>으로 가십시오. 판 크기, 무르기, 렌주 전환은 <a href="/ko-KR/blog/trygomoku-features">기능 안내</a>에 있습니다. 메뉴를 열어본 적이 없다면 한 번 보십시오.</p>
+
+<h2>대부분에게 맞는 답</h2>
+<p>그날 첫 판은 15×15 자유형 보통입니다. 버린 삼을 벌하고 완전한 몰이 공격까지는 요구하지 않는 단계라 가장 많은 층에 맞습니다. 규칙은 알고, 친구에게는 이기지만, 공격이 왜 끊기는지는 아무도 알려주지 않은 층입니다.</p>
+<p>주에 한 판은 렌주 흑으로 어려움. 거의 집니다. 질 때마다 만들면 안 되는 형태 하나를 알려줍니다. 금수 목록은 합법 형태 목록보다 훨씬 짧아서 하룻밤이면 외웁니다.</p>
+<p>오늘 밤 단계를 고르기 전에 이것부터 하십시오. <a href="/ko-KR/">판</a>을 열고 9×9 쉬움으로 두면서, 독립된 두 위협을 동시에 쥐기까지 몇 수가 걸리는지 세십시오. 열 수 이내라면 보통 아래는 시간 낭비입니다. 열네 수를 넘는다면 쉬움 위 어떤 단계도 아직 가르쳐 줄 것이 없습니다.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">맞는 단계에서 시작하기</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">9×9, 쉬움, 세 판. 두 위협까지 몇 수가 걸리는지 세고 나서 올리십시오.</p>
+            <a href="/ko-KR/#game" class="cta-btn">오목 두기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 AI 네 단계, 결국 어디서 시작해야 할까",
+    "description": "네 단계는 네 명의 다른 상대입니다. 이미 보이는 형태로 단계를 고르고, 판 크기와 렌주로 미세 조정합니다. 올릴 때와 내릴 때의 기준도 정리했습니다.",
+    "datePublished": "2026-10-30",
+    "dateModified": "2026-10-30",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-ai-difficulty-levels-which-to-pick"}
+  }
+  </script>
+</body>
+</html>
