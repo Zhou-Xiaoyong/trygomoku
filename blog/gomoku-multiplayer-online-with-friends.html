@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku Multiplayer Online with Friends | Gomoku Blog</title>
+  <meta name="description" content="There is a vs Friend switch and no lobby to join. How pass-and-play actually works, the coordinate protocol for a friend in another city, and why undo takes one stone.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-multiplayer-online-with-friends">
+  <meta property="og:title" content="Gomoku Multiplayer Online with Friends">
+  <meta property="og:description" content="One switch, two humans, no server. Pass-and-play rules, the remote protocol, and why undo returns a single stone instead of a pair.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-multiplayer-online-with-friends">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku Multiplayer with a Friend, No Server Needed">
+  <meta name="twitter:description" content="Black plays the odd moves. If your friend calls move fourteen on a board holding thirteen stones, somebody skipped.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Gameplay Tips</span>
+          <h1 itemprop="headline">Gomoku Multiplayer Online with Friends</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-03">2026-11-03</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>The switch exists, the lobby does not</h2>
+<p>One tap right of "vs Computer" sits a button labelled "vs Friend". It does what it says, and it does not do what the phrase "multiplayer online" usually promises: no room code, no matchmaking, no invite link, and no server holding your position while your friend thinks about move seventeen.</p>
+<p>Same board, two humans, one device. That is the whole feature. Knowing it before the first stone is worth more than any settings tour, because everything below depends on it. <a href="../">The board</a> opens on 15x15 with freestyle already selected, which is the right starting point anyway.</p>
+
+<h2>Pass and play, in the order it happens</h2>
+<p>Switch to vs Friend and three things change at once. The difficulty row greys out, the colour picker greys out, and the board stops waiting for anybody. Black, then White, then Black. The only record of whose turn it is: the stone that just appeared.</p>
+<p>Black belongs to whoever opened the page. There is no coin flip, and no way to hand Black to the other person short of passing the device across the table before the first tap.</p>
+<p>The greyed-out controls are not a bug. They are the mode telling you there is no AI left to configure. "Hard" means nothing in a game with two humans in it.</p>
+
+<h2>Undo takes back one stone, not a pair</h2>
+<p>Against the computer, undo removes your move and the AI's reply together, so the position returns to the moment before your mistake. In vs Friend it removes exactly one stone, the last one played, whatever colour that was.</p>
+<p>So the stone that disappears is usually your opponent's answer rather than your own error. The turn goes back to them, and they get to choose again somewhere else. That is not a glitch, it is what "undo one move" means in a two-human game. It is also an argument waiting to happen.</p>
+<p>Two policies hold up. No undo for the whole game, or one each, declared before move one. Anything vaguer gets settled at move thirty, by whoever is more tired.</p>
+
+<h2>A friend in another city: coordinates out loud</h2>
+<p>Without a server, remote play runs on notation and a shared screen. Notation is two characters per move: column letter, then row number. The centre of a 15x15 board is H8. A short opening reads H8, I8, H9, G7, and can be spoken in four seconds.</p>
+<p>The parity check is the useful part. Black plays the odd moves, White the even ones. If your friend announces move fourteen and the board in front of you holds thirteen stones, somebody skipped or repeated a call. You find out now instead of at move forty, when the five does not add up.</p>
+<p>Screen sharing works with one adjustment. A full 15x15 grid scaled into a chat window turns sixteen-pixel lines into grey mush, and the thing you actually need to see is which intersection carries the last-move highlight. Zoom until one corner fills the frame, or skip the video and read coordinates. Talking is faster than looking.</p>
+<p>Both ends also have to agree on the rule set, and this is the failure that costs games. In freestyle, six in a row wins. Under Renju, a sixth stone for Black is an overline and Black loses on the spot. If one board has the Renju toggle on and the other does not, the game ends in a disagreement instead of a five. <a href="trygomoku-features">The features page</a> shows where that toggle sits.</p>
+
+<h2>Your hand hovers, and that is information</h2>
+<p>Everything above is logistics. The real difference between a two-human board and the AI is smaller and stranger: it is the hover.</p>
+<p>The board previews a stone under the pointer before you commit. Against the computer that preview costs nothing, because the AI does not read your hand. Against a person sitting beside you, the pale circle drifting from J9 to J10 to K10 is a whole sentence: here is where I am thinking, and here is the one I like.</p>
+<p>Decide, then move. Not the other way round. It is the closest thing this game has to a poker face, and it costs one habit to learn.</p>
+<p>The second difference is the angle. Two people sharing one screen read the same grid from different seats, and a diagonal flips handedness depending on which side of the tablet you sit on. Say the coordinate as you play it, even in the same room. It catches the error where both of you are certain the line runs the other way.</p>
+
+<h2>Humans do not punish like engines</h2>
+<p>Medium answers an open three because its evaluation tells it to. A friend who has played four games in their life will look at your live three, decide it is not urgent, and build a two on the far side instead. Then you win, and you learn the wrong lesson: that your attack worked.</p>
+<p>Against a person the question changes from "what does the engine do" to "what did they notice". Watch whether they answer a threat or the loudest thing on the board. Those are different players and they need different games. The one who blocks the loudest thing will walk straight past a quiet live three. The one who blocks every three will let you build a four in the corner while they are busy.</p>
+
+<h2>Two-player opening adjustments</h2>
+<p>With no restrictions, in freestyle, Black wins with correct play. That is a known result rather than a rumour, and it is the reason tournament gomoku carries the Renju bans and why balanced openings exist at all.</p>
+<p>So the first player takes H8 and means it. From the centre, four directions give four points of runway each.</p>
+<p>White's first reply decides more than most beginners expect. The instinct is the adjacent point, one step along the same line, which hands Black a two-stone wall for free and lets them extend that line again on the next move. The sturdier answer sits two steps away on a diagonal, outside Black's line rather than inside it, so the reply builds White's own structure instead of completing someone else's.</p>
+<p>With the Renju toggle on, settle the foul question before move one. A triple-three for Black loses instantly under tournament rules, and losing a friendly game to a rule nobody agreed to is the fastest way to stop playing.</p>
+
+<h2>One phone, two players</h2>
+<p>Fifteen lines across a 360-pixel screen puts intersections about 23 pixels apart, and two people passing a phone will both miss. Turn it sideways, zoom one step, and tap rather than drag. <a href="play-gomoku-online-free-no-download">The browser-side details</a> live in the no-download piece, including why a mis-tap on a live three costs more than a wasted turn.</p>
+<p>If the group is bigger than two, the setup changes. <a href="gomoku-family-game-night">The game-night rotation</a> covers how one screen survives four people and a six-year-old who insists on playing the winner.</p>
+
+<h2>Ten moves out loud</h2>
+<p>Before the next game, try this. Play the first ten moves in coordinates, spoken aloud even at the same table, and call each one before you tap it. If neither of you has asked "wait, which one was that" by move ten, you are ready to play a friend who is not in the room. If you have, the problem was never the connection.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Two Colours, One Board</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Switch to vs Friend and the AI steps out. Same 15x15 grid, same Renju toggle, no room code to trade.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku Multiplayer Online with Friends",
+    "description": "There is a vs Friend switch and no lobby to join. How pass-and-play actually works, the coordinate protocol for a friend in another city, and why undo takes one stone.",
+    "datePublished": "2026-11-03",
+    "dateModified": "2026-11-03",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-multiplayer-online-with-friends"}
+  }
+  </script>
+</body>
+</html>

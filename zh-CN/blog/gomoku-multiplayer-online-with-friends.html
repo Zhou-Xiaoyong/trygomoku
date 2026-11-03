@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋联机和朋友下，两种可行的方式｜五子棋博客</title>
+  <meta name="description" content="棋盘上只有「双人对战」一个开关，没有房间也没有匹配。同屏轮流的规矩、隔城用坐标对局的做法，以及为什么悔棋只退一颗子。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-multiplayer-online-with-friends">
+  <meta property="og:title" content="五子棋联机，和朋友下一盘">
+  <meta property="og:description" content="一个开关、两个人、没有服务器。同屏的规矩、异地的坐标协议，以及悔棋为什么只退一颗子。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-multiplayer-online-with-friends">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋双人对战，不需要服务器">
+  <meta name="twitter:description" content="黑棋走奇数手。朋友报第 14 手，你盘上只有 13 颗子，说明中间漏了一手。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">对局技巧</span>
+          <h1 itemprop="headline">五子棋联机：和朋友下一盘，有两种走法</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-03">2026-11-03</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>开关是真的，房间不存在</h2>
+<p>「人机对战」右边一格就是「双人对战」。这个按钮做了它写着的事，也没做「联机对战」通常暗示的事：没有房间号，没有匹配，没有邀请链接，也没有一个服务器替你保存局面、等你朋友想第 17 手。</p>
+<p>一块盘，两个人，一台设备。整个功能就这么多。开局前先知道这件事，比看完所有设置有用。后面每一条都建立在这上面。<a href="/zh-CN/">棋盘</a>打开就是 15×15、自由式，本来也是最该用的起点。</p>
+
+<h2>同屏轮流，按实际发生的顺序说</h2>
+<p>切到「双人对战」，三件事同时变。难度那一排变灰，选边变灰，棋盘不再等任何人。黑一手、白一手、再黑一手，唯一记录轮到谁的东西，是刚才多出来的那颗子。</p>
+<p>打开页面的人执黑。没有掷硬币，也没有把黑棋让给对方的开关——除非在第一子落下之前把设备递过去。</p>
+<p>灰掉的控件不是故障，是这个模式在说：已经没有 AI 需要配置了。两个人下棋，「困难」两个字没有任何含义。</p>
+
+<h2>悔棋退一颗，不是退一对</h2>
+<p>对人机模式，悔棋会同时拿掉你的一手和 AI 的应手，局面回到你犯错之前。切到「双人对战」，悔棋只拿掉盘上最后一颗子，不管它是谁的颜色。</p>
+<p>所以消失的那颗，通常是对手的应手，而不是你的错手。手番立刻回到他那里，他可以重新挑一个地方落子。这不是漏洞，是「退一手」在两人局里本来的意思。它同时也是一场等着发生的争吵。</p>
+<p>能长期执行的就两条：整局不禁手，或者每人一次、开局前说清楚。含糊的约定撑不到第 30 手，最后总是由更困的那个人来裁决。</p>
+
+<h2>朋友在另一个城市：把坐标念出来</h2>
+<p>没有服务器，异地就只能靠记谱加共享画面。记谱一手两个字符：列字母加行号。15×15 的中心是 H8。一个短开局念作 H8、I8、H9、G7，四秒钟说完。</p>
+<p>真正好用的是奇偶校验。黑走奇数手，白走偶数手。朋友报「第 14 手」，你盘上是 13 颗子，说明中间漏报或重报了一手。现在就能发现，而不是到第 40 手五连凑不齐时才发现。</p>
+<p>共享屏幕能用，但要改一件事。整块 15×15 缩进聊天窗口，十六像素的线会糊成一片灰，而你真正需要看清的只有一点：最后一手的高亮落在哪个交叉点。放大到一角占满画面，或者干脆关掉视频只念坐标。说话比看快。</p>
+<p>两端还得统一规则，这是真会毁局的一条。自由式里六连也算赢；连珠里黑棋第六子就是长连，黑当场判负。一边开着连珠、一边没开，这局不会以五连结束，只会以争执结束。<a href="/zh-CN/blog/trygomoku-features">各个开关的位置</a>在功能介绍里。</p>
+
+<h2>你的手会悬停，而那是信息</h2>
+<p>上面都是流程。两个人一块盘和 AI 的真正差别更小、也更怪：是悬停。</p>
+<p>落子前，指针停处会出现半透明的预览。对着电脑，这个预览不要钱，AI 不读你的手。对着一个坐在旁边的人，那个淡色圆点从 J9 飘到 J10 再到 K10，就是一句话：我在考虑这里，我更喜欢那一格。</p>
+<p>先决定，再动。别反过来。这是这个游戏最接近「表情管理」的东西，成本只是一个习惯。</p>
+<p>第二个差别是角度。两个人共用一块屏幕，坐的位置不同，斜线的左右手方向是反的。哪怕同一张桌子，落子时也把坐标念出来。它能拦住那种「两个人都确信这条线是反方向」的错误。</p>
+
+<h2>人不会像引擎那样惩罚你</h2>
+<p>「中等」会应你的活三，因为它的评估函数让它应。一个只下过四盘棋的朋友，看见你的活三，很可能判断「不急」，转头在另一边搭自己的二。然后你赢了，还学到了错误的结论：我的进攻奏效了。</p>
+<p>对人下棋，该问的问题从「引擎会怎么走」变成「他刚才看见了什么」。看他应的是威胁，还是盘面上最响的那一处。这是两种不同的对手，要用两种不同的下法。只挡最响那一处的人，会放过安静的三；每三必挡的人，你可以在角上慢慢搭四，他忙着挡。</p>
+
+<h2>两人局的开局要改两手</h2>
+<p>无禁手、无限制时，黑棋走对了就是赢。这是已知结论，不是传说。所以正式比赛才要加连珠禁手，也才有平衡开局这种东西。</p>
+<p>第一手拿 H8，并且认真拿。从中心出发，四个方向各有四格跑道。</p>
+<p>白棋的第一应手，比多数新手以为的更重要。直觉是贴着下——同一行往旁边挪一格。这一手白送黑棋一面两子宽的墙，下一手还能顺着同一条线继续长。更结实的应手在斜向、隔两格：绕开黑棋那条线，落在自己的结构上，而不是替黑棋把线补完。</p>
+<p>如果开了连珠，第一手之前先把禁手口径谈好。黑棋三三在正式规则里当场判负，因为一条没约定过的规则输掉一盘友谊局，是最快的劝退方式。</p>
+
+<h2>一台手机，两个人</h2>
+<p>15 条线摊在 360 像素的屏上，交叉点间距大约 23 像素。两个人轮流拿同一台手机，都会点偏。横过来、放大一级、用点不用拖。<a href="/zh-CN/blog/play-gomoku-online-free-no-download">浏览器端的细节</a>写在「免下载」那篇里，包括为什么在活三上点偏一格，代价比浪费一手大得多。</p>
+<p>如果不止两个人，摆法就得换。<a href="/zh-CN/blog/gomoku-family-game-night">家庭游戏夜那篇</a>讲了四口人加一个非要挑战赢家的小孩，怎么用一块屏幕撑住。</p>
+
+<h2>先用嘴下十手</h2>
+<p>下一局开始前试一次：前十手全部念坐标，哪怕坐在同一张桌子，也要在落子之前把坐标说出来。十手之内谁都不需要问「等等，刚才那颗在哪」，你就能跟一个不在房间里的人下棋了。如果需要问，问题从来不在网络上。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">两种颜色，一块盘</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">切到「双人对战」，AI 就退场了。15×15、连珠开关都在，只是没有房间号要交换。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋联机：和朋友下一盘，有两种走法",
+    "description": "棋盘上只有「双人对战」一个开关，没有房间也没有匹配。同屏轮流的规矩、隔城用坐标对局的做法，以及为什么悔棋只退一颗子。",
+    "datePublished": "2026-11-03",
+    "dateModified": "2026-11-03",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-multiplayer-online-with-friends"}
+  }
+  </script>
+</body>
+</html>

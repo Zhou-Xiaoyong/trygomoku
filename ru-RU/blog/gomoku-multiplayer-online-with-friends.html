@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гомоку на двоих онлайн: как сыграть с другом | Блог о гомоку</title>
+  <meta name="description" content="На доске есть переключатель «с другом», а комнат и подбора соперников нет. Как играть по очереди на одном экране, как диктовать ходы и почему отмена возвращает один камень.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-multiplayer-online-with-friends">
+  <meta property="og:title" content="Гомоку с другом онлайн">
+  <meta property="og:description" content="Один переключатель, два человека, никакого сервера. Правила игры на одном экране, протокол координат на расстоянии и что делает «Отменить».">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-multiplayer-online-with-friends">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Гомоку на двоих, сервер не нужен">
+  <meta name="twitter:description" content="Чёрные ходят нечётными ходами. Если друг называет четырнадцатый ход, а на доске тринадцать камней, кто-то пропустил.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Советы по игре</span>
+          <h1 itemprop="headline">Гомоку на двоих онлайн</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-03">2026-11-03</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Переключатель есть, лобби нет</h2>
+<p>Сразу справа от «против ИИ» стоит кнопка «с другом». Она делает ровно то, что написано, и не делает того, что обычно обещает слово «онлайн»: нет кода комнаты, нет подбора соперника, нет ссылки-приглашения и нет сервера, который держит позицию, пока друг думает над семнадцатым ходом.</p>
+<p>Одна доска, два человека, одно устройство. Это всё. Знать это до первого камня полезнее, чем изучить все настройки, потому что всё дальнейшее выводится отсюда. <a href="/ru-RU/">Доска</a> открывается на 15×15 в свободном стиле, и это как раз правильная точка старта.</p>
+
+<h2>По очереди, в том порядке, в каком это происходит</h2>
+<p>Переключение на «с другом» меняет три вещи сразу. Ряд сложности становится серым, выбор цвета тоже, и доска перестаёт кого-либо ждать. Чёрный, белый, снова чёрный. Единственное, что отмечает очередь, это камень, который только что появился.</p>
+<p>Чёрными играет тот, кто открыл страницу. Жребия нет, и передать чёрный цвет другому можно только одним способом: отдать устройство до первого касания.</p>
+<p>Серые элементы управления не поломка. Это режим сообщает, что настраивать больше некого. В партии двух людей слово «Сложный» не значит ничего.</p>
+
+<h2>«Отменить» убирает один камень, а не пару</h2>
+<p>В игре с ИИ отмена убирает ваш ход вместе с ответом машины, и позиция возвращается к моменту до ошибки. В режиме «с другом» исчезает ровно один камень, последний на доске. Цвет не важен.</p>
+<p>Поэтому исчезает обычно ответ соперника, а не ваша ошибка. Очередь сразу возвращается к нему, и он выбирает другое место. Это не дефект, а смысл выражения «отменить один ход» в партии двух людей. И это же готовый повод для спора.</p>
+<p>Работают два договора. Либо отмены нет всю партию, либо по одной на каждого, объявленной до первого хода. Расплывчатая договорённость решается на тридцатом ходу, и обычно не в пользу того, кто сильнее устал.</p>
+
+<h2>Друг в другом городе: координаты вслух</h2>
+<p>Без сервера игра на расстоянии держится на записи ходов и общем экране. Запись это два знака на ход: буква столбца и номер строки. Центр доски 15×15 находится на H8. Короткое начало читается H8, I8, H9, G7 и произносится за четыре секунды.</p>
+<p>Полезнее всего проверка чётности. Чёрные ходят нечётными ходами, белые чётными. Если друг называет четырнадцатый ход, а перед вами тринадцать камней, значит один ход пропущен или назван дважды. Узнать это сейчас дешевле, чем на сороковом ходу, когда пятёрка не складывается.</p>
+<p>Демонстрация экрана тоже годится, но с одной поправкой. Сетка 15×15, сжатая в окно чата, превращает шестнадцатипиксельные линии в серую кашу, а смотреть нужно на одно: на каком пересечении стоит подсветка последнего хода. Увеличьте один угол до полного экрана или выключите видео и просто читайте координаты. Говорить быстрее, чем смотреть.</p>
+<p>И набор правил должен совпадать с обеих сторон, иначе партия ломается. В свободном стиле шесть в ряд это победа. В рэндзю шестой камень чёрных это перебор, и чёрные проигрывают немедленно. Если у одного включён рэндзю, а у другого нет, партия закончится не пятёркой, а спором. Где находится переключатель, видно на <a href="/ru-RU/blog/trygomoku-features">странице возможностей</a>.</p>
+
+<h2>Рука зависает, и это информация</h2>
+<p>Всё выше было про порядок действий. Настоящая разница между доской на двоих и машиной меньше и страннее: это зависшая рука.</p>
+<p>До подтверждения под указателем показывается призрачный камень. Против ИИ этот предпросмотр бесплатен, машина не читает вашу руку. Против человека, который сидит рядом, бледный кружок, ползущий с J9 на J10 и дальше на K10, превращается в целую фразу: вот здесь я думаю, а нравится мне вон там.</p>
+<p>Сначала решите, потом двигайте. Не наоборот. Это самое близкое к покерфейсу, что есть в этой игре, и стоит оно одной привычки.</p>
+<p>Вторая разница в угле зрения. Когда двое смотрят в один экран, диагонали читаются зеркально в зависимости от того, с какой стороны вы сидите. Даже за одним столом называйте координату перед ходом. Это ловит ошибку, при которой оба уверены, что линия идёт в другую сторону.</p>
+
+<h2>Человек наказывает не так, как движок</h2>
+<p>«Средний» отвечает на вашу открытую тройку, потому что так велит его оценка. Друг, сыгравший четыре партии в жизни, посмотрит на тройку, решит, что это не срочно, и начнёт строить свою двойку на другом краю. Вы выиграете и выучите неверный вывод: атака сработала.</p>
+<p>Против человека вопрос меняется с «как сыграет движок» на «что он заметил». Смотрите, на что он отвечает: на угрозу или на самое заметное на доске. Это разные соперники, и играть с ними нужно по-разному. Тот, кто закрывает только очевидное, пропустит тихую открытую тройку. Тот, кто отвечает на каждую тройку, даст вам спокойно собрать четвёрку в углу, пока он занят.</p>
+
+<h2>Начало на двоих меняется на два хода</h2>
+<p>Без ограничений, в свободном стиле, чёрные выигрывают при точной игре. Это известный результат, а не слух, и именно поэтому в турнирном гомоку появились запреты рэндзю и само понятие уравновешенного начала.</p>
+<p>Поэтому первый игрок берёт H8 и берёт всерьёз. Из центра четыре направления дают по четыре клетки разгона.</p>
+<p>Первый ответ белых решает больше, чем ждут новички. Инстинкт подсказывает соседнюю точку, на шаг по той же линии. Это дарит чёрным стену из двух камней и позволяет продлить ту же линию следующим ходом. Крепче ответ на две клетки по диагонали, вне линии чёрных: он строит структуру белых вместо того, чтобы достраивать чужую.</p>
+<p>Если рэндзю включён, договоритесь о запретах до первого хода. Тройная тройка у чёрных по турнирным правилам проигрывает сразу, а проиграть товарищескую партию из-за правила, о котором не договаривались, это самый быстрый способ бросить игру.</p>
+
+<h2>Один телефон, два игрока</h2>
+<p>Пятнадцать линий на экране шириной 360 пикселей дают около 23 пикселей между пересечениями. Двое, передающие телефон, промахнутся оба. Поверните экран, увеличьте на один шаг и нажимайте, а не тяните. <a href="/ru-RU/blog/play-gomoku-online-free-no-download">Подробности про браузер</a> собраны в статье об игре без установки, там же о том, почему промах на открытой тройке стоит дороже потерянного хода.</p>
+<p>Если игроков больше двух, схема меняется. <a href="/ru-RU/blog/gomoku-family-game-night">Статья о семейном вечере</a> разбирает, как один экран выдерживает четырёх взрослых и шестилетку, который требует партию с победителем.</p>
+
+<h2>Десять ходов вслух</h2>
+<p>Перед следующей партией попробуйте так. Первые десять ходов называйте координатами вслух, даже за одним столом, и говорите до касания. Если к десятому ходу никто не спросил «погоди, это куда», вы готовы играть с другом, которого нет в комнате. Если спросил, проблема была не в связи.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Два цвета, одна доска</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Переключите режим на «с другом», и ИИ уйдёт. Те же 15×15, тот же переключатель рэндзю, никаких кодов комнаты.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Гомоку на двоих онлайн",
+    "description": "На доске есть переключатель «с другом», а комнат и подбора соперников нет. Как играть по очереди на одном экране, как диктовать ходы и почему отмена возвращает один камень.",
+    "datePublished": "2026-11-03",
+    "dateModified": "2026-11-03",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-multiplayer-online-with-friends"}
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목을 친구와 온라인으로 두는 두 가지 방법 | 오목 블로그</title>
+  <meta name="description" content="보드에는 '친구 대결' 스위치만 있고 방도 매칭도 없습니다. 한 화면에서 번갈아 두는 규칙, 떨어진 친구와 좌표로 두는 절차, 무르기가 한 알만 되돌리는 이유.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-multiplayer-online-with-friends">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-multiplayer-online-with-friends">
+  <meta property="og:title" content="오목을 친구와 온라인으로 두기">
+  <meta property="og:description" content="스위치 하나, 사람 둘, 서버 없음. 같은 화면의 규칙, 원거리 좌표 프로토콜, 한 알만 되돌아가는 무르기의 처리.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-multiplayer-online-with-friends">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 친구 대결, 서버는 필요 없습니다">
+  <meta name="twitter:description" content="흑이 홀수 번째 수입니다. 친구가 14수라고 했는데 보드에 돌이 13개라면 누군가 한 수를 건너뛴 것입니다.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">게임 팁</span>
+          <h1 itemprop="headline">오목을 친구와 온라인으로 두기</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-03">2026-11-03</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>스위치는 있고, 로비는 없습니다</h2>
+<p>'vs AI' 바로 오른쪽에 '친구 대결' 버튼이 있습니다. 이 버튼은 적힌 대로 하며, 보통 '온라인 대전'이 약속하는 것은 하나도 약속하지 않습니다. 방 코드도, 매칭도, 초대 링크도, 친구가 17수를 고민하는 동안 국면을 들고 있어 줄 서버도 없습니다.</p>
+<p>같은 보드, 사람 둘, 기기 하나. 기능은 그게 전부입니다. 첫 돌을 놓기 전에 이걸 아는 편이 설정을 한 바퀴 훑는 것보다 쓸모 있습니다. 뒤에 오는 이야기가 전부 여기서 나옵니다. <a href="/ko-KR/">보드</a>는 열면 15×15, 자유형입니다. 어차피 그게 맞는 출발점입니다.</p>
+
+<h2>번갈아 두기, 일어나는 순서대로</h2>
+<p>'친구 대결'로 바꾸면 세 가지가 동시에 변합니다. 난이도 줄이 회색이 되고, 돌 색 선택도 회색이 되고, 보드는 더 이상 누구를 기다리지 않습니다. 흑, 백, 다시 흑. 차례를 기록하는 것은 방금 늘어난 돌 하나뿐입니다.</p>
+<p>페이지를 연 사람이 흑입니다. 동전을 던지지도 않고, 첫 수 전에 기기를 건네는 것 말고 흑을 넘기는 방법도 없습니다.</p>
+<p>회색이 된 조작부는 오류가 아닙니다. 설정할 AI가 더 이상 없다는 신호입니다. 사람 둘의 대국에서 '어려움'이라는 글자는 아무 의미도 없습니다.</p>
+
+<h2>'무르기'는 한 알만 되돌립니다</h2>
+<p>가장 자주 말다툼이 나는 지점입니다. AI 대국에서 무르기를 누르면 내 수와 AI의 응수가 함께 사라져 실수 직전 국면으로 돌아갑니다. '친구 대결'에서는 보드의 마지막 돌 하나만 사라집니다. 색은 가리지 않습니다.</p>
+<p>그래서 사라지는 돌은 대개 내 실수가 아니라 상대의 응수입니다. 차례는 곧바로 상대에게 돌아가고, 상대는 다른 자리를 다시 고를 수 있습니다. 결함이 아니라 사람 둘의 대국에서 '한 수 무르기'가 뜻하는 바 그대로입니다. 그리고 언젠가 말다툼이 될 씨앗이기도 합니다.</p>
+<p>오래 가는 합의는 두 가지입니다. 전 대국 무르기 없음, 또는 각자 한 번을 첫 수 전에 선언하기. 어중간하게 두면 30수에서 결판이 나고, 판정은 대개 더 피곤한 쪽에 불리합니다.</p>
+
+<h2>상대가 멀리 있으면 좌표를 소리 내어</h2>
+<p>서버가 없으니 원거리 대국은 기보와 화면 공유로 돌아갑니다. 기보는 한 수에 두 글자, 열 기호와 행 번호입니다. 15×15의 중심은 H8입니다. 짧은 초반은 H8, I8, H9, G7이고 소리 내면 사 초입니다.</p>
+<p>쓸모 있는 건 홀짝 대조입니다. 흑이 홀수 번째, 백이 짝수 번째입니다. 친구가 '14수'라고 했는데 눈앞의 보드에 돌이 13개라면 어딘가에서 한 수가 빠지거나 두 번 세어졌습니다. 40수에서 오목이 안 맞을 때 알아차리는 것보다 지금 알아차리는 편이 쌉니다.</p>
+<p>화면 공유도 되지만 한 가지 조정이 필요합니다. 15×15 격자를 채팅 창에 줄이면 16픽셀 선이 회색 덩어리가 됩니다. 정작 봐야 하는 것은 마지막 수 강조가 어느 교점에 있느냐입니다. 한 귀퉁이를 화면 가득 확대하거나, 영상을 끄고 좌표만 읽으십시오. 보는 것보다 말하는 것이 빠릅니다.</p>
+<p>양쪽 규칙을 맞추는 것도 필수입니다. 여기서 어긋나면 대국이 깨집니다. 자유형은 여섯 목도 승리이고, 렌주에서 흑의 여섯 번째 돌은 장목이라 흑이 그 자리에서 집니다. 한쪽만 렌주가 켜져 있으면 그 승부는 오목으로 끝나지 않고 말다툼으로 끝납니다. <a href="/ko-KR/blog/trygomoku-features">전환 위치</a>는 기능 소개에 정리해 두었습니다.</p>
+
+<h2>손이 멈춥니다. 그게 정보입니다</h2>
+<p>여기까지는 절차입니다. 사람 둘의 보드와 AI의 진짜 차이는 더 작고 조금 이상합니다. 멈추는 손입니다.</p>
+<p>확정하기 전, 포인터 아래에 돌 미리보기가 뜹니다. AI 상대로는 이 미리보기에 값이 없습니다. AI는 당신의 손을 읽지 않습니다. 옆에 앉은 사람 상대로는 J9에서 J10, 다시 K10으로 흐르는 흐린 원이 한 문장이 됩니다. 여기를 생각 중이고, 사실은 저기가 마음에 든다, 라고.</p>
+<p>정한 다음 움직이십시오. 반대로 하지 말고. 이 게임에서 표정 관리에 가장 가까운 것이고, 배우는 데 습관 하나면 됩니다.</p>
+<p>두 번째 차이는 각도입니다. 화면 하나를 둘이 보면 앉은 자리에 따라 대각선의 좌우가 뒤집힙니다. 같은 책상이라도 둘 때 좌표를 입에 올리십시오. '이 선은 반대 방향'이라고 둘이 동시에 확신하는 종류의 실수를 그것만으로 막을 수 있습니다.</p>
+
+<h2>사람은 엔진처럼 벌하지 않습니다</h2>
+<p>'보통'은 당신의 활삼에 응수합니다. 평가 함수가 그렇게 시키기 때문입니다. 네 판밖에 두지 않은 친구는 그 활삼을 보고 '급하지 않다'고 판단해 반대편에서 자기 이를 늘립니다. 당신은 이기고, 그리고 틀린 결론을 배웁니다. 내 공격이 통했다, 라고.</p>
+<p>사람 상대로는 질문이 '엔진이라면 어떻게 두나'에서 '저 사람은 무엇을 봤나'로 바뀝니다. 위협에 반응했는지, 판에서 가장 눈에 띄는 것에 반응했는지. 이 둘은 다른 상대이고 두는 법도 다릅니다. 가장 눈에 띄는 것만 막는 사람은 조용한 활삼을 지나칩니다. 삼마다 응수하는 사람은 그동안 귀퉁이에서 네 개를 만들게 내버려 둡니다.</p>
+
+<h2>둘의 초반은 두 수가 달라집니다</h2>
+<p>제한 없는 자유형에서 흑이 정확히 두면 이깁니다. 소문이 아니라 알려진 결과이고, 대회 오목에 렌주 금수가 들어가는 이유도, 균형 잡힌 초반이라는 개념이 있는 이유도 여기에 있습니다.</p>
+<p>그래서 선수는 H8을 잡고, 그럴 생각으로 잡습니다. 중심에서면 네 방향에 각각 네 칸의 활주로가 생깁니다.</p>
+<p>백의 첫 응수는 초보가 생각하는 것보다 많은 것을 정합니다. 직감은 옆, 같은 선을 한 칸 비켜 가는 수입니다. 이것은 흑에게 두 돌짜리 벽을 공짜로 주고 다음 수에 같은 선을 늘리게 합니다. 단단한 응수는 대각선으로 두 칸, 흑의 선 바깥에 놓는 것입니다. 흑의 선을 완성하는 대신 백의 구조를 만듭니다.</p>
+<p>렌주를 켠다면 금수 처리를 첫 수 전에 정하십시오. 대회 규칙에서 흑의 삼삼은 그 자리에서 패배입니다. 합의하지 않은 규칙으로 친선 대국을 잃는 것이 가장 빠른 은퇴 권유입니다.</p>
+
+<h2>스마트폰 하나에 둘</h2>
+<p>15개의 선이 폭 360픽셀에 들어가면 교점 간격이 약 23픽셀입니다. 기기 하나를 돌려 쓰면 둘 다 빗나갑니다. 가로로 돌리고, 한 단계 확대하고, 끌지 말고 누르십시오. <a href="/ko-KR/blog/play-gomoku-online-free-no-download">브라우저 쪽 세부</a>는 '다운로드 없음' 글에 있고, 활삼 위에서 한 칸 빗나가는 값이 한 수 낭비로 끝나지 않는 이유도 거기 적혀 있습니다.</p>
+<p>셋 이상이면 배치가 달라집니다. <a href="/ko-KR/blog/gomoku-family-game-night">가족 게임의 밤 글</a>은 어른 넷과 이긴 사람에게 도전하겠다는 여섯 살을 화면 하나로 어떻게 감당하는지를 다룹니다.</p>
+
+<h2>첫 열 수를 소리 내어</h2>
+<p>다음 대국 전에 해 보십시오. 첫 열 수를 전부 좌표로, 같은 책상에 앉아 있어도 소리 내고, 두기 전에 말합니다. 열 수 안에 아무도 '잠깐, 그거 어디'라고 묻지 않았다면 당신은 방에 없는 상대와 둘 수 있습니다. 물었다면 문제는 회선이 아니었던 것입니다.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">두 가지 색, 보드 하나</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">'친구 대결'로 바꾸면 AI가 물러납니다. 15×15도 렌주 전환도 그대로이고, 주고받을 방 코드가 없습니다.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 두기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목을 친구와 온라인으로 두기",
+    "description": "보드에는 '친구 대결' 스위치만 있고 방도 매칭도 없습니다. 한 화면에서 번갈아 두는 규칙, 떨어진 친구와 좌표로 두는 절차, 무르기가 한 알만 되돌리는 이유.",
+    "datePublished": "2026-11-03",
+    "dateModified": "2026-11-03",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-multiplayer-online-with-friends"}
+  }
+  </script>
+</body>
+</html>
