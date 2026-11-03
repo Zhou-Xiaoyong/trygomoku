@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べの時間制限、速く打つコツ｜一手十秒の使い方 | 五目並べブログ</title>
+  <meta name="description" content="この盤に時計はありません。一手十秒の決め方、長考すべき三手、そして早指しで最初に失われるのが読みではなく確認である理由。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-timed-mode-how-to-play-fast">
+  <meta property="og:title" content="五目並べを時間制限で速く打つ">
+  <meta property="og:description" content="静かな二役の石が相手の時間を削り、強制の手は自分の時間をほとんど奪いません。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-timed-mode-how-to-play-fast">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="時間制限の五目並べ">
+  <meta name="twitter:description" content="時計を使う価値があるのは三手だけです。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">五目並べの時間制限、速く打つコツ：秒を使う手は三つだけ</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-03">2026-11-03</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>三十四手目、残り九秒、そして六連</h2>
+<p>黒は h4 から h8 まで五石。h9 は空いています。スマホのストップウォッチは九秒を指していて、彼はその列に何石あるか数えずに h9 を打ちました。</p>
+<p>六連です。連珠では黒の即負けで、長連といいます。求められているのはちょうど五石です。禁手なしのルールなら、同じ一石が勝ちになります。</p>
+<p>難しい局面ではありませんでした。一行数えるのに二秒あれば足ります。その二秒を時計が先に取っただけです。時間制限は同じ対局を速く打つことではありません。追い込まれたときに消えるのは妙手ではなく、確認です。</p>
+
+<h2>この盤に時計はないので、自分で持ち込む</h2>
+<p>設定できるのは難易度（簡単・普通・困難・マスター）、盤面（9×9・15×15・19×19）、ルール（禁手なし・連珠）、手番だけです。タイマーも秒読みも加算もありません。六手目で四分考えても誰も止めません。</p>
+<p>つまり時間制限は自分で決めるしかありません。使えるのは三つです。</p>
+<ul>
+<li><strong>一手十秒。</strong> 練習用で、熟考には向きません。考える代わりに見るようになります。足りていないのはたいていそちらです。</li>
+<li><strong>各五分、持ち時間制。</strong> 早指しの標準的な形です。四十四手の対局なら各自二十二手に三百秒、平均一手十三・六秒。四十秒の長考一回で三手分が消えます。</li>
+<li><strong>二分で二十手。</strong> 秒ではなく手数で区切ります。二人とも静かな陣地の押し合いに沈みがちなときに効きます。</li>
+</ul>
+<p>練習は一手ごとの制限、対局は持ち時間制です。混ぜると、三十手目で勝っている局面のまま時間切れになります。</p>
+
+<h2>時計を使う価値があるのは三手だけ</h2>
+<ol>
+<li><strong>相手が最初に打った、VCF になりうる四。</strong> 単独の四から始まる連続四は八手から十四手続きます。ここで見なければ、次に確認できる手番は来ません。</li>
+<li><strong>攻めに踏み切る一手。</strong> 静かな局面を強制の局面に変える石です。それ以前は戻せますが、この一手は戻せません。</li>
+<li><strong>自分の禁手かもしれない点。</strong> 黒番で連珠なら、打つ前に必ず。</li>
+</ol>
+<p>残りは三秒で足ります。もう決めた止め、読んだ連続四の二石目、取り返し。そこに時間を足しても何も増えません。その分は三十四手目に欲しくなります。</p>
+
+<h2>静かな手は相手の時間を食い、強制の手は食わない</h2>
+<p>四には合法な応手が一つしかありません。確かめるのに二秒で済むのは、比べる相手がいないからです。逆に、妥当な続きが五つある静かな点は、向き合った側に一分を要求します。五つとも値段をつける必要があるからです。</p>
+<p>この非対称が時計の使い方を決めます。しかも両方向に効きます。</p>
+<ul>
+<li><strong>自分の残りが少なく、相手が十分なとき。</strong> 強制の手を打ちます。二秒で確かめられる四は、判断を相手に返します。</li>
+<li><strong>相手の残りが少なく、自分が十分なとき。</strong> 三列離れた、二つの用を兼ねる静かな石を打ちます。両方に安く応じることはできません。雑に応じた側が、次の攻め口になります。</li>
+</ul>
+<p>追い込まれると多くの人は逆をやります。強制の手に飛びつくのは決断に見えるからです。実際に相手の時間を削るのは、地味な二役の石のほうです。5+5 の早指しなら、自慢の四より二つ目の脅威の石のほうが価値があります。</p>
+
+<h2>早指しと禁手は相性が悪い</h2>
+<p>連珠の黒は、打ち負ける以外に三つの負け方があります。長連、四四、三三。どれも同じ点を通る別々の線を数える必要があります。三つを手で確認すると十五秒ほどかかり、一手十秒では足りません。</p>
+<p>正直な対処は二つです。制限が十秒を切るなら禁手なしに変える。禁手なしには禁手点がなく、六連はそのまま勝ちです。連珠を続けるなら確認を一つに絞る。これから伸ばす列を、前後両方向に数える。長連は対局を終わらせる禁手で、しかも勝っているときに出ます。誰も見ていないのは、まさにその瞬間です。</p>
+<p>三三はもっと静かな罠です。活三を二つ同時に作る点は盤上で最も強い手に見えて、黒では即負けです。確認する余裕がないなら、活三一つで打ちます。</p>
+
+<h2>八手目までに時間を貯める</h2>
+<p>黒の初手は天元 h8 です。白の二手目はその石に接するか（直指）、一つ空けて置くか（間接）。この二系統から連珠の二十六の定石が生まれます。</p>
+<p>花月と浦月は黒を持つ人が最初に覚える二つで、連珠の理論ではどちらも黒勝とされています。一つを八手目まで覚えるのに一晩、中盤で一分が浮きます。三手目で毎回考えると、その一分を毎局払い直すことになります。</p>
+<p>もう一つの調整弁は盤面です。9×9 なら一局およそ二十四手、各五分は余裕で、三分でも打てます。同じ時計を 15×15 に置くと追い立てられます。初心者と速く打ちたいなら、時計を縮めるより盤を縮めるほうが効きます。</p>
+
+<h2>残り三十秒</h2>
+<ol>
+<li><strong>相手の四を数える。</strong> 止められていない四は二手で終わります。自分の活三はまだ三手先です。</li>
+<li><strong>止めながら作る点を探す。</strong> 相手の活三が d7、e7、f7 なら、止められるのは c7 と g7 だけです。自分の c列に c4、c5、c6 があれば、c7 は相手を止めながら自分の活四になります。</li>
+<li><strong>二手勝ちを考えない。</strong> 十秒で確かめられるのは四とその唯一の応手までです。それより先は想像です。</li>
+<li><strong>強制の手がなければ、最大の空き領域の中央に打つ。</strong> すぐ応じるのが難しく、そこを通る線はどれも短く保てます。</li>
+</ol>
+
+<h2>二十局やる価値のある練習</h2>
+<p>普通の難易度、一手十秒、ストップウォッチを机の上に。一局ごとに負けた理由を一語で書きます。禁手、止め漏れ、時間切れ。</p>
+<p>多くの人は時間切れが最多だと予想します。実際はたいてい違います。禁手と止め漏れが先に来ます。どちらも計算ではなく確認です。これが早指しの正体です。考える力が落ちるのではなく、確かめなくなる。</p>
+<p>そのあと同じ二十局を各五分で打ってみてください。結果がほとんど変わらないなら、時間は最初から問題ではなく、その時間は<a href="/ja-JP/blog/gomoku-reading-ahead-how-many-moves">読みの深さ</a>に使うべきです。</p>
+<p>始める前に一つ。AI は自分の予算で打ち、あなたの時計には合わせません。マスターは十二秒経つか局面が静かになるまで深さを増やします。だから早指しにしても、その盤で自分が速い側になれるわけではありません。<a href="/ja-JP/blog/gomoku-vs-computer-strategy-that-works">コンピュータ相手の打ち方</a>は別の話で、<a href="/ja-JP/blog/beat-gomoku-ai">四段階が何を評価するか</a>も別にまとめてあります。</p>
+<p><a href="/ja-JP/#game">盤を開いて</a>、普通に設定し、ストップウォッチを見える場所に置いてください。最初の一局は慌ただしいはずです。五局目には十秒で足りるようになります。必要な結果はそれだけです。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">一手十秒で打つ</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">普通の難易度、ストップウォッチを机の上に。伸ばす列を数え終えるまで石を置かないこと。</p>
+            <a href="/ja-JP/#game" class="cta-btn">五目並べを遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べの時間制限、速く打つコツ：秒を使う手は三つだけ",
+    "description": "この盤に時計はありません。一手十秒の決め方、長考すべき三手、そして早指しで最初に失われるのが読みではなく確認である理由。",
+    "datePublished": "2026-11-03",
+    "dateModified": "2026-11-03",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-timed-mode-how-to-play-fast"}
+  }
+  </script>
+</body>
+</html>

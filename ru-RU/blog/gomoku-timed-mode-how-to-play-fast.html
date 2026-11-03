@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гомоку на время: как играть быстро и не отдать партию | Блог о гомоку</title>
+  <meta name="description" content="На этой доске нет часов, поэтому их приносят с собой. Три хода, которые стоят времени, и почему в блице теряют проверки, а не расчёт.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-timed-mode-how-to-play-fast">
+  <meta property="og:title" content="Гомоку на время: как играть быстро">
+  <meta property="og:description" content="Спокойный камень отнимает время у него, форсирующий почти ничего не стоит вам.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-timed-mode-how-to-play-fast">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Гомоку на время">
+  <meta name="twitter:description" content="Часы заслуживают три хода, остальным хватит трёх секунд.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Гомоку на время: как играть быстро и не отдать партию</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-03">2026-11-03</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>Тридцать четвёртый ход, девять секунд и шесть камней в ряд</h2>
+<p>У чёрных камни от h4 до h8. h9 пуста. Секундомер на телефоне показывает девять секунд, и он ставит h9, не пересчитав линию.</p>
+<p>Это шесть камней подряд. В рэндзю чёрные проигрывают сразу: перебор, а правилам нужны ровно пять. В свободном гомоку тот же камень приносит победу.</p>
+<p>Позиция была нетрудной. Пересчитать линию стоило двух секунд. Просто часы забрали их первыми. Партия на время не похожа на ту же партию в ускоренном темпе: под давлением исчезают не тонкие ходы, а проверки.</p>
+
+<h2>Здесь нет часов, поэтому принесите свои</h2>
+<p>Настраиваются только сложность (Лёгкий, Средний, Сложный, Мастер), размер доски (9, 15, 19), правила (свободные или рэндзю) и цвет. Ни таймера, ни отсчёта, ни добавления времени. На шестом ходу можно думать четыре минуты, никто не остановит.</p>
+<p>Значит, режим на время вы задаёте сами. Работают три схемы.</p>
+<ul>
+<li><strong>Десять секунд на камень.</strong> Для тренировки, не для серьёзного счёта. Вы начинаете смотреть вместо того, чтобы считать, а не хватает обычно именно этого.</li>
+<li><strong>По пять минут на сторону за всю партию.</strong> Обычная форма блица. Партия из 44 камней даёт каждому 22 камня и 300 секунд, в среднем 13,6 секунды на камень. Одно раздумье на сорок секунд съедает три камня запаса.</li>
+<li><strong>Двадцать камней за две минуты.</strong> Считаем ходы, а не секунды. Помогает, когда двое сползают в вялый позиционный спор.</li>
+</ul>
+<p>Для тренировки берите лимит на ход, для партий общее время. Смешав одно с другим, вы получите просрочку на тридцатом ходу при выигранной позиции.</p>
+
+<h2>Часы заслуживают три хода</h2>
+<ol>
+<li><strong>Первая его четвёрка, из которой может вырасти VCF.</strong> Цепочка непрерывных четвёрок из одной тянется на восемь, десять, иногда четырнадцать камней. Проверите сейчас или не проверите уже никогда.</li>
+<li><strong>Ход, которым вы переходите в атаку.</strong> Камень, превращающий спокойную позицию в форсированную. Всё до него отыгрывается назад, этот нет.</li>
+<li><strong>Любая точка, которая может оказаться для вас запрещённой.</strong> Чёрные, рэндзю, и вы собираетесь поставить камень. Проверяйте каждый раз.</li>
+</ol>
+<p>Остальным хватит трёх секунд: закрытие, которое вы уже выбрали, второй камень прочитанной цепочки, отыгрыш. Добавочное время там ничего не покупает, а понадобится оно на тридцать четвёртом ходу.</p>
+
+<h2>Спокойный камень стоит ему времени, форсирующий не стоит</h2>
+<p>У четвёрки один законный ответ. Проверка занимает две секунды, потому что сравнивать не с чем. Спокойная точка с пятью разумными продолжениями требует от того, кто её получил, целой минуты: все пять нужно оценить.</p>
+<p>Эта асимметрия и решает, куда уходят секунды. Работает она в обе стороны.</p>
+<ul>
+<li><strong>У вас мало времени, у него много.</strong> Играйте форсирующие ходы. Четвёрку вы проверяете за две секунды, и решение возвращается к нему.</li>
+<li><strong>У него мало времени, у вас много.</strong> Ставьте спокойный камень, который делает две вещи сразу, в трёх линиях друг от друга. Дёшево закрыть обе он не сможет, и та сторона, которую он закроет небрежно, станет вашей атакой.</li>
+</ul>
+<p>Под давлением большинство делает наоборот. Хватается за форсирующий ход, потому что он выглядит решительно, а время у противника съедает незаметный камень с двумя задачами. В блице 5+5 второй камень двойной угрозы полезнее той четвёрки, которой вы гордитесь.</p>
+
+<h2>Блиц и запрещённые точки плохо совместимы</h2>
+<p>В рэндзю чёрные проигрывают не только когда их переиграли. Есть перебор, двойная четвёрка и двойная тройка. Каждая проверка требует пересчитать свой набор линий через одну и ту же точку. Вручную все три занимают секунд пятнадцать, а лимит в десять этого не позволяет.</p>
+<p>Два честных выхода. При лимите меньше десяти секунд переходите на свободные правила: там запрещённых точек нет, а шесть в ряд просто выигрывают. Либо оставайтесь в рэндзю и проверяйте одно: линию, которую собираетесь продолжить, в обе стороны. Перебор заканчивает партии, и приходит он тогда, когда вы выигрываете. Именно в этот момент никто не смотрит.</p>
+<p>Двойная тройка коварнее. Точка, дающая две открытые тройки, выглядит сильнейшим ходом на доске, а для чёрных это немедленное поражение. Не хватает времени проверить, ставьте одну тройку.</p>
+
+<h2>Запасите время до восьмого хода</h2>
+<p>Чёрные начинают в центре, h8. Второй камень белых либо касается его (прямое начало), либо отстоит на одно пересечение (косвенное). Из этих двух семейств выходят двадцать шесть именованных начал рэндзю.</p>
+<p>Кагэцу и Угэцу это те два, которые игрок за чёрных учит первыми: теория рэндзю оценивает оба как выигрыш чёрных. Одно начало, выученное до восьмого хода, стоит вечера и возвращает целую минуту в середине партии. Импровизация на третьем ходу забирает эту минуту в каждой партии заново.</p>
+<p>Второй рычаг это размер доски. На 9 на 9 партия идёт около 24 камней, так что пяти минут на сторону хватает с запасом, а трёх почти. Те же часы на 15 на 15 превращаются в гонку. С новичком сокращайте доску, а не время.</p>
+
+<h2>Последние тридцать секунд</h2>
+<ol>
+<li><strong>Считайте его четвёрки, а не свои.</strong> Незакрытая четвёрка заканчивает партию за два хода. Вашей открытой тройке нужно ещё три, и его четвёрка придёт раньше.</li>
+<li><strong>Ищите камень, который и закрывает, и строит.</strong> Его открытая тройка на d7, e7, f7 оставляет всего две точки закрытия, c7 и g7. Если в столбце c у вас уже стоят c4, c5 и c6, то c7 закрывает его и одновременно даёт вам открытую четвёрку.</li>
+<li><strong>Перестаньте планировать выигрыш в два хода.</strong> За десять секунд проверяется четвёрка и единственный ответ на неё. Дальше начинается воображение.</li>
+<li><strong>Если форсировать нечем, играйте в центр самой большой пустой области.</strong> Ответить на такой камень быстро трудно, и все линии через него остаются короткими.</li>
+</ol>
+
+<h2>Упражнение на двадцать партий</h2>
+<p>Средний уровень, десять секунд на камень, секундомер на столе. После каждой партии записывайте причину поражения одним словом: запрещённый ход, пропущенное закрытие, время.</p>
+<p>Обычно ждут, что победит время. Чаще всего это не так. Впереди запрещённый ход и пропущенное закрытие, а обе вещи это проверка, не расчёт. В этом и суть быстрой игры: вы не начинаете думать хуже, вы перестаёте проверять.</p>
+<p>Потом сыграйте те же двадцать партий по пять минут на сторону. Если результат почти не изменился, время никогда не было вашей проблемой, и эти часы лучше отдать <a href="/ru-RU/blog/gomoku-reading-ahead-how-many-moves">глубине чтения</a>.</p>
+<p>И ещё одно перед началом. Компьютер отвечает по своему бюджету, а не по вашему. Мастер углубляет поиск, пока не пройдёт двенадцать секунд или пока позиция не успокоится, так что быстрая партия не делает вас более быстрым игроком за этой доской. <a href="/ru-RU/blog/gomoku-vs-computer-strategy-that-works">Игра против программы</a> это отдельный разговор, и <a href="/ru-RU/blog/beat-gomoku-ai">то, что ценит каждая из четырёх ступеней</a>, разобрано отдельно.</p>
+<p><a href="/ru-RU/#game">Откройте доску</a>, поставьте Средний, положите секундомер на видное место. Первая партия будет суетливой. К пятой десяти секунд станет хватать, и это единственный результат, который имеет значение.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Десять секунд на камень</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Средний уровень, секундомер на столе, и ни одного камня, пока не пересчитана линия, которую вы продолжаете.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Гомоку на время: как играть быстро и не отдать партию",
+    "description": "На этой доске нет часов, поэтому их приносят с собой. Три хода, которые стоят времени, и почему в блице теряют проверки, а не расчёт.",
+    "datePublished": "2026-11-03",
+    "dateModified": "2026-11-03",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-timed-mode-how-to-play-fast"}
+  }
+  </script>
+</body>
+</html>

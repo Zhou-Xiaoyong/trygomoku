@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 시간 제한 두는 법, 한 수 10초 쓰는 자리 | 오목 블로그</title>
+  <meta name="description" content="이 판에는 타이머가 없습니다. 한 수 10초 규칙 정하는 법, 시간을 쓸 세 수, 그리고 속기에서 먼저 사라지는 것이 계산이 아니라 확인이라는 이야기.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-timed-mode-how-to-play-fast">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-timed-mode-how-to-play-fast">
+  <meta property="og:title" content="오목을 시간 제한으로 빨리 두기">
+  <meta property="og:description" content="조용한 두 역할의 돌이 상대 시간을 깎고, 강제수는 내 시간을 거의 쓰지 않습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-timed-mode-how-to-play-fast">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="시간 제한 오목">
+  <meta name="twitter:description" content="시계를 쓸 가치가 있는 수는 셋뿐입니다.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">오목 시간 제한, 빨리 두는 법: 초를 쓸 곳은 세 수뿐</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-03">2026-11-03</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>서른네 수째, 남은 9초, 그리고 여섯 개</h2>
+<p>흑은 h4부터 h8까지 다섯 개를 놓았습니다. h9는 비어 있습니다. 휴대폰 스톱워치가 9초를 가리키고, 그는 그 줄에 돌이 몇 개인지 세지 않고 h9에 둡니다.</p>
+<p>여섯 개입니다. 렌주에서는 흑이 즉시 집니다. 장련이고, 규칙이 요구하는 것은 정확히 다섯 개입니다. 금수 없는 규칙이라면 같은 한 수가 승리입니다.</p>
+<p>어려운 국면이 아니었습니다. 한 줄 세는 데 2초면 됩니다. 시계가 그 2초를 먼저 가져갔을 뿐입니다. 시간 제한은 같은 대국을 빨리 두는 것이 아닙니다. 압박을 받으면 사라지는 것은 묘수가 아니라 확인입니다.</p>
+
+<h2>이 판에는 시계가 없으니 직접 가져와야 합니다</h2>
+<p>조절할 수 있는 것은 난이도(쉬움, 보통, 어려움, 마스터), 보드 크기(9×9, 15×15, 19×19), 규칙(금수 없음 또는 렌주), 흑백 선택입니다. 타이머도, 초읽기도, 추가 시간도 없습니다. 여섯 수째에 4분을 써도 아무도 막지 않습니다.</p>
+<p>그래서 시간 제한은 직접 정해야 합니다. 세 가지면 충분합니다.</p>
+<ul>
+<li><strong>한 수 10초.</strong> 연습용이고 진지한 계산에는 맞지 않습니다. 계산 대신 보게 됩니다. 대부분에게 부족한 것이 바로 그쪽입니다.</li>
+<li><strong>각자 5분, 전 경기.</strong> 속기의 표준 형태입니다. 44수짜리 한 판이면 각자 22수에 300초, 평균 한 수 13.6초입니다. 40초짜리 장고 한 번이 세 수 몫을 지웁니다.</li>
+<li><strong>2분에 20수.</strong> 초가 아니라 수로 끊습니다. 두 사람이 조용한 진지 다툼으로 흘러갈 때 효과가 있습니다.</li>
+</ul>
+<p>연습은 수마다 제한, 대국은 전 경기 시간을 씁니다. 둘을 섞으면 서른 수째에 이기고 있는 판을 시간 초과로 내주게 됩니다.</p>
+
+<h2>시계를 쓸 가치가 있는 수는 셋</h2>
+<ol>
+<li><strong>상대가 처음 만든, VCF가 될 수 있는 사.</strong> 사 하나에서 시작하는 연속 사는 여덟 수에서 열네 수까지 이어집니다. 여기서 확인하지 않으면 다시 확인할 차례가 오지 않습니다.</li>
+<li><strong>공격으로 넘어가는 그 한 수.</strong> 조용한 국면을 강제 국면으로 바꾸는 돌입니다. 그 앞은 되돌릴 수 있고, 이 수는 아닙니다.</li>
+<li><strong>내 금수일 수 있는 점.</strong> 흑이고 렌주라면 둘 때마다 확인합니다.</li>
+</ol>
+<p>나머지는 3초면 됩니다. 이미 정한 막이, 읽은 연속 사의 두 번째 돌, 되따내기. 그런 수에 시간을 더 써도 얻는 것이 없고, 그 시간은 서른네 수째에 필요해집니다.</p>
+
+<h2>조용한 수는 상대 시간을 먹고, 강제수는 먹지 않습니다</h2>
+<p>사에는 합법적인 응수가 하나뿐입니다. 확인에 2초면 충분한 이유는 견줄 갈래가 없기 때문입니다. 반대로 그럴듯한 후속이 다섯 개인 조용한 점은 마주한 쪽에 1분을 요구합니다. 다섯 개 모두 값을 매겨야 하니까요.</p>
+<p>이 비대칭이 시계를 어떻게 쓸지 정합니다. 방향은 둘입니다.</p>
+<ul>
+<li><strong>내 시간이 적고 상대가 넉넉할 때.</strong> 강제수를 둡니다. 2초에 확인되는 사는 판단을 상대에게 돌려보냅니다.</li>
+<li><strong>상대 시간이 적고 내가 넉넉할 때.</strong> 세 줄 떨어진 두 가지 역할을 하는 조용한 돌을 둡니다. 둘 다 싸게 받아낼 수 없습니다. 대충 받은 쪽이 다음 공격 지점이 됩니다.</li>
+</ul>
+<p>압박을 받으면 대부분 반대로 합니다. 강제수가 결단처럼 보이니까 서두릅니다. 실제로 상대의 시간을 깎는 것은 눈에 안 띄는 두 역할의 돌입니다. 5+5 속기라면 자랑스러운 사보다 두 번째 위협의 돌이 더 값집니다.</p>
+
+<h2>속기와 금수는 잘 맞지 않습니다</h2>
+<p>렌주에서 흑은 실력으로 지는 것 말고 세 가지로 더 집니다. 장련, 사사, 삼삼. 셋 다 같은 점을 지나는 서로 다른 줄을 세야 합니다. 손으로 셋을 다 확인하면 15초쯤 걸리고, 한 수 10초로는 부족합니다.</p>
+<p>정직한 해법은 둘입니다. 제한이 10초 아래라면 금수 없음으로 바꿉니다. 금수 없음에는 금수점이 없고 여섯 개는 그대로 승리입니다. 렌주를 계속한다면 확인을 하나로 줄입니다. 지금 늘리려는 줄을 앞뒤 두 방향으로 세는 것. 장련은 대국을 끝내는 금수이고, 하필 이기고 있을 때 나옵니다. 아무도 안 보는 순간이 바로 그때입니다.</p>
+<p>삼삼은 더 조용한 함정입니다. 활삼 둘을 동시에 만드는 점은 판에서 가장 강해 보이지만 흑에게는 즉시 패배입니다. 확인할 여유가 없으면 활삼 하나로 둡니다.</p>
+
+<h2>여덟 수 전에 시간을 저축합니다</h2>
+<p>흑의 첫 수는 중앙 h8입니다. 백의 두 번째 수는 그 돌에 붙거나(직접 시작), 한 칸 떨어집니다(간접 시작). 이 두 갈래에서 렌주 정석 스물여섯 개가 나옵니다.</p>
+<p>화월과 포월은 흑을 잡는 사람이 가장 먼저 외우는 둘이고, 렌주 이론은 둘 다 흑 승으로 봅니다. 하나를 여덟 수까지 외우면 저녁 하루로 중반에 1분이 남습니다. 세 번째 수에서 매번 즉석으로 두면 그 1분을 매 판 다시 냅니다.</p>
+<p>또 하나의 조절 장치는 판 크기입니다. 9×9는 한 판이 24수쯤이라 각자 5분이 넉넉하고 3분도 됩니다. 같은 시계를 15×15에 두면 쫓깁니다. 초보와 빨리 두고 싶다면 시계를 줄이는 것보다 판을 줄이는 편이 낫습니다.</p>
+
+<h2>마지막 30초</h2>
+<ol>
+<li><strong>상대의 사를 셉니다.</strong> 막히지 않은 사는 두 수면 끝납니다. 내 활삼은 아직 세 수 남았고, 상대의 사가 먼저 옵니다.</li>
+<li><strong>막으면서 만드는 점을 찾습니다.</strong> 상대 활삼이 d7, e7, f7이면 막을 곳은 c7과 g7뿐입니다. 내 c열에 c4, c5, c6이 있다면 c7은 상대를 막으면서 동시에 내 활사가 됩니다.</li>
+<li><strong>두 수 승리를 계획하지 않습니다.</strong> 10초에 확인할 수 있는 것은 사 하나와 그 유일한 응수까지입니다. 그 너머는 상상입니다.</li>
+<li><strong>강제수가 없으면 가장 큰 빈 구역의 중앙에 둡니다.</strong> 상대가 빨리 받아내기 어렵고, 그 점을 지나는 모든 줄이 짧게 유지됩니다.</li>
+</ol>
+
+<h2>스무 판 해 볼 만한 연습</h2>
+<p>보통 난이도, 한 수 10초, 스톱워치를 책상 위에. 한 판이 끝날 때마다 진 이유를 한 단어로 적습니다. 금수, 막이 누락, 시간 초과.</p>
+<p>대부분은 시간 초과가 가장 많을 거라 생각합니다. 실제로는 대개 아닙니다. 금수와 막이 누락이 먼저 옵니다. 둘 다 계산이 아니라 확인입니다. 속기의 정체가 이것입니다. 생각하는 힘이 줄어드는 것이 아니라, 확인을 건너뛰게 됩니다.</p>
+<p>그다음 같은 스무 판을 각자 5분으로 둬 보십시오. 결과가 거의 그대로라면 시간은 처음부터 문제가 아니었고, 그 시간은 <a href="/ko-KR/blog/gomoku-reading-ahead-how-many-moves">읽는 깊이</a>에 써야 합니다.</p>
+<p>시작 전에 하나. AI는 자기 예산으로 두고 내 시계에 맞추지 않습니다. 마스터는 12초가 지나거나 국면이 조용해질 때까지 깊이를 늘립니다. 그래서 속기로 둔다고 그 판에서 내가 더 빠른 쪽이 되지는 않습니다. <a href="/ko-KR/blog/gomoku-vs-computer-strategy-that-works">컴퓨터를 상대하는 방법</a>은 다른 문제이고, <a href="/ko-KR/blog/beat-gomoku-ai">네 단계가 각각 무엇을 보는지</a>도 따로 정리해 두었습니다.</p>
+<p><a href="/ko-KR/#game">판을 열고</a> 보통으로 맞춘 뒤 스톱워치를 눈에 보이는 곳에 두십시오. 첫 판은 정신없을 겁니다. 다섯 판쯤이면 10초가 충분해집니다. 필요한 결과는 그것뿐입니다.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">한 수 10초로 두기</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">보통 난이도, 스톱워치를 책상 위에. 늘리려는 줄을 다 세기 전에는 돌을 놓지 마십시오.</p>
+            <a href="/ko-KR/#game" class="cta-btn">오목 바로 하기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 시간 제한, 빨리 두는 법: 초를 쓸 곳은 세 수뿐",
+    "description": "이 판에는 타이머가 없습니다. 한 수 10초 규칙 정하는 법, 시간을 쓸 세 수, 그리고 속기에서 먼저 사라지는 것이 계산이 아니라 확인이라는 이야기.",
+    "datePublished": "2026-11-03",
+    "dateModified": "2026-11-03",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-timed-mode-how-to-play-fast"}
+  }
+  </script>
+</body>
+</html>
