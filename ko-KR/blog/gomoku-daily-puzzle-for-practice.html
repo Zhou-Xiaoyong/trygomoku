@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 하루 한 문제, 직접 만드는 연습법 | 오목 블로그</title>
+  <meta name="description" content="여기에 문제집은 없습니다. 국면을 세우는 일이 곧 출제입니다. 돌 아홉에서 열한 개, 질문 하나, 답을 먼저 적고 30초.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-daily-puzzle-for-practice">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-daily-puzzle-for-practice">
+  <meta property="og:title" content="오목 하루 한 문제를 직접 만들기">
+  <meta property="og:description" content="열두 개가 상한. 질문은 하나, 답은 먼저 적고, 힌트는 그 뒤에 누릅니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-daily-puzzle-for-practice">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="직접 만드는 오목 한 문제">
+  <meta name="twitter:description" content="돌 아홉 개, 규칙 둘, 답 둘.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">향상</span>
+          <h1 itemprop="headline">오목 하루 한 문제: 돌 열 개, 질문 하나, 30초</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-04">2026-11-04</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<h2>돌 열 개, 흑 차례, 답은 둘</h2>
+<p>흑은 5행에 c5와 d5, e열에 e3과 e4, 천원 h8까지 가지고 있습니다. 백의 다섯 돌은 두 줄에서 모두 비켜 있습니다. 여기가 핵심입니다. e5에 두면 가로는 c5-d5-e5로 b5와 f5가 비고, 세로는 e3-e4-e5로 e2와 e6가 빕니다. 두 개의 활삼이 한 점에서 만납니다. 백이 한쪽을 막으면 흑은 반대쪽을 열린 넷으로 늘리고, e5에서 두 수 뒤에 다섯이 완성됩니다.</p>
+<p>흑 차례 그대로 규칙만 렌주로 바꿔 보세요. 같은 e5가 삼삼 금수라서 돌이 판에 닿는 순간 흑이 집니다. 나쁜 수가 아니라 지는 수입니다.</p>
+<p>그림은 하나, 답은 둘입니다. 둘 다 실어 주는 책은 없습니다. 책 표지에는 규칙이 하나만 적혀 있습니다. 이 판은 규칙을 바꿀 수 있고, 같은 열 개의 돌이 스위치 위치에 따라 다른 문제가 됩니다.</p>
+
+<h2>여기에 문제집은 없다</h2>
+<p>판은 매번 비어 있습니다. 하루 한 문제도, 지난 문제도, 연속 기록도, 구독할 것도 없습니다. 하루 한 문제를 하려면 출제가 일이고, 3분 중 2분은 돌을 놓는 데 씁니다.</p>
+<p>컴퓨터 상대로는 놓을 수 없습니다. 내가 둔 돌에는 12초 안에 반드시 응수가 돌아오므로, 머릿속의 그 국면에는 도달하지 못합니다.</p>
+<p>친구 대결에서는 됩니다. AI가 없고 흑백이 모두 내 것이며, 돌은 흑, 백, 흑 순서로 실제 대국과 같은 차례로 놓입니다. 기보를 순서대로 재생해 실수한 수 바로 앞에서 멈추면 그 국면에 서 있게 됩니다.</p>
+<p>누구 차례인지는 홀짝이 정합니다. 돌이 홀수면 백, 짝수면 흑입니다. 반대쪽에서 풀고 싶으면 마지막 돌을 하나 더 놓거나 빼면 홀짝이 뒤집힙니다.</p>
+
+<h2>열두 개가 상한</h2>
+<p>여섯 개로는 읽을 것이 없습니다. 아홉에서 열한 개가 쓸 만한 구간입니다. 열세 개를 넘으면 서너 줄이 동시에 살아 있고 살아남는 점이 여럿이 됩니다. 그때 만든 것은 앞부분을 지운 대국입니다.</p>
+<p>좋은 문제인지는 한 문장으로 판정합니다. 내 답을 둔 뒤에도 성립하는 두 번째 점이 있는가. 있다면 문제가 잘못된 것이지, 내가 틀린 것이 아닙니다.</p>
+<p>난이도는 돌의 개수가 아니라 후보 점의 개수입니다. 둘이면 준비운동. 다섯이면 진짜 문제이고, 넷을 이유를 대며 지워야 합니다. 아홉이면 계산이 붙은 찍기입니다.</p>
+
+<h2>진 기보와 이긴 기보</h2>
+<p>진 대국은 국면과 사각지대를 함께 줍니다. 내 수는 자세히 기억하지만 상대의 생각은 거의 복원되지 않습니다. 그래서 판을 세운 뒤 이긴 쪽에서 풉니다. 백으로 졌다면 흑을 잡습니다. 상대의 마무리는 내가 놓친 수비보다 찾기 쉽습니다. 막고 있는 것이 바로 내 읽기이기 때문입니다.</p>
+<p>이긴 대국은 두 번째 재료이고, 손볼 곳은 한 군데입니다. 공격이 통한 국면을 골라, 뻔한 답을 죽이는 자리에 백을 하나 더 놓습니다. 위의 열 돌이라면 f5에 백을 놓는 순간 e5는 활삼 하나와 죽은 3 하나가 되어 이기지 못합니다. 쉬운 답이 사라지고, 이해했던 국면이 계산해야 하는 국면으로 바뀝니다.</p>
+<p>필요한 편집은 이것뿐입니다. 돌 하나가 답 하나를 지웁니다.</p>
+
+<h2>질문 하나, 30초, 적어 두기</h2>
+<p>묻는 것은 “어디에 두고 그 돌이 무엇을 위협하는가”입니다. “누가 이기는가”가 아닙니다. 그걸 물으면 한 문제가 15분 대국이 되고, 목요일이면 창을 열지 않게 됩니다.</p>
+<p>30초 생각하고, 돌을 잡기 전에 점을 종이에 적습니다. 의식이 아닙니다. 적지 않으면 정답을 찾아 두고, 원래 알고 있었다고 기억하며, 놓친 기록이 사라집니다.</p>
+<p>확인이 뒷부분입니다. 내 답을 두고 친구 대결에서 양쪽을 직접 진행합니다. 응수를 AI에 맡기면 배우는 것은 엔진의 평가이고, 그건 다른 수업이며 더 느립니다.</p>
+<p>힌트는 해설을 뺀 답안지입니다. 둘 차례에서 평가가 가장 높은 한 점을 표시하고 3초 뒤 사라집니다. 쓸모는 있지만 일찍 누르면 해롭습니다. 내 점과 다를 때 물어야 할 것은 “왜 기계가 맞는가”가 아니라 “내 수가 정말 지는 수인가, 차선이지만 성립하는 수인가”입니다. 주도권을 지키는 차선의 수가 더 찾을 가치가 있는 수인 경우가 많습니다.</p>
+
+<h2>패배가 아니라 놓친 방식을 기록한다</h2>
+<p>거의 모든 오답은 세 꼬리표로 덮이고, 연습법은 각각 다릅니다.</p>
+<ul>
+<li><strong>못 봤다.</strong> 그 점을 아예 보지 못했습니다. 양으로 해결합니다. 같은 난이도로 국면을 늘리고 더 빠르게.</li>
+<li><strong>봤는데 못 뒀다.</strong> 알아챘지만 눈에 띄는 수를 골랐습니다. 문제를 더 풀어도 고쳐지지 않습니다. 보는 것과 두는 사이에서 멈췄기 때문입니다. 두기 전에 고른 이유를 적으면 나쁜 이유가 내 글씨로 드러납니다.</li>
+<li><strong>규칙.</strong> 알아채고 두었는데 금수였습니다. 읽기 문제가 아닙니다. 삼삼, 사사, 장목이 자동이 되기 전에 렌주로 넘어왔거나, 그 문제가 지금 단계에 맞지 않는 것입니다.</li>
+</ul>
+<p>서른 문제면 경향이 보입니다. 절반을 넘긴 꼬리표가 다음 달 숙제입니다.</p>
+
+<h2>엿새 하고 하루 되돌리기</h2>
+<p>하루 3분. 놓는 데 2분, 푸는 데 1분. 일주일에 여섯 문제, 이레째에 틀린 세 문제를 다시 풉니다. 1년이면 약 300국면, 모두 15시간입니다.</p>
+<p>같은 15시간을 대국에 쓰면 70판 정도입니다. 질문 없는 70판이 가르쳐 주는 것은 생각보다 적습니다. <a href="/ko-KR/blog/best-way-to-practice-gomoku-against-computer">AI와 한 시간 보내는 것</a> 은 다른 연습이고 할 가치는 있지만 대신할 수는 없습니다.</p>
+<p>실패하는 이유는 난이도가 아니라 모으기입니다. 국면 마흔 개를 저장하고 여섯 개만 풉니다. 안 푼 문제를 셋 이하로 유지하면 대기열이 박물관이 되지 않습니다.</p>
+
+<h2>백 문제로 고쳐지지 않는 것</h2>
+<p>모양을 보는 힘은 하나의 기술이고 빨리 늡니다. 그래서 첫 달은 성과가 뚜렷합니다. 초반 순서는 다른 기술이고 거의 움직이지 않습니다. 종반 계산도 마찬가지입니다. 문제의 마무리는 네 수면 끝나지만 실전에서는 시계를 보며 열두 수를 세야 합니다.</p>
+<p>더 단단한 한계도 있습니다. 문제는 틀린 순간에 얼어 있습니다. 사람은 그 앞의 한 수로 이깁니다. 문제 성적은 깨끗한데 스무 수에서 무너진다면, 풀고 있는 국면은 원인의 하류입니다.</p>
+<p>기르는 눈은 진짜입니다. <a href="/ko-KR/blog/pattern-recognition-gomoku">외워야 할 네 가지 모양</a> 이 이런 국면의 재료이고, <a href="/ko-KR/blog/how-to-improve-gomoku-game">더 넓은 연습 구조</a> 에서 하루 한 문제는 한 칸일 뿐입니다. 일주일에 한 판을 제대로 복기하고 그 이상은 더하지 않습니다.</p>
+
+<h2>오늘의 문제</h2>
+<p>마지막으로 진 판을 가져옵니다. 기보를 끝까지 적습니다. 한 수에 두 글자로. <a href="/ko-KR/">판</a> 을 열고 친구 대결로 바꿔, 실수한 수 바로 앞까지 재생합니다. 돌을 세어 차례를 확인하고, 이긴 쪽에서 30초를 줍니다.</p>
+<p>한 문제. 끝나면 창을 닫습니다. 내일은 다른 국면이고, 목적은 푸는 것이 아닙니다. 금요일쯤 이 모양을 네 번 봤고 30초가 필요 없어져 있는 것입니다.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">돌 아홉 개, 질문 하나</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">친구 대결로 바꿔 실수한 수 바로 앞까지 재생하고, 이긴 쪽에서 30초를 주세요.</p>
+            <a href="/ko-KR/#game" class="cta-btn">오목 바로 하기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 하루 한 문제: 돌 열 개, 질문 하나, 30초",
+    "description": "여기에 문제집은 없습니다. 국면을 세우는 일이 곧 출제입니다. 돌 아홉에서 열한 개, 질문 하나, 답을 먼저 적고 30초.",
+    "datePublished": "2026-11-04",
+    "dateModified": "2026-11-04",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-daily-puzzle-for-practice"}
+  }
+  </script>
+</body>
+</html>
