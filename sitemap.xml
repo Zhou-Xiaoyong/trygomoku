@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -152,7 +152,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -188,7 +188,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-vcf-victory-by-continuous-fours</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -200,7 +200,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-vs-connect-four</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -242,7 +242,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/how-to-play-gomoku-for-absolute-beginners</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -261,6 +261,12 @@
   <url>
     <loc>https://trygomoku.com/blog/renju-board-vs-go-board</loc>
     <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/blog/thanksgiving-gomoku-for-players-of-other-games</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -302,7 +308,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -422,7 +428,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -452,7 +458,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-vcf-victory-by-continuous-fours</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -464,7 +470,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-vs-connect-four</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -506,7 +512,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/how-to-play-gomoku-for-absolute-beginners</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -519,6 +525,12 @@
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/play-gomoku-online-free-no-download</loc>
     <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-for-players-of-other-games</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -572,7 +584,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -692,7 +704,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -722,7 +734,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-vcf-victory-by-continuous-fours</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -734,7 +746,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-vs-connect-four</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -776,7 +788,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/how-to-play-gomoku-for-absolute-beginners</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -789,6 +801,12 @@
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/play-gomoku-online-free-no-download</loc>
     <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-for-players-of-other-games</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -842,7 +860,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -962,7 +980,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -992,7 +1010,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-vcf-victory-by-continuous-fours</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1004,7 +1022,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-vs-connect-four</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1046,7 +1064,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/how-to-play-gomoku-for-absolute-beginners</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1059,6 +1077,12 @@
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/play-gomoku-online-free-no-download</loc>
     <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-for-players-of-other-games</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1166,7 +1190,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1286,7 +1310,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1316,7 +1340,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-vcf-victory-by-continuous-fours</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1328,7 +1352,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-vs-connect-four</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1370,7 +1394,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/how-to-play-gomoku-for-absolute-beginners</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1383,6 +1407,12 @@
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/play-gomoku-online-free-no-download</loc>
     <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-for-players-of-other-games</loc>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
