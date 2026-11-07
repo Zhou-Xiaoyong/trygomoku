@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-dry-run">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-dry-run">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-dry-run">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-dry-run">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>感謝祭の前のひとりリハーサル、客が来る前に三局 | 五目並べブログ</title>
+  <meta name="description" content="客が来る前の四十五分で、ルールページには書けない三つを測ります。この盤がどれくらい速いのか、禁手の警告が何秒残るのか、一局が何手なのか。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-dry-run">
+  <meta property="og:title" content="感謝祭の前のひとりリハーサル">
+  <meta property="og:description" content="コンピュータ相手に十二手、自分と一局、わざと一度の禁手。三つの数字とカード一枚。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-dry-run">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="客が来る前に、ひとりで盤を回しておく">
+  <meta name="twitter:description" content="コンピュータの時計は当てになりません。禁手の警告は二・五秒、15×15 は四十から四十五手。今夜その三つを測ります。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">家族とライフスタイル</span>
+          <h1 itemprop="headline">感謝祭の前のひとりリハーサル、まず三局</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-07">2026-11-07</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<p>水曜の夜十時十二分。皿は洗い終わり、テーブルも片づいて、明日の正午まで誰も来ません。盤を開いて、ひとりで四十五分。短い三局と、一枚のカード。リハーサルといっても、それだけです。</p>
+
+<p>ほとんどの人はこの工程を飛ばします。ルールの説明は十八秒で終わるからです。ルールについてはその通りで、抜けているのはルールページには絶対に書けない三つです。この盤が実際どれくらい速いのか、警告が画面に何秒残るのか、そして何手目で「どっちの番」と誰かが聞くのか。四十五分でこの三つが手に入ります。</p>
+
+<h2>一局目、十二分：コンピュータ相手に十二手</h2>
+
+<p>盤を開き、設定はそのまま、スマホのストップウォッチをテーブルに置いて十二手打ちます。勝とうとしないでください。</p>
+
+<p>先に、この計測で分からないことを書いておきます。コンピュータは一手につき最大十二秒考えます。二手読みから十二手読みまで深めていき、予算が切れたところで止まります。つまり卓上の誰より遅く、大負けしている人よりだけ速い。コンピュータ相手に一局まるごと計ると「一局二十分」という結論になりますが、それは二倍ずれています。</p>
+
+<p>分かるのは自分の速さです。自分の十二手だけ数えてください。平均六秒なら打ち慣れた人、十五秒なら考えている人です。</p>
+
+<p>ついでに終局の画面も見ておきます。勝ったラインが示され、中央に結果のカードが出て、そこで終わりです。スコアも戦績も残らず、保存もされません。タブを閉じればその一局は消えます。<a href="/ja-JP/blog/best-way-to-practice-gomoku-against-computer">普段コンピュータで練習する方法</a>は一時間かける価値がありますが、今夜はただのメトロノームです。</p>
+
+<h2>二局目、十八分：友達対戦に切り替えて両方を持つ</h2>
+
+<p>二人用のモードに切り替えるとコンピュータが退き、難易度のボタンが灰色になり、黒も白も自分のものになります。そこから一局を最後まで、黒、白、黒と交互に打ちます。ひどい内容になります。両方の狙いを知っているので、どちらも相手を騙せません。ここで欲しいのは質ではなく手数です。</p>
+
+<p>一手ごとに書きます。一手は二文字、列と行で H8、次が I8、その次が H9。四十二手なら八十四文字、一分かかりません。書くのは、この盤に保存も書き出しもないからです。棋譜ファイルはなく、ブラウザにも何も残らず、再読み込みすれば 15×15、自由スタイル、コンピュータ対戦、中級に戻ります。紙が唯一残る記録です。</p>
+
+<p>どちらかに活四が出たら、つまり同じ線の両端が空いたら、そこで止めます。その時点で勝ちは決まっていて、五個目は手続きです。止めたら書いた手数を数えます。</p>
+
+<p>目安として、ルールを知っている二人なら 9×9 で二十から二十四手、15×15 で四十から四十五手、19×19 で六十から七十手です。15×15 が十九手で終わったなら、自分のどちらかが守るのをやめたということです。明日来る客の力量が、それで分かります。</p>
+
+<p>手で局面を作れるのもこのモードだけです。コンピュータ相手では十二秒以内に必ず応手が来るので、狙った形は作れません。二人用モードには邪魔する相手がいません。子どもに出したい問題をそのまま並べて画面に残し、その場を離れればいい。</p>
+
+<h2>三局目、十分：わざと反則をする</h2>
+
+<p>連珠に切り替え、黒を持ち、三三を作りにいきます。石一つで離れた活三を二つ同時に作る手です。盤が受け付けません。石は戻り、黒が打ち直し、画面中央に枠が出て、盤の下の状態表示も文言が変わります。</p>
+
+<p>本当に測るのはその次です。禁手を作ってから二歩下がり、向かいに座った客が見る距離から画面を見ます。読めますか。二・五秒しか残りません。六人が話し、一人が七面鳥を切っている席で、正直な答えは「読めない」です。その答えが設定を決めます。家族の対局は自由スタイル、禁手は切る。</p>
+
+<p>誰かがルール好きで連珠を希望するなら、禁手三つの名前を暗唱させないでください。勝敗を分けるのは非対称のほうです。黒はちょうど五連でなければならず、白は五連以上で勝ち、六連も勝ちです。公式の連珠ではその六個目の黒石がその場で負けになります。この盤はただ受け付けないだけで、祝日の席にはそのほうが楽です。</p>
+
+<p>この回の最後に、ヒントを一度押します。いちばん評価の高い空点を三秒点滅させて消えます。理由は説明せず、変化も見せません。答えであって証明ではありません。今夜一度押して見た目を覚え、席では誰も押さないと決めておきます。<a href="/ja-JP/blog/trygomoku-features">機能の説明</a>に残りの切り替えがまとまっています。</p>
+
+<h2>カードに書く三行</h2>
+
+<p>五分、カード一枚、三行。テーブルの縁、自分には見えて客には見えない位置に貼ります。</p>
+
+<ol>
+<li><strong>黒が先手、再読み込みで全部戻る。</strong>盤は 15×15、自由スタイル、コンピュータ対戦に戻ります。誰かが石を置く前にモードを確認します。</li>
+<li><strong>禁手は切る、または口で言う。</strong>既定は自由スタイル。連珠を希望する人がいるなら、禁手の三つの名前ではなく黒白の非対称を伝えます。</li>
+<li><strong>待ったは誰にもなし。</strong>許すなら一人一回まで。そして何が起きるかを知っておきます。二人用モードの待ったは石を一つだけ戻すので、相手の応手を消して打ち直させることになります。訂正ではなく無料の振り直しで、三局目には席の全員が気づきます。</li>
+</ol>
+
+<h2>席ごとの設定</h2>
+
+<p>秒の列は一局ではなく一手あたりの秒数です。スマホで実際に見張れるのはこの数字だけだからです。一局の上限で縛りたい場合は<a href="/ja-JP/blog/gomoku-timed-mode-how-to-play-fast">時間配分の記事</a>に計算があります。</p>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>席</th><th>盤</th><th>一手の秒数</th><th>ハンデ</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>その日の一局目、年齢が混ざる</td><td>9×9</td><td>25</td><td>いちばん強い人が外側に 1 個捨てる</td></tr>
+<tr class="tr-dark"><td>祖父母 対 八歳</td><td>9×9</td><td>30</td><td>2 個、祖父母が捨てる</td></tr>
+<tr class="tr-light"><td>実力の近い大人二人</td><td>15×15</td><td>30</td><td>なし</td></tr>
+<tr class="tr-dark"><td>大人四人が一台で回す</td><td>15×15</td><td>20</td><td>なし</td></tr>
+<tr class="tr-light"><td>パイのあとの最後の一局</td><td>19×19</td><td>40</td><td>なし</td></tr>
+</tbody>
+</table>
+
+<p>ハンデの列には説明が一行必要です。この盤にはパスがなく、対局前に石を置く方法もありません。強い側が対局中に外側の線へ石を捨てるしかなく、一つ空けて並べます。9×9 の二個なら本当の勝負になります。9×9 の三個は、書類付きの投了です。</p>
+
+<h2>リハーサルでやらない四つ</h2>
+
+<p><strong>19×19 でリハーサルしない。</strong>ひとりでは一局でリハーサルの時間を使い切り、15×15 の回で分かった以上のことは出ません。</p>
+
+<p><strong>ヒントを出したままリハーサルしない。</strong>すぐ良い点が見つかって、この盤は簡単だと思ってしまいます。簡単ではありません。答えを見せられただけです。</p>
+
+<p><strong>違う端末でリハーサルしない。</strong>客がタブレットで打つなら、その十二手もタブレットで。スマホの縦画面では 15 路線の間隔がおよそ 23 ピクセルになり、あれはタップ対象ではなくコイントスです。</p>
+
+<p><strong>棋譜を覚えておこうとしない。</strong>行き場所がありません。来年この子が上達したか知りたければ、あの紙が唯一の計器です。<a href="/ja-JP/blog/gomoku-family-game-night">当日の回し方</a>はこの次のページです。</p>
+
+<h2>リハーサルをした木曜日</h2>
+
+<p>「どっちの番」と誰も聞きません。カードがテーブルにあるからです。誰も誤ってコンピュータの局に石を置いて負けません。モードを確認してあるからです。子どもには、その子のために作った局面が出ます。八歳が外側に捨てた二個で 9×9 を取り、声を上げたとき、その二個が何だったのかをあなたは知っています。</p>
+
+<p>水曜の四十五分、三局、カード一枚。<a href="/ja-JP/">盤はもう開いています</a>。十二手とストップウォッチから始めてください。</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">明日の正午までに三局を終える</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">五連で勝ち。リハーサルは四十五分です。</p>
+            <a href="/ja-JP/#game" class="cta-btn">五目並べを遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "感謝祭の前のひとりリハーサル、まず三局",
+    "description": "客が来る前の四十五分で、ルールページには書けない三つを測ります。この盤がどれくらい速いのか、禁手の警告が何秒残るのか、一局が何手なのか。",
+    "datePublished": "2026-11-07",
+    "dateModified": "2026-11-07",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-dry-run"}
+  }
+  </script>
+</body>
+</html>

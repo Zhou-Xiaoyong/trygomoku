@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-dry-run">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-dry-run">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-dry-run">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-dry-run">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прогон перед Днём благодарения: три партии в одиночку | Блог о гомоку</title>
+  <meta name="description" content="Сорок пять минут наедине с доской измеряют то, чего нет в правилах: как быстро идёт игра, сколько держится предупреждение о фоле и сколько ходов в настоящей партии.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-dry-run">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-dry-run">
+  <meta property="og:title" content="Прогон перед Днём благодарения">
+  <meta property="og:description" content="Двенадцать ходов против компьютера, целая партия с самим собой, один нарочный фол. Три числа и карточка.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-dry-run">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Три партии в одиночку до прихода гостей">
+  <meta name="twitter:description" content="Часы компьютера врут, предупреждение о фоле держится две с половиной секунды, партия на 15×15 это сорок, сорок пять ходов.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Семья и досуг</span>
+          <h1 itemprop="headline">Прогон перед Днём благодарения: сначала три партии в одиночку</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-07">2026-11-07</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<p>Среда, двенадцать минут одиннадцатого. Посуда вымыта, стол пустой, до завтрашнего полудня никто не придёт. Вы открываете доску и садитесь за неё один на сорок пять минут. Три короткие партии и одна карточка. Вот и весь прогон.</p>
+
+<p>Хозяева его обычно пропускают: правила объясняются за восемнадцать секунд. Насчёт правил они правы. Пропускают три вещи, которых в правилах не напишут никогда: насколько быстро идёт эта доска, сколько секунд держится предупреждение на экране и на каком ходу в комнате спросят, чей сейчас ход. Сорок пять минут дают все три ответа.</p>
+
+<h2>Первый заход, двенадцать минут: двенадцать ходов против компьютера</h2>
+
+<p>Откройте доску, ничего не меняйте, положите на стол секундомер и сделайте двенадцать ходов. Выигрывать не нужно.</p>
+
+<p>Сначала о том, чего этот замер не покажет, иначе вывод будет неверным. Компьютер думает над ходом до двенадцати секунд: он углубляет перебор с двух полуходов к двенадцати и останавливается, когда бюджет кончился. Значит он медленнее любого человека за столом, кроме того, кто крупно проигрывает. Если засечь против него целую партию, выйдет «партия на двадцать минут», а это ошибка ровно вдвое.</p>
+
+<p>Что вы узнаете, так это собственный темп. Считайте только свои ходы. Шесть секунд означают человека, который уже играл; пятнадцать означают человека, который решает.</p>
+
+<p>Заодно посмотрите, что делает доска в конце партии. Победная линия подсвечивается, в центре открывается окно с результатом, и игра останавливается. Ни счёта, ни статистики, ничего не сохраняется. Закройте вкладку, и партии нет. <a href="/ru-RU/blog/best-way-to-practice-gomoku-against-computer">Тренировка против компьютера</a> стоит часа в обычную неделю, сегодня это только метроном.</p>
+
+<h2>Второй заход, восемнадцать минут: игра вдвоём, оба цвета ваши</h2>
+
+<p>Нажмите переключатель на игру вдвоём. Компьютер уходит, кнопки сложности становятся серыми, оба цвета ваши. Дальше одна партия до конца, по очереди: чёрный, белый, чёрный. Играть вы будете плохо, потому что знаете оба плана и ни один не станет для вас неожиданностью. Здесь нужен не уровень, а число ходов.</p>
+
+<p>Каждый ход записывайте. Ход это два знака, столбец и строка: H8, потом I8, потом H9. Партия из сорока двух ходов это восемьдесят четыре знака, меньше минуты работы. Записывать нужно потому, что доска не сохраняет и не выгружает ничего: файла партии нет, в браузере не остаётся ничего, а перезагрузка страницы возвращает 15×15, свободные правила, игру против компьютера и средний уровень. Бумага это единственная запись, которая останется.</p>
+
+<p>Остановитесь, как только у одной из сторон появится открытая четвёрка, то есть четыре в ряд с двумя пустыми концами. Партия уже выиграна, пятый камень это формальность. После этого посчитайте записанные ходы.</p>
+
+<p>Ориентиры для сверки: на 9×9 партия двух людей, знающих правила, идёт двадцать, двадцать четыре хода; на 15×15 сорок, сорок пять; на 19×19 шестьдесят, семьдесят. Если ваша партия на 15×15 закончилась на девятнадцатом ходу, один из ваших двоих перестал защищаться, и это кое-что говорит о завтрашних гостях.</p>
+
+<p>Это ещё и единственный режим, где позицию можно выставить руками. Против компьютера ответ приходит за двенадцать секунд, нужную фигуру так не построить. В игре вдвоём мешать некому. Выставьте ровно ту задачу, которую хотите дать восьмилетнему, оставьте на экране и уйдите.</p>
+
+<h2>Третий заход, десять минут: нарушьте правила нарочно</h2>
+
+<p>Переключите на рэндзю, возьмите чёрные и попробуйте сделать двойную тройку: два отдельных открытых три одним камнем. Доска откажет. Камень возвращается, чёрные ходят снова, в центре экрана появляется окно, а строка состояния под доской меняет текст.</p>
+
+<p>Главное в этом заходе следующее. Сделайте фол, отойдите на два шага и посмотрите на экран с того расстояния, с которого смотрит гость напротив. Читается? Держится оно две с половиной секунды. За столом, где шестеро разговаривают и один режет индейку, честный ответ нет. Этот ответ и определяет настройку: свободные правила, фолы выключены.</p>
+
+<p>Если кто-то настаивает на рэндзю, потому что любит правила, не перечисляйте три фола. Скажите про асимметрию, она и решает партии: у чёрных должно быть ровно пять, у белых пять и больше, шесть тоже победа. В турнирном рэндзю шестой чёрный камень означает поражение на месте. Эта доска просто его не принимает, и для праздника так удобнее.</p>
+
+<p>Последнее в этом заходе: нажмите подсказку один раз. Она подсвечивает лучший пустой пункт на три секунды и гаснет. Причину не объясняет, вариантов не показывает, это ответ без доказательства. Нажмите сегодня, чтобы знать, как это выглядит, и договоритесь за столом, что не нажимает никто. <a href="/ru-RU/blog/trygomoku-features">Описание возможностей</a> собирает остальные переключатели в одном месте.</p>
+
+<h2>Карточка</h2>
+
+<p>Пять минут, одна карточка, три строки. Клеится на край стола так, чтобы вам было видно, а гостям нет.</p>
+
+<ol>
+<li><strong>Чёрные начинают, перезагрузка сбрасывает всё.</strong> Доска возвращается к 15×15, свободным правилам и игре против компьютера. Проверьте режим до первого камня.</li>
+<li><strong>Фолы выключены, либо правило произнесено вслух.</strong> По умолчанию свободные правила. Если за столом просят рэндзю, говорите про асимметрию, а не про три названия фолов.</li>
+<li><strong>Отмены нет ни у кого.</strong> Если разрешаете, то по одной на игрока, и знайте, что она делает. В игре вдвоём отмена снимает один камень, то есть стирает ответ соперника и отдаёт ему ход заново. Это не исправление, это бесплатный переброс, и к третьей партии стол это заметит.</li>
+</ol>
+
+<h2>Что ставить, по посадке</h2>
+
+<p>Столбец секунд это время на ход, а не на партию: только это число вы действительно проконтролируете с телефоном в руке. Если нужен жёсткий лимит на партию, он посчитан в <a href="/ru-RU/blog/gomoku-timed-mode-how-to-play-fast">материале про бюджет времени</a>.</p>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>Посадка</th><th>Доска</th><th>Секунд на ход</th><th>Фора</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>Первая партия дня, разные возрасты</td><td>9×9</td><td>25</td><td>1 камень с края от сильнейшего</td></tr>
+<tr class="tr-dark"><td>Дедушка против восьмилетнего</td><td>9×9</td><td>30</td><td>2 камня, платит дедушка</td></tr>
+<tr class="tr-light"><td>Двое взрослых равной силы</td><td>15×15</td><td>30</td><td>нет</td></tr>
+<tr class="tr-dark"><td>Четверо взрослых по очереди, одна доска</td><td>15×15</td><td>20</td><td>нет</td></tr>
+<tr class="tr-light"><td>Последняя партия после пирога</td><td>19×19</td><td>40</td><td>нет</td></tr>
+</tbody>
+</table>
+
+<p>Столбцу форы нужна одна фраза объяснения: на этой доске нет кнопки пропуска хода и нет способа выставить камни до начала партии. Сильный игрок выбрасывает камень по ходу игры, на внешней линии, через одну пустую точку. Два камня на 9×9 это настоящая партия. Три на 9×9 это сдача с оформлением.</p>
+
+<h2>Четыре вещи, которых в прогоне быть не должно</h2>
+
+<p><strong>Не делайте прогон на 19×19.</strong> В одиночку одна партия съедает весь прогон, и вы не узнаете ничего сверх того, что дал заход на 15×15.</p>
+
+<p><strong>Не делайте прогон с включённой подсказкой.</strong> Вы найдёте хороший ход и решите, что доска простая. Она не простая, вам показали ответ.</p>
+
+<p><strong>Не делайте прогон не на том устройстве.</strong> Если гости будут играть на планшете, те же двенадцать ходов сделайте на планшете. На телефоне в портретной ориентации пятнадцать линий дают около 23 пикселей между точками, и это не цель для пальца, а подбрасывание монеты.</p>
+
+<p><strong>Не рассчитывайте запомнить партии.</strong> Им некуда деться. Если через год вы захотите узнать, вырос ли восьмилетний, лист с записью будет единственным прибором. <a href="/ru-RU/blog/gomoku-family-game-night">Как провести сам вечер</a> это следующая страница после этой.</p>
+
+<h2>Каким будет четверг</h2>
+
+<p>Никто не спросит, чей ход: карточка лежит на столе. Никто случайно не сядет в партию против компьютера и не проиграет ему: режим проверен. Ребёнок получает позицию, собранную для неё, а не случайную. И когда восьмилетний выиграет 9×9 на двух камнях с края и закричит об этом, вы будете точно знать, сколько стоили эти два камня.</p>
+
+<p>Сорок пять минут в среду, три партии, одна карточка. <a href="/ru-RU/">Доска уже открыта</a>: начните с двенадцати ходов и секундомера.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Закончить три партии до завтрашнего полудня</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Пять в ряд побеждают. Прогон стоит сорок пять минут.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Прогон перед Днём благодарения: сначала три партии в одиночку",
+    "description": "Сорок пять минут наедине с доской измеряют то, чего нет в правилах: как быстро идёт игра, сколько держится предупреждение о фоле и сколько ходов в настоящей партии.",
+    "datePublished": "2026-11-07",
+    "dateModified": "2026-11-07",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-dry-run"}
+  }
+  </script>
+</body>
+</html>
