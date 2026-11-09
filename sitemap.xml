@@ -277,6 +277,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/blog/thanksgiving-gomoku-kid-referee</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/blog/thanksgiving-gomoku-king-of-the-hill</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -549,6 +555,12 @@
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-for-players-of-other-games</loc>
     <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-kid-referee</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -841,6 +853,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-kid-referee</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-king-of-the-hill</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -1125,6 +1143,12 @@
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-for-players-of-other-games</loc>
     <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-kid-referee</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1467,6 +1491,12 @@
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-for-players-of-other-games</loc>
     <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-kid-referee</loc>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
