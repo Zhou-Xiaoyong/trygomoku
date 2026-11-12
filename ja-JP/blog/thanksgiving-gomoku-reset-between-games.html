@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>感謝祭の五目並べ、崩れるのは4局目です | 五目並べブログ</title>
+  <meta name="description" content="感謝祭の五目並べが崩れるのは1局目ではなく4局目です。対局のあいだにずれる設定、押した瞬間に局面が消える4つのボタン、最初の石を置く前に行う20秒のリセット手順をまとめます。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-reset-between-games">
+  <meta property="og:title" content="局間の20秒が、4局目を1局目と同じ形にします">
+  <meta property="og:description" content="再読み込みはルールもモードもスコアも書き換えます。リスタートは石だけを消します。4局目の前に見る3行。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-reset-between-games">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="崩れるのは4局目です">
+  <meta name="twitter:description" content="確認なしで局面が消えるボタンが4つ。最初の石の前に行う5段階のリセット。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">家族とライフスタイル</span>
+          <h1 itemprop="headline">崩れるのは4局目です</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-12">2026-11-12</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>7時10分に4局目が始まります。3局目がどうなったのかは、もう誰も説明できません。いとこに「AIは三三をどう受けるのか」を見せようとして誰かが「vs AI」を押し、局面が一瞬で消え、戻ってきた盤の向こうにはロボットが座っていました。7時12分、口論は終わり、対局は戻りません。</p>
+<p>壊れたものは何もありません。盤は書かれたとおりに動いただけです。この盤が約束していないのは、その夜の状態を覚えておくことです。順番が誰に回っているか、この局が連珠かどうか、さっきまで誰が勝っていたか、居間にいる6人のうち誰が黒か。</p>
+<h2>守る約束が3つ、しなかった約束が1つ</h2>
+<p>交互にしか石を置けず、交点に置けるのは1つだけです。四方向のどこでも五連を数えます。連珠では黒の禁手も拒否します。石は弾かれ、局面は動かず、画面のメッセージが2.5秒出て、手番は黒のまま残ります。</p>
+<p>これは1局に対する完全な審判です。一夜の記録ではありません。アカウントも、保存された局面も、セッションもなく、端末には何も書き込まれません。再読み込みすれば盤は15路・フリースタイル・コンピュータ戦・中級に戻り、スコアは0になります。</p>
+<p>問題はこの最後の一文です。再読み込みは「石だけ消して設定はそのまま」ではありません。1秒足らずでルール、盤面、モード、スコアをまとめて書き換えます。しかもその間の見た目は「直している」です。タップが効かないと感じた客は再読み込みします。タップについての判断は正しく、それ以外は全部間違っています。</p>
+<h2>押せば局面が消えるボタンが4つ、どれも確認しません</h2>
+<p>高いのはモードの行です。「vs AI」を押すと、何よりも先にリセットが走ります。確認もなく、局面に戻る道もありません。しかも盤は1人用のまま残るので、2人に戻すには「友達対戦」をもう一度押す必要があり、その一押しでもう一度リセットされます。実演1回で局面が2回死にます。</p>
+<p>ルールの行も同じです。フリースタイルと連珠を行き来すれば盤は消え、盤面サイズの3つのボタンもそれぞれ消し、色の行も消します。色の行は2人用モードではもともと無効です。どれも隠れてはいません。人が話しながら押すボタンが、そのままそれです。</p>
+<p>細部がひとつ、「消える」を測定器に変えます。これらのボタンはどれも、まず「すでに選ばれているか」を判定し、そうなら何もせずに戻ります。つまり、いま自分がいるモードを押しても無料です。「友達対戦」を押してみてください。石がそのままなら、その席はもともと2人用でした。石が消えたなら、そうではなかった。4分の口論ではなく、局面1つ分の代金で答えが出ます。この一押しは1人だけに許してください。</p>
+<p>灰色の行のほうが速く読めます。2人用モードでは難易度の行と色の行が灰色になり、反応しなくなります。灰色が2行あることが、幹事が10分おきに口にする質問への完全な答えです。</p>
+<h2>2人用モードに「手番ではない」は存在しません</h2>
+<p>コンピュータ戦では、AIが考えているあいだに盤を触っても何も起きません。2人用にはその保険がありません。2つの色のどちらかは必ず手番なので、触れた指はすべて合法な着手になります。通りがかりの人が軽く触っただけでも、タイミングが悪ければ相手側の着手として盤に残ります。</p>
+<p>戻すのは1手だけです。2人用の「戻す」は最後の石を1つ取り、その石を置いた人の手番に戻す仕様なので、誤タップの代償は1回のタップで済み、対局は失いません。裏返すと、あなたが置いたばかりの1手を誰でも1タップで消せるということでもあります。だから「戻す」は、モードの行と同じ1人の担当にしてください。</p>
+<h2>スコア表示が数えているもの、それは今夜ではありません</h2>
+<p>カウンタは3つ。黒勝ち、白勝ち、引き分け。ページを開いた時に一度だけ初期化され、局と局のあいだで消えません。数えるのは色で、人ではありません。7時40分に盤の横が「黒3・白1」を示していても、それは5人が打った4局で、その4つの数字のどれも「黒が誰だったか」を教えてくれません。</p>
+<p>再読み込みで0に戻ります。このアプリが午後に残している唯一の記録は、タップの不調を直すのと同じ動作で消えます。紙を1枚、3列だけ。何局目か、黒が誰か、結果。ほかに一夜を越えるものはありませんし、越える必要もありません。</p>
+<h2>20秒のリセット、順番どおりに</h2>
+<p>最初の石を置く前に。最初の言い争いの後ではなく。やるのは次の局で黒を持つ人です。その席で両手が空いていて、失う手番もないのはその人だけだからです。</p>
+<ol>
+<li><strong>見る、押さない。</strong>状態は3行が全部持っています。モード、ルール、盤面サイズ。各行で光っているボタンが、設定が書かれている唯一の場所です。見るのは無料、押すのは対局1つ分のことがあります。</li>
+<li><strong>灰色を探す。</strong>2行が灰色なら2人用モードです。難易度のボタンが光っているなら、誰かが盤の向こうにコンピュータを戻しています。</li>
+<li><strong>「リスタート」で始める。ブラウザの再読み込みは使わない。</strong>リスタートは石だけ消して設定を残します。再読み込みは石と設定とスコアを消します。</li>
+<li><strong>黒が誰かを声に出す。</strong>この盤は毎局黒から始まり、2人用モードではページ上のどのボタンでもそれを変えられません。先手は画面が決めるものではなく、卓が1局に1回決めるものです。言わなければ毎回同じ2人が座り、4局目は1局目の再放送になります。</li>
+<li><strong>その局が連珠なら一言。「黒は六連を作れません」。</strong>拒否のメッセージは2.5秒で消え、どの禁手だったかは書かれず、手番は黒に戻ります。3回続けて拒否されると、客はタブレットが壊れていると判断します。</li>
+<li><strong>次の組が座る前に結果を書く。</strong>10秒、紙に。そうしないと夜の終わりに残るのは、誰も解釈できないスコア表示だけです。</li>
+</ol>
+<h2>場面別の設定</h2>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>場面</th><th>盤</th><th>1局</th><th>ハンデ</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>皿がまだ出ている、客3人</td><td>9×9</td><td>5分</td><td>なし</td></tr>
+<tr class="tr-dark"><td>人が集まってくる、画面1台</td><td>15×15</td><td>8分</td><td>捨て石1</td></tr>
+<tr class="tr-light"><td>七面鳥のあと、大人2人</td><td>19×19</td><td>12分</td><td>なし</td></tr>
+<tr class="tr-dark"><td>祖父母と9歳</td><td>9×9</td><td>6分</td><td>捨て石2</td></tr>
+<tr class="tr-light"><td>子ども2人、大人が見ていない</td><td>9×9</td><td>4分</td><td>1、フリースタイルのみ</td></tr>
+</tbody>
+</table>
+<p>分数は10秒に1手の宴会ペースです。9路で20数手、15路で40数手、19路で60数手。わざと速く打つ練習をしたいなら、時間の配分は別の話になり、<a href="/ja-JP/blog/gomoku-timed-mode-how-to-play-fast">そちらの記事</a>で扱っています。部屋に画面が2台ある場合、どちらを連珠にするかは好みではなく<a href="/ja-JP/blog/thanksgiving-gomoku-two-table-plan">2台の計算</a>で決まります。</p>
+<h2>三世代、盤は1つ、リセットでは設定できないハンデ</h2>
+<p>ハンデの設定はありません。開始前に石を置くことも、パスも、「2つ置いてから渡す」もできません。強い側が渡せる石は、辺の死んだ点に1手使うことだけです。最初か最後の行、最初か最後の列、そして自分が使うどの線にも入らないこと。9路なら2つまで成立します。3つはハンデではなく投了です。</p>
+<p>もっと安いレバーは、強制的に黒から始まるという性質そのものです。黒を子どもに、あるいは2019年から打っていない人に渡してください。9路では先手の価値が捨て石より大きくなります。15路では差が開くので、先手を持つ初心者がまともな大人と20手渡り合えます。双方にとって良い夜になります。</p>
+<p>ルールは監督体制に合わせて選びます。大人が声の届く範囲にいないなら自由スタイル。連珠はより良いゲームで、教える価値もあります。ただ、台所から見える2.5秒の表示はルールではなく噂です。子どもが実際に覚えていける順番は<a href="/ja-JP/blog/gomoku-rules-for-kids-explained">五連、受け、そして禁手</a>で、禁手が最後になるのは、それだけは説明する人がもう1人必要だからです。</p>
+<p>その卓が組ではなく順番待ちなら、先手は形式が決めてくれます。<a href="/ja-JP/blog/thanksgiving-gomoku-king-of-the-hill">勝ち抜きでは挑戦者が毎局黒</a>なので、リセットは2手順に縮みます。4番目はすでにルールの中にあるからです。</p>
+<h2>再読み込みから指を離す</h2>
+<p>今年ひとつだけ習慣を変えるなら、これです。「リスタート」は1タップで、卓が決めたことを全部残します。再読み込みはコイン投げで、次の局が連珠かフリースタイルか、2人か機械か、午後のスコアがまだあるかが決まります。リセットは20秒、それが防ぐ口論はおよそ4分。90分の夜では、その差は1局半になり、どんなハンデより大きくなります。</p>
+<p>3行を見て、黒が誰かを言って、タブレットを渡してください。<a href="/ja-JP/">盤はトップページにあります</a>。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">3行を見てから打つ</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">3行を確認し、黒が誰かを一言決める。それだけで4局目は1局目と同じ形になります。盤はトップページにあります。</p>
+            <a href="/ja-JP/#game" class="cta-btn">五目並べを遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "崩れるのは4局目です",
+    "description": "感謝祭の五目並べが崩れるのは1局目ではなく4局目です。対局のあいだにずれる設定、押した瞬間に局面が消える4つのボタン、最初の石を置く前に行う20秒のリセット手順をまとめます。",
+    "datePublished": "2026-11-12",
+    "dateModified": "2026-11-12",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-reset-between-games"}
+  }
+  </script>
+</body>
+</html>

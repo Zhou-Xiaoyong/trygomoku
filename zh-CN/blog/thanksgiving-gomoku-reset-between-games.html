@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>感恩节五子棋：第四局之前那二十秒复位 | 五子棋博客</title>
+  <meta name="description" content="聚会出问题的一般不是第一局，而是第四局。中途会漂掉的是模式、规则和比分，外加四个一点就清盘的按钮，以及落第一颗子之前的复位顺序。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-reset-between-games">
+  <meta property="og:title" content="局间那二十秒，决定第四局还像不像第一局">
+  <meta property="og:description" content="刷新会把规则、模式和比分一起改写，重新开始只清棋子。第四局开打前该看的三行。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-reset-between-games">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="崩的是第四局，不是第一局">
+  <meta name="twitter:description" content="四个按钮清盘都不问一句。开赛前二十秒的五步复位。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">家庭与生活</span>
+          <h1 itemprop="headline">第四局才是感恩节五子棋的坎</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-12">2026-11-12</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>七点十分开第四局，没人说得清第三局是怎么没的。有人点了一下「人机对战」，想给表弟演示引擎怎么应双三，局面一下空了，回来的时候对面坐着一台机器，这边是个十三岁的孩子。到七点十二分，争论结束了，棋没回来。</p>
+<p>没有东西坏掉。棋盘只是照它被写好的样子工作。它从来没承诺记住这一晚的状态：队伍排到谁、这局打不打连珠、刚才谁领先、屋里六个人里谁是黑。</p>
+<h2>它守住三个承诺，第四个从来没答应过</h2>
+<p>它保证轮流落子，一个交叉点只落一颗，四个方向都能数出五连。连珠模式下黑棋的禁手还会被拒收：棋子弹回去，局面不动，屏幕上一句提示挂两秒半，然后仍然轮黑。</p>
+<p>这是一个完整的裁判，但只对一局有效。它不是一晚的记录。这里没有账号、没有存档、没有会话，什么都不写进设备。刷新一下，棋盘回到 15×15、自由式、人机对战、中级，比分归零。</p>
+<p>最后这一句才是问题所在。刷新不是「清掉棋子、设置照旧」，它在一秒之内把规则、盘面、模式和比分一起改写，而整个过程看起来像是在修东西。客人卡一下就会刷新。他们对卡顿的判断是对的，对别的全错。</p>
+<h2>四个一点就清盘的按钮，没有一个会问</h2>
+<p>模式那一行最贵。点「人机对战」，重置在任何别的事情之前就发生了：没有确认，没有回到局面的路。棋盘还会停在单人模式，要回到两个人得再点一次「双人对战」，那一下又重置一次。一次演示，局面死两回。</p>
+<p>规则集那一行一样。自由式和连珠来回切会清盘，三档盘面每个按钮都会清盘，选边那一行也会，而它在双人模式下本来就是锁死的。这些都不是藏起来的按钮，它们正是人们边说话边按的那些。</p>
+<p>有个细节能把「清盘」变成测量工具。这几个按钮的第一行都在判断「是不是已经选中了」，是就直接返回，什么都不做。所以点你已经所在的那个模式是免费的。点一下「双人对战」：棋子还在原处，说明本来就在双人模式；棋子没了，说明不在，而你现在用一个局面换到了答案，不是四分钟的争论。这一下指定一个人按，别人都不许按。</p>
+<p>变灰的那两行读得更快。双人模式下难度行和选边行会变灰、按不动，所以「两行是灰的」就是对主人每隔十分钟问一次的那个问题的完整回答。</p>
+<h2>双人模式里没有「不轮到你」这回事</h2>
+<p>人机对战时 AI 思考期间点棋盘，什么都不会发生。双人模式没有这个保险：两种颜色里总有一个在走，所以每一次触碰都是合法的落子，包括路过的人顺手那一下。时机不好的话，那颗子就记在了对手头上。</p>
+<p>补救只有一步。双人模式的悔棋恰好只退最后一颗，并把回合还给落这颗子的人，所以误碰的代价是一次点击，不是一局棋。反过来也成立：谁都能一键删掉你刚下的那手。所以「悔棋」和模式那几行一样，归同一个人管。</p>
+<h2>记分板在数什么，反正不是这一晚</h2>
+<p>三个计数器：黑胜、白胜、和棋。它们在页面加载时初始化一次，局与局之间从不清零，而且按颜色记，不按人记。七点四十屏幕上写着黑 3 白 1，那是五个人打出来的四局，这四个数字里没有一个能告诉你当时黑是谁。</p>
+<p>刷新会把它们清零。于是这个应用对下午的唯一记录，和「修卡顿」是同一个动作销毁的。用纸，一张，三列：第几局、谁执黑、结果。别的都撑不过这一晚，也不需要撑过。</p>
+<h2>二十秒复位，按顺序来</h2>
+<p>在落第一颗子之前做，别在第一次争执之后做。由下一局执黑的人做，因为整张桌子上只有他两只手都空着，也没有一手棋可输。</p>
+<ol>
+<li><strong>看，别点。</strong>三行按钮承载全部状态：模式、规则集、棋盘尺寸。每一行里亮着的那颗按钮，是设置唯一写着的地方。看是免费的，点可能要付一局棋。</li>
+<li><strong>找灰色。</strong>两行变灰就是双人模式。如果难度那几颗还亮着，说明有人把电脑放回棋盘对面了。</li>
+<li><strong>用「重新开始」，永远别用浏览器刷新。</strong>重新开始只清棋子，设置留着。刷新清棋子、清设置、还清比分。</li>
+<li><strong>说出谁执黑。</strong>这块盘每局都是黑先，双人模式下页面上没有任何按钮能改这一点。所以先手不是屏幕决定的，是桌子决定的，一局说一次。不说，就永远是同样两个人坐下，第四局变成第一局的重播。</li>
+<li><strong>这局打连珠，就补一句：黑棋不能连六。</strong>拒收提示只活两秒半，而且从不说是哪条禁手，然后把回合还给黑。连着被拒三次，客人就会认定平板坏了。</li>
+<li><strong>下一对坐下之前，把结果写下来。</strong>十秒，写在纸上，否则这一晚最后留下的是一块没人解释得清的记分板。</li>
+</ol>
+<h2>按场面定设置</h2>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>场面</th><th>盘面</th><th>一局</th><th>让子</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>盘子还没收，三位客人</td><td>9×9</td><td>5 分钟</td><td>无</td></tr>
+<tr class="tr-dark"><td>人陆续到，只有一块屏</td><td>15×15</td><td>8 分钟</td><td>1 颗废子</td></tr>
+<tr class="tr-light"><td>火鸡之后，两个大人</td><td>19×19</td><td>12 分钟</td><td>无</td></tr>
+<tr class="tr-dark"><td>祖辈和一个九岁孩子</td><td>9×9</td><td>6 分钟</td><td>2 颗废子</td></tr>
+<tr class="tr-light"><td>两个孩子，没有大人看着</td><td>9×9</td><td>4 分钟</td><td>1 颗，只打自由式</td></tr>
+</tbody>
+</table>
+<p>分钟数按聚会节奏估，大约十秒一手：9 路二十来手，15 路四十来手，19 路六十来手。如果这一桌是想练快棋，预算就是另一道题，写在<a href="/zh-CN/blog/gomoku-timed-mode-how-to-play-fast">那一篇</a>里。屋里有第二块屏时，哪一桌打连珠由<a href="/zh-CN/blog/thanksgiving-gomoku-two-table-plan">两桌并行的算术</a>决定，不靠喜好。</p>
+<h2>三代人、一块盘，以及复位设不出来的让子</h2>
+<p>这里没有让子设置。开局前摆不上子，没有弃手，也没有「先摆两颗再交给你」的操作。强者唯一能给出的子，是他把一手棋花在边上的死点上：第一行或最后一行、第一列或最后一列，然后保证这颗子不进任何一条他要用的线。9 路上这样让两颗还成立，三颗就不是让子，是认输。</p>
+<p>更便宜的杠杆是那个被强制规定的黑先。把黑给小孩，或者给那个 2019 年之后就没下过的人。9 路上先手的价值大过任何一颗废子；15 路上这个差距大到，一个拿着先手的初学者能跟一个像样的大人顶二十手，这对双方都是一个不错的晚上。</p>
+<p>然后按「有没有人看着」选规则。大人在听力范围之外，就打自由式。连珠是更好的游戏，也是更值得教的那个，但从厨房看过去，两秒半的提示不是规则，是传闻。孩子能真正记住的规则顺序是<a href="/zh-CN/blog/gomoku-rules-for-kids-explained">先五连、再挡、最后才是禁手</a>，禁手放最后，因为只有它需要第二个人来解释。</p>
+<p>如果这一桌是排队而不是两两配对，先手就由赛制替你定：<a href="/zh-CN/blog/thanksgiving-gomoku-king-of-the-hill">擂台上挑战者每局执黑</a>，复位直接缩成两步，因为第四步已经写在规则里了。</p>
+<h2>手指离刷新远一点</h2>
+<p>今年只改一个习惯，就改这个。「重新开始」是一次点击，保留桌上所有人商定的一切。刷新是一次抛硬币：下一局是连珠还是自由式、是两个人还是一台机器、下午的比分还在不在，全看运气。跑一遍复位二十秒，它避免的那场争论大约四分钟；九十分钟的一个晚上，这个差额是一局半棋，比你让得出任何子都多。</p>
+<p>看三行，说一句谁执黑，然后把平板递出去。<a href="/zh-CN/">棋盘在首页</a>。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">三行看一眼，再落子</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">看三行按钮、说一句谁执黑，第四局就和第一局一样。棋盘就在首页。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "第四局才是感恩节五子棋的坎",
+    "description": "聚会出问题的一般不是第一局，而是第四局。中途会漂掉的是模式、规则和比分，外加四个一点就清盘的按钮，以及落第一颗子之前的复位顺序。",
+    "datePublished": "2026-11-12",
+    "dateModified": "2026-11-12",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-reset-between-games"}
+  }
+  </script>
+</body>
+</html>

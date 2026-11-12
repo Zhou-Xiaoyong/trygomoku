@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гомоку на День благодарения: ломается четвёртая партия | Блог</title>
+  <meta name="description" content="Вечер гомоку на День благодарения ломается не на первой партии, а на четвёртой. Что уплывает между партиями, какие четыре кнопки стирают позицию и какой сброс сделать до первого камня.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-reset-between-games">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-reset-between-games">
+  <meta property="og:title" content="Двадцать секунд между партиями решают, какой будет четвёртая">
+  <meta property="og:description" content="Перезагрузка переписывает правила, режим и счёт. «Заново» убирает только камни. Что проверить до четвёртой партии вечера.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-reset-between-games">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ломается четвёртая партия, а не первая">
+  <meta name="twitter:description" content="Четыре кнопки стирают позицию, не спрашивая. Сброс из пяти шагов до первого камня.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Семья и досуг</span>
+          <h1 itemprop="headline">Ломается четвёртая партия, а не первая</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-12">2026-11-12</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>В 7:10 начинается четвёртая партия, и никто уже не скажет, что случилось с третьей. Кто-то нажал «против ИИ», чтобы показать двоюродному брату, как машина отвечает на двойную тройку, позиция исчезла целиком, а вернулась доска, за которой напротив тринадцатилетнего сидел робот. К 7:12 спор закончился, партия нет.</p>
+<p>Ничего не сломалось. Доска сделала ровно то, для чего написана. Она никогда не обещала помнить состояние вечера: чья очередь в списке, идёт ли этот круг по рэндзю, кто вёл до этого и кто из шести человек в комнате играет чёрными.</p>
+<h2>Три обещания, которые доска держит, и одно, которого не давала</h2>
+<p>Ходы строго по очереди, в одну точку один камень, пять в ряд считается по всем четырём направлениям. В рэндзю запрещённый ход чёрных отклоняется: камень отскакивает, позиция не меняется, сообщение висит две с половиной секунды, очередь остаётся у чёрных.</p>
+<p>Для одной партии это полноценный судья. Для вечера это не запись. Здесь нет аккаунта, нет сохранённой позиции, нет сессии, на устройство не пишется ничего. Перезагрузка возвращает доску к 15 линиям, свободному стилю, игре против компьютера, среднему уровню и счёту ноль.</p>
+<p>Вся проблема в последней фразе. Перезагрузка не оставляет настройки в покое, она переписывает правила, размер доски, режим и счёт примерно за секунду. И выглядит это как починка. Гость перезагружает страницу, когда нажатие не сработало. Насчёт нажатия он прав, во всём остальном нет.</p>
+<h2>Четыре кнопки, которые заканчивают партию, и ни одна не спрашивает</h2>
+<p>Дороже всех строка режима. Нажатие «против ИИ» запускает сброс раньше всего остального: без подтверждения и без дороги назад к позиции. Доска при этом остаётся в одиночном режиме, и чтобы вернуть двух людей, нужно ещё раз нажать «с другом», а это ещё один сброс. Один показ стоит двух партий.</p>
+<p>Строка правил делает то же самое. Переключение между свободным стилем и рэндзю стирает доску, каждый размер доски стирает доску, строка цвета тоже, хотя в игре на двоих она и так заблокирована. Это не спрятанные кнопки. Это те самые кнопки, которые люди нажимают, разговаривая.</p>
+<p>Одна подробность превращает стирание в измерительный прибор. Каждая из этих кнопок сначала проверяет, выбрана ли она уже, и если да, выходит, ничего не сделав. Значит нажатие на режим, в котором вы уже находитесь, бесплатно. Нажмите «с другом». Если камни остались на месте, за столом уже был режим на двоих. Если исчезли, значит не был, и теперь вы это знаете ценой одной позиции, а не четырёх минут спора. Это нажатие разрешите одному человеку и никому больше.</p>
+<p>Серые строки читаются быстрее. В игре на двоих строка сложности и строка цвета тускнеют и перестают отвечать. Две серые строки и есть полный ответ на вопрос, который хозяин задаёт каждые десять минут.</p>
+<h2>В игре на двоих не бывает «не твой ход»</h2>
+<p>Против компьютера нажатие на доску, пока думает ИИ, не делает ничего. В игре на двоих такой страховки нет. Один из двух цветов всегда на ходе, поэтому любое касание становится настоящим ходом, включая случайное касание человека, проходящего мимо стола. При неудачном моменте камень ложится за соперника.</p>
+<p>Отменяется это одним движением. В игре на двоих «Отменить» снимает ровно последний камень и возвращает очередь тому, кто его поставил, поэтому случайное касание стоит одного нажатия, а не партии. Обратная сторона: любой за столом может одним нажатием убрать ваш только что сделанный ход. Поэтому кнопка отмены принадлежит тому же человеку, что и строка режима.</p>
+<h2>Что считает табло, и это не сегодняшний вечер</h2>
+<p>Три счётчика: победы чёрных, победы белых, ничьи. Они обнуляются один раз при загрузке страницы, между партиями не сбрасываются и считают цвет, а не человека. В 7:40 на планшете горит 3:1. Это четыре партии, сыгранные пятью разными людьми, и ни одно из этих чисел не скажет, кто в них был чёрным.</p>
+<p>Перезагрузка обнуляет и их. Единственный след, который приложение оставляет от дня, исчезает тем же движением, которым чинят залипшее нажатие. Бумага, один лист, три колонки: номер партии, кто играл чёрными, результат. Больше вечер ничего не сохраняет, и больше ничего не нужно.</p>
+<h2>Сброс за двадцать секунд, по порядку</h2>
+<p>До первого камня, а не после первого спора. Делает тот, кто сядет за чёрных: только у него за столом свободны обе руки и нет хода, который можно потерять.</p>
+<ol>
+<li><strong>Смотреть, не нажимать.</strong> Всё состояние держат три строки: режим, правила, размер доски. Подсвеченная кнопка в каждой строке и есть единственное место, где записана настройка. Смотреть бесплатно, нажимать иногда стоит партии.</li>
+<li><strong>Найти серое.</strong> Две тусклые строки означают игру на двоих. Если кнопки сложности горят, кто-то вернул компьютер за доску.</li>
+<li><strong>Начинать кнопкой «Заново», а не перезагрузкой браузера.</strong> «Заново» убирает камни и оставляет настройки. Перезагрузка убирает камни, настройки и счёт.</li>
+<li><strong>Сказать вслух, кто играет чёрными.</strong> Каждая партия здесь начинается с чёрных, и в игре на двоих ни одна кнопка на странице этого не меняет. Первый ход выбирает не экран, а стол, один раз за партию. Если не сказать, за доску садятся одни и те же двое, и четвёртая партия становится повтором первой.</li>
+<li><strong>Одна фраза, если круг идёт по рэндзю: чёрным нельзя шесть.</strong> Сообщение об отказе живёт две с половиной секунды, не говорит, какое правило нарушено, и возвращает очередь чёрным. Три отказа подряд, и гость решает, что планшет сломан.</li>
+<li><strong>Записать результат до того, как сядет следующая пара.</strong> Десять секунд, на бумаге. Иначе к концу вечера останется табло, которое никто не сможет истолковать.</li>
+</ol>
+<h2>Что ставить, по ситуации</h2>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>Ситуация</th><th>Доска</th><th>Одна партия</th><th>Фора</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>Тарелки ещё на столе, трое гостей</td><td>9×9</td><td>5 мин</td><td>нет</td></tr>
+<tr class="tr-dark"><td>Гости подходят, один экран</td><td>15×15</td><td>8 мин</td><td>1 пустой камень</td></tr>
+<tr class="tr-light"><td>После индейки, двое взрослых</td><td>19×19</td><td>12 мин</td><td>нет</td></tr>
+<tr class="tr-dark"><td>Бабушка и девятилетний</td><td>9×9</td><td>6 мин</td><td>2 пустых камня</td></tr>
+<tr class="tr-light"><td>Двое детей, взрослых рядом нет</td><td>9×9</td><td>4 мин</td><td>1, только свободный стиль</td></tr>
+</tbody>
+</table>
+<p>Минуты даны в темпе застолья, около десяти секунд на ход: два десятка ходов на 9 линиях, четыре десятка на 15, шесть на 19. Если за столом нарочно тренируют быструю игру, бюджет времени это отдельная задача, и она разобрана <a href="/ru-RU/blog/gomoku-timed-mode-how-to-play-fast">в другой статье</a>. Когда в комнате два экрана, какой из них играет рэндзю, решает не вкус, а <a href="/ru-RU/blog/thanksgiving-gomoku-two-table-plan">арифметика двух досок</a>.</p>
+<h2>Три поколения, одна доска и фора, которой нет в настройках</h2>
+<p>Настройки форы здесь нет. Камни перед партией не выставляются, пропуска хода нет, поставить два и передать тоже нельзя. Единственный камень, который сильный игрок может отдать, это ход, потраченный на мёртвую точку у края: первая или последняя линия, первый или последний столбец, и так, чтобы этот камень не попал ни в одну из нужных линий. На 9 линиях это работает дважды. Три камня уже не фора, а сдача партии.</p>
+<p>Более дешёвый рычаг это принудительные чёрные. Отдайте чёрные ребёнку или тому, кто не играл с 2019 года. На 9 линиях первый ход стоит дороже любого пустого камня. На 15 линиях разрыв шире, и новичок с первым ходом держится против приличного взрослого ходов двадцать, а это хороший вечер для обоих.</p>
+<p>Дальше правила подбираются под присмотр. Свободный стиль везде, где рядом нет взрослого в пределах слышимости. Рэндзю игра получше, и её интереснее преподавать, но сообщение на две с половиной секунды, прочитанное с кухни, это не правило, а слух. Порядок, в котором ребёнок реально удерживает правила: <a href="/ru-RU/blog/gomoku-rules-for-kids-explained">пять в ряд, потом блок, потом запреты</a>, и запреты идут последними, потому что только они требуют второго человека для объяснения.</p>
+<p>Если за столом не пары, а очередь, первого хода распоряжается формат: <a href="/ru-RU/blog/thanksgiving-gomoku-king-of-the-hill">в игре на выбывание претендент каждый раз берёт чёрные</a>, и сброс сокращается до двух шагов, потому что четвёртый уже записан в правилах.</p>
+<h2>Держите пальцы подальше от перезагрузки</h2>
+<p>Если менять одну привычку в этом году, то эту. «Заново» это одно нажатие, и оно сохраняет всё, о чём договорился стол. Перезагрузка это монетка: будет следующая партия рэндзю или свободным стилем, двое людей или машина, остался ли счёт за день. Сброс занимает двадцать секунд, а спор, который он предотвращает, около четырёх минут. За вечер в девяносто минут эта разница стоит полторы партии, и это больше любой форы, которую вы можете дать.</p>
+<p>Посмотрите на три строки, скажите, у кого чёрные, и передайте планшет. <a href="/ru-RU/">Доска на главной странице</a>.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Три строки, потом камень</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Посмотреть на три строки, сказать вслух, кто играет чёрными, и четвёртая партия вечера будет такой же, как первая. Доска на главной странице.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Ломается четвёртая партия, а не первая",
+    "description": "Вечер гомоку на День благодарения ломается не на первой партии, а на четвёртой. Что уплывает между партиями, какие четыре кнопки стирают позицию и какой сброс сделать до первого камня.",
+    "datePublished": "2026-11-12",
+    "dateModified": "2026-11-12",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-reset-between-games"}
+  }
+  </script>
+</body>
+</html>
