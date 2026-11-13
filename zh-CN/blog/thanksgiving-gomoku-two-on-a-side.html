@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>两人一边：四个人的感恩节五子棋 | 五子棋博客</title>
+  <meta name="description" content="二对二怎么在节日桌上跑起来：这块盘为什么不需要组队模式、第一颗子怎么决定谁执黑、一对人为什么只会下讲得清的手，以及搭档能替你数的禁手。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-two-on-a-side">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-two-on-a-side">
+  <meta property="og:title" content="两人一边：四个人的感恩节五子棋">
+  <meta property="og:description" content="没有组队按钮、没有弃手、没有让子设置。一对人在落第一颗子之前必须说定的三件事。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-two-on-a-side">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="四个人，两个颜色，一块平板">
+  <meta name="twitter:description" content="一对人下的是讲得清的那一手，不是看见的那一手。十秒规矩能把它扳回来。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">家庭与生活</span>
+          <h1 itemprop="headline">两人一边：四个人的感恩节五子棋</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-13">2026-11-13</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>第九手，白棋那边两只手同时伸向屏幕。一个要下 G7 把斜线断掉，一个要下 J6 自己起一条。等他们商量出结果，黑棋已经落在 F8，争的那个点早就不在了。</p>
+<p>二对二比淘汰赛更适合节日这张桌子，而且它是唯一一种「吵在落子之前」的玩法。它还有三个没人提前交代的坑，全都藏在这块盘的做法里。</p>
+<h2>四个人，两个颜色，没有组队按钮</h2>
+<p>这里没有队伍模式，没有弃手键，也没有把回合交给搭档的按钮。听起来像不该试。恰恰相反。</p>
+<p>棋盘只认一件事：现在轮到哪个颜色。它强制轮流、一个交叉点一颗子，至于这个颜色后面坐了几个人，它不关心。白棋后面坐两个，棋盘看到的还是那个人机对战里的白棋。除了点一下「双人对战」，没有任何要设置的东西，也没有任何会坏的地方。要是以前只在同一台设备上打过一对一，<a href="/zh-CN/blog/gomoku-multiplayer-online-with-friends">同屏轮流的基本操作</a>两分钟就能看完。</p>
+<p>围棋的联棋得另立规则，因为提子和劫让「共用一手」产生歧义。这里共用的这一手是桌上最没歧义的东西。黑、白、黑。搭档要说话，就在棋盘本来就留出的空隙里说。</p>
+<h2>先落第一颗子的那一对，就是黑</h2>
+<p>双人模式下颜色那一行会变灰、按不动。每一局都从黑开始，每次重置回合都回到黑，页面上没有任何按钮能改。所以这不是一个设置，是一个动作：谁先落下第一颗子，谁就是黑。</p>
+<p>就用手把这个动作做掉。把平板推到弱的那一对面前，让他们开局。15 路的第一颗子比你能让出去的任何废子都值钱，解释起来还不花时间。第二句也得说出口，因为大家总会忘：第二局也从黑开始。平板不换手，同一对整晚都是白。</p>
+<h2>一只手放在屏幕上</h2>
+<p>对人机的时候，AI 还在想你点棋盘什么都不会发生。两个真人的时候，任何一次触碰都是当前这一方的合法落子。四个人围一块屏，搭档手一滑，子就落在自己颜色上。这比听起来更糟：不是被对手偷了一手，是自己这边把一手花在没人选过的点上。</p>
+<p>15 路上开局丢一手还能绕着下。9 路一整局才二十来手，一颗废子基本就是一局。所以轮到谁，谁拿平板；搭档的手离开屏幕，搭档负责说话。</p>
+<p>「悔棋」只退一颗子，回合回到落这颗子的人手上。放在一对人里面，它是双向的：一下能修掉误触，也能让搭档一键删掉你刚下的那一手。开局前说定，悔棋只归拿平板的那个。</p>
+<h2>一对人只会下「讲得清」的那一手</h2>
+<p>这才是商量的真实代价，跟快慢没关系。挡一手，四个字就解释完了。双威胁解释不完：要两条线、两个后续，还要一句话扛得住被打断。</p>
+<p>所以一对人会往「讲得清」的方向漂。看一局二对二，数一数这一边几次下了自己看见的双威胁、几次下了自己描述得出来的挡点。差额就是这个玩法的税。</p>
+<p>一条规矩能把税退回来。落子前，持子的人用一句话说清这颗子干什么，搭档回一句。如果说不出，这手多半不是挡而是威胁，那也该下，配一句「三手之后我解释」。只下讲得清的那些手的一对，会输给允许五手里有一下讲不清的一对。<a href="/zh-CN/blog/gomoku-double-threat-fork-strategy">双威胁本来就是最难解释的一手</a>，一桌人都在说话的时候，它反而最好用。</p>
+<h2>白棋那边的商量，只有一个问题</h2>
+<p>黑棋掌握主动。黑那一对在两手之间有现成的计划可谈。白那一对只能应答，而应答永远慢一手，所以白没有时间拿来争论。</p>
+<p>给白棋一个问题就够：他哪条活三还活着？一头被堵的三可以等一手，两头都空的三不能等，下一颗子就变成两头都能成五的冲四。每条三数两个端点，两秒钟，值得数的从来不超过三条。</p>
+<p>白那一对花二十秒比较两个挡点，黑就下后续，比较本身就没意义了。先说出威胁，再挑那个「又挡又做」的点。防守方全部的商量内容就这一句。</p>
+<h2>两个人看，连珠才活得下去</h2>
+<p>连珠禁黑棋三种形：六连以上、同时两个四、同时两个三。这块盘是拒收，不是判负：棋子弹回去，局面不动，屏幕上一句话挂两秒半，不说违的是哪条，回合还在黑手上。</p>
+<p>一个新手加一句两秒半的提示，结果就是客人认定平板坏了。两个人坐在同一个颜色后面，是唯一能在落子前抓住禁手的配置：持子的人还在挑点，搭档已经在数那条线。</p>
+<p>数是机械活。要延长某一行，就数新点左边几颗、右边几颗，再加新这颗。一边四颗、加新的、另一边一颗，就是六，六会被拒。两条斜线也各数一遍，三三的问题自己就有答案，因为一个点要同时做出两个活三，就得同时在两个方向上都空着两头。</p>
+<p>规则在开局前定好。自由式切连珠会清盘，中途改一次，赔一个局面加一场争论。孩子能记住的顺序是<a href="/zh-CN/blog/gomoku-rules-for-kids-explained">先连五、再挡、最后才是禁手</a>，一对人里，第二个人正好负责把关最后那一条。</p>
+<h2>按对手配，怎么设</h2>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>阵容</th><th>盘面</th><th>每手</th><th>让子</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>两个大人各带一个新手</td><td>15&times;15</td><td>15 秒</td><td>不让</td></tr>
+<tr class="tr-dark"><td>大人对两个小孩</td><td>9&times;9</td><td>10 秒</td><td>大人执白</td></tr>
+<tr class="tr-light"><td>祖辈带孙辈，对两个表亲</td><td>9&times;9</td><td>10 秒</td><td>孩子那对先手</td></tr>
+<tr class="tr-dark"><td>四个常下的人</td><td>15&times;15</td><td>20 秒</td><td>不让</td></tr>
+<tr class="tr-light"><td>吃完派、四个人都累了</td><td>9&times;9</td><td>10 秒</td><td>白方一颗边子</td></tr>
+</tbody>
+</table>
+<p>「每手」是商量用的秒数，不是思考的秒数。9 路按二十来手算，15 路按四十来手算。每手二十秒的商量能把一局 9 路拖成十五分钟，所以四个人该用小盘，大盘不该上。</p>
+<h2>没有让子设置，四个人怎么配平</h2>
+<p>这里没有让子设置。开局不能先摆子，没有弃手，也没法连下两手下交。强者唯一能让出去的，是一手花在边上的废子：第一或最后一行、第一或最后一列，而且此后不许它参与任何一条线。9 路上最多两颗，三颗不叫让子，叫认输。</p>
+<p>一对人里，废子要报出来。不报，搭档会把它当成真手，顺着它做两手才发现那条线根本走不通。</p>
+<p>更便宜的杠杆是配对本身。把四个人排个序，最强的配最弱的，去打中间那两个：1 配 4，2 配 3。和相等，而且带不动，因为他要带的那个人就在自己这一边。然后让「二号更弱」的那一对执黑，因为黑能容忍慢开局，白不能。</p>
+<h2>每人一句，十秒，然后持子的人落</h2>
+<p>每手两句话，搭档各一句，然后落子。9 路二十四手，八分钟下棋、四分钟说话。没有这个上限，就是十二分钟说话，后面还排着队。</p>
+<p>要是一对人连着三手只说话不落子，问题不在局面，是两个人都还没说出威胁是什么。说出来，落下去，把争论留给下一手。<a href="/zh-CN/">棋盘在首页</a>，双人对战在「人机」右边一格，第一颗子归拿平板的那个人。屋里超过四个人，要换的是赛制不是规则，<a href="/zh-CN/blog/gomoku-family-game-night">游戏之夜的轮转</a>讲的就是剩下那两个怎么安排。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">一个颜色坐两个人</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">点一下双人对战，把平板推到弱的那一对面前，第一颗子归他们。页面上没有别的要设。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "两人一边：四个人的感恩节五子棋",
+    "description": "二对二怎么在节日桌上跑起来：这块盘为什么不需要组队模式、第一颗子怎么决定谁执黑、一对人为什么只会下讲得清的手，以及搭档能替你数的禁手。",
+    "datePublished": "2026-11-13",
+    "dateModified": "2026-11-13",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-two-on-a-side"}
+  }
+  </script>
+</body>
+</html>
