@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>感謝祭の五目並べ総当たり：全員がコンピュータと打つ | 五目並べブログ</title>
+  <meta name="description" content="残った4人、タブレット1台、疲れない相手。コンピュータの初手が必ず中央な理由、「簡単」の4つの規則、石を2つ戻す「戻す」が列にとって何を意味するかを整理します。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-gauntlet">
+  <meta property="og:title" content="相手は1人、挑戦者は4人">
+  <meta property="og:description" content="この盤で使えるハンデは色だけです。順位をつけるのか、全員を招くのかを先に決め、4列を封筒の裏に書きます。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-gauntlet">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="相手は1人、順番は4人">
+  <meta name="twitter:description" content="最初の石は全員同じ、応手は同じではありません。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">家族とライフスタイル</span>
+          <h1 itemprop="headline">感謝祭の五目並べ総当たり：全員がコンピュータと打つ</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-15">2026-11-15</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>9時45分、テーブルには4人が残り、パイの皿もまだ下がっていません。トーナメント表は1時間前に終わり、いとこたちの列も帰ってしまい、もう1局やりたいおじさんには相手がいません。残っているのはタブレット1台と、飽きもせず、疲れもせず、強くもならない相手だけです。</p>
+<p>これが総当たりの挑戦です。テーブル全員が同じコンピュータと交代で打ち、1局ずつ、画面を持っている人の後ろから全員が覗き込みます。進行表も審判もいりません。1タップで始まります。</p>
+<h2>挑戦は相手が1人、人が一列</h2>
+<p>コンピュータ相手に盤が受け付ける人間は1人だけです。手番でない側のタッチは問答無用で拒否されるので、2人で1局を共有することは友達対戦のようにはできません。タブレットを持っている人が打ち、ほかの全員が読みます。</p>
+<p>その1局は思ったより短いものです。9×9なら20手から24手、ゆっくり進めて6、7分。10時を回った食卓でこの形式が成り立つ理由はそこにあります。6人で1局ずつ、コーヒーの2杯目が沸く前に終わります。</p>
+<p>この形式に「王」はいません。先週の版は1人を椅子に座らせ、ほかの全員がそこから引きずり下ろす形でした（<a href="/ja-JP/blog/thanksgiving-gomoku-king-of-the-hill">勝ち抜き戦</a>）。ここでは椅子はコンピュータのものなので、義母の前で潔く負ける必要がある人はいません。</p>
+<h2>コンピュータの初手は必ず中央の点</h2>
+<p>挑戦者が白を持つと、コンピュータの最初の石は中央の交点です。9×9なら (4,4)、15×15なら (7,7)。中央付近ではなく、中央そのものです。開始処理は何かを評価する前にこの1点を確認するので、初手でコンピュータはまったく考えていません。</p>
+<p>2手目は別物です。15×15で、こちらの初手が天元かその隣の2点のいずれかなら、応手は小さな定石集から出ます。中央には4通り、残る2点にはそれぞれ2通りがあり、その中からランダムに選ばれます。同じ初手を2回打てば、違う局面が2つ出てきます。9×9ではこの定石集は効かないので、応手は中央から2路以内の空点からランダムです。</p>
+<p>これで、祝日の食卓で最もよく聞く助言が消えます。「さっき勝った人が次の人に打ち方を教える」。覚える手順はなく、作る形だけがあります。</p>
+<h2>まず、この挑戦が何を答えるのかを決める</h2>
+<p>この盤で使えるハンデは色だけです。石を置かせることはできず、パスもなく、2手続けて打つこともできません。だから公平性の予算はすべて1つの判断に集まります。挑戦者は黒で先に打つのか、白で中央の石に応じるのか。</p>
+<p>この2つは別の問いに答えます。順位をつけたいなら、全員を白にします。同じ初手、同じ局面、同じ難易度、部屋の中の変数は人だけになります。人を大事にしたいなら、黒をいちばん弱い人に渡します。初手はこのゲームで唯一、読む必要のない手だからです。そのかわり、結果は比較できません。1つの列で、公平な比較と気配りの両方は取れません。</p>
+<p>紙に最初の名前を書く前に、どちらかを決めてください。途中で切り替えることが、挑戦を口論に変えます。</p>
+<h2>「簡単」はコイントスではありません</h2>
+<p>いちばん弱い段階は、順番に4つのことをします。作れる五連があれば打つ。こちらの五連は必ず止める。活三は6回に5回ほど止める。そのうえで評価上位12点から選び、最善手を選ぶ確率は4回に1回だけです。</p>
+<p>もう一度読んでください。子どもの打ち方がこれで決まります。簡単相手に普通の四は必ず止められるので、四を作って待つのは10分の無駄です。通る形は2つだけ。両端が空いた活四は石1つでは止められません。同時に三を2つ作れば、片方を止めて片方に負けます。指導はこの1文で足ります。「四を作るな、三を2つ作れ」。</p>
+<p>4段階の違いは主に読む深さです。簡単は1手、普通は2手、困難は4手で、活四を通さないという固い規則があります。マスターは時間切れまで読み続けます。活四は困難では生き残れません。誰かが一晩中同じ手で普通に勝っているなら、その手は四です。1段上げれば通らなくなります。<a href="/ja-JP/blog/gomoku-ai-difficulty-levels-which-to-pick">難易度の選び方</a>と色の選び方は別の判断で、たいていの食卓はこの2つを取り違えます。</p>
+<h2>マスターはあなたの夜を使う</h2>
+<p>マスターには1手12秒の予算があり、使い切るまで深く読み進めます。9×9の1局は22手ほど、その半分がコンピュータの手です。2分前後、列に並んだ全員が動かない石を見ている時間になります。15×15の40数手なら、1人あたり4分半に近づきます。</p>
+<p>困難とマスターは考えている間、画面の隅に小さく <em>Depth:</em> と表示します。簡単と普通には決して出ません。すぐ答えるからです。前の人が難易度をどこに置いていったかは、この表示を見るのがいちばん速く、本人に聞いて設定の話で揉める必要もありません。</p>
+<p>だから列は普通で回し、マスターは夜の最後に、本当に挑みたい人へ1回だけ残しておきます。<a href="/ja-JP/blog/beat-gomoku-ai">コンピュータに勝つ</a>のは20分の作業であって、パーティーゲームではありません。</p>
+<h2>スコアボードが数えているのは色で、人ではない</h2>
+<p>画面上部の3つのカウンタは、1局終わるたびに色ごとに増えます。コンピュータが勝った局も同じように増えます。黒と白を交代しながら回す列では、「黒3 白2」はどの親戚が強いのかを何も語りません。カウンタは局をまたいで積み上がり、再読み込みで消えます。</p>
+<p>だから紙に仕事をさせます。1人1行、4列。名前、色、難易度、結果。あとで言い争いたいなら手数の列を5つ目に足してください。盤はどこにも記録していません。</p>
+<h2>ここでの「戻す」は石を2つ戻す</h2>
+<p>コンピュータ相手では、戻すと自分の石とコンピュータの応手がまとめて消えます。友達対戦が1つだけ戻すのと比べると、かなり気前がいい。しかもコンピュータが考えている間は押しても効きません。</p>
+<p>この2つを合わせると、列で決める価値のある唯一のルールになります。1局に1回、しかも自分の石が置かれ、応手が返る前の0.5秒の間だけ。それより後に押すと、もう見てしまった応手を消すことになります。それは訂正ではなく、答えを見たうえでの再挑戦です。</p>
+<h2>挑戦者別の設定</h2>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>挑戦者</th><th>盤</th><th>難易度</th><th>ハンデ</th><th>1手の上限</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>8歳の子ども</td><td>9×9</td><td>簡単</td><td>黒、戻すは1回</td><td>30秒</td></tr>
+<tr class="tr-dark"><td>未経験の大人</td><td>9×9</td><td>簡単</td><td>黒、戻すは1回</td><td>25秒</td></tr>
+<tr class="tr-light"><td>他のボードゲームはやる</td><td>9×9</td><td>普通</td><td>白</td><td>30秒</td></tr>
+<tr class="tr-dark"><td>常連</td><td>15×15</td><td>普通</td><td>白</td><td>45秒</td></tr>
+<tr class="tr-light"><td>本気で挑みたい人</td><td>15×15</td><td>マスター</td><td>白</td><td>90秒</td></tr>
+</tbody>
+</table>
+<p>ここでのハンデは色のことです。ほかに譲れるものがありません。1手の上限は上限であって目標ではありません。勝っている人が1手を5分の解説に変え、3人が待つ、という事態を防ぐためにあります。</p>
+<h2>1人1局で、そこで終わり</h2>
+<p>9路、普通、順位をつける人は全員が白、いちばん若い2人は黒で簡単、1人1局、戻すは各自1回。4列は封筒の裏に書いてタブレットの横に置きます。スコアボードは代わりに記録してくれませんし、局面は誰かが「リスタート」を押した瞬間に消えます。</p>
+<p>この列が死ぬのは2巡目で、4人目ではありません。2巡すれば紙は表になり、表はトーナメントになり、その算術にはすでに記事が1本あります。1人1局は8分です。止められた四で負けた人が次は先に座ります。<a href="/ja-JP/">盤はトップページ</a>にあり、開いた時点で vs AI です。この記事が前提にしているモードです。列が4人を超えるなら、<a href="/ja-JP/blog/gomoku-family-game-night">家族ゲームナイトの交代</a>のほうが列よりもうまくあふれを吸収します。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">あなたの番です</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">9路、普通、全員が白、1人1局。最初の石は必ず中央の点に置かれ、どの挑戦者にも同じ石です。</p>
+            <a href="/ja-JP/#game" class="cta-btn">五目並べを今すぐ遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "感謝祭の五目並べ総当たり：全員がコンピュータと打つ",
+    "description": "残った4人、タブレット1台、疲れない相手。コンピュータの初手が必ず中央な理由、「簡単」の4つの規則、石を2つ戻す「戻す」が列にとって何を意味するかを整理します。",
+    "datePublished": "2026-11-15",
+    "dateModified": "2026-11-15",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-gauntlet"}
+  }
+  </script>
+</body>
+</html>

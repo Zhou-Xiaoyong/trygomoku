@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-gauntlet">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Thanksgiving Gomoku Gauntlet: Everyone Against the Computer | Gomoku Blog</title>
+  <meta name="description" content="Four people, one tablet, one opponent who never gets tired. What the machine's first stone, the Easy level's four rules and a two-stone undo mean for a holiday queue.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/thanksgiving-gomoku-gauntlet">
+  <meta property="og:title" content="Everyone takes a turn against the machine">
+  <meta property="og:description" content="Color is the only handicap on this board. Decide whether the gauntlet is ranking people or including them, then write four columns on an envelope.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/thanksgiving-gomoku-gauntlet">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="One opponent, four challengers">
+  <meta name="twitter:description" content="The center stone is identical for everyone. The reply is not.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Family & Lifestyle</span>
+          <h1 itemprop="headline">A Thanksgiving Gomoku Gauntlet: Everyone Against the Computer</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-15">2026-11-15</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>Quarter to ten, four people left at the table, pie plates still there. The bracket died an hour ago, the queue of cousins has gone home, and the uncle who wants one more game has nobody to play. What is left is one tablet and one opponent who will take on all four of them without getting bored, tired, or better.</p>
+<p>That is a gauntlet: the whole table takes turns against the computer, one game at a time, everyone reading over the shoulder of whoever is holding the glass. No schedule, no referee, one tap to start.</p>
+<h2>A gauntlet is one opponent and a line of people</h2>
+<p>Against the computer the board accepts exactly one human. Any touch that is not the human's turn is refused outright, so two people cannot share a game against the machine the way they share one in two-player mode. Whoever holds the tablet plays, and everyone else reads.</p>
+<p>Those games are shorter than a party expects: twenty to twenty-four moves on 9&times;9, six or seven minutes at a relaxed pace. That is the whole reason the format survives ten o'clock at night. Six people, one game each, finished before the second pot of coffee.</p>
+<p>What it does not have is a king. Last week's version put a person in the chair and had everybody else knock them off (<a href="thanksgiving-gomoku-king-of-the-hill">king of the hill</a>). Here the chair belongs to the computer, which is why nobody has to lose gracefully in front of their mother-in-law.</p>
+<h2>The machine opens on the exact center point, every time</h2>
+<p>Give a challenger White and the machine's first stone is the center intersection: (4,4) on 9&times;9, (7,7) on 15&times;15. Not near the center. The center. The opening routine checks that one point before it evaluates anything, so on move one the machine is not thinking at all.</p>
+<p>Its second move is a different animal. On 15&times;15, if your first stone is the center or one of the two points right beside it, the answer comes out of a small book: four replies to the center, two to each of the others, picked at random. Play the same first stone twice and you get two different positions. On 9&times;9 that book does not apply, so the reply is a random empty point within two lines of the center.</p>
+<p>Which kills the most common piece of advice at a holiday table, that whoever just won should tell the next person what to play. There is no line to memorize. There is a shape to build.</p>
+<h2>Decide which question the gauntlet is answering</h2>
+<p>Color is the only handicap this board has. Stones cannot be spotted, there is no pass, nobody can place twice, so the entire fairness budget is one decision: does the challenger take Black and move first, or White and answer that center stone?</p>
+<p>The two choices answer different questions. If you are ranking people, put every challenger on White: same first stone, same position, same level, and the only variable left in the room is the person. If you are including people, hand Black to the weakest player, because the opening stone is the one move in the game that needs no reading, and accept that the results cannot be compared. A queue cannot deliver both a fair comparison and a courtesy.</p>
+<p>Pick one before the first name goes on the paper. Switching halfway through is what turns a gauntlet into an argument.</p>
+<h2>Easy is not a coin flip</h2>
+<p>The easiest level does four things in order. It plays any five it can make. It blocks any five you can make. It blocks an open three about five times out of six. Then it chooses among its twelve best moves with only a one-in-four chance of taking the best one.</p>
+<p>Read that list again, because it decides how a child should play. Against Easy a plain four is always blocked, so building a four and waiting is a wasted ten minutes. The two shapes that get through are an open four, which has two winning points and cannot be stopped by one stone, and two threes at once, where the machine blocks one and loses to the other. That is the whole coaching script and it fits in one sentence at the table: do not build a four, build two threes.</p>
+<p>The four levels differ mostly in how far ahead they look: Easy scores one move, Medium two, Hard four with a hard rule against letting a live four through, and Master searches until its clock runs out. A live four never survives Hard. So if someone has been beating Medium all evening with the same trick, that trick is a four, and it will stop working one level up. <a href="gomoku-ai-difficulty-levels-which-to-pick">Choosing a level</a> is a separate decision from choosing a color, and most tables get them backwards.</p>
+<h2>Master spends your evening, not its own</h2>
+<p>Master has a twelve-second budget per move and keeps searching deeper until the budget is gone. A 9&times;9 game runs about twenty-two moves, half of them the machine's: roughly two minutes of a queue watching a stone not move. On 15&times;15 with forty-odd moves it is closer to four and a half minutes, per person.</p>
+<p>Hard and Master also print a small <em>Depth:</em> readout in the corner while they think. Easy and Medium never do, because they answer immediately. That readout is the fastest way to find out what the last person left the difficulty on, without asking them and starting an argument about settings.</p>
+<p>So run the queue at Medium and keep Master for one deliberate attempt at the end of the night, by the person who actually wants it. <a href="beat-gomoku-ai">Beating the machine</a> is a twenty-minute project, not a party game.</p>
+<h2>The scoreboard is counting colors, not people</h2>
+<p>The three counters at the top of the screen go up by color when a game ends, and they go up for the machine's wins exactly as they do for yours. In a queue where challengers alternate between Black and White, "Black 3, White 2" tells you nothing about which relative is good. The counters also carry from game to game, and a page reload wipes them.</p>
+<p>So the paper does the work. One line per person, four columns: name, color, level, result. Add a fifth for the move count if you want an argument you can settle later, because the board does not record it anywhere.</p>
+<h2>Undo takes back two stones here</h2>
+<p>Against the computer, undo removes your stone and the machine's reply together. That is a lot more generous than two-player mode, where it removes exactly one. It also refuses to fire while the machine is thinking.</p>
+<p>Put those two facts together and you get the only undo rule worth having in a queue: legal once, and only in the half-second after your own stone lands and before the answer arrives. Pressed later than that, it erases a reply you have already seen, which is not a correction. It is a second attempt with the solution in hand.</p>
+<h2>What to set, by challenger</h2>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>Challenger</th><th>Board</th><th>Level</th><th>Handicap</th><th>Move cap</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>The eight-year-old</td><td>9&times;9</td><td>Easy</td><td>Black, one undo</td><td>30 s</td></tr>
+<tr class="tr-dark"><td>Never played before</td><td>9&times;9</td><td>Easy</td><td>Black, one undo</td><td>25 s</td></tr>
+<tr class="tr-light"><td>Plays other board games</td><td>9&times;9</td><td>Medium</td><td>White</td><td>30 s</td></tr>
+<tr class="tr-dark"><td>The regular</td><td>15&times;15</td><td>Medium</td><td>White</td><td>45 s</td></tr>
+<tr class="tr-light"><td>Wants the machine</td><td>15&times;15</td><td>Master</td><td>White</td><td>90 s</td></tr>
+</tbody>
+</table>
+<p>Handicap here means color, because nothing else can be spotted. The move cap is a ceiling, not a target: it exists so the person who is winning cannot turn one stone into a five-minute explanation while three people wait.</p>
+<h2>One game each, then stop</h2>
+<p>Nine lines, Medium, White for everybody who is being ranked, Black on Easy for the two youngest, one undo each, one game each. Write the four columns on the back of an envelope and leave it next to the tablet, because the scoreboard will not do it and the position disappears the moment someone taps Restart.</p>
+<p>The queue dies at the second round, not at the fourth player. Two rounds turn the paper into a table, the table into a tournament, and that arithmetic already has a post of its own. One game each is eight minutes, and the person who lost to a blocked four goes first next time. <a href="../">The board is on the front page</a> and it opens in vs Computer, which is the mode this whole piece assumes. If the line gets past four people, <a href="gomoku-family-game-night">the family game-night rotation</a> absorbs the overflow better than a queue does.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Take your turn against the machine</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Nine lines, Medium, White for everyone, one game each. The first stone always lands on the center point, and it is the same stone for every challenger.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "A Thanksgiving Gomoku Gauntlet: Everyone Against the Computer",
+    "description": "Four people, one tablet, one opponent who never gets tired. What the machine's first stone, the Easy level's four rules and a two-stone undo mean for a holiday queue.",
+    "datePublished": "2026-11-15",
+    "dateModified": "2026-11-15",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/thanksgiving-gomoku-gauntlet"}
+  }
+  </script>
+</body>
+</html>
