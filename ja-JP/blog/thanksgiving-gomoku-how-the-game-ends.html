@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べの一局はどこで終わるか：五連、満盤、それとも最初から | 五目並べブログ</title>
+  <meta name="description" content="勝敗は勝利カードより先に決まっています。黒の六つ目がなぜ置けないのか、引き分けに81個の石が要る理由、途中で捨てた一局が集計を狂わせる話。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-how-the-game-ends">
+  <meta property="og:title" content="五目並べの一局はどこで終わるか：五連、満盤、それとも最初から">
+  <meta property="og:description" content="黒の六つ目は戻され、白の六つ目は勝ち、引き分けは満盤、最初からは何も記録しない。祝日の食卓の集計について。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-how-the-game-ends">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べの一局はどこで終わるか：五連、満盤、それとも最初から">
+  <meta name="twitter:description" content="盤は食卓の誰よりも先に判定します。それがその晩の記録用紙にとって何を意味するか。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">家族と暮らし</span>
+          <h1 itemprop="headline">五目並べの一局はどこで終わるか：五連、満盤、それとも最初から</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-16">2026-11-16</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<p>8時5分、皿にはパイの皮だけが残り、二人が盤上にもう無い石のことで言い争っています。一人は「今のは五つだ」と言い、もう一人は「数え直せ、六つだ」と言います。どちらも画面を見ていません。</p>
+<p>画面は4分前に決着をつけています。石が置かれた瞬間に。そして、どれだけ言い争っても覆りません。祝日の食卓での口論の半分は、盤がすでに片づけた案件です。</p>
+<h2>勝敗はバナーより先に確定する</h2>
+<p>五つ並べばその場で終局です。勝ちが記録され、五つの石に線が引かれ、盤面は入力を一切受け付けなくなります。タップは拒否されます。戻すも拒否されます。ここが意外に思われるところで、五つ目の石が置かれた後、それを取り消せる操作はページ上に一つもありません。</p>
+<p>勝利のカードは0.3秒ほど遅れて、音とともに出ます。騒がしい食卓ではこの遅れが効きます。結果を告げているのは音で、カードは領収書にすぎないからです。</p>
+<p>だから「最初から」は負けた人に押させてください。判定は済んでいて、不服申し立ての窓口はありません。その一回を譲るだけで、一局の終わりは交渉ではなく小さな礼儀になります。</p>
+<h2>黒の六つ目は置けず、白の六つ目は勝ち</h2>
+<p>連珠では黒はちょうど五つです。同じ列の六つ目は長連と呼ばれる禁手で、この盤は禁手を「反則負け」ではなく「受け付けない」で処理します。石は盤から戻り、警告が2.5秒表示され、手番は黒のままです。</p>
+<p>白は判定が違います。白は五つ以上で、連珠でも自由ルールでも同じです。つまり白の六連はそのまま勝ちです。</p>
+<p>ここから、その晩いちばん自信ありげな誤審が生まれます。白が六つ並んでいるのを数えて「これは認められない」と宣言する人が必ず出ます。認められます。逆のケースは起こりません。黒の六つ目は六つ目になる前に戻されるからです。両者が対等に議論できるルールが欲しいなら自由ルールで、<a href="/ja-JP/blog/gomoku-vs-renju">この二つの規則の違いは禁手だけではありません</a>。</p>
+<h2>引き分けには石が81個必要</h2>
+<p>引き分けのボタンも、提案も、握手もありません。この盤が認める引き分けは、空点が一つも残らない盤面だけです。9×9で81個、15×15で225個、19×19で361個です。</p>
+<p>ですから四人が30手目で「もう決まらない」と同意して最初からやり直しても、カウンターは何も記録しません。引き分けでも、二つの負けでもありません。引き分けの列が一晩ゼロのままなら、それは食卓が宣言した引き分けを盤が一度も見ていないという合図です。</p>
+<p>正直な選択肢は二つです。9×9で最後まで打つか、慎重な打ち回しなら81個は現実に埋まります。あるいは紙に「協議」と書いて、画面が同意するのを待つのをやめるか。</p>
+<h2>「最初から」が捨てるのは負けで、スコアではない</h2>
+<p>最初からを押すと盤は空になり、その一局は忘れられます。三つのカウンターはそのままです。カウンターが動くのは実際に決着したときだけで、勝ちはその色に1を足し、盤が埋まれば引き分けに1を足します。途中で捨てた局面は、三つ目のどれにも存在しません。</p>
+<p>結果として、その晩の集計には偏りが組み込まれます。負けそうになって二度やめた人は、二局とも最後まで打って二局とも負けた人より、そのスコアボードでは良く見えます。「黒4、白2」が数えているのは終わった局で、打った局ではありません。10時になるころには、この二つの数字はまず一致しません。<a href="/ja-JP/blog/thanksgiving-gomoku-reset-between-games">リセットの残りの部分</a>は、主に設定が残るかどうかの別の話です。</p>
+<h2>紙にもう一列ふやす</h2>
+<p>四列でほとんどの晩は足ります。名前、色、結果、そしてどう終わったか。四列目は誰も書かない列で、最初の三列を誠実にする唯一の列です。途中で捨てた一局を、消える代わりに誰かの欄に計上できる場所だからです。</p>
+<p>五つの言葉で足ります。五、六、満、協、棄。一局4秒です。</p>
+<ul>
+<li><strong>五</strong>は通常の勝ちです。線が引かれ、カウンターが動きます。</li>
+<li><strong>六</strong>は連珠の白だけです。カウンターは同じで、議論は別です。</li>
+<li><strong>満</strong>は盤に点が無くなり、盤が引き分けを宣言した状態です。</li>
+<li><strong>協</strong>は食卓が合意したという意味です。盤は知りません。</li>
+<li><strong>棄</strong>は途中で最初からを押したという意味です。何も記録されていません。</li>
+</ul>
+<h2>輪は負けた石を示している</h2>
+<p>勝った五つには線が残り、最後に置かれた石には印が残ります。つまり「なぜ負けたか」の答えは画面にあり、線が一本と、その局を手放した一点の輪です。2秒見て、最初からを押します。</p>
+<p>これは検討ではなく、このページに棋譜パネルはありません。それでも輪は九割方「違う脅威に応えた石」の上にあり、次の局が始まる前に一度だけ口に出す価値があります。<a href="/ja-JP/blog/how-many-pieces-to-win-gomoku">線の数え方</a>は初心者が最初につまずくところで、輪があれば説教なしで見えます。</p>
+<h2>食卓別の設定</h2>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>この食卓</th><th>盤</th><th>ルール</th><th>一手の上限</th><th>黒を持つ人</th><th>紙に書くこと</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>祖父母と8歳</td><td>9×9</td><td>自由</td><td>30秒</td><td>子ども</td><td>五、棄</td></tr>
+<tr class="tr-dark"><td>実力の近い大人二人</td><td>15×15</td><td>連珠</td><td>40秒</td><td>前の局の負け</td><td>五、六、棄</td></tr>
+<tr class="tr-light"><td>大人三人でタブレット1台</td><td>9×9</td><td>自由</td><td>20秒</td><td>先に座った人</td><td>五、棄</td></tr>
+<tr class="tr-dark"><td>夜の最後の10分</td><td>9×9</td><td>自由</td><td>15秒</td><td>持っている人</td><td>五</td></tr>
+<tr class="tr-light"><td>三連敗した人がいる</td><td>9×9</td><td>自由</td><td>なし</td><td>その人</td><td>五、棄</td></tr>
+</tbody>
+</table>
+<p>先手がここで唯一実現できるハンデです。この盤に石を置かせる機能はなく、二手続けて打つこともできません。一手の上限は目標ではなく天井で、勝っている人が一つの石を4分の説明に変えて三人を待たせないためにあります。</p>
+<h2>四つの文で、始める</h2>
+<p>五つで終わり、誰も取り消せない。黒はちょうど五つ、白は五つ以上。引き分けは満盤、最初からは無かったこと。五つ目の言葉は自分で紙に書いてください。画面は書きません。</p>
+<p>そしてタブレットを負けた人に渡して、押させてください。<a href="/ja-JP/">盤はここにあります</a>。設定は10秒で、次の一局だけが意味のある見直しです。</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">盤の上で決着を</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">混ざった食卓には9路、大人二人には15路の連珠。五つで終わり、誰も取り消せず、五つ目の言葉は紙に残ります。</p>
+            <a href="/ja-JP/#game" class="cta-btn">今すぐ五目並べを遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べの一局はどこで終わるか：五連、満盤、それとも最初から",
+    "description": "勝敗は勝利カードより先に決まっています。黒の六つ目がなぜ置けないのか、引き分けに81個の石が要る理由、途中で捨てた一局が集計を狂わせる話。",
+    "datePublished": "2026-11-16",
+    "dateModified": "2026-11-16",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-how-the-game-ends"}
+  }
+  </script>
+</body>
+</html>

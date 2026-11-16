@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Где заканчивается партия в гомоку: пять, восемьдесят один или перезапуск | Блог</title>
+  <meta name="description" content="Партия решается раньше, чем появляется карточка победы. Почему шестой камень чёрных не ложится, зачем для ничьей 81 камень и как брошенная партия портит вечерний счёт.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-how-the-game-ends">
+  <meta property="og:title" content="Где заканчивается партия в гомоку: пять, восемьдесят один или перезапуск">
+  <meta property="og:description" content="Шестой камень чёрных отклоняется, шестой белых выигрывает, ничья требует полной сетки, а перезапуск не записывает ничего.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-how-the-game-ends">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Где заканчивается партия в гомоку: пять, восемьдесят один или перезапуск">
+  <meta name="twitter:description" content="Доска решает раньше всех за столом. Что это значит для вечернего листа записи.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Семья и быт</span>
+          <h1 itemprop="headline">Где заканчивается партия в гомоку: пять, восемьдесят один или перезапуск</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-16">2026-11-16</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<p>Пять минут девятого, на тарелках остались только корки, и двое спорят о камне, которого на доске уже нет. Один говорит: там было пять. Другой говорит: пересчитай, там было шесть. Ни один из них не смотрит на экран.</p>
+<p>Экран решил всё четыре минуты назад, в момент, когда камень лёг, и пересмотру это не подлежит, сколько бы ни длился спор. Половина ссор за праздничным столом уже закрыта доской, просто не все это заметили.</p>
+<h2>Позиция закрывается раньше, чем появляется плашка</h2>
+<p>Пять подряд заканчивают партию на месте. Победа записывается, через пять камней проводится линия, и позиция перестаёт принимать ввод. Касания отклоняются. Отмена тоже отклоняется, и это удивляет больше всего: после пятого камня на странице нет ни одной кнопки, которая вернула бы его назад.</p>
+<p>Карточка победы появляется примерно на треть секунды позже, со звуком. В шумной столовой эта задержка работает: результат объявляет звук, карточка лишь подтверждает.</p>
+<p>Поэтому отдайте кнопку перезапуска тому, кто проиграл. Решение уже принято, апелляции нет. Один переданный тап превращает конец партии в маленькую вежливость вместо торга.</p>
+<h2>Шестой камень чёрных не ложится. Шестой камень белых выигрывает.</h2>
+<p>В рэндзю чёрным нужно ровно пять. Шестой камень в той же линии — это оверлайн, запрещённая форма, и доска не наказывает за запрещённый ход, а отказывается его принимать: камень возвращается с сетки, предупреждение висит две с половиной секунды, и ход остаётся за чёрными.</p>
+<p>У белых правило другое. Проверка для белых идёт на пять или больше, и в рэндзю, и во фристайле, так что шесть белых выигрывают сразу.</p>
+<p>Отсюда самая уверенная ошибка вечера. Кто-то считает шесть белых камней в ряд и объявляет, что это не считается. Считается. Обратный случай невозможен: шестой камень чёрных отклоняется раньше, чем успевает стать шестым. Если столу нужно правило, о котором оба цвета спорят на равных, это фристайл, и <a href="/ru-RU/blog/gomoku-vs-renju">разница между наборами правил не только в фолах</a>.</p>
+<h2>Для ничьей нужно восемьдесят один камень</h2>
+<p>Ни кнопки ничьей, ни предложения, ни рукопожатия. Доска признаёт только одну ничью: сетку, на которой не осталось свободного пункта. Восемьдесят один камень на 9&times;9, двести двадцать пять на 15&times;15, триста шестьдесят один на 19&times;19.</p>
+<p>Поэтому когда четверо на тридцатом ходу соглашаются, что никто не выигрывает, и начинают заново, счётчики не записывают ничего. Ни ничьей, ни двух поражений. Колонка ничьих весь вечер стоит на нуле, и это признак того, что стол объявлял ничьи, которых машина не видела.</p>
+<p>Есть два честных варианта. Доиграть на 9&times;9, где 81 камень в осторожной партии вполне достижим, или написать на бумаге «по согласию» и перестать ждать, что экран согласится.</p>
+<h2>Перезапуск выбрасывает поражение, а не счёт</h2>
+<p>Перезапуск очищает доску и забывает партию. Три счётчика остаются нетронутыми, а двигаются они только когда партия действительно закончилась: победа добавляет единицу этому цвету, заполненная сетка добавляет единицу ничьим. Брошенная позиция не существует ни для одного из них.</p>
+<p>Так в вечерний итог встроен перекос. Тот, кто дважды бросил партию на проигрыше, на этом табло выглядит лучше того, кто обе доиграл и обе проиграл. «Чёрные 4, белые 2» считают законченные партии, а не сыгранные, и к десяти вечера эти числа совпадают редко. Про <a href="/ru-RU/blog/thanksgiving-gomoku-reset-between-games">остальную часть сброса</a> написано отдельно: она в основном про настройки, которые его переживают.</p>
+<h2>Ещё одна колонка на бумаге</h2>
+<p>Четырёх колонок хватает почти на любой вечер: имя, цвет, результат и то, как партия закончилась. Четвёртую не пишет никто, и только она делает первые три честными: именно сюда попадает брошенная партия, вместо того чтобы исчезнуть.</p>
+<p>Достаточно пяти слов. Пять, шесть, полная, согласие, бросил. Четыре секунды на партию.</p>
+<ul>
+<li><strong>Пять</strong>. Обычная победа, линия проведена, счётчик сдвинулся.</li>
+<li><strong>Шесть</strong>. Только у белых и только в рэндзю. Счётчик тот же, спор другой.</li>
+<li><strong>Полная</strong>. На сетке кончились пункты, доска объявила ничью.</li>
+<li><strong>Согласие</strong>. Стол договорился, машина об этом не знает.</li>
+<li><strong>Бросил</strong>. Перезапуск посреди партии, ничего не записано.</li>
+</ul>
+<h2>Кольцо показывает камень, который её отдал</h2>
+<p>Пять победных камней остаются с линией, а последний поставленный камень сохраняет метку. Так что ответ на вопрос «как я проиграл» есть на экране: одна линия и кольцо на пункте, который отдал партию. Две секунды взгляда, потом перезапуск.</p>
+<p>Это не разбор, и панели с записью партии на странице нет. Но кольцо обычно стоит на камне, который ответил не на ту угрозу, и об этом стоит сказать вслух один раз, до начала следующей партии. <a href="/ru-RU/blog/how-many-pieces-to-win-gomoku">Считать линию</a> новички учатся позже всего, а с кольцом это видно без лекции.</p>
+<h2>Что выставить, по столу</h2>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>Стол</th><th>Доска</th><th>Правила</th><th>Лимит на ход</th><th>Кто играет чёрными</th><th>Что писать</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>Бабушка против восьмилетки</td><td>9&times;9</td><td>Фристайл</td><td>30 с</td><td>Ребёнок</td><td>пять, бросил</td></tr>
+<tr class="tr-dark"><td>Двое взрослых, равная игра</td><td>15&times;15</td><td>Рэндзю</td><td>40 с</td><td>Проигравший прошлую</td><td>пять, шесть, бросил</td></tr>
+<tr class="tr-light"><td>Трое взрослых, один планшет</td><td>9&times;9</td><td>Фристайл</td><td>20 с</td><td>Кто сел первым</td><td>пять, бросил</td></tr>
+<tr class="tr-dark"><td>Последние десять минут вечера</td><td>9&times;9</td><td>Фристайл</td><td>15 с</td><td>У кого планшет</td><td>пять</td></tr>
+<tr class="tr-light"><td>Кто-то проиграл три подряд</td><td>9&times;9</td><td>Фристайл</td><td>без лимита</td><td>Он и играет</td><td>пять, бросил</td></tr>
+</tbody>
+</table>
+<p>Фора здесь ровно одна, и это первый ход: камни заранее не выставляются, два раза подряд поставить нельзя. Лимит на ход — это потолок, а не цель. Он нужен, чтобы выигрывающий не превращал один камень в четырёхминутное объяснение, пока трое ждут.</p>
+<h2>Четыре предложения, и играем</h2>
+<p>Пять заканчивают партию, и вернуть ничего нельзя. Чёрным нужно ровно пять, белым пять или больше. Ничья означает полную сетку, а перезапуск означает, что партии не было. Пятое слово напишите на бумаге сами, экран этого не сделает.</p>
+<p>Потом отдайте планшет тому, кто проиграл, и пусть нажмёт сам. <a href="/ru-RU/">Доска здесь</a>, настройка занимает десять секунд, и только следующая партия стоит разбора.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Закройте партию на доске</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Девять линий для смешанного стола, пятнадцать с рэндзю для двоих взрослых. Пять заканчивают партию, вернуть нельзя ничего, а пятое слово остаётся на бумаге.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Где заканчивается партия в гомоку: пять, восемьдесят один или перезапуск",
+    "description": "Партия решается раньше, чем появляется карточка победы. Почему шестой камень чёрных не ложится, зачем для ничьей 81 камень и как брошенная партия портит вечерний счёт.",
+    "datePublished": "2026-11-16",
+    "dateModified": "2026-11-16",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-how-the-game-ends"}
+  }
+  </script>
+</body>
+</html>

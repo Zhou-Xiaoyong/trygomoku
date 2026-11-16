@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 한 판은 어디서 끝나는가: 다섯 줄, 만판, 아니면 다시 시작 | 오목 블로그</title>
+  <meta name="description" content="승부는 승리 카드보다 먼저 정해집니다. 흑의 여섯 번째가 왜 놓이지 않는지, 무승부에 왜 81개의 돌이 필요한지, 중간에 버린 한 판이 그날 셈을 어떻게 흔드는지.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-how-the-game-ends">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-how-the-game-ends">
+  <meta property="og:title" content="오목 한 판은 어디서 끝나는가: 다섯 줄, 만판, 아니면 다시 시작">
+  <meta property="og:description" content="흑의 여섯 번째는 되돌아가고, 백의 여섯 번째는 이기고, 무승부는 만판, 다시 시작은 아무것도 기록하지 않습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-how-the-game-ends">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 한 판은 어디서 끝나는가: 다섯 줄, 만판, 아니면 다시 시작">
+  <meta name="twitter:description" content="판은 식탁의 누구보다 먼저 판정합니다. 그것이 그날의 기록지에 의미하는 것.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">가족과 생활</span>
+          <h1 itemprop="headline">오목 한 판은 어디서 끝나는가: 다섯 줄, 만판, 아니면 다시 시작</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-16">2026-11-16</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+
+<p>8시 5분, 접시에는 파이 껍질만 남았고 두 사람이 이미 판에 없는 돌 하나를 두고 다툽니다. 한쪽은 방금 그거 다섯 개였다고 하고, 다른 쪽은 다시 세어 보라, 여섯 개였다고 합니다. 둘 다 화면을 보고 있지 않습니다.</p>
+<p>화면은 4분 전에 이미 정했습니다. 돌이 놓인 순간에. 그리고 얼마를 다투든 번복되지 않습니다. 명절 식탁의 말다툼 절반은 판이 이미 끝낸 사건입니다.</p>
+<h2>승부는 배너보다 먼저 확정됩니다</h2>
+<p>다섯 개가 이어지면 그 자리에서 끝입니다. 승리가 기록되고, 다섯 개의 돌 위로 선이 그어지고, 판은 입력을 완전히 받지 않습니다. 탭은 거부됩니다. 무르기도 거부됩니다. 사람들이 가장 의외로 여기는 부분인데, 다섯 번째 돌이 놓인 뒤에 그것을 되돌릴 조작은 페이지에 하나도 없습니다.</p>
+<p>승리 카드는 0.3초쯤 늦게 소리와 함께 뜹니다. 시끄러운 식탁에서 이 지연은 실제로 일을 합니다. 결과를 알리는 것은 소리이고, 카드는 영수증일 뿐입니다.</p>
+<p>그래서 '다시 시작'은 진 사람에게 누르게 하십시오. 판정은 끝났고 이의를 받을 창구는 없습니다. 그 한 번을 넘기는 것만으로 한 판의 끝은 협상이 아니라 작은 예의가 됩니다.</p>
+<h2>흑의 여섯 번째는 놓이지 않고, 백의 여섯 번째는 이깁니다</h2>
+<p>렌주에서 흑은 정확히 다섯 개입니다. 같은 줄에 여섯 번째가 생기면 장련이라 불리는 금수이고, 이 판은 금수를 '반칙패'가 아니라 '접수 거부'로 처리합니다. 돌이 판에서 되돌아오고, 경고가 2.5초 떠 있고, 차례는 여전히 흑입니다.</p>
+<p>백은 판정이 다릅니다. 백은 다섯 개 이상이고, 렌주와 자유 규칙 모두 같습니다. 그래서 백의 여섯 줄은 그대로 승리입니다.</p>
+<p>여기서 그날 저녁 가장 자신 있는 오판이 나옵니다. 백 돌이 여섯 개 이어진 것을 세고는 인정되지 않는다고 선언하는 사람이 반드시 나옵니다. 인정됩니다. 반대 경우는 일어나지 않습니다. 흑의 여섯 번째는 여섯 번째가 되기 전에 되돌아가기 때문입니다. 양쪽이 대등하게 따질 수 있는 규칙을 원한다면 자유 규칙이고, <a href="/ko-KR/blog/gomoku-vs-renju">이 두 규칙의 차이는 금수만이 아닙니다</a>.</p>
+<h2>무승부에는 돌이 81개 필요합니다</h2>
+<p>무승부 버튼도, 제안도, 악수도 없습니다. 이 판이 인정하는 무승부는 빈 점이 하나도 남지 않은 판뿐입니다. 9×9는 81개, 15×15는 225개, 19×19는 361개입니다.</p>
+<p>그래서 네 사람이 30수에서 아무도 못 이긴다고 합의하고 다시 시작하면, 카운터는 아무것도 기록하지 않습니다. 무승부도 아니고 두 개의 패배도 아닙니다. 무승부 칸이 저녁 내내 0이라면, 그것이 식탁이 선언한 무승부를 판이 한 번도 본 적 없다는 신호입니다.</p>
+<p>정직한 선택지는 둘입니다. 9×9에서 끝까지 두거나, 신중하게 두면 81개는 실제로 채워집니다. 아니면 종이에 '합의'라고 적고 화면이 동의하기를 기다리는 것을 그만두거나.</p>
+<h2>'다시 시작'이 버리는 것은 패배이고 점수가 아닙니다</h2>
+<p>다시 시작을 누르면 판이 비고 그 한 판은 잊힙니다. 세 개의 카운터는 그대로입니다. 카운터는 실제로 끝났을 때만 움직입니다. 승리는 그 색에 1을 더하고, 판이 가득 차면 무승부에 1을 더합니다. 중간에 버린 국면은 세 카운터 어디에도 존재하지 않습니다.</p>
+<p>그래서 그 저녁의 집계에는 편향이 들어갑니다. 지기 직전에 두 번 그만둔 사람은, 두 판을 끝까지 두고 둘 다 진 사람보다 그 점수판에서 더 좋아 보입니다. '흑 4, 백 2'가 세는 것은 끝난 판이고 둔 판이 아닙니다. 10시가 되면 이 두 숫자는 거의 같지 않습니다. <a href="/ko-KR/blog/thanksgiving-gomoku-reset-between-games">초기화의 나머지 절반</a>은 설정이 남는지에 대한 다른 이야기입니다.</p>
+<h2>종이에 한 칸 더</h2>
+<p>네 칸이면 대부분의 저녁이 정리됩니다. 이름, 색, 결과, 그리고 어떻게 끝났는지. 네 번째 칸은 아무도 쓰지 않는 칸이고, 앞의 세 칸을 정직하게 만드는 유일한 칸입니다. 중간에 버린 한 판이 사라지는 대신 누군가에게 계상되는 자리이기 때문입니다.</p>
+<p>다섯 단어면 충분합니다. 오, 육, 만, 합, 기. 한 판에 4초입니다.</p>
+<ul>
+<li><strong>오</strong>는 정상 승리입니다. 선이 그어지고 카운터가 움직입니다.</li>
+<li><strong>육</strong>은 렌주에서 백만 해당합니다. 카운터는 같고 논쟁은 다릅니다.</li>
+<li><strong>만</strong>은 판에 점이 없어 판이 무승부를 선언한 경우입니다.</li>
+<li><strong>합</strong>은 식탁이 합의했다는 뜻입니다. 판은 모릅니다.</li>
+<li><strong>기</strong>는 중간에 다시 시작을 누른 경우입니다. 아무것도 기록되지 않았습니다.</li>
+</ul>
+<h2>그 고리는 진 돌을 가리킵니다</h2>
+<p>이긴 다섯 개에는 선이 남고, 마지막에 놓인 돌에는 표시가 남습니다. 그래서 '왜 졌나'의 답은 화면에 있습니다. 선 하나와, 그 판을 넘겨준 점 위의 고리 하나입니다. 2초 보고 다시 시작하면 됩니다.</p>
+<p>이것은 복기가 아니고, 이 페이지에는 기보 창이 없습니다. 그래도 고리는 대개 '엉뚱한 위협에 응수한 돌' 위에 있고, 다음 판이 시작되기 전에 한 번 말해 둘 가치가 있습니다. <a href="/ko-KR/blog/how-many-pieces-to-win-gomoku">줄을 세는 일</a>은 초보가 가장 먼저 틀리는 부분이고, 고리가 있으면 설명 없이 보입니다.</p>
+<h2>식탁별 설정</h2>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>이 식탁</th><th>판</th><th>규칙</th><th>한 수 제한</th><th>흑을 잡는 사람</th><th>종이에 적을 것</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>조부모와 여덟 살</td><td>9×9</td><td>자유</td><td>30초</td><td>아이</td><td>오, 기</td></tr>
+<tr class="tr-dark"><td>실력이 비슷한 성인 둘</td><td>15×15</td><td>렌주</td><td>40초</td><td>앞 판의 패자</td><td>오, 육, 기</td></tr>
+<tr class="tr-light"><td>성인 셋, 태블릿 하나</td><td>9×9</td><td>자유</td><td>20초</td><td>먼저 앉은 사람</td><td>오, 기</td></tr>
+<tr class="tr-dark"><td>밤의 마지막 10분</td><td>9×9</td><td>자유</td><td>15초</td><td>들고 있는 사람</td><td>오</td></tr>
+<tr class="tr-light"><td>세 판 연속 진 사람이 있음</td><td>9×9</td><td>자유</td><td>없음</td><td>그 사람</td><td>오, 기</td></tr>
+</tbody>
+</table>
+<p>선수가 여기서 유일하게 실현 가능한 핸디캡입니다. 이 판은 돌을 미리 놓게 해 주지 않고, 두 수를 연달아 둘 수도 없습니다. 한 수 제한은 목표가 아니라 천장입니다. 이기고 있는 사람이 돌 하나를 4분짜리 설명으로 바꿔 세 사람을 기다리게 하지 않기 위해 있습니다.</p>
+<h2>네 문장, 그리고 시작</h2>
+<p>다섯이면 끝나고 아무도 되돌릴 수 없습니다. 흑은 정확히 다섯, 백은 다섯 이상. 무승부는 만판, 다시 시작은 없던 일. 다섯 번째 단어는 직접 종이에 적으십시오. 화면은 적어 주지 않습니다.</p>
+<p>그리고 태블릿을 진 사람에게 건네 직접 누르게 하십시오. <a href="/ko-KR/">판은 여기 있습니다</a>. 설정은 10초면 되고, 다음 한 판만이 의미 있는 되돌아보기입니다.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">판 위에서 끝내십시오</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">섞인 식탁에는 9줄, 성인 둘에는 15줄 렌주. 다섯이면 끝나고 아무도 되돌릴 수 없으며, 다섯 번째 단어는 종이에 남습니다.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 두기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 한 판은 어디서 끝나는가: 다섯 줄, 만판, 아니면 다시 시작",
+    "description": "승부는 승리 카드보다 먼저 정해집니다. 흑의 여섯 번째가 왜 놓이지 않는지, 무승부에 왜 81개의 돌이 필요한지, 중간에 버린 한 판이 그날 셈을 어떻게 흔드는지.",
+    "datePublished": "2026-11-16",
+    "dateModified": "2026-11-16",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-how-the-game-ends"}
+  }
+  </script>
+</body>
+</html>
