@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-tablet-language">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-tablet-language">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-tablet-language">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-tablet-language">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanksgiving Gomoku: Change the Language, Lose the Board | Gomoku Blog</title>
+  <meta name="description" content="The language menu reloads the page and wipes the position. Who should hold the tablet at Thanksgiving, why the foul warning only concerns black, and why the English page never names the rule you broke.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/thanksgiving-gomoku-tablet-language">
+  <meta property="og:title" content="Thanksgiving Gomoku: Change the Language, Lose the Board">
+  <meta property="og:description" content="Five interface languages, one page load between them, and a foul warning that names the shape in four languages but not in English.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/thanksgiving-gomoku-tablet-language">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Change the Language, Lose the Board">
+  <meta name="twitter:description" content="Who holds the tablet at Thanksgiving, and which language the foul warning arrives in.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Family & Lifestyle</span>
+          <h1 itemprop="headline">Thanksgiving Gomoku: Change the Language, Lose the Board</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-19">2026-11-19</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>The language menu sits in the top right corner beside the blog link, and it is the only control on the page that can cost you a game. Nine moves in, somebody reaches for it, because their mother is at the table and every button is in English. The page reloads. The board comes back at fifteen lines, Freestyle, versus Computer, Medium. Nine stones gone, and nobody remembers the order well enough to rebuild them.</p>
+<p>What follows is about that menu: what it actually does, which sentence on the page arrives too fast to translate, and how to seat a table where three people read three languages.</p>
+<h2>The menu is a page load</h2>
+<p>Five options: English, 简体中文, 日本語, Русский, 한국어. Choosing one keeps you on the same page and moves you under a language prefix, so the article you were reading becomes the same article under <em>/ja-JP/</em>. Same content, new document.</p>
+<p>A new document means the grid is drawn from nothing. There is no account and no save, and the move list exists only inside the running page. The site does write one value to browser storage, a string named <em>gomoku-lang</em>, and nothing reads it back, so a returning visitor lands wherever the URL points rather than where they left off.</p>
+<p>The language is therefore not a setting you adjust mid-evening. It belongs with the board size: a decision made before the first stone. It is also the fifth way to clear a position, after the mode, rule, size and colour buttons, and the only one of the five that changes every word on the screen while it does it. <a href="thanksgiving-gomoku-reset-between-games">The other four get their own checklist</a>.</p>
+<h2>The sentence that arrives too fast to translate</h2>
+<p>In Renju the foul check runs for black only. White cannot foul, and black cannot foul on White's turn, because the check is skipped whenever the player on move is not black. A refused move costs one bounced stone and leaves the turn with black.</p>
+<p>The warning is a title plus a shape name, it lands in the status bar and in a centred overlay at the same time, and it clears after 2.5 seconds. On the four translated pages the shape name is specific. Chinese reads 禁手提示：三三禁手，黑棋不可下此位置. Japanese reads 禁手の警告：三三の禁手、黒はこの位置に打てません. Korean reads 금수 경고: 삼삼 금수, 흑은 이 위치에 둘 수 없습니다. Russian reads Предупреждение: Двойная тройка запрещена для чёрных.</p>
+<p>The English page does not name the shape. It has no translation file of its own, so all three fouls fall back to the same sentence: Foul Not Allowed: This move is forbidden for Black. Overline, double three and double four arrive in identical words.</p>
+<p>Which means the version that needs translation least is the version that tells you least. If a stone bounces on the English page, the answer has to come off the board: count the line to the left, add the stone you tried, count to the right. Six or more is an overline. Five stones that sit in two separate open threes at once is a double three. <a href="gomoku-vs-renju">Renju differs from Freestyle by exactly these three refusals</a>, and Freestyle has none of them.</p>
+<h2>So the person who reads fastest holds black</h2>
+<p>This is the seating rule the code hands you. Black is the only player who can receive a message, so black is the only player who has to read under time pressure. White never reads anything except the result.</p>
+<p>At a family table the strongest player usually takes black, which happens to be the right outcome, because the strongest player is also the one who can count a line in two seconds. If a child has black instead, the reader sits beside the child rather than across from them. The overlay is centred on the screen and lives 2.5 seconds, so it has to be read over a shoulder. The reader's whole job is one sentence: overline, means six in a row, put that one a point to the left. <a href="thanksgiving-gomoku-kid-referee">Handing the rules to a child</a> only works if somebody is doing that translation out loud.</p>
+<h2>Three words agreed before the first stone</h2>
+<p>Freestyle names nothing. No warning, no shape vocabulary, no referee. Whatever words the table uses have to be agreed in advance, in one language, and three are enough: open three, blocked, five.</p>
+<p>The failure this prevents is specific. One player grew up calling a three with both ends open 活三, or 열린 3, or открытая тройка, and the person across from them learned a different word for it, or no word at all. A three blocked at one end can wait a move. A three open at both ends cannot, and answering it costs one stone. Disagree about which is which and the wrong end gets blocked, with the game decided four moves later by nobody noticing.</p>
+<p>Say the three words out loud once, in whichever language the table shares, and point at the board while saying them. Twenty seconds, and it is the only part of the setup that does not live in the interface.</p>
+<h2>The child takes black, and that is the whole handicap</h2>
+<p>In friend mode the colour row is disabled, so no one can pick a colour, and every new game opens with black no matter who won the last one. Letting a child move first is therefore not a setting. It is an order of hands: the child touches the tablet first at the start of each game, or the child is white all evening and the handicap you meant to give never happens.</p>
+<p>The board will not let anyone pass or place two stones in a row, so a bigger handicap has to be paid in stones. The only place to pay is the outer ring: the a file, the i file, the first and ninth rows on nine lines. Two stones there on 9&times;9, three on 15&times;15 and 19&times;19, and they may not touch each other or their own side's stones, because two together stop being dead weight and start being a position. Put them in opposite corners. They still count toward a five if the game drifts out there, which is the cost of the method and the reason to keep them far from the middle.</p>
+<p>Shrinking the board is the cheaper lever. A child outclassed on fifteen lines can hold a game on nine, and that needs no rule explained at all. <a href="gomoku-rules-for-kids-explained">The short version of the rules for a child</a> fits in four sentences, none of them about handicaps.</p>
+<h2>If nobody at the table reads any of the five</h2>
+<p>Switch to Freestyle and stop worrying about warning text. Freestyle removes the foul check entirely: black and white both win on five or more, an overline counts, and there is no double three to explain. The page still offers five languages, but nobody has to read a message that never appears.</p>
+<p>What you give up is the only rule that punishes a strong black player for reaching too far. At a table where the alternative is a guest staring at a flash of text they cannot parse, that trade is worth making.</p>
+<h2>The setup, one row per table</h2>
+<p>Language first, then board, then the rest. Times are per move and self-imposed, because nothing on the page runs a clock.</p>
+<table class="compare-table">
+<thead>
+<tr class="tr-dark"><th>Table</th><th>Board</th><th>Seconds per move</th><th>Handicap</th><th>Page language</th></tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>A child and one adult</td><td>9&times;9</td><td>8</td><td>Child takes black</td><td>The child's</td></tr>
+<tr class="tr-dark"><td>Two adults, close in strength</td><td>15&times;15</td><td>15</td><td>None</td><td>Whichever both read</td></tr>
+<tr class="tr-light"><td>Grandparent and grandchild</td><td>9&times;9</td><td>12</td><td>Adult pays 2 dead stones</td><td>The grandparent's</td></tr>
+<tr class="tr-dark"><td>Four people, one tablet</td><td>9&times;9</td><td>6</td><td>None</td><td>The one everyone reads</td></tr>
+<tr class="tr-light"><td>Last game, plates cleared</td><td>19&times;19</td><td>20</td><td>3 dead stones</td><td>Nobody is reading</td></tr>
+</tbody>
+</table>
+<p>The last column is the one that gets skipped, and it is the only one that cannot be repaired after the first stone.</p>
+<h2>Two sentences before anyone sits down</h2>
+<p>Open the page in the language of the person who will hold the tablet, then set nine lines and versus friend. To get another interface language without touching the menu, put the language code on the address of the English page, as in <em>?lang=ja-JP</em>, and load it before the session starts. It has to be in the address bar before the page loads, and it only works on the English root, because a path like <em>/zh-CN/</em> is checked first and wins.</p>
+<p><a href="../">The board is one click away</a> and the settings take four seconds: language, nine lines, Freestyle if nobody wants to read, versus friend. The first five is about six minutes out.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Pick the language, then the board</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Five interface languages, three board sizes, and Freestyle for the tables where nobody wants to read. Nine lines and versus friend gets the first five in about six minutes.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Thanksgiving Gomoku: Change the Language, Lose the Board",
+    "description": "The language menu reloads the page and wipes the position. Who should hold the tablet at Thanksgiving, why the foul warning only concerns black, and why the English page never names the rule you broke.",
+    "datePublished": "2026-11-19",
+    "dateModified": "2026-11-19",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/thanksgiving-gomoku-tablet-language"}
+  }
+  </script>
+</body>
+</html>
