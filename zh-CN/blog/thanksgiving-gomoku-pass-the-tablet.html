@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>感恩节五子棋：那手棋为什么没落下去 | 五子棋博客</title>
+  <meta name="description" content="一块平板在桌上传来传去，会丢手。两条规则在悄悄吃掉它：位移超过 8 像素算滑动页面，而格子的正中间根本不是一个能落子的点。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-pass-the-tablet">
+  <meta property="og:title" content="感恩节五子棋：那手棋为什么没落下去">
+  <meta property="og:description" content="下到第十二手，客人在格子正中间点了一下，什么也没发生。触摸处理里有两道检查，把这一手无声地扔掉了。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-pass-the-tablet">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="感恩节五子棋：那手棋为什么没落下去">
+  <meta name="twitter:description" content="8 像素的位移就算滑动，格子中间是死区。传平板的时候手是怎么丢的，以及提前说哪四句话。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">家庭与生活</span>
+          <h1 itemprop="headline">感恩节五子棋：那手棋为什么没落下去</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-20">2026-11-20</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>第二局下到第十二手，舅舅在格子正中间点了一下。没反应。他加重力气，还在原位再点一次，还是没反应。他把平板递回来说这游戏坏了，接下来十分钟没人再下。</p>
+
+<p>其实没坏。触摸处理里有两条规则把这两次点击直接扔掉，一声不响，页面上也没有任何地方写着它们。知道它们卡在哪，一块平板在感恩节的桌上传两个小时，一手棋都不会丢。</p>
+
+<h2>棋子落在你抬手的那个点，不是你按下的那个点</h2>
+
+<p>棋盘只听三个事件：手指按下、手指移动、手指抬起。按下到抬起之间，手指位移超过 8 像素，整个动作就被当成滑动页面，一颗子都不落。8 像素大约就是这段正文里一个字的宽度。平板换手的时候拇指还压在屏幕上，就足够让这一手作废。</p>
+
+<p>位移不到 8 像素，子会落下，但落点是抬手的坐标，不是按下的坐标。你的手是从盘子上方飞过来的，触到玻璃那一刻还在继续往前，棋子就顺着最后那一厘米偏过去。偏得不多，可一格通常就够了，<a href="/zh-CN/blog/play-gomoku-online-free-no-download">落错一个交叉点</a>比根本没落下去更亏，因为一条活三会悄悄变成两条断二。</p>
+
+<h2>格子的正中间是死区</h2>
+
+<p>棋盘是 canvas，一次点击先换算成像素，再四舍五入到最近的交叉点。落子之前还有第二道检查：点到这个交叉点的距离超过 1.2 个棋子半径，直接判无效。棋子半径是格距的 0.43，所以这道门槛是 0.516 个格距。</p>
+
+<p>格子正中心到四个角上任何一个交叉点都是 0.707 个格距。它永远在门槛之外。点格子中间不是"点偏了一点"，是这个位置在任何盘面、任何时候都不可能落子。</p>
+
+<p>把整个格子算下来，大约 17% 的面积不接受点击，差不多六次里有一次是白点。这个比例不会因为盘面变大而变好，因为门槛跟着格距一起缩放。真正变小的是目标本身：棋盘画到 360 像素宽时，9 路的目标直径 41 像素，15 路 23 像素，19 路 18 像素。而一根手指的接触面大约 34 像素。</p>
+
+<h2>触屏上你是在盲点</h2>
+
+<p>电脑上鼠标移过去，棋盘会先画一颗半透明的子给你看。那是鼠标移动事件在驱动。手指不会悬停，按下的瞬间预览就被清掉、图层重画，所以触屏上根本不存在"先让我看一眼要落哪"的那一帧。用鼠标的人在瞄准，其他人是在闭眼下注。</p>
+
+<h2>唯一的确认音，饭桌上听不见</h2>
+
+<p>落一颗子会响一声 600 赫兹、80 毫秒、音量 12% 的轻响，是故意做轻的。真正响的只有赢棋那串上行音和被拒的蜂鸣。</p>
+
+<p>七个人说话、一台洗碗机、隔壁房间还在放球赛的时候，这声轻响等于没有。你实际能依赖的是那个红点：半径是棋子的 0.28，黑子上亮红，白子上暗红，外面一圈白边，一直停在最后一颗子上，直到下一颗落下。</p>
+
+<p>所以传平板的规矩不是"听到声音再传"，是"看到红点再传"。</p>
+
+<h2>转屏不要钱，刷新要命</h2>
+
+<p>把平板转正，两层画布按新尺寸重画一遍，局面一点不动，因为棋子存在数组里，不存在像素里。有人横着拿、被人纠正一下，代价是零。</p>
+
+<p>刷新是另一回事。没有账号、没有存档、设置也不留，页面回来就是 15 路、自由规则、对战电脑、中等难度。两个人转屏没事，一个人顺手下拉刷新，这局就完了。</p>
+
+<h2>9 路是"够得着"的问题，不是"下得赢"的问题</h2>
+
+<p>缩盘面通常被当成拉平棋力的办法。在过节的桌上它还有第二个作用，而且第二个更管用：让目标比手指大。</p>
+
+<p>360 像素宽时，9 路的目标直径 41 像素，19 路是 18。手指是 34。在大盘上，你要打中的东西只有打它的那根手指一半宽，而每个格子里的死区，正好是手指中心最容易落下去的地方。老人、小孩、手抖的、指关节包着创可贴的，都下 9 路。</p>
+
+<p>让子在这块盘上没有开关。双人模式下颜色那一行是灰的，每一局都从黑棋开始，上局谁赢都一样，所以"让孩子先走"是出手顺序，不是设置项。差距再大只能用子来付，而且只能付在外圈：9 路 2 颗，15 路和 19 路 3 颗，彼此不能相邻，也不能贴着自己人的子，真打到那边照样算连五。摆在对角，然后忘掉它们。</p>
+
+<h2>没反应的时候，点同一个交叉点</h2>
+
+<p>人的本能是把手指挪一点，在旁边补一下。这一下就把"没落成"变成"落错了"，如果是连珠的黑棋还可能在新位置凑出三三被拒，弹回来，再给你一条 2.5 秒的提示。客人一下要面对两个谜。</p>
+
+<p>同一个交叉点。用指腹不用指尖。抬手要直。传出去之前留半秒，看一眼红点在不在。如果有两个人共用一个颜色，再补一句，免得<a href="/zh-CN/blog/thanksgiving-gomoku-two-on-a-side">两个人共用一个颜色</a>最后吵起来：轮到谁，谁拿着平板。</p>
+
+<h2>摆桌，一行一张</h2>
+
+<p>目标直径按棋盘 360 像素宽计算。每手秒数是自己定的，页面上没有任何计时。</p>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>场面</th>
+<th>盘面</th>
+<th>每手秒数</th>
+<th>目标直径</th>
+<th>让子</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>老人带孩子</td><td>9&times;9</td><td>12</td><td>41 像素</td><td>大人付 2 颗废子</td></tr>
+<tr class="tr-dark"><td>两个大人，一块平板</td><td>15&times;15</td><td>15</td><td>23 像素</td><td>无</td></tr>
+<tr class="tr-light"><td>四个人，两两一组</td><td>9&times;9</td><td>8</td><td>41 像素</td><td>无</td></tr>
+<tr class="tr-dark"><td>中学生对大人，最后一局</td><td>19&times;19</td><td>20</td><td>18 像素</td><td>3 颗废子</td></tr>
+<tr class="tr-light"><td>孩子单独打电脑</td><td>9&times;9</td><td>10</td><td>41 像素</td><td>无</td></tr>
+</tbody>
+</table>
+
+<p>第四列没人会想到，但客人信不信这游戏能用，全看这一列。</p>
+
+<h2>开第一手之前说四句话</h2>
+
+<p>平放，别端着。点交叉点，别点格子。没反应就点回原位。看到红点再传。整套交代比讲禁手规则还快。六个人以上的桌子，平板还会在两手之间传而不是在局与局之间传，那就是<a href="/zh-CN/blog/thanksgiving-gomoku-relay">接力下法</a>，得多加一句：碰屏幕之前先看清盘面。</p>
+
+<h2>能扛过一顿饭的那套设置</h2>
+
+<p>9 路、自由规则、一块平板、一条关于红点的规矩。15 路只留给全桌手都干、食指都稳的时候；19 路留给夜里最后一局，盘子撤了，还醒着的两个人熟到不用看也能点中。<a href="/zh-CN/blog/gomoku-family-game-night">家庭游戏夜</a>的其他部分都是排期，只有这一段是准头。</p>
+
+<p><a href="/zh-CN/">打开棋盘</a>，设成 9 路和双人对战，先递给手上最不稳的那个人。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">落一颗子试试</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">9 路、一次点击，红点亮了才算落成。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "感恩节五子棋：那手棋为什么没落下去",
+    "description": "一块平板在桌上传来传去，会丢手。两条规则在悄悄吃掉它：位移超过 8 像素算滑动页面，而格子的正中间根本不是一个能落子的点。",
+    "datePublished": "2026-11-20",
+    "dateModified": "2026-11-20",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-pass-the-tablet"}
+  }
+  </script>
+</body>
+</html>

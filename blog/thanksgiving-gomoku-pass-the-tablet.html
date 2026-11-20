@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanksgiving Gomoku: The Move That Never Happens | Gomoku Blog</title>
+  <meta name="description" content="A tablet passed around a holiday table loses moves. Two silent rules do it: an eight-pixel slide counts as a scroll, and the middle of a square is a point that cannot be played.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/thanksgiving-gomoku-pass-the-tablet">
+  <meta property="og:title" content="Thanksgiving Gomoku: The Move That Never Happens">
+  <meta property="og:description" content="Twelve moves in, a guest taps the middle of a square and nothing happens. Two rules in the touch handler eat the move without a sound.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/thanksgiving-gomoku-pass-the-tablet">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thanksgiving Gomoku: The Move That Never Happens">
+  <meta name="twitter:description" content="Eight pixels of drift counts as a scroll, and the centre of a square is dead ground. Where a shared tablet loses moves, and how to stop it.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Family & Lifestyle</span>
+          <h1 itemprop="headline">Thanksgiving Gomoku: The Move That Never Happens</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-20">2026-11-20</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>Twelve moves into the second game, your uncle taps the middle of a square. Nothing happens. He taps harder, on the same spot. Still nothing. He hands the tablet back and tells the table the game is broken, and nobody plays again for ten minutes.</p>
+
+<p>Nothing is broken. Two rules inside the touch handler threw both taps away without a sound, and neither one is written anywhere on the page. Know where they sit and one tablet can go round a Thanksgiving table for two hours without losing a move.</p>
+
+<h2>The stone lands where you lift, not where you press</h2>
+
+<p>The board listens for three events: finger down, finger moving, finger up. If the finger travels more than eight pixels between down and up, the whole gesture is read as a scroll and no stone is placed. Eight pixels is about the width of the letter <em>a</em> in this paragraph. A thumb that is still resting on the glass while the tablet changes hands is enough to cancel the move.</p>
+
+<p>Stay under eight pixels and the stone does appear, but at the coordinates where the finger came up rather than where it went down. Your hand is still arriving from the plate when it touches, so the stone drifts along that last centimetre. Not far. One intersection is usually all it takes to lose the point you meant to play, and <a href="play-gomoku-online-free-no-download">a stone on the wrong intersection</a> costs more than a stone that never landed, because an open three quietly becomes two broken twos.</p>
+
+<h2>The middle of a square is dead ground</h2>
+
+<p>The board is a canvas, so a tap becomes pixels and the pixels are rounded to the nearest crossing. Before anything is placed, a second check measures the distance back to that crossing and rejects anything beyond 1.2 stone radii. Stone radius is 0.43 of a cell, which puts the cutoff at 0.516 of a cell.</p>
+
+<p>The centre of a square sits 0.707 of a cell from all four of its crossings. It is always outside the cutoff. Tapping the middle of a square is not a near miss; it is a tap that cannot score, on any board size, permanently.</p>
+
+<p>Add it up across a whole cell and about 17 per cent of the board takes no input at all. Roughly one tap in six. That share never improves on a larger board, because the cutoff scales with the grid; what shrinks is the target. On a board drawn 360 pixels wide, nine lines give a target 41 pixels across, fifteen lines give 23, nineteen lines give 18. A fingertip covers about 34.</p>
+
+<h2>On glass, you are tapping blind</h2>
+
+<p>On a desktop the board paints a translucent stone under the cursor before you commit. That preview runs on mouse movement. A finger never hovers, and the instant it touches down the preview is cleared and the overlay is redrawn, so there is no frame in which the board shows you where the stone will go. Mouse users aim. Everybody else commits.</p>
+
+<h2>The only confirmation is a sound the room eats</h2>
+
+<p>A placed stone plays 600 Hz for 80 milliseconds at 12 per cent volume, deliberately quiet. The loud tones are the win chime and the buzz when a Renju foul is refused.</p>
+
+<p>With seven people talking, a dishwasher running and a football game in the next room, that click is gone. What you actually have is the marker: a dot 0.28 of a stone wide, bright red on black stones, darker red on white, ringed in white, sitting on the last stone until the next one lands.</p>
+
+<p>So the handoff rule is not "pass it after the sound". It is "pass it after the red dot".</p>
+
+<h2>Rotation is free. Reload is not.</h2>
+
+<p>Turning the tablet upright rebuilds both canvas layers at the new size and leaves the position alone, because the stones live in an array rather than in pixels. Somebody holding it sideways and being corrected costs nothing.</p>
+
+<p>Reloading is a different animal. No account, no save, no stored settings: the page comes back at fifteen lines, Freestyle, versus Computer, Medium. Two guests rotating the screen is safe. One guest pulling down to refresh ends the game.</p>
+
+<h2>Nine lines is an access question, not a difficulty one</h2>
+
+<p>Shrinking the board usually gets sold as a way to even out strength. At a holiday table it does a second job, and the second job matters more: it makes the target bigger than the finger.</p>
+
+<p>Nine lines at 360 pixels is a 41 pixel target. Nineteen lines is 18. A fingertip is 34. On the big board the thing you must hit is half the width of the thing hitting it, and the dead ground in each square is exactly where a fingertip's centre tends to sit. Grandparents, children, anyone with a tremor or a bandaged knuckle plays nine.</p>
+
+<p>Handicap has no switch here. In friend mode the colour row is disabled and every new game opens with black, whoever won the last one, so "the child goes first" is an order of hands and not a setting. Anything larger has to be paid in stones, in the outer ring only: two on nine lines, three on fifteen and nineteen, never touching each other or their owner's other stones, still counting toward a five if the game wanders out there. Opposite corners, then forget them.</p>
+
+<h2>When nothing happens, tap the same crossing again</h2>
+
+<p>The instinct is to shift the finger a little and tap beside the empty point. That converts a move that did not happen into a stone in the wrong place, and in Renju it can get worse: black's retry may complete a double three, be refused, bounce, and produce a 2.5 second warning nobody asked for. The guest now has two mysteries instead of one.</p>
+
+<p>Same crossing. Flat of the finger rather than the tip. Straight up on release. Half a second of looking for the red dot before the tablet leaves your hand. If two people are sharing a colour, add the one line that keeps <a href="thanksgiving-gomoku-two-on-a-side">two players behind a single colour</a> from turning the handoff into an argument: whoever's turn it is holds the tablet.</p>
+
+<h2>The setup, one row per table</h2>
+
+<p>Targets are measured on a board drawn 360 pixels wide. Times are per move and self-imposed, because nothing on the page runs a clock.</p>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>Table</th>
+<th>Board</th>
+<th>Seconds per move</th>
+<th>Tap target</th>
+<th>Handicap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>Grandparent and grandchild</td><td>9&times;9</td><td>12</td><td>41 px</td><td>Adult pays 2 dead stones</td></tr>
+<tr class="tr-dark"><td>Two adults, one tablet</td><td>15&times;15</td><td>15</td><td>23 px</td><td>None</td></tr>
+<tr class="tr-light"><td>Four players, two per side</td><td>9&times;9</td><td>8</td><td>41 px</td><td>None</td></tr>
+<tr class="tr-dark"><td>Teenager and adult, last game</td><td>19&times;19</td><td>20</td><td>18 px</td><td>3 dead stones</td></tr>
+<tr class="tr-light"><td>Child alone against Computer</td><td>9&times;9</td><td>10</td><td>41 px</td><td>None</td></tr>
+</tbody>
+</table>
+
+<p>The fourth column is the one nobody thinks about, and it decides whether a guest walks away believing the game works.</p>
+
+<h2>Four sentences before the first stone</h2>
+
+<p>Lay it flat, don't hold it in the air. Tap the crossing, not the square. If nothing happens, tap the same spot again. Pass it after the red dot. That is the entire briefing, and it takes less time to say than the foul rules. A table of six or more will also be passing the tablet between turns rather than between games, which is <a href="thanksgiving-gomoku-relay">relay play</a>, and it needs one extra sentence: read the board before you touch it.</p>
+
+<h2>The version that survives a holiday</h2>
+
+<p>Nine lines, Freestyle, one tablet, and a rule about the red dot. Fifteen lines only if every hand at the table is dry and every index finger steady. Nineteen only for the last game of the night, plates cleared, when the two people still awake know the board well enough to hit it without looking. Everything else about <a href="gomoku-family-game-night">a family game night</a> is scheduling; this part is aim.</p>
+
+<p><a href="../">Open the board</a>, set nine lines and versus friend, and hand it to the person with the least steady hand first.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Put a stone on the board</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Nine lines, one tap, and a red dot to tell you it landed.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Thanksgiving Gomoku: The Move That Never Happens",
+    "description": "A tablet passed around a holiday table loses moves. Two silent rules do it: an eight-pixel slide counts as a scroll, and the middle of a square is a point that cannot be played.",
+    "datePublished": "2026-11-20",
+    "dateModified": "2026-11-20",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/thanksgiving-gomoku-pass-the-tablet"}
+  }
+  </script>
+</body>
+</html>

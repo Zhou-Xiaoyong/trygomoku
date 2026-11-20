@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гомоку на День благодарения: почему камень не встаёт | Блог о гомоку</title>
+  <meta name="description" content="Планшет ходит по рукам, и ходы пропадают. Виноваты два правила: сдвиг на восемь пикселей считается прокруткой, а середина клетки не является игровым пунктом.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-pass-the-tablet">
+  <meta property="og:title" content="Гомоку на День благодарения: почему камень не встаёт">
+  <meta property="og:description" content="Двенадцатый ход, гость нажимает в середину клетки, и ничего не происходит. Две проверки в обработчике касаний молча выбрасывают ход.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-pass-the-tablet">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Гомоку на День благодарения: почему камень не встаёт">
+  <meta name="twitter:description" content="Восемь пикселей сдвига это прокрутка, центр клетки это мёртвая зона. Куда пропадает ход на общем планшете и что сказать до первого камня.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Семья и досуг</span>
+          <h1 itemprop="headline">Гомоку на День благодарения: почему камень не встаёт</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-20">2026-11-20</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>Двенадцатый ход второй партии: дядя нажимает в середину клетки. Ничего. Нажимает сильнее, в то же место. Снова ничего. Он возвращает планшет и объявляет, что игра сломалась, и следующие десять минут за столом никто не играет.</p>
+
+<p>Ничего не сломалось. Два правила внутри обработчика касаний выбросили оба нажатия молча, и ни одно из них не написано на странице. Достаточно знать, где они стоят, и один планшет сможет обойти праздничный стол дважды, не потеряв ни одного хода.</p>
+
+<h2>Камень встаёт туда, где вы отпустили палец, а не туда, где нажали</h2>
+
+<p>Доска слушает три события: палец коснулся, палец двинулся, палец оторвался. Если между касанием и отрывом палец прошёл больше восьми пикселей, жест считается прокруткой страницы и камень не ставится. Восемь пикселей это примерно ширина одной буквы в этом абзаце. Большого пальца, который всё ещё лежит на стекле, пока планшет переходит из рук в руки, хватает, чтобы ход отменился.</p>
+
+<p>Если меньше восьми, камень появится, но по координатам отрыва, а не нажатия. Рука ещё летит от тарелки и в момент касания продолжает двигаться, поэтому камень уезжает на этот последний сантиметр. Немного. Одного пересечения обычно достаточно, чтобы потерять нужный пункт, а <a href="/ru-RU/blog/play-gomoku-online-free-no-download">камень не на том пересечении</a> обходится дороже камня, который вообще не встал: открытая тройка тихо превращается в две разорванные двойки.</p>
+
+<h2>Середина клетки это мёртвая зона</h2>
+
+<p>Доска нарисована на canvas, поэтому нажатие сначала превращается в пиксели, а потом округляется до ближайшего пересечения. Перед постановкой камня вторая проверка измеряет расстояние до этого пересечения и отклоняет всё, что дальше 1.2 радиуса камня. Радиус камня равен 0.43 шага сетки, значит порог составляет 0.516 шага.</p>
+
+<p>Центр клетки удалён от всех четырёх её пересечений на 0.707 шага. Он всегда за порогом. Нажатие в середину клетки это не промах: это нажатие, которое не может сработать ни при каком размере доски и никогда.</p>
+
+<p>Если посчитать по всей клетке, около 17 процентов площади доски не принимает ввод. Примерно одно нажатие из шести. На большой доске доля не уменьшается, потому что порог масштабируется вместе с сеткой. Уменьшается сама цель: при доске шириной 360 пикселей девять линий дают цель 41 пиксель, пятнадцать линий 23, девятнадцать линий 18. Подушечка пальца занимает около 34.</p>
+
+<h2>На стекле вы ставите вслепую</h2>
+
+<p>На компьютере под курсором заранее рисуется полупрозрачный камень. Этот предпросмотр работает на движении мыши. Палец не зависает, а в момент касания предпросмотр стирается и слой перерисовывается, поэтому на сенсорном экране нет ни одного кадра, в котором доска показала бы, куда пойдёт камень. С мышью целятся. Остальные ставят наугад.</p>
+
+<h2>Единственное подтверждение это звук, который стол съедает</h2>
+
+<p>Поставленный камень звучит на 600 герцах, 80 миллисекунд, при громкости 12 процентов. Тихо специально. Громкие тоны это аккорд победы и зуммер, когда рэндзю отклоняет запрещённый ход.</p>
+
+<p>Когда семеро разговаривают, работает посудомойка и в соседней комнате идёт матч, этого щелчка нет. Остаётся метка: точка радиусом 0.28 камня, ярко красная на чёрных камнях, тёмно красная на белых, с белым кольцом, и она держится на последнем камне до следующего.</p>
+
+<p>Поэтому правило передачи звучит не «передавай после звука», а «передавай после красной точки».</p>
+
+<h2>Поворот экрана бесплатен, перезагрузка нет</h2>
+
+<p>Если вернуть планшет в вертикальное положение, оба слоя перерисовываются под новый размер, а позиция остаётся нетронутой: камни лежат в массиве, а не в пикселях. Кто-то держал его боком, его поправили, потеря равна нулю.</p>
+
+<p>Перезагрузка это другое. Ни аккаунта, ни сохранения, ни запомненных настроек: страница возвращается на пятнадцать линий, свободные правила, против компьютера, средний уровень. Двое повернули экран, всё в порядке. Один потянул вниз и обновил, партия закончилась.</p>
+
+<h2>Девять линий это вопрос досягаемости, а не силы</h2>
+
+<p>Уменьшать доску обычно советуют, чтобы сгладить разницу в классе. За праздничным столом у этого есть вторая работа, и вторая важнее: цель становится больше пальца.</p>
+
+<p>Девять линий при 360 пикселях дают цель 41 пиксель. Девятнадцать линий дают 18. Палец это 34. На большой доске то, во что нужно попасть, вдвое уже того, чем попадают, а мёртвая зона в каждой клетке совпадает с тем местом, куда обычно попадает центр подушечки. Бабушка, дедушка, ребёнок, человек с тремором или забинтованным суставом играют девять линий.</p>
+
+<p>У форы здесь нет переключателя. В режиме с другом строка цветов отключена, и каждая новая партия начинается с чёрных, кто бы ни выиграл предыдущую, поэтому «ребёнок ходит первым» это порядок рук, а не настройка. Всё большее приходится платить камнями и только по внешнему кольцу: два на девяти линиях, три на пятнадцати и девятнадцати, не касаясь друг друга и своих же камней, и они по-прежнему считаются в пятёрку, если игра туда забредёт. Поставьте их в противоположные углы и забудьте.</p>
+
+<h2>Когда ничего не произошло, нажмите то же пересечение снова</h2>
+
+<p>Первое желание сдвинуть палец и нажать рядом с пустым пунктом. Так ход, которого не было, превращается в камень не на месте, а в рэндзю может стать хуже: повторная попытка чёрных соберёт двойную тройку, её отклонят, камень отскочит и появится предупреждение на 2.5 секунды, которого никто не просил. У гостя теперь две загадки вместо одной.</p>
+
+<p>То же пересечение. Подушечкой, а не кончиком. Отрывать строго вверх. Полсекунды на поиск красной точки, прежде чем планшет уйдёт из вашей руки. Если двое играют одним цветом, добавьте одну фразу, чтобы <a href="/ru-RU/blog/thanksgiving-gomoku-two-on-a-side">два человека за один цвет</a> не превратили передачу в спор: планшет держит тот, чей ход.</p>
+
+<h2>Сборка стола, по строке на стол</h2>
+
+<p>Диаметры целей измерены при доске шириной 360 пикселей. Секунды на ход каждый назначает себе сам, потому что часов на странице нет.</p>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>Сцена</th>
+<th>Доска</th>
+<th>Секунд на ход</th>
+<th>Диаметр цели</th>
+<th>Фора</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>Бабушка или дедушка с внуком</td><td>9&times;9</td><td>12</td><td>41 px</td><td>взрослый платит 2 мёртвых камня</td></tr>
+<tr class="tr-dark"><td>Двое взрослых, один планшет</td><td>15&times;15</td><td>15</td><td>23 px</td><td>нет</td></tr>
+<tr class="tr-light"><td>Четверо, парами</td><td>9&times;9</td><td>8</td><td>41 px</td><td>нет</td></tr>
+<tr class="tr-dark"><td>Подросток и взрослый, последняя партия</td><td>19&times;19</td><td>20</td><td>18 px</td><td>3 мёртвых камня</td></tr>
+<tr class="tr-light"><td>Ребёнок один против компьютера</td><td>9&times;9</td><td>10</td><td>41 px</td><td>нет</td></tr>
+</tbody>
+</table>
+
+<p>О четвёртой колонке никто не думает, а именно от неё зависит, уйдёт гость с мыслью, что игра работает.</p>
+
+<h2>Четыре фразы до первого камня</h2>
+
+<p>Кладите плашмя, не держите на весу. Нажимайте пересечение, а не клетку. Если ничего не произошло, нажмите туда же. Передавайте после красной точки. Это весь инструктаж, и он короче объяснения запретов. За столом на шесть человек и больше планшет пойдёт по рукам не между партиями, а между ходами, это <a href="/ru-RU/blog/thanksgiving-gomoku-relay">игра в эстафету</a>, и нужна ещё одна фраза: сначала прочитайте доску, потом касайтесь.</p>
+
+<h2>Вариант, который переживает праздник</h2>
+
+<p>Девять линий, свободные правила, один планшет и правило про красную точку. Пятнадцать линий только если у всех за столом сухие руки и твёрдый указательный палец. Девятнадцать только для последней партии вечера, когда тарелки убраны, а двое не спящих знают доску настолько, что попадают не глядя. Всё остальное в <a href="/ru-RU/blog/gomoku-family-game-night">семейном игровом вечере</a> это расписание. Здесь речь о прицеле.</p>
+
+<p><a href="/ru-RU/">Откройте доску</a>, поставьте девять линий и игру с другом, и отдайте планшет тому, у кого рука менее твёрдая.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Поставить камень</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Девять линий, одно касание, красная точка в подтверждение.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Гомоку на День благодарения: почему камень не встаёт",
+    "description": "Планшет ходит по рукам, и ходы пропадают. Виноваты два правила: сдвиг на восемь пикселей считается прокруткой, а середина клетки не является игровым пунктом.",
+    "datePublished": "2026-11-20",
+    "dateModified": "2026-11-20",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-pass-the-tablet"}
+  }
+  </script>
+</body>
+</html>

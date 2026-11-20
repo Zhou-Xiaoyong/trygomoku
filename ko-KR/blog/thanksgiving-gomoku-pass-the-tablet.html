@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>추수감사절 오목: 그 수가 왜 판에 놓이지 않는가 | 오목 블로그</title>
+  <meta name="description" content="태블릿을 돌려 쓰면 수가 사라집니다. 8픽셀 움직이면 스크롤로 처리되고, 칸 한가운데는 둘 수 없는 자리입니다. 규칙은 둘뿐이고 화면에는 적혀 있지 않습니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-pass-the-tablet">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-pass-the-tablet">
+  <meta property="og:title" content="추수감사절 오목: 그 수가 왜 판에 놓이지 않는가">
+  <meta property="og:description" content="열두 수째, 손님이 칸 한가운데를 눌러도 아무 일이 없습니다. 터치 처리의 검사 두 개가 소리 없이 그 수를 버립니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-pass-the-tablet">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="추수감사절 오목: 그 수가 왜 판에 놓이지 않는가">
+  <meta name="twitter:description" content="8픽셀 밀리면 스크롤, 칸 중심은 죽은 땅. 태블릿 한 대를 돌려 쓸 때 수가 사라지는 이유와 시작 전에 할 네 문장.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">가족 및 라이프스타일</span>
+          <h1 itemprop="headline">추수감사절 오목: 그 수가 왜 판에 놓이지 않는가</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-20">2026-11-20</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>두 번째 판 열두 수째, 삼촌이 칸 한가운데를 눌렀습니다. 아무 일도 일어나지 않습니다. 같은 자리를 더 세게 다시 눌렀습니다. 그래도 그대로입니다. 태블릿을 돌려주며 게임이 고장 났다고 말하고, 그 뒤 십 분 동안 아무도 두지 않았습니다.</p>
+
+<p>고장이 아닙니다. 터치 처리 안의 규칙 두 개가 두 번의 누름을 소리도 없이 버린 것이고, 그 규칙은 페이지 어디에도 적혀 있지 않습니다. 어디에 걸리는지만 알면, 추수감사절 식탁에서 태블릿 한 대를 두 시간 돌려도 한 수도 잃지 않습니다.</p>
+
+<h2>돌은 누른 자리가 아니라 손을 뗀 자리에 놓입니다</h2>
+
+<p>판은 세 가지 사건만 봅니다. 손가락이 닿는 순간, 움직이는 순간, 떼는 순간입니다. 닿은 뒤 뗄 때까지 손가락이 8픽셀 넘게 움직이면 그 동작은 페이지 스크롤로 처리되고 돌은 하나도 놓이지 않습니다. 8픽셀은 이 문단 글자 하나 폭 정도입니다. 태블릿을 넘기는 동안 엄지가 아직 화면에 얹혀 있는 것만으로도 그 수는 취소됩니다.</p>
+
+<p>8픽셀 아래로 움직였다면 돌은 놓이지만, 닿은 좌표가 아니라 뗀 좌표에 놓입니다. 손은 접시 위에서 날아와 닿는 순간에도 계속 앞으로 가고 있으므로, 돌은 마지막 1센티미터만큼 밀립니다. 크지 않습니다. 그런데 한 칸이면 충분합니다. <a href="/ko-KR/blog/play-gomoku-online-free-no-download">교차점을 하나 잘못 짚은 돌</a>은 아예 놓이지 않은 돌보다 비쌉니다. 열린 3이 조용히 끊긴 2 두 개로 바뀌기 때문입니다.</p>
+
+<h2>칸 한가운데는 죽은 땅입니다</h2>
+
+<p>판은 canvas라서 누름이 먼저 픽셀로 바뀌고, 그다음 가장 가까운 교차점으로 반올림됩니다. 돌을 놓기 전에 두 번째 검사가 그 교차점까지의 거리를 재고, 돌 반지름의 1.2배를 넘으면 거절합니다. 돌 반지름은 칸 간격의 0.43배이므로 한계는 칸 간격의 0.516배입니다.</p>
+
+<p>칸의 중심은 네 교차점 어디에서나 0.707배 거리에 있습니다. 언제나 한계 밖입니다. 칸 한가운데를 누르는 것은 조금 빗나간 것이 아니라, 판 크기와 상관없이 영원히 둘 수 없는 누름입니다.</p>
+
+<p>칸 하나를 통째로 재면 판의 약 17퍼센트가 입력을 받지 않습니다. 여섯 번에 한 번꼴입니다. 판을 키운다고 이 비율이 나아지지는 않습니다. 한계가 칸 간격을 따라 함께 줄어들기 때문입니다. 작아지는 것은 목표 쪽이고, 판을 360픽셀 너비로 그렸을 때 9줄은 목표 지름 41픽셀, 15줄은 23픽셀, 19줄은 18픽셀입니다. 손끝 면적은 34픽셀쯤입니다.</p>
+
+<h2>유리 위에서는 겨냥하지 못합니다</h2>
+
+<p>컴퓨터에서는 커서 아래에 반투명 돌이 미리 그려집니다. 그건 마우스 이동으로 돌아가는 기능입니다. 손가락은 떠 있지 않고, 닿는 순간 미리보기는 지워지고 겹침 레이어가 다시 그려집니다. 돌이 어디로 갈지 판이 보여 주는 한 프레임은 터치에 없습니다. 마우스를 쓰는 사람은 겨냥하고, 나머지는 걸어 놓고 누릅니다.</p>
+
+<h2>유일한 확인음은 식탁 소리에 먹힙니다</h2>
+
+<p>돌을 놓으면 600헤르츠, 80밀리초, 음량 12퍼센트의 소리가 납니다. 일부러 작게 만들어져 있습니다. 큰 소리는 이길 때의 화음과 금수로 거절될 때의 부저뿐입니다.</p>
+
+<p>일곱 명이 떠들고 식기세척기가 돌고 옆방에서 경기가 흐르는 상황에서 그 소리는 없습니다. 실제로 기댈 수 있는 것은 표시입니다. 돌 반지름의 0.28배인 점, 흑돌 위에서는 밝은 빨강, 백돌 위에서는 어두운 빨강, 바깥에 흰 테두리가 있고, 다음 돌이 놓일 때까지 마지막 수 위에 남습니다.</p>
+
+<p>그래서 넘기는 규칙은 "소리가 나면 넘긴다"가 아니라 "빨간 점을 보고 넘긴다"입니다.</p>
+
+<h2>화면을 돌리는 것은 무료, 새로 고침은 유료입니다</h2>
+
+<p>태블릿을 세로로 되돌리면 두 레이어가 새 크기로 다시 그려지고 판은 그대로 남습니다. 돌이 픽셀이 아니라 배열에 있기 때문입니다. 누가 옆으로 들고 있다가 바로잡히는 데 드는 비용은 없습니다.</p>
+
+<p>새로 고침은 다릅니다. 계정도 저장도 설정 기억도 없어서, 페이지는 15줄, 자유 규칙, 컴퓨터 대전, 중급으로 돌아옵니다. 두 사람이 화면을 돌리는 것은 안전하고, 한 사람이 당겨서 새로 고침하면 그 판은 끝납니다.</p>
+
+<h2>9줄은 "이기기 쉬운" 문제가 아니라 "맞히기 쉬운" 문제입니다</h2>
+
+<p>판을 줄이는 일은 보통 실력 차를 메우는 방법으로 권해집니다. 명절 식탁에서는 두 번째 역할이 있고, 그쪽이 더 중요합니다. 목표를 손가락보다 크게 만드는 일입니다.</p>
+
+<p>360픽셀에서 9줄이면 목표는 41픽셀, 19줄이면 18픽셀입니다. 손가락은 34픽셀입니다. 큰 판에서는 맞혀야 하는 것이 맞히는 손가락 절반 폭이고, 각 칸의 죽은 구역은 손가락 중심이 가장 잘 떨어지는 자리와 정확히 겹칩니다. 조부모도, 아이도, 손이 떨리는 사람도, 손가락 관절에 밴드를 감은 사람도 9줄입니다.</p>
+
+<p>접바둑에는 설정이 없습니다. 친구 대결에서는 색 줄이 비활성화되고, 앞판을 누가 이겼든 새 판은 항상 흑부터 시작합니다. 그래서 "아이가 먼저 둔다"는 설정이 아니라 손의 순서입니다. 그보다 큰 차이는 돌로만 지불할 수 있고, 지불할 수 있는 곳은 바깥 고리뿐입니다. 9줄은 두 개, 15줄과 19줄은 세 개, 서로 붙지 않고 자기 편 다른 돌에도 닿지 않게. 그쪽까지 판이 흘러가면 당연히 다섯으로 셉니다. 반대쪽 모서리에 두고 잊으십시오.</p>
+
+<h2>반응이 없으면 같은 교차점을 다시</h2>
+
+<p>본능은 손가락을 조금 옮겨 빈 점 옆을 누르는 것입니다. 그러면 "안 놓인 수"가 "잘못 놓인 돌"이 되고, 렌주 흑이라면 새 자리에서 삼삼이 완성되어 거절당하고 튕겨 나오면서 2.5초 경고까지 뜹니다. 손님은 의문을 두 개 떠안게 됩니다.</p>
+
+<p>같은 교차점입니다. 손끝이 아니라 손가락 면으로. 뗄 때는 곧게 위로. 태블릿을 넘기기 전에 반 초만 빨간 점을 확인하십시오. 두 사람이 한 색을 함께 쓸 때는 <a href="/ko-KR/blog/thanksgiving-gomoku-two-on-a-side">한 색 뒤에 두 사람이 앉는</a> 경우에 말다툼이 생기지 않도록 한 줄만 더 붙입니다. 차례인 사람이 태블릿을 듭니다.</p>
+
+<h2>상 설정, 한 줄에 한 상</h2>
+
+<p>목표 지름은 판을 360픽셀 너비로 그렸을 때의 값입니다. 한 수당 초는 스스로 정하는 것이고, 페이지에는 시계가 없습니다.</p>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>상황</th>
+<th>판</th>
+<th>한 수당 초</th>
+<th>목표 지름</th>
+<th>접바둑</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>조부모와 손자</td><td>9&times;9</td><td>12</td><td>41 px</td><td>어른이 죽은 돌 2개</td></tr>
+<tr class="tr-dark"><td>어른 둘, 태블릿 하나</td><td>15&times;15</td><td>15</td><td>23 px</td><td>없음</td></tr>
+<tr class="tr-light"><td>네 명이 둘씩 짝</td><td>9&times;9</td><td>8</td><td>41 px</td><td>없음</td></tr>
+<tr class="tr-dark"><td>중학생과 어른, 마지막 한 판</td><td>19&times;19</td><td>20</td><td>18 px</td><td>죽은 돌 3개</td></tr>
+<tr class="tr-light"><td>아이 혼자 컴퓨터와</td><td>9&times;9</td><td>10</td><td>41 px</td><td>없음</td></tr>
+</tbody>
+</table>
+
+<p>네 번째 열은 아무도 생각하지 않지만, 손님이 "이 게임은 된다"고 믿고 돌아가는지가 이 열에서 갈립니다.</p>
+
+<h2>첫 돌 전에 네 문장</h2>
+
+<p>평평하게 둘 것, 들고 있지 말 것. 칸이 아니라 교차점을 누를 것. 반응이 없으면 같은 자리를 다시. 빨간 점을 보고 넘길 것. 설명은 이게 전부이고, 금수 규칙을 설명하는 것보다 짧습니다. 여섯 명이 넘는 상에서는 태블릿이 판과 판 사이가 아니라 수마다 돌기 때문에 그것은 <a href="/ko-KR/blog/thanksgiving-gomoku-relay">릴레이 방식</a>이 되고, 문장이 하나 더 필요합니다. 만지기 전에 판을 읽으라고.</p>
+
+<h2>명절을 버티는 설정</h2>
+
+<p>9줄, 자유 규칙, 태블릿 한 대, 빨간 점에 관한 규칙 하나. 15줄은 상에 있는 모든 손이 마르고 모든 집게손가락이 안정적일 때만. 19줄은 밤의 마지막 한 판에만, 접시가 치워지고 깨어 있는 두 사람이 보지 않고도 둘 수 있을 만큼 판에 익었을 때. <a href="/ko-KR/blog/gomoku-family-game-night">가족 게임의 밤</a>에서 나머지는 일정이지만, 이 부분만은 조준입니다.</p>
+
+<p><a href="/ko-KR/">판을 열고</a> 9줄과 친구 대결로 맞춘 뒤, 손이 가장 불안한 사람에게 먼저 건네십시오.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">돌 하나를 놓아 보기</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">9줄, 한 번의 누름, 빨간 점이 뜨면 제대로 놓인 것입니다.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 두기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "추수감사절 오목: 그 수가 왜 판에 놓이지 않는가",
+    "description": "태블릿을 돌려 쓰면 수가 사라집니다. 8픽셀 움직이면 스크롤로 처리되고, 칸 한가운데는 둘 수 없는 자리입니다. 규칙은 둘뿐이고 화면에는 적혀 있지 않습니다.",
+    "datePublished": "2026-11-20",
+    "dateModified": "2026-11-20",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-pass-the-tablet"}
+  }
+  </script>
+</body>
+</html>
