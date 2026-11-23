@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Инструмента разбора в гомоку нет. Разберите партию тем, что уже открыто | Блог гомоку</title>
+  <meta name="description" content="Ни списка ходов, ни экспорта, ни оценки движка. Отмена, подсказка и счётчик глубины дают двенадцать минут разбора.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-analysis-tool-to-review-games">
+  <meta property="og:title" content="Как разобрать партию в гомоку без инструмента разбора">
+  <meta property="og:description" content="Отмена хода как контрфакт, подсказка как второе мнение, глубина как чек. Двенадцать минут на одну партию.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-analysis-tool-to-review-games">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Разбор партии в гомоку без движка">
+  <meta name="twitter:description" content="Четыре вопроса, двенадцать минут, одна проигранная партия.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Стратегия</span>
+          <h1 itemprop="headline">Инструмента разбора нет, поэтому разбирайте партию самой доской</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-23">2026-11-23</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>Тридцать четвёртый камень, вот где партия сломалась, и доказать это нечем. На доске готовая пятёрка, в строке счёта «белые 1», а списка ходов нет нигде на странице.</p>
+
+<p>Инструмента разбора здесь нет. Ни списка ходов, ни экспорта, ни оценки по ходам, ни сохранений: обновите страницу, и позиция исчезнет вместе со счётом. Зато есть три вещи, которые становятся комплектом для разбора, если перестать ждать от них движка: отмена хода, подсказка и счётчик глубины, который появляется только на уровнях Hard и Master.</p>
+
+<p>Ниже порядок действий, который занимает двенадцать минут и не требует ни одной программы, кроме той, что уже открыта.</p>
+
+<h2>Что страница даёт и чего не даёт</h2>
+
+<p>Начнём с честной описи. Почти любой совет про разбор партий предполагает запись ходов, а её тут не выдают.</p>
+
+<ul>
+<li><strong>Даёт:</strong> отмену хода, которая снимает два камня в игре с компьютером и один в игре с другом. Подсказку, отмечающую лучший по оценке пункт для того, чей сейчас ход, на три секунды. Счёт по цветам за все партии сессии. Показатель глубины, пока Hard или Master думает.</li>
+<li><strong>Не даёт:</strong> номеров ходов, повтора, оценки того камня, который вы действительно поставили, и способа открыть законченную партию. После победы отмена сразу возвращает управление, поэтому пятый камень в ряд замораживает позицию навсегда.</li>
+</ul>
+
+<p>Последняя строка меняет всю методику: последний момент, когда проигранную позицию ещё можно рассмотреть, наступает <em>до</em> победного камня, а не после.</p>
+
+<h2>Не записали номера, и партии не было</h2>
+
+<p>Против компьютера можно пропустить: дебют вы восстановите по памяти, а ответы машины на одном уровне повторяются. Против человека так не выйдет, и сорок камней по фотографии финальной позиции не восстанавливаются.</p>
+
+<p>На доске по пятнадцать линий в каждую сторону. Столбцы нумеруем <strong>a</strong> до <strong>o</strong> слева направо, ряды от 1 до 15 снизу вверх. Один камень занимает три знака: <em>h8</em>, <em>h9</em>, <em>i9</em>. Сорок камней это сто двадцать знаков, это помещается на обороте списка покупок, а писать по четыре секунды на ход.</p>
+
+<p>Два правила держат запись пригодной. Пишет один, играет другой: играющий всегда уверен, что запомнит. И если играете в рэндзю, помечайте отклонённые камни отдельно. Запрещённый ход (двойная тройка, двойная четвёрка, длинный ряд) отскакивает от доски, предупреждение висит около двух секунд, а чёрные продолжают свой ход. В запись этот камень не попадает. Пропустите пометку один раз, и все номера дальше съедут на единицу, а разбор будет искать ошибку не там.</p>
+
+<p>У строки счёта есть мелкая ловушка. Она считает по цветам, а не по игрокам, и между партиями не обнуляется: сброс только при перезагрузке. «Чёрные 3, белые 2» это итог сессии, а не счёт матча, и судить по нему о силе не стоит.</p>
+
+<h2>Отмена хода это контрфакт, а не перемотка</h2>
+
+<p>В игре с компьютером отмена снимает два камня: ваш и ответ, который он вызвал. Это не возврат к аккуратной прошлой позиции, это возврат к самой развилке. Доска приходит в состояние до вашего выбора, и другого способа спросить «а что было бы, сыграй я иначе» здесь нет.</p>
+
+<p>В игре с другом отмена снимает один камень и возвращает очередь тому, кто его поставил. Это другой инструмент: забрать камень при свидетеле жест социальный, а не аналитический.</p>
+
+<p>При правильном применении отмена отвечает на один вопрос за позицию: <em>та угроза, которой я боялся, была настоящей?</em> Поставьте альтернативный камень, дождитесь ответа машины и посмотрите, что он делает. Потом отмените ещё раз и верните свой камень. Ответы будут разными, и только вместе они показывают, был ли страх обоснован. Чего отмена не умеет, так это хранить ветку: второй доски нет, поэтому в момент возврата исходного камня эксперимент исчезает. Запишите ответ до того, как сотрёте его.</p>
+
+<h2>Подсказка даёт пункт, но не причину</h2>
+
+<p>Кнопка берёт список кандидатов, сортирует по оценке и три секунды пульсирует на первом пункте. В игре с компьютером на его ходу она не срабатывает. В игре вдвоём работает за того, чья очередь, и потому остаётся единственным беспристрастным мнением за столом.</p>
+
+<p>Как инструмент разбора это одновременно ловушка и подарок. Нажмите в позиции, где вы застряли, запишите оба пункта, свой и отмеченный, и ответьте одной фразой: чем его пункт угрожает такого, чем не угрожал мой? Если фраза не складывается, подсказка ничему не научила. Вы получили ответ и пропустили метод, а именно это полный движок позволяет делать в промышленных масштабах.</p>
+
+<p>Три секунды как раз подходящая длина и для самой проверки. Достаточно, чтобы прочитать пункт, слишком мало, чтобы уговорить себя согласиться.</p>
+
+<h2>Уровень работает как линза, глубина как чек</h2>
+
+<p>Hard считает на четыре полухода (вы, он, вы, он) от двадцати корневых кандидатов. Любой план, которому нужно, чтобы соперник ответил дважды подряд, на этой глубине умирает, поэтому Hard хорошо проверяет, был ли ваш напор форсированным или только обнадёживающим.</p>
+
+<p>Master углубляется с двух полуходов до двенадцати, берёт до сорока кандидатов и обрывается на двенадцатой секунде.</p>
+
+<p>Прогоните один и тот же дебют на Hard, потом на Master. Камень, на котором их первые выборы расходятся, и есть камень для изучения: он стоит ровно на границе видимости четырёх полуходов.</p>
+
+<p>Master ещё и показывает живой счётчик <em>Depth</em>, пока думает, и это число говорит больше, чем его окончательный ход. Позиция, дошедшая до глубины десять или двенадцать за секунду, узкая: несколько форсированных линий, мало настоящих ветвей. Позиция, где он умирает на четвёртой, имеет слишком много живых продолжений, чтобы разобрать их за двенадцать секунд, и обычно именно в таких человек тоже не понимает, что происходит. Отмечайте партии с малым числом: там просел ваш дебют.</p>
+
+<h2>Четыре вопроса, двенадцать минут, одна партия</h2>
+
+<p>Разбирайте одну партию в неделю, а не четыре, и только проигранные. Победа сообщает то, что вы и так умеете, и это выясняется следующей партией. Поставьте таймер на двенадцать минут и ответьте письменно на четыре вопроса по порядку.</p>
+
+<ol>
+<li><strong>Где начинается проигранная последовательность?</strong> Считайте назад от его пятёрки: четвёрка, тройка, ставшая четвёркой, и камень, создавший эту тройку. Проигрыш почти никогда не в четвёрке. Он в третьем камне от конца, в том, что выглядел развитием.</li>
+<li><strong>Сколько темпов вы отдали?</strong> Сосчитайте ходы между вашим последним форсирующим ходом (четвёрка или тройка, на которую он обязан ответить) и его четвёркой. Больше двух означает, что он строил, а вы играли сами с собой.</li>
+<li><strong>Какой камень был тихим?</strong> В его победной линии есть камень, который в момент постановки не был угрозой. Его вы не имели повода закрывать и должны были закрыть. Найдите его, и вы получите форму для тренировки: она вернётся в другой партии под другими координатами.</li>
+<li><strong>Какой ход вы не можете объяснить?</strong> Не худший, а необъяснимый. Если не выходит одной фразой сказать, зачем стоял камень, этот камень и есть ошибка, даже если партия потом выиграна.</li>
+</ol>
+
+<p>Если таймер кончился, а четвёртый вопрос без ответа, остановитесь. Вы не разбирали, а повторяли, а переставлять сорок камней означает ещё одну партию с худшим собеседником.</p>
+
+<h2>Куда девать ответ</h2>
+
+<p>С одной партии берите одну находку и превращайте в одно упражнение для следующей сессии. Если находка это тихая тройка, играйте на девяти линиях против Hard и останавливайтесь каждый раз, когда у соперника появляется тройка без приложенной четвёрки: эта форма и есть весь урок. Если находка это темп, возьмите <a href="/ru-RU/blog/best-way-to-practice-gomoku-against-computer">этот порядок тренировки</a> и поменяйте в нём только вопрос, который пишете перед первым камнем.</p>
+
+<p>Смысл делать это руками, а не ждать нормального движка, прост. Ручной проход заставляет назвать угрозу вслух, и переносится в следующую партию именно названное. Движок с цифрой называет за вас. Чтобы понять, какие привычки вообще двигают результат, начните с <a href="/ru-RU/blog/how-to-improve-gomoku-game">этого разбора</a>, а если играете против самой машины, в <a href="/ru-RU/blog/beat-gomoku-ai">руководстве по уровням</a> разобрано, где ломается каждый из них.</p>
+
+<p>Потом закройте заметки, откройте <a href="/ru-RU/">доску</a> и сыграйте партию, которую собираетесь разбирать ещё до первого камня. Мысль «разберу потом» и есть способ свести двенадцать минут к нулю.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Сыграйте партию, которую собираетесь разобрать</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">Девять линий для форм, пятнадцать для настоящей игры. Таймер ставьте до первого камня, а не после поражения.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Инструмента разбора нет, поэтому разбирайте партию самой доской",
+    "description": "Ни списка ходов, ни экспорта, ни оценки движка. Отмена, подсказка и счётчик глубины дают двенадцать минут разбора.",
+    "datePublished": "2026-11-23",
+    "dateModified": "2026-11-23",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-analysis-tool-to-review-games"}
+  }
+  </script>
+</body>
+</html>

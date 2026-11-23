@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べに分析ツールはない。それでも一手で負けた場所は特定できる | 五目並べブログ</title>
+  <meta name="description" content="棋譜も書き出しもエンジン評価もない。待った、ヒント、深度表示の三つで12分の復盤にする手順です。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-analysis-tool-to-review-games">
+  <meta property="og:title" content="分析ツールなしで五目並べを復盤する">
+  <meta property="og:description" content="待ったは反実仮想、ヒントは第二意見、深度はレシート。12分で負けた一手にたどり着きます。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-analysis-tool-to-review-games">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ツールがなくても五目並べは復盤できる">
+  <meta name="twitter:description" content="四つの問い、12分、負けた一局。エンジンは要りません。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">戦略</span>
+          <h1 itemprop="headline">分析ツールがない盤で、負けた一局をどう分解するか</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-23">2026-11-23</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>34手目が負けた場所なのに、それを示すものが盤面には何も残っていません。目に入るのは完成した五連と、スコア欄の「白 1」だけです。手順表も、棋譜の書き出しも、一手指したあとの評価もありません。</p>
+
+<p>このサイトに分析ツールはありません。棋譜リスト、エクスポート、一手ごとの形勢判断、保存機能、どれもありません。ページを再読み込みすれば局面もスコアも消えます。あるのは三つだけです。待った、ヒント、そして難易度ハードとマスターのときだけ出る探索深度の表示。本来の用途はどれも復盤ではありませんが、順番を守れば復盤の道具になります。</p>
+
+<p>以下、余計なソフトを一切使わず、12分で「負けた一手」を特定する手順です。</p>
+
+<h2>この画面が教えてくれること、教えてくれないこと</h2>
+
+<p>まず手持ちを確認します。復盤の話はたいてい棋譜がある前提で書かれていますが、ここにはありません。</p>
+
+<ul>
+<li><strong>あるもの：</strong>待ったはコンピュータ戦で2手、ふたり対戦で1手戻ります。ヒントは手番側の最善点を3秒だけ点滅させます。色ごとに勝敗を数えるスコア欄。ハード／マスターが考えている間に出る深度表示。</li>
+<li><strong>ないもの：</strong>手数、再生、自分が指した手の評価、終わった対局を開き直す手段。対局終了後は待ったの処理が即座に戻るので、五連が完成した瞬間に局面は固定されます。</li>
+</ul>
+
+<p>この最後の一行が復盤のやり方を変えます。負けた局面を検分できる最後の瞬間は、相手の5手目が置かれる<em>前</em>であって、後ではありません。</p>
+
+<h2>手数を書かないと、その対局は存在しなかったことになる</h2>
+
+<p>コンピュータ戦なら省略できます。序盤は記憶で再現でき、同じ難易度なら応手も安定して再現されるからです。人と指すときは無理です。40手の対局は、終局図の写真一枚からは復元できません。</p>
+
+<p>盤は縦横15本ずつ。左から縦線を <strong>a</strong> から <strong>o</strong>、下から横線を1から15と番号を振ります。一手は3文字、<em>h8</em>、<em>h9</em>、<em>i9</em>。40手で120文字、買い物メモの裏に収まります。1手あたり4秒です。</p>
+
+<p>記録を使い物にするコツは二つ。書く人と打つ人を分けること。打つ側は必ず「覚えている」と思い込みます。そして連珠で指すなら、拒否された手を必ず別扱いで書くこと。禁手（三三、四四、長連）は盤から弾かれ、2秒あまりの警告が出て、黒の手番のまま続きます。この手は棋譜に入りません。書き漏らすと以降の手数がすべて一手ずつずれ、復盤では永遠にずれた場所を見ることになります。</p>
+
+<p>スコア欄には小さな罠があります。色ごとの累計であって、打ち手ごとの成績ではなく、対局が変わってもゼロになりません。リセットされるのは再読み込みのときだけです。黒3・白2はその場の合計であって、この一局の勝敗ではありません。実力判断の根拠にはしないでください。</p>
+
+<h2>待ったは反実仮想であって、巻き戻しではない</h2>
+
+<p>コンピュータ戦の待ったは2手消します。自分の手と、それに返ってきた相手の手です。きれいな過去の局面に戻るのではなく、分岐点そのものに戻る、という意味です。指す前の盤面が戻ってくるので、「もう一方に指していたら」を試せる唯一の入口になります。</p>
+
+<p>ふたり対戦の待ったは1手だけ消し、指した人に手番を返します。これは別の道具です。証人の前で一手を取り消す、という社会的な操作であって、分析ではありません。</p>
+
+<p>正しく使えば、待ったは1局面につき1つの問いに答えます。<em>自分が恐れていた筋は、本当に脅威だったのか。</em>代わりの一手を置き、コンピュータに応えさせ、その手を見ます。もう一度待ったで元の手に戻します。相手が返してくる手は毎回違うので、二つの応手を並べて初めて、恐れが本物だったかどうかが分かります。できないのは分岐の保存です。二枚目の盤はないので、元の手を置き直した瞬間に実験は消えます。取り消す前に、返ってきた手をメモしてください。</p>
+
+<h2>ヒントが渡すのは点で、理由ではない</h2>
+
+<p>ヒントの実装は単純です。候補手を評価順に並べ、先頭の点を3秒間パルスで示す。コンピュータ戦でAIの手番のときは反応しません。ふたり対戦では手番側のために働くので、その場で唯一の偏りのない第三者の意見になります。</p>
+
+<p>復盤の道具としては、これは罠であり贈り物でもあります。詰まった局面で一度押し、自分が指した点と示された点を両方書き、こう問います。相手の点は、自分の点が作れなかった何を狙っているのか。一文で言えないなら、そのヒントは何も教えていません。答えだけ受け取り、方法を飛ばした状態です。完全な分析エンジンが大量に起こす失敗が、まさにこれです。</p>
+
+<p>3秒という長さも検査にちょうどいい。点を読むには足りて、自分を説得するには短すぎます。</p>
+
+<h2>難易度はレンズ、深度はレシート</h2>
+
+<p>ハードは4手読み（自分、相手、自分、相手）で、根の候補は20手。相手に二度応じてもらわないと成立しない計画は、この深さで必ず崩れます。自分の攻めが強制手の連続なのか、単に希望的なのかを判定するのに向いています。</p>
+
+<p>マスターは2手から12手まで反復深化し、根の候補は40手、12秒で打ち切ります。</p>
+
+<p>同じ序盤をハードで指し、次にマスターで指します。最初の選択が食い違った手が、検討すべき手です。4手読みの視野の境目にちょうど乗っているからです。</p>
+
+<p>マスターは考えている間、<em>Depth</em> の数字を出し続けます。この数字は、最終的に選んだ手より多くのことを語ります。1秒で10手、12手まで到達する局面は狭いということです。強制手が数本しかなく、実質的な分岐が少ない。逆に4手で時間切れになる局面は、12秒では読み切れないほど枝が生きており、人間にも手がかりがない局面です。どの対局で浅い数字が出たかを記録しておくと、序盤が緩んだ場所が分かります。</p>
+
+<h2>四つの問い、12分、一局</h2>
+
+<p>復盤は週に一局、四局ではありません。そして負けた局だけです。勝った局から分かるのは、すでにできていることだけです。12分計をセットし、次の四つを紙に書きます。</p>
+
+<ol>
+<li><strong>負けの並びはどこから始まったか。</strong>相手の五連から逆に数えます。四連、その四連になった三連、その三連を作った石。負けは四連の手にあることはほとんどありません。終わりから三手目、発展に見えた石にあります。</li>
+<li><strong>主導権を何手渡したか。</strong>自分の最後の強制手（四連、あるいは相手が応じるしかない三連）から、相手の四連までに何手あったか。三手以上なら、相手が組み立てている間に自分は一人で打っていたということです。</li>
+<li><strong>どの石が静かだったか。</strong>相手の勝ち筋には、置かれた時点では脅威でなかった石が一つあります。それが、あのとき止める理由がなかったのに止めるべきだった手です。見つければ、次は座標を変えて再登場するので、練習すべき形が手に入ります。</li>
+<li><strong>説明できない手はどれか。</strong>一番悪い手ではなく、意図を言えない手です。その石が何のためだったかを一文で言えないなら、たとえその対局に勝っていても、それは誤りです。</li>
+</ol>
+
+<p>12分で四つ目まで届かなければ、そこでやめます。それは復盤ではなく再生で、40石を並べ直すのは、より悪い相手ともう一局打つだけのことです。</p>
+
+<h2>答えを次の練習に落とす</h2>
+
+<p>一局から持ち帰るのは発見一つ、それを次回の練習一つに変えます。静かな三連が見つかったなら、9路盤のハードで打ち、相手に「四連を伴わない三連」が出るたびに止まって眺めます。その形が課題のすべてです。主導権が見つかったなら、<a href="/ja-JP/blog/best-way-to-practice-gomoku-against-computer">この練習手順</a>を借り、最初の石を置く前に書く問いだけを変えます。</p>
+
+<p>エンジンの解析を待たず手でやる価値は単純です。手でやると脅威を言葉にさせられ、言葉にした部分だけが次の対局に移ります。数字を出すエンジンは、その言語化を代行してしまいます。どの習慣が結果を動かすのかを知りたいときは<a href="/ja-JP/blog/how-to-improve-gomoku-game">この整理</a>から読み、相手がコンピュータそのものなら<a href="/ja-JP/blog/beat-gomoku-ai">難易度別の崩し方</a>に、各段階がどこで綻ぶかが書いてあります。</p>
+
+<p>メモを閉じて<a href="/ja-JP/">盤面</a>に戻り、復盤するつもりの一局を指してください。「あとで見返そう」と思った時点で、その12分はゼロになります。</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">復盤するつもりの一局を</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">9路で形を、15路で本番を。計測は最初の石から始めてください。負けてからでは遅い。</p>
+            <a href="/ja-JP/#game" class="cta-btn">五目並べを遊ぶ</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "分析ツールがない盤で、負けた一局をどう分解するか",
+    "description": "棋譜も書き出しもエンジン評価もない。待った、ヒント、深度表示の三つで12分の復盤にする手順です。",
+    "datePublished": "2026-11-23",
+    "dateModified": "2026-11-23",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-analysis-tool-to-review-games"}
+  }
+  </script>
+</body>
+</html>

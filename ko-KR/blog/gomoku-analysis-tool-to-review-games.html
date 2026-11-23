@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 복기 도구가 없을 때: 이미 있는 세 버튼으로 한 판을 뜯어보기 | 오목 블로그</title>
+  <meta name="description" content="기보도, 내보내기도, 엔진 평가도 없습니다. 무르기와 힌트, 깊이 숫자로 12분 복기를 만드는 순서입니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-analysis-tool-to-review-games">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-analysis-tool-to-review-games">
+  <meta property="og:title" content="분석 도구 없이 오목 한 판 복기하기">
+  <meta property="og:description" content="무르기는 반사실, 힌트는 제2의 의견, 깊이는 영수증. 12분이면 진 수를 찾습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-analysis-tool-to-review-games">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="도구 없이 오목 복기하는 법">
+  <meta name="twitter:description" content="질문 넷, 12분, 진 한 판. 엔진은 필요 없습니다.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">전략</span>
+          <h1 itemprop="headline">분석 도구가 없는 판에서 진 한 수를 찾아내는 방법</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-23">2026-11-23</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>34수째에 판이 무너졌는데, 그것을 증명할 방법이 없습니다. 화면에는 완성된 오목 한 줄과 점수판의 “백 1”만 남아 있고, 수순을 적어 둔 곳은 페이지 어디에도 없습니다.</p>
+
+<p>이 사이트에는 분석 도구가 없습니다. 기보 목록도, 내보내기도, 수마다의 형세 평가도, 저장 기능도 없습니다. 새로고침하면 판과 점수가 함께 사라집니다. 대신 쓸 만한 것이 세 가지 있습니다. 무르기, 힌트, 그리고 하드와 마스터 난이도에서만 나타나는 탐색 깊이 표시입니다. 셋 다 원래 용도는 복기가 아니지만, 순서를 지키면 복기 도구가 됩니다.</p>
+
+<p>아래 순서는 12분이면 끝나고, 따로 프로그램을 켤 필요가 없습니다. 종이 한 장이면 충분합니다.</p>
+
+<h2>이 화면이 주는 것과 주지 않는 것</h2>
+
+<p>먼저 가진 것을 정확히 셉니다. 복기 조언은 대개 기보가 있다고 전제하지만, 여기에는 없습니다.</p>
+
+<ul>
+<li><strong>있는 것:</strong> 무르기는 컴퓨터전에서 두 수(내 수와 그에 대한 응수), 친구와의 대국에서 한 수를 되돌립니다. 힌트는 둘 차례인 쪽의 최고 점수 자리를 3초 동안 표시합니다. 색깔별로 승수를 세는 점수판. 하드와 마스터가 생각하는 동안 뜨는 깊이 숫자.</li>
+<li><strong>없는 것:</strong> 수 번호, 재생, 내가 실제로 둔 수에 대한 평가, 끝난 대국을 다시 여는 방법. 대국이 끝나면 무르기 함수가 즉시 반환되므로, 다섯 번째 돌이 놓이는 순간 판은 영구히 고정됩니다.</li>
+</ul>
+
+<p>마지막 줄이 복기 방식을 바꿉니다. 진 판을 들여다볼 수 있는 마지막 시점은 상대의 다섯 번째 돌이 놓이기 <em>전</em>이고, 후가 아닙니다.</p>
+
+<h2>수번호를 적지 않으면 그 판은 없었던 것이 됩니다</h2>
+
+<p>컴퓨터와 둘 때는 생략해도 됩니다. 초반은 기억으로 복원되고, 같은 난이도에서는 응수도 안정적으로 재현되기 때문입니다. 사람과 둘 때는 안 됩니다. 40수짜리 판은 종국 사진 한 장으로 복원되지 않습니다.</p>
+
+<p>판은 가로세로 15줄입니다. 왼쪽부터 세로줄을 <strong>a</strong>에서 <strong>o</strong>까지, 아래부터 가로줄을 1에서 15까지 번호로 붙입니다. 한 수가 세 글자입니다. <em>h8</em>, <em>h9</em>, <em>i9</em>. 40수면 120자이고, 장바구니 메모 뒤쪽에 다 들어갑니다. 한 수에 4초면 충분합니다.</p>
+
+<p>기록을 쓸 만하게 유지하는 규칙은 두 가지입니다. 적는 사람과 두는 사람을 나눕니다. 두는 쪽은 언제나 기억한다고 믿기 때문입니다. 그리고 렌주로 둘 때는 거부된 수를 따로 표시합니다. 금수(삼삼, 사사, 장목)는 판에서 튕겨 나가고 2초 남짓 경고가 뜨며, 흑의 차례는 그대로 이어집니다. 그 수는 기보에 들어가지 않습니다. 한 번 빠뜨리면 이후 수 번호가 전부 한 수씩 밀리고, 복기에서는 계속 엉뚱한 자리를 들여다보게 됩니다.</p>
+
+<p>점수판에는 작은 함정이 있습니다. 색깔별 누적이고, 두는 사람별 성적이 아니며, 판이 바뀌어도 0으로 돌아가지 않습니다. 초기화는 새로고침할 때만 일어납니다. 흑 3, 백 2는 그 자리의 합계일 뿐 이 판의 승부가 아니니, 실력 판단의 근거로 쓰면 안 됩니다.</p>
+
+<h2>무르기는 반사실이고, 되감기가 아닙니다</h2>
+
+<p>컴퓨터전의 무르기는 두 개를 지웁니다. 내 돌과, 그것에 대한 상대의 응수입니다. 깔끔한 과거 국면으로 돌아가는 것이 아니라 갈림길 자체로 돌아가는 셈입니다. 두기 전의 판이 돌아오므로, “반대쪽에 두었다면”을 시험할 수 있는 유일한 입구입니다.</p>
+
+<p>친구와의 대국에서 무르기는 한 개만 지우고, 둔 사람에게 차례를 돌려줍니다. 이것은 다른 도구입니다. 목격자 앞에서 한 수를 물리는 사회적 동작이지, 분석이 아닙니다.</p>
+
+<p>제대로 쓰면 무르기는 국면 하나에 질문 하나를 답합니다. <em>내가 두려워한 그 위협은 정말 위협이었나.</em> 대안의 수를 놓고 컴퓨터의 응수를 기다린 뒤, 그 수가 무엇을 하는지 봅니다. 다시 무르기로 원래 수를 되돌려 놓습니다. 돌아오는 응수는 매번 다르므로, 두 응수를 나란히 놓아야 두려움이 진짜였는지 판정됩니다. 무르기가 못 하는 것은 갈래의 보관입니다. 두 번째 판이 없으니 원래 수를 다시 놓는 순간 실험은 사라집니다. 되돌리기 전에 응수를 먼저 적어 두십시오.</p>
+
+<h2>힌트는 자리를 주고, 이유는 주지 않습니다</h2>
+
+<p>힌트의 동작은 단순합니다. 후보 수를 점수순으로 정렬해 1등 자리를 3초 동안 깜빡입니다. 컴퓨터전에서 인공지능 차례일 때는 눌러도 반응하지 않습니다. 친구와의 대국에서는 둘 차례인 쪽을 위해 표시되므로, 그 자리에서 유일하게 편향 없는 제3자 의견이 됩니다.</p>
+
+<p>복기 도구로 보면 이것은 함정이자 선물입니다. 막힌 국면에서 한 번 눌러, 내가 둔 자리와 표시된 자리를 함께 적고, 한 문장으로 답합니다. 저 자리는 내 자리가 만들지 못한 무엇을 위협하는가. 그 문장이 나오지 않으면 힌트는 아무것도 가르치지 않았습니다. 답만 받고 방법을 건너뛴 상태이며, 완전한 분석 엔진이 대량으로 저지르는 실패가 바로 이것입니다.</p>
+
+<p>3초라는 길이도 검사에 알맞습니다. 자리를 읽기에는 충분하고, 스스로를 설득하기에는 짧습니다.</p>
+
+<h2>난이도는 렌즈, 깊이는 영수증</h2>
+
+<p>하드는 네 수 앞까지 봅니다(나, 상대, 나, 상대). 뿌리 후보는 20개입니다. 상대가 두 번 연달아 응해야 성립하는 계획은 이 깊이에서 반드시 무너지므로, 내 공격이 강제수의 연속인지 아니면 희망 회로인지 가려내기에 적합합니다.</p>
+
+<p>마스터는 두 수에서 열두 수까지 반복 심화하고, 뿌리 후보를 40개로 넓히며, 12초에서 끊습니다.</p>
+
+<p>같은 초반을 하드로 두고, 다음에 마스터로 둡니다. 두 난이도의 첫 선택이 갈리는 수가 검토할 수입니다. 네 수 탐색의 시야 경계에 정확히 걸쳐 있기 때문입니다.</p>
+
+<p>마스터는 생각하는 동안 <em>Depth</em> 숫자를 계속 띄웁니다. 이 숫자가 마지막에 고른 수보다 많은 것을 말해 줍니다. 1초에 열 수, 열두 수까지 도달하는 국면은 좁다는 뜻입니다. 강제수가 몇 줄뿐이고 실제 갈래가 적습니다. 반대로 네 수에서 시간이 끝나는 국면은 12초 안에 정리되지 않을 만큼 가지가 살아 있고, 사람도 손잡이를 못 잡는 국면입니다. 어느 대국에서 얕은 숫자가 나왔는지 적어 두면 초반이 물러진 자리가 드러납니다.</p>
+
+<h2>질문 넷, 12분, 한 판</h2>
+
+<p>복기는 주에 한 판, 네 판이 아닙니다. 그리고 진 판만 합니다. 이긴 판에서 알 수 있는 것은 이미 잘하는 것뿐이고, 그것은 한 판 더 두면 확인됩니다. 12분 타이머를 맞추고 다음 네 가지를 종이에 씁니다.</p>
+
+<ol>
+<li><strong>패배의 연쇄는 어디서 시작됐나.</strong> 상대의 오목에서 거꾸로 셉니다. 사, 그 사가 된 삼, 그 삼을 만든 돌. 패배는 거의 사에 있지 않습니다. 끝에서 세 번째, 발전처럼 보였던 돌에 있습니다.</li>
+<li><strong>주도권을 몇 수 넘겼나.</strong> 내 마지막 강제수(사, 또는 상대가 응할 수밖에 없는 삼)에서 상대의 사까지 몇 수가 있었는지 셉니다. 세 수 이상이면 상대가 쌓는 동안 나는 혼자 두고 있었습니다.</li>
+<li><strong>어느 돌이 조용했나.</strong> 상대의 승리선에는 놓일 당시 위협이 아니었던 돌이 하나 있습니다. 그 돌이, 그때 막을 이유가 없었지만 막아야 했던 수입니다. 찾아내면 다음 판에 좌표만 바꿔 다시 나타나므로, 연습할 모양을 얻습니다.</li>
+<li><strong>설명할 수 없는 수는 어느 것인가.</strong> 가장 나쁜 수가 아니라, 의도를 말할 수 없는 수입니다. 그 돌이 무엇을 위한 것인지 한 문장으로 말할 수 없다면, 그 판을 이겼더라도 그것은 실수입니다.</li>
+</ol>
+
+<p>12분 안에 네 번째까지 가지 못하면 멈춥니다. 그것은 복기가 아니라 재생이고, 40개의 돌을 다시 놓는 일은 더 나쁜 상대와 한 판 더 두는 것과 같습니다.</p>
+
+<h2>답을 다음 연습으로 옮기기</h2>
+
+<p>한 판에서 가져올 것은 발견 하나, 그것을 다음 판의 연습 하나로 바꿉니다. 조용한 삼이 발견됐다면 9줄 판에서 하드로 두면서, 상대에게 사가 붙지 않은 삼이 나올 때마다 멈춰 봅니다. 그 모양이 과제의 전부입니다. 주도권이 발견됐다면 <a href="/ko-KR/blog/best-way-to-practice-gomoku-against-computer">이 연습 절차</a>를 빌려 오되, 첫 돌을 놓기 전에 적는 질문만 바꿉니다.</p>
+
+<p>엔진 해석을 기다리지 않고 손으로 하는 이유는 단순합니다. 손으로 하면 위협을 말로 하게 되고, 말로 한 부분만 다음 판으로 넘어갑니다. 숫자를 보여 주는 엔진은 그 말하기를 대신해 버립니다. 어떤 습관이 결과를 바꾸는지 알고 싶다면 <a href="/ko-KR/blog/how-to-improve-gomoku-game">이 정리</a>에서 시작하고, 상대가 컴퓨터 그 자체라면 <a href="/ko-KR/blog/beat-gomoku-ai">난이도별 공략</a>에 각 단계가 어디서 무너지는지 적혀 있습니다.</p>
+
+<p>메모를 닫고 <a href="/ko-KR/">판</a>으로 돌아가, 복기할 생각으로 한 판을 두십시오. “나중에 보자”고 생각한 순간 그 12분은 이미 0이 됩니다.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">복기할 생각으로 한 판</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">9줄에서 모양을, 15줄에서 실전을. 시계는 첫 돌 전에 눌러야 합니다. 지고 나서는 늦습니다.</p>
+            <a href="/ko-KR/#game" class="cta-btn">오목 두러 가기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "분석 도구가 없는 판에서 진 한 수를 찾아내는 방법",
+    "description": "기보도, 내보내기도, 엔진 평가도 없습니다. 무르기와 힌트, 깊이 숫자로 12분 복기를 만드는 순서입니다.",
+    "datePublished": "2026-11-23",
+    "dateModified": "2026-11-23",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-analysis-tool-to-review-games"}
+  }
+  </script>
+</body>
+</html>
