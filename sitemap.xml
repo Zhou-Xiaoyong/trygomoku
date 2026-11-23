@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-family-game-night</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -152,7 +152,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -206,7 +206,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/gomoku-vs-renju</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -326,13 +326,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/blog/thanksgiving-gomoku-six-minute-game</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/blog/thanksgiving-gomoku-tablet-language</loc>
     <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/blog/thanksgiving-gomoku-three-minute-setup</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -386,7 +392,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -464,7 +470,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-family-game-night</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -506,7 +512,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -554,7 +560,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/gomoku-vs-renju</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -668,13 +674,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-six-minute-game</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-tablet-language</loc>
     <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-three-minute-setup</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -740,7 +752,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -818,7 +830,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-family-game-night</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -860,7 +872,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -908,7 +920,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/gomoku-vs-renju</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1022,13 +1034,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-six-minute-game</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-tablet-language</loc>
     <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-three-minute-setup</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1094,7 +1112,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1172,7 +1190,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-family-game-night</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1214,7 +1232,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1262,7 +1280,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/gomoku-vs-renju</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1376,13 +1394,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-six-minute-game</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-tablet-language</loc>
     <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-three-minute-setup</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1502,7 +1526,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1580,7 +1604,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-family-game-night</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1622,7 +1646,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-rules-for-kids-explained</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1670,7 +1694,7 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/gomoku-vs-renju</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1784,13 +1808,19 @@
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-six-minute-game</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-tablet-language</loc>
     <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-three-minute-setup</loc>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
