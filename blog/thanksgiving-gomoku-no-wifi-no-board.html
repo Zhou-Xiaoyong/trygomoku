@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/thanksgiving-gomoku-no-wifi-no-board">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-no-wifi-no-board">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-no-wifi-no-board">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-no-wifi-no-board">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Board, No Wi-Fi: Can You Still Play Thanksgiving Gomoku? | Gomoku Blog</title>
+  <meta name="description" content="Six guests, a dead router and no board in the house. If the page was opened once before the signal died, the game is already on the phone: no requests, no account, no save. What to do if it was never opened, and how a paper grid plays.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/thanksgiving-gomoku-no-wifi-no-board">
+  <meta property="og:title" content="No Board and No Signal: Thanksgiving Gomoku on One Phone">
+  <meta property="og:description" content="The opponent runs inside the page, not on a server. Load it once and airplane mode changes nothing. Plus the one-pen grid and the tap that spends a turn.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/thanksgiving-gomoku-no-wifi-no-board">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thanksgiving Gomoku With No Wi-Fi and No Board">
+  <meta name="twitter:description" content="Load once, play all evening. A 113 KB script, a locked colour row, and a napkin for the score.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Family & Lifestyle</span>
+          <h1 itemprop="headline">No Board, No Wi-Fi: Can You Still Play Thanksgiving Gomoku?</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-24">2026-11-24</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>Four o'clock on Thursday, the router in the rented house blinking orange, the car half unpacked, and no board in any bag. Six people, two phones, one of them at nineteen percent.</p>
+
+<p>Whether gomoku survives that house is not a question about the router. It is one question: was the page opened once while there was still a signal? If it was, the game is already on the device. The grid, the stones and the opponent's search sit inside one 113 KB script the browser downloaded days ago, and placing a stone sends nothing anywhere.</p>
+
+<p>If nobody opened it, skip to the paper grid near the end. There is a version of this game that needs one pen.</p>
+
+<h2>The first load needs the network. Nothing else does</h2>
+
+<p>Look at what the page asks for: one document, one stylesheet, one script. The opponent is not a service. The search for its reply runs in the same file that draws the stones, so there is no fetch, no socket, no request behind the hint button. Airplane mode is not a workaround here. It changes nothing at all.</p>
+
+<p>Check it once on the phone that will actually hold the game, before you drive. Load the page, play three stones against the computer, close the tab. If those three stones appeared without a spinner, the evening is safe.</p>
+
+<p>The one action that needs the network again is a reload. Which gives the evening its first rule: nobody refreshes. Not to clear the board, not to fix a settings mistake, not because the score looks wrong. A reload is the only thing that can strand you.</p>
+
+<h2>Nothing is saved, which is why the battery counts as a rule</h2>
+
+<p>No account, no saved game, no local storage. A finished game disappears when the next one begins, and a reload returns fifteen lines, freestyle, against the computer, with the tally zeroed. The position lives in memory and nowhere else.</p>
+
+<p>So the phone at nineteen percent is not a small inconvenience. When it dies at eight, the game dies with it, and there is no way to resume the fight over five stones that was still going. Charge it during dinner. Put the brightness at half, because the board is high contrast and brightness is what drains it. Set auto-lock to five minutes as well: a screen that sleeps every thirty seconds gets woken by a thumb that lands on the grid, and in two-player mode that thumb places a stone for whoever is to move. Wake it with the side button instead.</p>
+
+<h2>One phone, six people, and a colour row that is locked</h2>
+
+<p>Two-player mode disables two rows of buttons on purpose. Difficulty, because there is no machine to be difficult. Colour, because both sides are people. Every reset then opens with black to move. That is not a fault to work around; it is the fairest rotation rule available without a komi or a handicap stone.</p>
+
+<p>Hand the phone to whoever just sat down. They are black, they move first, and that is the whole of the advantage you can give them. It also resets itself every game, which no house rule ever does.</p>
+
+<p>Two buttons need to be settled out loud before the first stone.</p>
+
+<ul>
+<li><strong>Undo</strong> takes back exactly one stone in this mode and returns the turn to the person who played it. Nothing asks for confirmation. On a shared phone that means the person holding it can quietly delete the last stone of the person who just beat them.</li>
+<li><strong>Hint</strong> marks the highest-scored point for the side to move, holds it three seconds, and works between two people as well. With four watchers waiting their turn, that button is not advice. It is the answer, published.</li>
+</ul>
+
+<p>Say both out loud once, or declare them gone for the night. The night runs better without them.</p>
+
+<h2>The score row counts colours, not people</h2>
+
+<p>The tally initialises when the page loads and never clears between games. It adds wins to black and wins to white. On a phone that changes hands six times an hour, "Black 4, White 2" describes the evening's colours, not anybody in the room, and quoting it will start an argument that a colour counter cannot settle.</p>
+
+<p>Take a napkin. Two columns, initials, one stroke per win. It also holds the queue for the next game, which the page cannot do.</p>
+
+<h2>Board size is the only clock on offer</h2>
+
+<p>No timer, no increment, no limit on moves. The stone counts below are what a family game actually runs to, which is why the board size belongs in the first twenty seconds of the evening and not the second hour.</p>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>Board</th>
+<th>Stones in a game</th>
+<th>Wall clock, family pace</th>
+<th>Handicap for a first-timer</th>
+<th>Games in the hour before pie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>9 lines</td><td>20 to 24</td><td>6 to 8 minutes</td><td>Even game, newcomer takes black</td><td>4 to 5</td></tr>
+<tr class="tr-dark"><td>15 lines</td><td>40 to 45</td><td>10 to 12 minutes</td><td>Black, plus one undo a game</td><td>2 to 3</td></tr>
+<tr class="tr-light"><td>19 lines</td><td>65 to 70</td><td>14 to 18 minutes</td><td>Black, plus one question a game</td><td>1 to 2</td></tr>
+</tbody>
+</table>
+
+<p>Nineteen lines on a phone is a poor idea for a physical reason: the intersections end up about nineteen pixels apart, so a thumb landing between two of them is a coin flip. Leave nineteen for a tablet. <a href="gomoku-board-setup-and-basic-rules">The setup guide</a> covers what each size does to the shape of a game.</p>
+
+<p>If the evening has a hard exit, because somebody leaves at eight, the arithmetic changes and <a href="thanksgiving-gomoku-six-minute-game">the six-minute format</a> is the thing to read before the first stone. Ten guests on two screens is the other half of the same problem, worked through in <a href="thanksgiving-gomoku-two-table-plan">the two-table plan</a>.</p>
+
+<h2>The envelope board</h2>
+
+<p>If no phone in the house has ever loaded the page and the signal is gone, this is what is left: one pen, one sheet of paper, and a board that behaves like the real thing.</p>
+
+<p>Fifteen lines each way at 1.5 cm spacing gives a 21 cm square with 225 intersections, which fits an A4 sheet lengthwise with room to spare. One pen means two marks: black fills the intersection into a solid dot, white draws a cross through it. No second colour required.</p>
+
+<p>Four rules change on paper.</p>
+
+<ul>
+<li><strong>Count the diagonals first.</strong> A row of filled dots reads as a line at a glance; a row of crosses reads as gaps. When someone claims five, sweep their diagonals before their rows, because that is the direction where a five gets missed.</li>
+<li><strong>No undo.</strong> A pen cannot take a stone back. Agree before the first dot, because the argument at stone thirty costs more than the rule did.</li>
+<li><strong>Freestyle only.</strong> Paper cannot refuse an overline, and in renju a black row of six is an immediate loss rather than a win. Without a referee, explaining that costs more than the rule is worth.</li>
+<li><strong>Count in the margin.</strong> One stroke per stone, two to a line, and the question of who moved twice settles itself.</li>
+</ul>
+
+<h2>If they are already at the door</h2>
+
+<p>Ninety seconds, no explanation. Open the board, tap versus friend, tap nine lines, leave freestyle alone, and hand it to whoever is closest. Then four sentences, in this order: black starts; five in a row in any direction, diagonals included; a three with both ends open has to be answered now; undo is once each and only for your own stone.</p>
+
+<p>Do not mention renju. Do not demonstrate the hint button. Each one costs five minutes and buys an argument.</p>
+
+<p>And if the signal is gone and the page was never loaded, the envelope takes the same ninety seconds: fifteen lines, 1.5 cm apart, dots against crosses, first to five.</p>
+
+<p>If you are reading this with bars showing, do the one thing that has to happen before Thursday. Open <a href="../">the board</a> once on the device that will hold the game, play three stones, and leave the tab alone. That is the entire preparation. <a href="play-gomoku-online-free-no-download">Nothing installs</a> and nothing needs an account, which is precisely why it still works when the router does not.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Open it while the signal is still there</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">One tab, one board, no account. Load it now and the evening works in airplane mode.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "No Board, No Wi-Fi: Can You Still Play Thanksgiving Gomoku?",
+    "description": "Six guests, a dead router and no board in the house. If the page was opened once before the signal died, the game is already on the phone: no requests, no account, no save. What to do if it was never opened, and how a paper grid plays.",
+    "datePublished": "2026-11-24",
+    "dateModified": "2026-11-24",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/thanksgiving-gomoku-no-wifi-no-board"}
+  }
+  </script>
+</body>
+</html>
