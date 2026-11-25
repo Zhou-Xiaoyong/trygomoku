@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vs-go-difference">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гомоку против го: одна доска, две разные игры | Блог Гомоку</title>
+  <meta name="description" content="Гомоку и го различает одно правило: камни не снимают. От него зависят размер поля, длина партии и то, почему соперник весит 113 КБ.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-go-difference">
+  <meta property="og:title" content="Гомоку и го: разница в одно правило">
+  <meta property="og:description" content="225 пунктов против 361, сорок камней против двухсот пятидесяти, и два противоположных ответа на первый ход.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ru-RU/blog/gomoku-vs-go-difference">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Гомоку против го: одна доска">
+  <meta name="twitter:description" content="Всё дело в снятии камней. Что переносится из го, а что мешает.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Перейти к содержанию</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ru-RU/" class="nav-logo" aria-label="Гомоку Онлайн — главная">&#9678;&#9675; Гомоку Онлайн</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Переключить навигационное меню" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ru-RU/#game">Играть</a></li>
+        <li><a href="/ru-RU/#rules">Правила</a></li>
+        <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+        <li><a href="/ru-RU/#history">История</a></li>
+        <li><a href="/ru-RU/blog/" class="active" aria-current="page">Блог</a></li>
+        <li><a href="/ru-RU/#faq">FAQ</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU" selected>Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Сравнение</span>
+          <h1 itemprop="headline">Гомоку против го: одна доска, две разные игры</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-25">2026-11-25</time>
+            <span class="blog-read-time">8 мин чтения</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>Две коробки на одной полке, одного размера и веса. Открываете любую: деревянная доска и две горсти камней, чёрные и белые. Посторонний решит, что одну и ту же игру продали дважды.</p>
+
+<p>Разница в одном правиле. В го камень, у которого не осталось точек дыхания, снимают с доски. В гомоку не снимают никогда. Каждый камень остаётся до конца партии, работает он или просто занимает пункт.</p>
+
+<p>Это правило задаёт размер доски и длину партии. Оно же решает, выигрывает ли первый игрок силой, и объясняет, почему соперник на этой странице весит 113 килобайт JavaScript, а программе для го понадобились 1 202 процессора и 176 видеокарт, чтобы обыграть профессионала.</p>
+
+<h2>Доска переносится. Почти всё остальное нет</h2>
+
+<p>Стандарт гомоку: 15 линий, 225 пунктов. Го: 19 линий, 361 пункт. Звёздные пункты в обеих играх стоят на четвёртой линии от края, по девять штук, и это единственное, что совпадает у двух сеток.</p>
+
+<p>Если дома только набор для го, гомоку всё равно играется. Возьмите внутренние пятнадцать линий, с третьей по семнадцатую, и центральный пункт доски го станет центром гомоку. Камни переносятся тоже, но только в одну сторону. В наборе го 181 чёрный и 180 белых, а партия на 15 линиях расходует максимум 113 на сторону. Обратно не выходит: 226 камней не заполнят 361 пункт.</p>
+
+<p>Одна физическая деталь, если наборы смешиваются. Камни го двояковыпуклые, их сдвигает ноготь. Камни рэндзю плоские и лежат там, куда их поставили. В рэндзю сдвинутый камень это проигрыш, а не переигровка.</p>
+
+<h2>Снятие камней меняет цену камня</h2>
+
+<p>В го камень это актив с ценой в пунктах. Его можно отдать, разменять, бросить, а в конце всё посчитают. В гомоку камень это темп. Он либо строит пятёрку, либо отвечает на угрозу. Третьего применения нет, и обменять один камень на два в другом месте нельзя.</p>
+
+<p>Поэтому первая реакция игрока в го, окружить чужой камень, здесь самый быстрый путь к поражению. Четыре хода на камень, который всё равно считается в пятёрку, пока соперник строит живую тройку на другой стороне доски.</p>
+
+<p>Отсюда и размер поля. На 19 линиях первые шестьдесят ходов ничего не решают. На 15 линиях <a href="/ru-RU/blog/what-is-gomoku-and-how-do-you-win">партия кончается за 40-45 камней</a>, и пятый ставится, когда соседняя партия в го ещё в фусэки.</p>
+
+<h2>У обеих игр была проблема первого хода. Решили её в разные стороны</h2>
+
+<p>Поставьте камень в центр пустой доски, и первый игрок впереди. Обе игры знают это не первое столетие.</p>
+
+<p>Го платит пунктами. Коми отдаёт белым 6,5 пункта до первого камня по японским и корейским правилам и 7,5 по китайским, и это число за век только росло.</p>
+
+<p>Гомоку отняла ходы у чёрных. Это и есть рэндзю: чёрным запрещены тройка-тройка, четвёрка-четвёрка и ряд из шести. Белым разрешено всё, и побеждают они на пяти и более. Чёрные обязаны сделать ровно пять, поэтому ряд из шести для одного цвета запрещён, а для другого это победа.</p>
+
+<p>Одна и та же проблема, разная валюта: там пункты, здесь легальные ходы.</p>
+
+<p>В свободных правилах, где ограничений нет ни у кого, этой заплатки не существует. Свободное гомоку решено в 1993 году: Л. Виктор Аллис доказал, что чёрные выигрывают форсированно. Рэндзю держалось до 2001 года, когда Янош Вагнер и Иштван Вираг опубликовали форсированный выигрыш за чёрных. <a href="/ru-RU/blog/gomoku-history-journey">Путь от китайской народной игры до японской турнирной дисциплины</a> и объясняет, почему в одном варианте запреты есть, а в другом их не было никогда.</p>
+
+<p>Го на 19 линиях не решено до сих пор. Машина обыграла Ли Седоля в 2016 году, а сама игра осталась открытой.</p>
+
+<h2>Почему один соперник помещается во вкладку</h2>
+
+<p>Открываете доску, соперник приезжает вместе с ней. Поиск работает в том же файле на 113 КБ, который рисует камни: итеративное углубление от 2 до 12 полуходов, жёсткий стоп на двенадцати секундах, первый камень всегда в точный центр.</p>
+
+<p>Распределённая версия AlphaGo работала на 1 202 процессорах и 176 видеокартах. Разрыв не про вкус инженеров. На 225 пунктах без снятия камней партия кончается за сорок с небольшим ходов, и ветвление остаётся достаточно узким, чтобы честно перебрать. На 361 пункте камни исчезают, дерево шире, позиция постоянно меняет форму, поэтому го сначала получила нейросеть, а уже потом поиск.</p>
+
+<h2>Рядом</h2>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>Параметр</th>
+<th>Го</th>
+<th>Гомоку (свободные правила)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>Поле</td><td>19 линий, 361 пункт</td><td>15 линий, 225 пунктов</td></tr>
+<tr class="tr-dark"><td>Камни</td><td>Снимаются при захвате</td><td>Остаются до конца</td></tr>
+<tr class="tr-light"><td>Конец партии</td><td>Оба пасуют, счёт по территории и пленным</td><td>Момент, когда собрана пятёрка</td></tr>
+<tr class="tr-dark"><td>Компенсация первого хода</td><td>Коми: 6,5 или 7,5 пункта белым</td><td>В свободных правилах нет; рэндзю запрещает чёрным 3-3, 4-4 и ряд из шести</td></tr>
+<tr class="tr-light"><td>Длина партии</td><td>200-300 ходов</td><td>40-45 камней</td></tr>
+<tr class="tr-dark"><td>Решена</td><td>Нет</td><td>Да, чёрные выигрывают (1993)</td></tr>
+<tr class="tr-light"><td>Сильнейший соперник</td><td>Нейросеть плюс поиск</td><td>Альфа-бета в 113 КБ JavaScript</td></tr>
+</tbody>
+</table>
+
+<h2>Если вы играете в го и садитесь за гомоку</h2>
+
+<p>Четыре привычки придётся оставить, одну сохранить.</p>
+
+<ul>
+<li><strong>Четыре в ряд это угроза, а не толщина.</strong> В го ровная четвёрка перегружена и обычно означает лишний ход. Здесь четыре с открытыми концами это живая четвёрка, и следующий камень выигрывает.</li>
+<li><strong>Окружённый камень всё равно считается.</strong> Ему достаточно быть пятой частью линии, поэтому окружение ничего не меняет. Отвечать нужно на угрозу, а не на форму.</li>
+<li><strong>Чтение переносится, оценка нет.</strong> Лестница ближе всего: форсированная последовательность с фиксированным концом. В гомоку это VCF, непрерывные четвёрки, единственный навык из го, который работает с первого хода.</li>
+<li><strong>Пункт 4-4 здесь ничего не значит.</strong> Звёзды только разметка. Ни влияния, ни мойо, ни угла, ни направления игры.</li>
+</ul>
+
+<p>Сохранить стоит терпение к длинным последовательностям. Игрок в го досмотрит размен из двенадцати ходов, который casual-игрок бросает на четвёртом, и в рэндзю партия решается именно там.</p>
+
+<h2>Если вы играете в гомоку и садитесь за го</h2>
+
+<ul>
+<li><strong>Пять в ряд стоят ноль очков.</strong> Ровный ряд из пяти камней это тяжёлая форма, а не результат, и скорее признак того, что вы слишком долго играли в одном месте.</li>
+<li><strong>Ваши камни снимают.</strong> В первый раз, когда группа из восьми исчезает с доски, кажется, что правила поменяли под вами. Их действительно поменяли.</li>
+<li><strong>Ко не даёт сразу отбить.</strong> Самый желанный ход запрещён, и сначала нужно найти угрозу в другом месте.</li>
+<li><strong>Готовьтесь к 200-300 ходам.</strong> С привычкой на 45 ходов начало покажется опасно рыхлым. Оно такое и есть, ничего ещё не должно решаться.</li>
+</ul>
+
+<h2>Что выбрать сегодня</h2>
+
+<p>Десять минут, один экран, один человек напротив: гомоку, без обсуждений. 15 линий, свободные правила, партия заканчивается раньше, чем вскипит чайник. <a href="/ru-RU/">Доска открывается здесь</a>, ничего устанавливать не нужно.</p>
+
+<p>Если нужна игра на двадцать лет, с профессиональным туром, системой данов и теорией дебютов на полполки, это го, а гомоку рядом с ней разминка.</p>
+
+<p>Сравнение, с которым обычно приходят, другое: четыре в ряд на маленькой сетке. Оно <a href="/ru-RU/blog/gomoku-vs-connect-four">здесь</a>.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Начните с той, что запускается за десять секунд</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">15 линий, свободные правила, без аккаунта. Соперник внутри страницы, так что подойдёт любой экран под рукой.</p>
+            <a href="/ru-RU/#game" class="cta-btn">Играть в гомоку</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Гомоку Онлайн</p>
+          <p class="footer-tagline">Классическая игра «Пять в ряд» — бесплатно.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Быстрые ссылки</h4>
+          <ul>
+            <li><a href="/ru-RU/#game">Играть</a></li>
+            <li><a href="/ru-RU/#rules">Правила</a></li>
+            <li><a href="/ru-RU/#strategy">Стратегия</a></li>
+            <li><a href="/ru-RU/#history">История</a></li>
+            <li><a href="/ru-RU/blog/">Блог</a></li>
+            <li><a href="/ru-RU/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>О сайте</h4>
+          <ul>
+            <li><a href="/ru-RU/about">О нас</a></li>
+            <li><a href="/privacy">Политика конфиденциальности</a></li>
+            <li><a href="/ru-RU/#game">Играть сейчас</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Гомоку Онлайн. Бесплатно — без регистрации.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Гомоку против го: одна доска, две разные игры",
+    "description": "Гомоку и го различает одно правило: камни не снимают. От него зависят размер поля, длина партии и то, почему соперник весит 113 КБ.",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "author": {"@type": "Organization", "name": "Гомоку Онлайн"},
+    "publisher": {"@type": "Organization", "name": "Гомоку Онлайн", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ru-RU/blog/gomoku-vs-go-difference"}
+  }
+  </script>
+</body>
+</html>

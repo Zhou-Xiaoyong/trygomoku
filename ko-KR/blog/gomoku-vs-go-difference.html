@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-go-difference">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오목 vs 바둑: 같은 판, 전혀 다른 게임 | 오목 블로그</title>
+  <meta name="description" content="오목과 바둑의 차이는 따내기 하나입니다. 그 한 줄이 판 크기와 한 판의 길이, 상대가 113 KB로 끝나는 이유를 정합니다. 바둑을 두던 사람에게 무엇이 넘어오고 무엇이 방해가 되는지도 정리했습니다.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-go-difference">
+  <meta property="og:title" content="오목 vs 바둑: 한 줄로 갈리는 두 게임">
+  <meta property="og:description" content="225점과 361점, 마흔 몇 수와 이백 오십 수, 그리고 정반대 선수 보정. 덤과 금수.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ko-KR/blog/gomoku-vs-go-difference">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="오목 vs 바둑: 같은 판, 다른 게임">
+  <meta name="twitter:description" content="따내기가 전부입니다. 넘어오는 슬관과 버려야 할 습관.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">본문으로 건너뛰기</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ko-KR/" class="nav-logo" aria-label="오목 온라인 홈">&#9678;&#9675; 오목 온라인</a>
+      <button class="nav-toggle" id="navToggle" aria-label="탐색 메뉴 전환" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ko-KR/#game">플레이</a></li>
+        <li><a href="/ko-KR/#rules">규칙</a></li>
+        <li><a href="/ko-KR/#strategy">전략</a></li>
+        <li><a href="/ko-KR/#history">역사</a></li>
+        <li><a href="/ko-KR/blog/" class="active" aria-current="page">블로그</a></li>
+        <li><a href="/ko-KR/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR" selected>한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">비교</span>
+          <h1 itemprop="headline">오목 vs 바둑: 같은 판, 전혀 다른 게임</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-25">2026-11-25</time>
+            <span class="blog-read-time">8 분 읽기</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>같은 선반에 같은 크기, 같은 무게의 상자가 둘 있습니다. 어느 쪽을 열어도 나무판과 흑백 돌 한 무더기씩. 모르는 사람은 같은 게임을 두 번 판 게 아닌가 합니다.</p>
+
+<p>차이는 규칙 하나입니다. 바둑은 활로가 끊긴 돌을 들어내고, 오목은 아무 돌도 들어내지 않습니다. 놓은 돌은 도움이 되든 안 되든 대국이 끝날 때까지 그 자리에 있습니다.</p>
+
+<p>이 한 줄이 판 크기와 한 판의 길이, 선수가 강제로 이기는지를 정합니다. 이 페이지의 상대가 113 KB 자바스크립트로 끝나는 이유도, 바둑 프로그램이 프로 기사를 이기려고 CPU 1,202개와 GPU 176개를 동원한 이유도 여기서 나옵니다.</p>
+
+<h2>판은 넘어옵니다. 나머지는 거의 안 넘어옵니다</h2>
+
+<p>오목 표준은 15줄 225점, 바둑은 19줄 361점입니다. 화점은 둘 다 가장자리에서 네 번째 줄에 아홉 개, 두 격자에서 자리가 맞는 것은 이 점뿐입니다.</p>
+
+<p>집에 바둑판밖에 없어도 오목은 둘 수 있습니다. 안쪽 15줄, 19줄 판이면 3번째 줄부터 17번째 줄을 쓰면 바둑판의 천원이 그대로 오목의 중심이 됩니다. 돌도 쓸 수 있지만 방향은 한쪽뿐입니다. 바둑 한 세트는 흑 181개, 백 180개이고 15줄을 끝까지 둬도 한쪽 113개면 충분합니다. 반대는 안 됩니다. 226개로 361점을 채울 수 없습니다.</p>
+
+<p>섞기 전에 하나만 알아 두면 좋습니다. 바둑돌은 양면이 볼록해 손톱에 밀립니다. 렌주 돌은 납작한 원판이라 놓은 자리에 그대로 있습니다. 렌주에서는 돌을 건드려 옮기면 다시 두는 것이 아니라 패배입니다.</p>
+
+<h2>따내기가 돌의 값을 바꿉니다</h2>
+
+<p>바둑에서 돌은 집이라는 가격이 붙은 자산입니다. 버릴 수 있고, 바꿀 수 있고, 내버려 둘 수 있고, 마지막에 계산합니다. 오목에서 돌은 템포입니다. 다섯을 향해 쌓거나 위협에 답하거나, 세 번째 용도는 없습니다. 이쪽에서 하나를 잃고 저쪽에서 둘을 버는 거래도 없습니다.</p>
+
+<p>그래서 바둑에서 온 사람의 첫 반응, 상대 돌을 둘러싸는 것이 여기서는 가장 빠른 패착입니다. 오목에서도 다섯에 세어지는 돌을 둘러싸려고 네 수를 쓰는 동안, 상대는 판 반대편에서 활삼을 만듭니다.</p>
+
+<p>판이 작은 것도 같은 이유입니다. 19줄에서는 예순 수까지 아무것도 정해지지 않습니다. 15줄은 <a href="/ko-KR/blog/what-is-gomoku-and-how-do-you-win">40수에서 45수에 끝나고</a>, 다섯 번째 돌이 놓일 때 옆의 바둑은 아직 포석 중입니다.</p>
+
+<h2>선수 문제는 양쪽 다 있었습니다. 해법은 정반대입니다</h2>
+
+<p>빈 판 중앙에 돌을 놓으면 선수가 유리합니다. 두 게임 모두 몇 세기 전부터 알고 있었습니다.</p>
+
+<p>바둑은 집으로 갚습니다. 일본·한국 룰은 덤 6.5집, 중국 룰은 7.5집을 돌을 놓기 전에 백에게 줍니다. 이 숫자는 백 년 동안 기사들이 강해질 때마다 조금씩 올라갔습니다.</p>
+
+<p>오목은 흑에게서 착수를 빼앗았습니다. 렌주가 그것입니다. 흑은 삼삼, 사사, 장련을 둘 수 없습니다. 백은 셋 다 둘 수 있고 다섯 이상이면 이깁니다. 흑은 정확히 다섯이어야 하니, 장련은 한쪽에 금수이고 다른 쪽에 승리입니다.</p>
+
+<p>같은 문제를 집이 아니라 합법수로 갚는 셈입니다.</p>
+
+<p>금수가 없는 자유 룰에는 그 보정이 아예 없습니다. 자유 오목은 1993년 L. Victor Allis가 흑 필승을 증명했습니다. 렌주는 2001년까지 버텼고, Janos Wagner와 Istvan Virag가 흑의 강제 승리를 발표했습니다. <a href="/ko-KR/blog/gomoku-history-journey">중국의 놀이가 일본의 경기 종목이 된 경로</a>가 한쪽에만 금수가 있는 이유입니다.</p>
+
+<p>19줄 바둑은 아직 풀리지 않았습니다. 2016년 기계가 이세돌을 이겼지만 게임 자체는 여전히 열려 있습니다.</p>
+
+<h2>상대가 탭 하나에 들어가는 이유</h2>
+
+<p>판을 열면 상대도 같이 옵니다. 탐색은 돌을 그리는 같은 113 KB 파일 안에서 돕니다. 2수에서 12수까지 반복 심화, 12초에 강제 종료, 첫 수는 항상 정중앙 한 점입니다.</p>
+
+<p>AlphaGo 분산 버전은 CPU 1,202개와 GPU 176개로 돌았습니다. 이 차이는 취향이 아닙니다. 225점에 따내기가 없고 한 판이 마흔 몇 수면, 가지치기는 정직하게 읽히는 크기입니다. 361점에 돌이 사라지면 나무는 훨씬 넓고 모양도 계속 바뀌므로, 바둑은 탐색 전에 신경망이 필요했습니다.</p>
+
+<h2>나란히 보기</h2>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>항목</th>
+<th>바둑</th>
+<th>오목(자유 룰)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>판</td><td>19줄, 361점</td><td>15줄, 225점</td></tr>
+<tr class="tr-dark"><td>돌</td><td>잡히면 판에서 사라짐</td><td>놓은 채로 움직이지 않음</td></tr>
+<tr class="tr-light"><td>끝나는 방식</td><td>양쪽이 패스하고 집과 사석으로 계산</td><td>다섯이 완성된 순간</td></tr>
+<tr class="tr-dark"><td>선수 보정</td><td>덤: 백에게 6.5집 또는 7.5집</td><td>자유 룰엔 없음. 렌주는 흑의 삼삼·사사·장련 금지</td></tr>
+<tr class="tr-light"><td>한 판 길이</td><td>200~300수</td><td>40~45수</td></tr>
+<tr class="tr-dark"><td>풀렸는가</td><td>아니오</td><td>예, 흑 필승(1993)</td></tr>
+<tr class="tr-light"><td>최강 상대</td><td>신경망 + 탐색</td><td>113 KB 자바스크립트의 알파-베타</td></tr>
+</tbody>
+</table>
+
+<h2>바둑을 두던 사람이 오목에 앉으면</h2>
+
+<p>버릴 습관이 넷, 남길 습관이 하나입니다.</p>
+
+<ul>
+<li><strong>사목은 두터움이 아니라 위협입니다.</strong> 바둑에서 네 돌이 나란한 것은 응축된 모양이고 대개 중복된 한 수입니다. 여기서 양 끝이 빈 사목은 활사, 다음 수가 다섯입니다.</li>
+<li><strong>둘러싸인 돌도 셉니다.</strong> 줄의 5분의 1이면 되므로 둘러싸도 값은 그대로입니다. 맞서야 하는 것은 모양이 아니라 위협입니다.</li>
+<li><strong>읽기는 넘어오고 평가는 안 넘어옵니다.</strong> 축 읽기가 가장 가까운 기술입니다. 강제 수순이고 끝이 고정되어 있습니다. 오목에서는 VCF(연속 사)라 부르고, 바둑 습관 중 첫 수부터 바로 써먹히는 것은 이것뿐입니다.</li>
+<li><strong>4-4 점은 의미가 없습니다.</strong> 화점은 표시일 뿐이고 세력도, 모양도, 귀도, 두는 방향도 없습니다.</li>
+</ul>
+
+<p>남길 만한 습관은 긴 수순을 견디는 인내입니다. 바둑을 두는 사람은 열두 수짜리 교환을 끝까지 보지만, 가볍게 두는 사람은 네 수에서 접습니다. 렌주는 대개 그 열두 수 쪽에서 갈립니다.</p>
+
+<h2>오목을 두던 사람이 바둑에 앉으면</h2>
+
+<ul>
+<li><strong>다섯은 0집입니다.</strong> 가지런한 다섯 돌은 무거운 모양이지 점수가 아니고, 한 곳에 너무 오래 머물렀다는 증거에 가깝습니다.</li>
+<li><strong>돌이 잡힙니다.</strong> 여덟 개가 한꺼번에 판에서 사라지는 순간, 규칙이 발밑에서 바뀐 느낌이 듭니다. 실제로 바뀝니다.</li>
+<li><strong>패 때문에 바로 되따낼 수 없습니다.</strong> 가장 두고 싶은 한 수가 규칙에 막히고, 먼저 다른 곳에서 팻감을 만들어야 합니다.</li>
+<li><strong>200~300수를 각오합니다.</strong> 45수 감각으로 두면 초반이 위험할 만큼 느슨하게 느껴집니다. 원래 그렇습니다. 아직 아무것도 정해지지 않았습니다.</li>
+</ul>
+
+<h2>오늘 밤은 어느 쪽</h2>
+
+<p>10분, 화면 하나, 상대 한 명. 오목입니다. 15줄, 금수 없음, 물이 끓기 전에 한 판이 끝납니다. <a href="/ko-KR/">판은 여기서 바로 열립니다</a>. 설치도 가입도 없습니다.</p>
+
+<p>20년 두고, 프로 기전과 단 체계와 책장을 채우는 정석이 있는 게임을 원하면 바둑입니다. 오목은 그 앞의 준비운동입니다.</p>
+
+<p>대부분이 실제로 비교하려는 상대는 다른 쪽, 작은 격자의 사목 맞추기입니다. 그 비교는 <a href="/ko-KR/blog/gomoku-vs-connect-four">여기</a>에 있습니다.</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">열 초면 시작할 수 있는 쪽으로</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">15줄, 금수 없음, 계정 불필요. 상대가 페이지 안에 있으므로 손에 있는 화면으로 바로 두시면 됩니다.</p>
+            <a href="/ko-KR/#game" class="cta-btn">지금 오목 두기</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 오목 온라인</p>
+          <p class="footer-tagline">클래식 「오목」 게임, 무료로 즐기세요.</p>
+        </div>
+        <div class="footer-links">
+          <h4>빠른 링크</h4>
+          <ul>
+            <li><a href="/ko-KR/#game">플레이</a></li>
+            <li><a href="/ko-KR/#rules">규칙</a></li>
+            <li><a href="/ko-KR/#strategy">전략</a></li>
+            <li><a href="/ko-KR/#history">역사</a></li>
+            <li><a href="/ko-KR/blog/">블로그</a></li>
+            <li><a href="/ko-KR/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>사이트 정보</h4>
+          <ul>
+            <li><a href="/ko-KR/about">소개</a></li>
+            <li><a href="/privacy">개인정보 처리방침</a></li>
+            <li><a href="/ko-KR/#game">지금 플레이</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 오목 온라인. 무료 플레이 — 가입 불필요.</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "오목 vs 바둑: 같은 판, 전혀 다른 게임",
+    "description": "오목과 바둑의 차이는 따내기 하나입니다. 그 한 줄이 판 크기와 한 판의 길이, 상대가 113 KB로 끝나는 이유를 정합니다. 바둑을 두던 사람에게 무엇이 넘어오고 무엇이 방해가 되는지도 정리했습니다.",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "author": {"@type": "Organization", "name": "오목 온라인"},
+    "publisher": {"@type": "Organization", "name": "오목 온라인", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ko-KR/blog/gomoku-vs-go-difference"}
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-go-difference">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gomoku vs Go: Same Board, Two Different Games | Gomoku Blog</title>
+  <meta name="description" content="One rule separates gomoku from go: nothing is ever captured. That rule sets the board size, the game length and the price of an opponent, plus what transfers if you already play go.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <meta property="og:title" content="Gomoku vs Go: One Rule Apart">
+  <meta property="og:description" content="225 points against 361, 40 stones against 250, and two opposite answers to the first-move problem: komi there, forbidden moves here.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gomoku vs Go: Same Board, Two Games">
+  <meta name="twitter:description" content="Capture is the whole difference. What carries over from go, what actively hurts, and why one AI fits in a tab.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">Skip to content</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="Gomoku Online Home">&#9678;&#9675; Gomoku</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../#game">Play</a></li>
+        <li><a href="../#rules">Rules</a></li>
+        <li><a href="../#strategy">Strategy</a></li>
+        <li><a href="../#history">History</a></li>
+        <li><a href="./" class="active" aria-current="page">Blog</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">Comparison</span>
+          <h1 itemprop="headline">Gomoku vs Go: Same Board, Two Different Games</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-25">2026-11-25</time>
+            <span class="blog-read-time">8 min read</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>Two boxes on the same shelf, same size, same weight. Open either and you get a wooden grid and two piles of stones, one black, one white. A stranger would assume the same game was sold twice.</p>
+
+<p>The difference is one rule. In Go, a stone that runs out of liberties is lifted off the board and becomes a prisoner. In Gomoku, nothing is ever lifted. Every stone you place stays for the rest of the game, whether it is doing work or just occupying a point.</p>
+
+<p>That rule sets the board size, the length of a game, whether the first player wins by force, and why the opponent on this page is 113 kilobytes of JavaScript while a Go engine needed 1,202 CPUs and 176 GPUs to beat a professional.</p>
+
+<h2>The board transfers. Almost nothing else does</h2>
+
+<p>Gomoku's standard board is 15 lines, 225 points. Go's is 19 lines, 361. The nine marker dots stand on the fourth line from each edge in both games, which makes them the only thing that lines up between the two grids.</p>
+
+<p>If the only set in the house is a Go set, Gomoku still works. Take the inner fifteen lines, line 3 through line 17 on a 19-line board, and the Go board's center point lands on the Gomoku center. The stones carry over too, but in one direction only. A Go set ships with 181 black and 180 white, and a full 15-line game can consume at most 113 a side. A Gomoku set does not go back the other way: 226 stones cannot fill 361 points.</p>
+
+<p>One physical detail matters before the two sets get mixed. Go stones are biconvex, and a fingernail slides them across the wood. Renju stones are flat discs that stay where they are put. In renju, nudging a stone is a lost game, not a redo.</p>
+
+<h2>Capture is what changes a stone's worth</h2>
+
+<p>In Go a stone is an asset with a price in points. It can be sacrificed, exchanged, abandoned, and the final count settles the accounting.</p>
+
+<p>In Gomoku a stone is tempo. It either builds toward five or answers a threat. There is no third use, and no way to spend one to gain two somewhere else.</p>
+
+<p>Which is why a Go player's first instinct, surrounding an enemy stone, is the fastest way to lose here. Four stones spent to encircle one stone that still counts toward a five, while the opponent builds a live three on the far side of the board.</p>
+
+<p>It also explains the smaller grid. On 19 lines nothing is decided in the first sixty moves. On 15 lines a game is <a href="what-is-gomoku-and-how-do-you-win">over in 40 to 45 stones</a>, and the fifth one lands while the Go game next to it is still in its opening.</p>
+
+<h2>Both games had a first-move problem. They solved it in opposite directions</h2>
+
+<p>Put a stone on the center point of an empty board and the first player is ahead. Both games have known this for centuries.</p>
+
+<p>Go pays the debt in points. Komi hands White 6.5 points before a stone is placed under Japanese and Korean rules, 7.5 under Chinese rules, and the number has crept upward for a century as players got stronger.</p>
+
+<p>Gomoku took moves away from Black instead. That is what renju is: Black may not play a three-three, a four-four, or a row of six. White may play all three, and wins on five or more. Black has to make exactly five, which is why an overline is a foul for one color and a win for the other.</p>
+
+<p>Same problem, opposite currency. Points on one side, legal moves on the other.</p>
+
+<p>In freestyle, the version with no restrictions on either side, the patch does not exist at all. Freestyle Gomoku was solved in 1993, when L. Victor Allis showed Black wins by force. Renju held out until 2001, when János Wagner and István Virág published a forced win for Black there as well. <a href="gomoku-history-journey">The route from a Chinese folk game to a Japanese tournament discipline</a> is the reason one version carries restrictions and the other never did.</p>
+
+<p>Go at 19 lines is still unsolved. A machine beat Lee Sedol in 2016 and the game itself stayed open, which is a fair measure of how much search is left in it.</p>
+
+<h2>Why one opponent fits in a browser tab</h2>
+
+<p>Open the board and the opponent arrives with it. The search runs inside the same 113 KB file that draws the stones: iterative deepening from 2 plies to 12, a hard stop at twelve seconds, and a first move that is always the exact center point.</p>
+
+<p>AlphaGo's distributed version ran on 1,202 CPUs and 176 GPUs. The gap is not a matter of engineering taste. On 225 points with no capture, a game ends in forty-odd moves and the branching stays narrow enough to search honestly. On 361 points with stones leaving the board, the tree is far wider and the shape keeps changing, so Go needed neural networks before search could work at all.</p>
+
+<h2>Side by side</h2>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>Feature</th>
+<th>Go</th>
+<th>Gomoku (freestyle)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>Board</td><td>19 lines, 361 points</td><td>15 lines, 225 points</td></tr>
+<tr class="tr-dark"><td>Stones</td><td>Removed when captured</td><td>Never leave the board</td></tr>
+<tr class="tr-light"><td>How it ends</td><td>Both players pass, territory and prisoners counted</td><td>The moment a five is complete</td></tr>
+<tr class="tr-dark"><td>First-move fix</td><td>Komi: 6.5 or 7.5 points to White</td><td>None in freestyle; renju bans three-three, four-four, overline</td></tr>
+<tr class="tr-light"><td>Typical length</td><td>200 to 300 moves</td><td>40 to 45 stones</td></tr>
+<tr class="tr-dark"><td>Solved</td><td>No</td><td>Yes, Black wins by force (1993)</td></tr>
+<tr class="tr-light"><td>Strongest opponent</td><td>Neural network plus search</td><td>Alpha-beta in 113 KB of JavaScript</td></tr>
+</tbody>
+</table>
+
+<h2>If you play Go and sit down to Gomoku</h2>
+
+<p>Four habits to drop, and one to keep.</p>
+
+<ul>
+<li><strong>Four in a row is a threat, not thickness.</strong> In Go a straight four is overconcentrated and usually a wasted move. Here, four with both ends open is a live four, and the next stone wins.</li>
+<li><strong>A surrounded stone still counts.</strong> Encircling a single stone changes nothing about its value, because it only needs to be one fifth of a line. Answer the threat, not the shape.</li>
+<li><strong>Reading transfers, valuation does not.</strong> Ladder reading is the closest skill you own: a forcing sequence whose end is fixed. In Gomoku it is called VCF, continuous fours, and it is the one Go habit that pays on the first move.</li>
+<li><strong>The 4-4 point means nothing.</strong> The star dots are decoration. No influence, no moyo, no corner, no direction of play.</li>
+</ul>
+
+<p>The habit worth keeping is patience with long sequences. A Go player will sit through a twelve-move exchange that a casual player gives up on at move four, and in renju that is exactly where the game is won.</p>
+
+<h2>If you play Gomoku and sit down to Go</h2>
+
+<ul>
+<li><strong>Five in a row is worth zero.</strong> A neat row of five stones is a heavy shape, not a score, and if anything it is a sign you have been playing in one place too long.</li>
+<li><strong>Your stones can be taken.</strong> The first time a group of eight disappears off the board, the game feels like it has been rewritten underneath you. It has.</li>
+<li><strong>Ko forbids the immediate recapture.</strong> The one move you most want to play is the one rule that stops you, and you have to find the threat elsewhere first.</li>
+<li><strong>Expect 200 to 300 moves.</strong> With a 45-stone habit, the opening will feel dangerously loose. It is. Nothing is supposed to be decided yet.</li>
+</ul>
+
+<h2>Which one for tonight</h2>
+
+<p>Ten minutes, one screen, one other person: Gomoku, no argument. Fifteen lines, freestyle, and the game is finished before the kettle boils. <a href="../">The board is one tap away</a> and nothing installs.</p>
+
+<p>If what you want is a game that keeps paying for twenty years, with a professional circuit, a dan ladder and opening theory that fills a shelf, that is Go, and Gomoku is the warm-up in front of it.</p>
+
+<p>The comparison most people actually arrive with is a different one, four in a row on a small grid, and that one is <a href="gomoku-vs-connect-four">here</a>.</p>
+
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">Play the version you can start in ten seconds</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">15 lines, freestyle, no account. The whole opponent is in the page, so it works on any screen you already own.</p>
+            <a href="../#game" class="cta-btn">Play Gomoku Now</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; Gomoku Online</p>
+          <p class="footer-tagline">The classic game of Five in a Row, free to play.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../#game">Play Game</a></li>
+            <li><a href="../#rules">Rules</a></li>
+            <li><a href="./">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclosure">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>&copy; 2026 Gomoku Online. Free to play &mdash; no sign-up required.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Gomoku vs Go: Same Board, Two Different Games",
+    "description": "One rule separates gomoku from go: nothing is ever captured. That rule sets the board size, the game length and the price of an opponent, plus what transfers if you already play go.",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "author": {"@type": "Organization", "name": "Gomoku Online"},
+    "publisher": {"@type": "Organization", "name": "Gomoku Online", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/blog/gomoku-vs-go-difference"}
+  }
+  </script>
+</body>
+</html>

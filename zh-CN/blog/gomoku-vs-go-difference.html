@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ja-JP/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-go-difference">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五子棋 vs 围棋：同一块棋盘，两种完全不同的游戏 | 五子棋博客</title>
+  <meta name="description" content="五子棋和围棋差在一条规则：提不提子。这一条决定了盘多大、一局多长，也决定了对手为什么只要 113 KB；另外讲清楚会围棋的人哪些习惯能用、哪些得丢。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-go-difference">
+  <meta property="og:title" content="五子棋 vs 围棋：差的就是一条规则">
+  <meta property="og:description" content="225 个点对 361 个点，四十手对两百五十手，两种相反的先手补偿：一边贴目，一边禁手。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/gomoku-vs-go-difference">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五子棋 vs 围棋：同盘不同棋">
+  <meta name="twitter:description" content="提子就是全部差别。哪些能从围棋带过来，哪些会害你，为什么对手只要 113 KB。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">对比</span>
+          <h1 itemprop="headline">五子棋 vs 围棋：同一块棋盘，两种完全不同的游戏</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-25">2026-11-25</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>两个盒子并排放在架子上，一样大，一样沉。打开哪个都是木格棋盘加两堆黑白棋子，外人多半以为同一个游戏卖了两次。</p>
+
+<p>差别只有一条规则。围棋里，一块棋气尽就要从盘上提掉；五子棋里，落下的子到终局都在，帮不帮忙都不走。</p>
+
+<p>就这一条，决定了棋盘多大、一局多长、先手能不能强赢，也决定了这个页面上的对手只有 113 KB 的 JavaScript，而围棋程序要 1202 个 CPU 加 176 块 GPU 才赢过职业棋手。</p>
+
+<h2>棋盘能通用，别的几乎都不行</h2>
+
+<p>五子棋标准盘 15 路，225 个点；围棋 19 路，361 个点。两边都在离边第四条线上点星，各九个，这也是两种盘唯一能对上的东西。</p>
+
+<p>家里只有围棋盘也能下五子棋。取内侧 15 条线，19 路盘就是第 3 条到第 17 条，围棋的天元正好落在五子棋的中心点上。棋子只能单向通用：一副围棋 181 黑 180 白，15 路下满也就一边 113 子，够用；反过来不行，226 颗子填不满 361 个点。</p>
+
+<p>混用之前先记住一件事。围棋子是两面凸的，指甲一碰就滑；连珠棋子是平片，放哪算哪。连珠规则里碰动棋子是判负，不是重下。</p>
+
+<h2>提子改变了棋子的价值</h2>
+
+<p>围棋里一颗子是有价资产，可以弃、可以换、可以不管，最后按目结账。五子棋里一颗子只是节奏，要么在凑五，要么在应威胁，没有第三种用途，也没法在这边亏一颗、去那边赚两颗。</p>
+
+<p>所以围棋手的第一反应，也就是围住对方那颗子，在五子棋里是最快的输法。四手棋围住一颗照样算进五连的子，对手已经在棋盘另一头做出活三。</p>
+
+<p>棋盘更小也是这个原因。19 路前六十手什么也定不下来。15 路<a href="/zh-CN/blog/what-is-gomoku-and-how-do-you-win">四十到四十五手就结束</a>，第五子落下的时候，旁边那盘围棋还在布局。</p>
+
+<h2>两种棋都遇到过先手问题，解法正好相反</h2>
+
+<p>空盘中心落一子，先手占便宜，两边的老祖宗都知道。</p>
+
+<p>围棋用目来还：日本、韩国规则贴 6.5 目，中国规则贴 7.5 目。一百年里棋手越强，这个数字就一路往上加。</p>
+
+<p>五子棋是从黑棋手里拿走合法着法。连珠就是这么来的：黑不许三三、不许四四、不许长连；白三样都能下，五连以上即胜。黑必须正好五，所以长连对黑是禁手、对白是胜着。</p>
+
+<p>同一个问题，两种货币：那边给目，这边拿走法。</p>
+
+<p>无禁手的自由规则里，这个补丁根本不存在。1993 年 L. Victor Allis 证明自由五子棋黑必胜；连珠撑到 2001 年，Janos Wagner 和 Istvan Virag 也给出了黑方的强制胜。<a href="/zh-CN/blog/gomoku-history-journey">从中国民间游戏变成日本竞技项目的那条路</a>，就是一个版本有禁手、另一个从来没有的原因。</p>
+
+<p>19 路围棋至今没解。2016 年机器赢了李世石，棋本身照旧没有答案，搜索空间还剩多少，从这件事上看得最清楚。</p>
+
+<h2>为什么一个对手塞得进浏览器标签页</h2>
+
+<p>打开棋盘，对手跟着一起到了。搜索跑在画棋子的同一个 113 KB 文件里：从 2 层迭代加深到 12 层，十二秒硬停，第一子永远落在正中心那个点。</p>
+
+<p>AlphaGo 的分布式版本用了 1202 个 CPU 和 176 块 GPU。这个差距不是工程口味。225 个点、不提子，一局四十来手，分支窄到可以老实搜完；361 个点、棋子会消失，树宽得多，局面还在不停变形，围棋不先上神经网络，搜索根本没法起步。</p>
+
+<h2>并排看</h2>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>项目</th>
+<th>围棋</th>
+<th>五子棋（无禁手）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>棋盘</td><td>19 路，361 点</td><td>15 路，225 点</td></tr>
+<tr class="tr-dark"><td>棋子</td><td>被提即离盘</td><td>落下不走</td></tr>
+<tr class="tr-light"><td>怎么算结束</td><td>双方各停一手，按地与提子数点目</td><td>五连成形那一刻</td></tr>
+<tr class="tr-dark"><td>先手补偿</td><td>贴目：白得 6.5 或 7.5 目</td><td>自由规则无补偿；连珠禁黑三三、四四、长连</td></tr>
+<tr class="tr-light"><td>一局手数</td><td>200 到 300 手</td><td>40 到 45 手</td></tr>
+<tr class="tr-dark"><td>是否已解</td><td>未解</td><td>已解，黑必胜（1993）</td></tr>
+<tr class="tr-light"><td>最强对手</td><td>神经网络加搜索</td><td>113 KB JavaScript 里的 alpha-beta</td></tr>
+</tbody>
+</table>
+
+<h2>会围棋的人坐下下五子棋</h2>
+
+<p>要丢四个习惯，留一个。</p>
+
+<ul>
+<li><strong>四连是威胁，不是厚势。</strong>围棋里四子连成一条通常是凝形、是重复。这里两端都空的四连就是活四，下一手成五。</li>
+<li><strong>被围住的子照样算数。</strong>围一颗子改变不了它的价值，因为它只需要顶五分之一条线。该应的是威胁，不是形状。</li>
+<li><strong>计算能迁移，估值不能。</strong>征子是你手上最接近的技术：一条强制序列，终点固定。五子棋里这叫 VCF，连续冲四，是围棋习惯里唯一第一手就见效的那部分。</li>
+<li><strong>四四点没有意义。</strong>星位只是记号，没有势力、没有模样、没有角，也没有行棋方向。</li>
+</ul>
+
+<p>值得留的那个习惯，是对长序列的耐心。围棋手愿意陪一段十二手的交换走到底，随手棋的人第四手就放弃了，而连珠恰恰是在那段里分胜负的。</p>
+
+<h2>会五子棋的人坐下下围棋</h2>
+
+<ul>
+<li><strong>五连一分不值。</strong>齐齐的五颗子是一块重形，不是得分，甚至说明你在一个地方待太久了。</li>
+<li><strong>你的子会被拿走。</strong>第一次被提掉八颗的时候，会觉得规则在脚底下被换掉了。确实换了。</li>
+<li><strong>打劫不许马上提回来。</strong>你最想下的那一手，正好被规则挡住，得先去别处找一个劫材。</li>
+<li><strong>一局按两百到三百手准备。</strong>带着四十五手的感觉来，前半盘会松得离谱。它本来就是这样，什么都还没定。</li>
+</ul>
+
+<h2>今晚选哪个</h2>
+
+<p>十分钟、一块屏、对面一个人：五子棋，不用讨论。15 路、无禁手，水没烧开就下完一局。<a href="/zh-CN/">棋盘就在这一下</a>，什么都不用装。</p>
+
+<p>想要一个能下二十年、有职业赛、有段位、有开局理论堆满书架的游戏，那是围棋；五子棋在它面前就是热身。</p>
+
+<p>多数人真正想比的是另一个：小格子上的四子连珠，那条对比<a href="/zh-CN/blog/gomoku-vs-connect-four">在这篇</a>。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">先玩那个十秒就能开局的</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">15 路、无禁手、不用账号。对手就在页面里，手边任何一块屏都能下。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五子棋 vs 围棋：同一块棋盘，两种完全不同的游戏",
+    "description": "五子棋和围棋差在一条规则：提不提子。这一条决定了盘多大、一局多长，也决定了对手为什么只要 113 KB；另外讲清楚会围棋的人哪些习惯能用、哪些得丢。",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/gomoku-vs-go-difference"}
+  }
+  </script>
+</body>
+</html>

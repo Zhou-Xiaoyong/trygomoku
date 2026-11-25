@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+  <link rel="prefetch" href="/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/zh-CN/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ko-KR/blog/gomoku-vs-go-difference">
+  <link rel="prefetch" href="/ru-RU/blog/gomoku-vs-go-difference">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五目並べ vs 囲碁：同じ盤、まったく別のゲーム | 五目並べブログ</title>
+  <meta name="description" content="五目並べと囲碁の違いは取りの有無、その一行だけです。盤の大きさ、一局の長さ、対手が 113 KB で済む理由、囲碁から来た人に役立つものと邪になるものをまとめました。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/gomoku-vs-go-difference">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/gomoku-vs-go-difference">
+  <meta property="og:title" content="五目並べ vs 囲碁：違いは一行">
+  <meta property="og:description" content="225 点と 361 点、四十手と二百五十手、そして正反対の先手補正。コミと禁手。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/ja-JP/blog/gomoku-vs-go-difference">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="五目並べ vs 囲碁：同じ盤の別ゲーム">
+  <meta name="twitter:description" content="取りがあるかどうかで全部変わります。両方に役立つもの、邪になるもの。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">コンテンツへスキップ</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/ja-JP/" class="nav-logo" aria-label="五目並べオンライン ホーム">&#9678;&#9675; 五目並べオンライン</a>
+      <button class="nav-toggle" id="navToggle" aria-label="ナビゲーションメニューを切り替え" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/ja-JP/#game">遊ぶ</a></li>
+        <li><a href="/ja-JP/#rules">ルール</a></li>
+        <li><a href="/ja-JP/#strategy">戦略</a></li>
+        <li><a href="/ja-JP/#history">歴史</a></li>
+        <li><a href="/ja-JP/blog/" class="active" aria-current="page">ブログ</a></li>
+        <li><a href="/ja-JP/#faq">Q&A</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN">简体中文</option>
+        <option value="ja-JP" selected>日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">比較</span>
+          <h1 itemprop="headline">五目並べ vs 囲碁：同じ盤、まったく別のゲーム</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-25">2026-11-25</time>
+            <span class="blog-read-time">8 分で読了</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>同じ棚に、同じ大きさ、同じ重さの箱が二つ。開けるとどちらも木の盤と、黒と白の石が一山ずつ入っています。知らない人なら、同じゲームが二つ売られていると思うでしょう。</p>
+
+<p>違いはルール一つです。囲碁では呼吸点を失った石は盤から取り上げられ、アゲハマになります。五目並べでは石が盤から離れることはありません。置いた石は、働いていてもいなくても、終局までそこにあります。</p>
+
+<p>この一行が、盤の大きさ、一局の長さ、先手が必勝かどうかを決めています。そして、このページの相手が 113 KB の JavaScript で済む理由と、囲碁のプログラムがプロに勝つために 1,202 個の CPU と 176 基の GPU を必要とした理由も、同じ一行から出てきます。</p>
+
+<h2>盤は流用できる。ほぼ他は流用できない</h2>
+
+<p>五目並べの標準は 15 路で 225 点、囲碁は 19 路で 361 点。星はどちらも端から四本目の線に九つあり、二つの格子で位置が揃うのはこの星だけです。</p>
+
+<p>家に囲碁盤しかなくても五目並べは打てます。内側の 15 本、19 路なら 3 本目から 17 本目を使えば、囲碁盤の天元がそのまま五目並べの中心になります。石も流用できますが、方向は一方だけです。碁笥には黒 181 子、白 180 子。15 路を最後まで打っても片側 113 子なので足ります。逆は無理で、226 子では 361 点を埋められません。</p>
+
+<p>混ぜる前に一つ知っておくとよいことがあります。碁石は両凸で、爪先が触れると滑ります。連珠の石は平たい円盤で、置いた場所に留まります。連珠では石に触れて動かすことは打ち直しではなく、敗北です。</p>
+
+<h2>取りが石の値を変える</h2>
+
+<p>囲碁の石は、目という値段の付いた資産です。捨てられ、交換され、放っておかれ、最後に計算されます。五目並べの石はテンポです。五連に近づくか、脅威に応じるか。三つ目の使い道はなく、こちらで損をして別の場所で得をする、という取引もできません。</p>
+
+<p>だから囲碁から来た人の最初の反応、相手の石を囲む、がここでは一番速い負け方になります。五連に数えられる石を囲むために四手使い、その間に相手は盤の反対側で活三を作ります。</p>
+
+<p>盤が小さいのも同じ理由です。19 路では六十手まで何も決まりません。15 路は<a href="/ja-JP/blog/what-is-gomoku-and-how-do-you-win">40 手から 45 手で終わり</a>、五つ目の石が置かれるとき、隣の囲碁はまだ布石の途中です。</p>
+
+<h2>先手の問題は両方にあった。解き方は正反対</h2>
+
+<p>空の盤の中央に石を置けば先手が得をします。どちらのゲームも、何世紀も前から知っていました。</p>
+
+<p>囲碁は目で返します。日本・韓国ルールならコミ 6.5 目、中国ルールなら 7.5 目を、石を置く前に白へ渡します。この数字は百年かけて、打ち手が強くなるたびに少しずつ上がってきました。</p>
+
+<p>五目並べは黒から着手を奪いました。連珠がそれです。黒は三三、四四、長連を打てません。白は三つとも打てて、五連以上で勝ちます。黒はちょうど五でなければならないので、長連は片方にとって禁じ手、もう片方にとって勝ちの形になります。</p>
+
+<p>同じ問題を、目ではなく合法手で払っているわけです。</p>
+
+<p>禁手のない自由ルールには、その補修がありません。自由五目並べは 1993 年に L. Victor Allis が黒の必勝を証明しました。連珠は 2001 年まで持ちこたえ、Janos Wagner と Istvan Virag が黒の強制勝ちを発表しています。<a href="/ja-JP/blog/gomoku-history-journey">中国の遊びが日本の競技になった経路</a>が、片方にだけ禁手がある理由です。</p>
+
+<p>19 路の囲碁はまだ解かれていません。2016 年に機械がイ・セドルに勝っても、ゲーム自体は開いたままでした。</p>
+
+<h2>相手がタブ一つに収まる理由</h2>
+
+<p>盤を開くと、相手も一緒に来ます。探索は石を描くのと同じ 113 KB のファイルの中で動きます。2 手読みから 12 手読みまでの反復深化、12 秒で強制終了、第一手は必ず中心の一点です。</p>
+
+<p>AlphaGo の分散版は 1,202 個の CPU と 176 基の GPU で動いていました。この差は設計の好みではありません。225 点で取りがなく、一局が四十数手で終わるなら、枝分かれは素直に読み切れる大きさです。361 点で石が消えると木ははるかに広く、形も動き続けるので、囲碁は探索の前にニューラルネットワークを必要としました。</p>
+
+<h2>並べてみる</h2>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>項目</th>
+<th>囲碁</th>
+<th>五目並べ（自由ルール）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>盤</td><td>19 路、361 点</td><td>15 路、225 点</td></tr>
+<tr class="tr-dark"><td>石</td><td>取られると盤から離れる</td><td>置いたまま動かない</td></tr>
+<tr class="tr-light"><td>終局</td><td>双方がパスし、地とアゲハマで数える</td><td>五連が完成した瞬間</td></tr>
+<tr class="tr-dark"><td>先手の補正</td><td>コミ：白に 6.5 目または 7.5 目</td><td>自由ルールにはなし。連珠は黒の三三・四四・長連を禁じる</td></tr>
+<tr class="tr-light"><td>一局の手数</td><td>200 から 300 手</td><td>40 から 45 手</td></tr>
+<tr class="tr-dark"><td>解かれたか</td><td>いいえ</td><td>はい、黒必勝（1993）</td></tr>
+<tr class="tr-light"><td>最強の相手</td><td>ニューラルネットワーク＋探索</td><td>113 KB の JavaScript の alpha-beta</td></tr>
+</tbody>
+</table>
+
+<h2>囲碁を打つ人が五目並べに座ると</h2>
+
+<p>捨てる習慣が四つ、残す習慣が一つです。</p>
+
+<ul>
+<li><strong>四連は厚みではなく脅威です。</strong>囲碁で四子が一列に並ぶのは凝り形で、たいていは重複した一手です。ここでは両端の空いた四連が活四で、次の一手が五になります。</li>
+<li><strong>囲まれた石も数に入ります。</strong>線の五分の一であればよいので、囲んでも価値は変わりません。応じるべきは形ではなく脅威です。</li>
+<li><strong>読みは移りますが、評価は移りません。</strong>シチョウが一番近い技術です。強制手順で、終点が固定されている。五目並べではこれを VCF（連続四）と呼び、囲碁の習慣でそのまま使えるのはここだけです。</li>
+<li><strong>四々の点に意味はありません。</strong>星は目印にすぎず、勢力も模様も隅も、打つ方向もありません。</li>
+</ul>
+
+<p>残す価値があるのは、長い手順に付き合う忍耐です。囲碁を打つ人は十二手の交換を最後まで見ますが、軽く打つ人は四手で切り上げます。連珠の勝負は、たいていその十二手の側にあります。</p>
+
+<h2>五目並べを打つ人が囲碁に座ると</h2>
+
+<ul>
+<li><strong>五連は零点です。</strong>きれいに五つ並んだ石は重い形であって得点ではなく、むしろ一箇所に長居した証拠になります。</li>
+<li><strong>石は取られます。</strong>八つまとめて盤から消えた最初の瞬間、ルールが足元で入れ替わったように感じます。実際に入れ替わっています。</li>
+<li><strong>コウではすぐ取り返せません。</strong>一番打ちたい一手が規則で止められ、先に別の場所でコウ材を作る必要があります。</li>
+<li><strong>200 手から 300 手を想定します。</strong>45 手の感覚で打つと、序盤は危ないほど緩く感じます。それで正しく、まだ何も決まっていません。</li>
+</ul>
+
+<h2>今夜どちらを選ぶか</h2>
+
+<p>十分、画面一枚、相手一人。五目並べで決まりです。15 路、禁手なし、湯が沸く前に一局終わります。<a href="/ja-JP/">盤はここから開けます</a>。インストールも登録もいりません。</p>
+
+<p>二十年遊べて、プロ棋戦と段位と、本棚が埋まるほどの定石があるゲームが欲しいなら、それは囲碁です。五目並べはその手前の準備運動になります。</p>
+
+<p>多くの人が本当に比べたいのは別の相手、小さな格子の四並べです。そちらは<a href="/ja-JP/blog/gomoku-vs-connect-four">この記事</a>にあります。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">十秒で始められるほうを</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">15 路、禁手なし、アカウント不要。対手はページの中にいるので、手元の画面ですぐに打てます。</p>
+            <a href="/ja-JP/#game" class="cta-btn">五目並べを対局する</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五目並べオンライン</p>
+          <p class="footer-tagline">クラシックな「五目並べ」— 無料で遊べます。</p>
+        </div>
+        <div class="footer-links">
+          <h4>クイックリンク</h4>
+          <ul>
+            <li><a href="/ja-JP/#game">遊ぶ</a></li>
+            <li><a href="/ja-JP/#rules">ルール</a></li>
+            <li><a href="/ja-JP/#strategy">戦略</a></li>
+            <li><a href="/ja-JP/#history">歴史</a></li>
+            <li><a href="/ja-JP/blog/">ブログ</a></li>
+            <li><a href="/ja-JP/#faq">Q&A</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>サイト情報</h4>
+          <ul>
+            <li><a href="/ja-JP/about">私たちについて</a></li>
+            <li><a href="/privacy">プライバシーポリシー</a></li>
+            <li><a href="/ja-JP/#game">今すぐ遊ぶ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五目並べオンライン。無料で遊べる — 登録不要。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "五目並べ vs 囲碁：同じ盤、まったく別のゲーム",
+    "description": "五目並べと囲碁の違いは取りの有無、その一行だけです。盤の大きさ、一局の長さ、対手が 113 KB で済む理由、囲碁から来た人に役立つものと邪になるものをまとめました。",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "author": {"@type": "Organization", "name": "五目並べオンライン"},
+    "publisher": {"@type": "Organization", "name": "五目並べオンライン", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/ja-JP/blog/gomoku-vs-go-difference"}
+  }
+  </script>
+</body>
+</html>
