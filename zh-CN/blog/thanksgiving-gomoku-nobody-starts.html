@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="prefetch" href="/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="prefetch" href="/ja-JP/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="prefetch" href="/ko-KR/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="prefetch" href="/ru-RU/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VR0F6CCH8G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VR0F6CCH8G');
+  </script>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3625422078884598"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>感恩节五子棋没人开局？先自己对电脑下八手 | 五子棋博客</title>
+  <meta name="description" content="四点四十，一桌人说好要下棋却没人动。自己先开一局：执白，对电脑下八手，再一键交给别人。为什么切模式会把演示局清空、先手归谁、以及只值得说出口的那一条规则。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="alternate" hreflang="x-default" href="https://trygomoku.com/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="alternate" hreflang="en" href="https://trygomoku.com/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="alternate" hreflang="zh-CN" href="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="alternate" hreflang="ja-JP" href="https://trygomoku.com/ja-JP/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="alternate" hreflang="ru-RU" href="https://trygomoku.com/ru-RU/blog/thanksgiving-gomoku-nobody-starts">
+  <link rel="alternate" hreflang="ko-KR" href="https://trygomoku.com/ko-KR/blog/thanksgiving-gomoku-nobody-starts">
+  <meta property="og:title" content="感恩节五子棋，为什么一桌人开不了局">
+  <meta property="og:description" content="执白，八手，递出去。让提示键替你回答规则问题，切模式时棋盘自己清空。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-nobody-starts">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="感恩节五子棋：先自己开一局">
+  <meta name="twitter:description" content="八手之后把平板递出去，规则只说一条，封顶手数在第一颗子之前定。">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="/manifest.json">
+  <meta property="og:image" content="https://trygomoku.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://trygomoku.com/og-image.png">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <a href="#article-content" class="skip-link">跳到主要内容</a>
+  <div class="page-body">
+  <header>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/zh-CN/" class="nav-logo" aria-label="五子棋在线首页">&#9678;&#9675; 五子棋在线</a>
+      <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/zh-CN/#game">玩棋</a></li>
+        <li><a href="/zh-CN/#rules">规则</a></li>
+        <li><a href="/zh-CN/#strategy">策略</a></li>
+        <li><a href="/zh-CN/#history">历史</a></li>
+        <li><a href="/zh-CN/blog/" class="active" aria-current="page">博客</a></li>
+        <li><a href="/zh-CN/#faq">问答</a></li>
+      </ul>
+      <select id="langSwitcher" class="lang-switcher" aria-label="Select language" onchange="var l=this.value;var p=location.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/,'');if(p===''||p==='/')p='/';location.href=(l==='en'?'':('/'+l))+p">
+        <option value="en">English</option>
+        <option value="zh-CN" selected>简体中文</option>
+        <option value="ja-JP">日本語</option>
+        <option value="ko-KR">한국어</option>
+        <option value="ru-RU">Русский</option>
+      </select>
+    </div>
+  </nav>
+  </header>
+  <main id="article-content">
+    <article class="article-full" itemscope itemtype="https://schema.org/BlogPosting">
+      <div class="container" style="max-width:740px;">
+        <header class="article-header">
+          <span class="blog-category">家庭与生活</span>
+          <h1 itemprop="headline">感恩节五子棋没人开局？先自己对电脑下八手</h1>
+          <div class="blog-card-meta" style="margin-top:12px;">
+            <time itemprop="datePublished" datetime="2026-11-26">2026-11-26</time>
+            <span class="blog-read-time">8 分钟阅读</span>
+          </div>
+        </header>
+        <div class="article-body" itemprop="articleBody">
+<p>感恩节下午四点四十，盘子堆在桌子一头，咖啡刚倒上，已经有人说过两遍「来点什么吧」。没人动。</p>
+
+<p>卡住的不是棋盘，是没人愿意先一个人坐下来。解法很短：自己先开一局。点开棋盘，选「对电脑」，再点白棋，让全桌看着你下八手。然后切到「对朋友」，演示局一秒清空，棋盘就交出去了。九十秒，一句话都不用讲。</p>
+
+<h2>为什么一桌人就是开不了局</h2>
+
+<p>三个人想下，一个人想看，四个人都在等有人先讲清规则再决定要不要参与。没人愿意在一群一年见两次的亲戚面前第一个输。话题就一直停在第一颗子的这一侧，一晚上过去，盘还是合着的。</p>
+
+<p>把规则讲得更好没用。有用的是一局已经在进行中的棋。</p>
+
+<h2>执白，让机器落下第一子</h2>
+
+<p>「对电脑」是这个页面的默认模式，这个模式下颜色那一行是可以点的。选白棋。机器先手，而它第一颗子永远下在正中心那个交叉点上：十五路是第七条线，九路是第五条。它是先看这个点、再算别的地方，所以这不是习惯，是顺序。</p>
+
+<p>这一颗子比一段「控制中路」的解释管用。有人会问为什么下那儿，你指一下就行。再走五六手，全桌已经看见一局合法的棋，每隔几秒落一颗子，而且谁都没被上课。</p>
+
+<p>八手够了。长到能看出局面的形状，短到还没人开始解说。难度用中等：简单档太早出昏招，不像一局棋；困难档一手能想十二秒，演示就变成了干等。<a href="/zh-CN/blog/gomoku-ai-difficulty-levels-which-to-pick">四档的脾气差得挺远</a>。</p>
+
+<h2>问题交给提示键回答</h2>
+
+<p>走到第二手有人问，你为什么去堵一颗还不算威胁的子。别解释，按提示。</p>
+
+<p>提示会给轮到落子的那一方把所有空点算一遍，标出分最高的那个，脉冲三秒然后忘掉。双人对战里它照样能按，而且永远算当前该走的人，所以全桌看到的答案就是当事人该得的答案。这是两分钟争论和三秒演示的差别。</p>
+
+<p>电脑思考中、以及一局结束之后它按不动，所以在自己回合按。真开局之前还要定一件事：提示到底算不算犯规。九路上分最高的点通常就是制胜点，那种盘上提示不是建议，是答案。</p>
+
+<h2>切换模式会把演示局自己清掉</h2>
+
+<p>切到「对朋友」，棋盘直接重置。这个页面上每个设置键都这样，第三十手时很烦，四点四十一分时正好：演示局没了，比分留着，难度和颜色两行变灰，因为两个人下棋这两样都用不着。</p>
+
+<p>所以话说到一半就可以把平板递出去。不用说「我先清一下」，也不用讨论刚才那局算不算。</p>
+
+<h2>谁先手，只定一次</h2>
+
+<p>这个模式下颜色那一行是禁用的，而且每次重开都是黑棋先走。所以先手既不是设置，也不是商量出来的，它在谁手上就是谁的。</p>
+
+<p>交给第一个发问的人。他已经有兴趣了，不会僵在那儿，而先手是这个棋盘不请裁判就能付得起的唯一让子。</p>
+
+<h2>只说一条规则，不说五条</h2>
+
+<p>黑棋落子之前说这一句：两头都空的三，必须马上应，别的都可以等一手。九路上的家庭局基本由这句话决定胜负，因为盘面密到第六手前后就会冒出活三。</p>
+
+<p>连珠留到后面，能不碰就不碰。连珠里黑棋必须正好五个，第六颗会被拒收、弹回棋盘外、挂两秒半提示、轮次还是黑的；白棋五个或以上就赢。这个不对称是公平的，但它需要一个裁判。四点四十的时候，它需要一个裁判加一个律师。自由式两边都五个或以上就赢，冷启动用这个。</p>
+
+<table class="compare-table">
+<thead>
+<tr class="tr-dark">
+<th>时段</th>
+<th>棋盘</th>
+<th>每手秒数</th>
+<th>让子</th>
+<th>为什么</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tr-light"><td>4:40 演示局</td><td>15 路</td><td>不限</td><td>你执白，机器先手</td><td>八手之后递出去</td></tr>
+<tr class="tr-dark"><td>5:00 第一局正式</td><td>9 路</td><td>15 秒</td><td>新手执黑</td><td>20 到 24 手，六分钟左右</td></tr>
+<tr class="tr-light"><td>5:30 有人输得太狠</td><td>9 路</td><td>15 秒</td><td>黑棋，另加外圈两颗废子</td><td>废子之间不能相连</td></tr>
+<tr class="tr-dark"><td>7:00 只剩两个人</td><td>15 路</td><td>20 秒</td><td>平下</td><td>40 到 45 手，两人都想才开连珠</td></tr>
+<tr class="tr-light"><td>8:30 排不了赛制了</td><td>9 路</td><td>10 秒</td><td>谁执黑都行，二十手封顶</td><td>一局，然后吃馅饼</td></tr>
+</tbody>
+</table>
+
+<p>页面上没有任何计时，所以「每手秒数」是你们说出口的那个数，在一屋子人说话的房间里，它和任何家规一样靠自觉。让子那列同理：没有让子按钮，没有贴目，没有弃权。能用的杠杆只有三个，棋盘多大、谁执黑、以及在外圈摆几颗废子，九路两颗，十五路和十九路三颗，彼此不能挨着，因为连成一片的废子就不再是废子。</p>
+
+<h2>第一局为什么用九路</h2>
+
+<p>不是因为它简单，是因为它短，而且九路上中路从第一颗子就要争。一条九点的线上，能起连五的位置只有五个，这五个全都跨过中间那个点。十五路一条线有十一个起点，只有一个跨过中点。所以在十五路，中路是一个慢慢磨的位置问题；在九路，中路就是全部问题。</p>
+
+<p>这也是为什么二十四手的一局像一句说完的话，而不像一个开局。两个没下过的人能在咖啡凉之前分出胜负，输的那个通常知道自己哪一手亏了，而知道这件事，才会有第二局。</p>
+
+<h2>八岁那个一定先伸手</h2>
+
+<p>给他黑棋。九路上先手是实打实的优势，而他要学的只有一句：两头都空的三必须应。其余的都省掉。</p>
+
+<p>然后注意比分那一行。它按颜色记，不按人记，局与局之间也不清零，所以一个孩子连看三轮之后，会把它当成排名。今晚要是介意这件事，就用纸记，名字写在数字旁边。</p>
+
+<h2>要是已经过了八点</h2>
+
+<p>别排赛制了。九路四轮是四十分钟的算术，而且一定有人在决赛前走。下一局，二十手封顶，记一笔，收工。<a href="/zh-CN/blog/thanksgiving-gomoku-six-minute-game">六分钟那一版</a>就是为这种硬性散场写的。</p>
+
+<p>如果只剩两个懂规则的人，开连珠，用十五路。那是另一个晚上，<a href="/zh-CN/blog/thanksgiving-gomoku-three-minute-setup">开局头六十秒怎么摆</a>已经写好了。</p>
+
+<p>没平板、也没信号：这个棋盘是静态页，加载过一次就能用，<a href="/zh-CN/blog/thanksgiving-gomoku-no-wifi-no-board">纸盘那一版</a>只需要一支笔。</p>
+
+<p>盘子收走之前先点开<a href="/zh-CN/">棋盘</a>。白棋，八手，递出去。第一局正式的下九路，规则只说一条，封顶手数在第一颗子之前说定。</p>
+          <div class="article-cta" style="margin-top:40px;padding:24px;background:#16213e;border-radius:12px;text-align:center;">
+            <h3 style="margin-bottom:12px;font-size:1.1rem;color:#ffffff;">八手，然后把平板递出去</h3>
+            <p style="margin-bottom:16px;color:#d0d0f0;">点白棋，让机器落在正中心，等一桌人抬头的时候，棋已经在下了。</p>
+            <a href="/zh-CN/#game" class="cta-btn">立即游玩五子棋</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <div class="nav-sentinel" aria-hidden="true"></div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">&#9678;&#9675; 五子棋在线</p>
+          <p class="footer-tagline">经典「五子连珠」游戏，免费畅玩。</p>
+        </div>
+        <div class="footer-links">
+          <h4>快速链接</h4>
+          <ul>
+            <li><a href="/zh-CN/#game">玩棋</a></li>
+            <li><a href="/zh-CN/#rules">规则</a></li>
+            <li><a href="/zh-CN/#strategy">策略</a></li>
+            <li><a href="/zh-CN/#history">历史</a></li>
+            <li><a href="/zh-CN/blog/">博客</a></li>
+            <li><a href="/zh-CN/#faq">问答</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>网站信息</h4>
+          <ul>
+            <li><a href="/zh-CN/about">关于我们</a></li>
+            <li><a href="/privacy">隐私政策</a></li>
+            <li><a href="/zh-CN/#game">立即游玩</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 五子棋在线。免费游玩 — 无需注册。</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "感恩节五子棋没人开局？先自己对电脑下八手",
+    "description": "四点四十，一桌人说好要下棋却没人动。自己先开一局：执白，对电脑下八手，再一键交给别人。为什么切模式会把演示局清空、先手归谁、以及只值得说出口的那一条规则。",
+    "datePublished": "2026-11-26",
+    "dateModified": "2026-11-26",
+    "author": {"@type": "Organization", "name": "五子棋在线"},
+    "publisher": {"@type": "Organization", "name": "五子棋在线", "logo": {"@type": "ImageObject", "url": "https://trygomoku.com/favicon.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://trygomoku.com/zh-CN/blog/thanksgiving-gomoku-nobody-starts"}
+  }
+  </script>
+</body>
+</html>
